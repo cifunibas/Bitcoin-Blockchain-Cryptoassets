@@ -1,0 +1,70 @@
+% Packages
+\usepackage[utf8]{inputenc} 
+\usepackage{hyperref}
+\usepackage{gitinfo2}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{bibentry}
+\usepackage{xcolor}
+\usepackage{caption}
+
+% Beamer Template Options
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}[frame number]
+\setbeamercolor{structure}{fg=black}
+\setbeamercolor{footline}{fg=black}
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{item}{fg=black}
+\setbeamercolor{}{fg=black}
+\setbeamercolor{bibliography item}{fg=black}
+\setbeamercolor*{bibliography entry title}{fg=black}
+\setbeamertemplate{items}[square]
+\setbeamertemplate{enumerate items}[default]
+\captionsetup[figure]{labelfont={color=black},font={color=black}}
+\captionsetup[table]{labelfont={color=black},font={color=black}}
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+% Link Icon Command
+\newcommand{\link}{%
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{% 
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1) 
+                --++ (-0, 1.2) 
+                --++ (0.6, 0) 
+                --++ (0, -0.6) 
+                --++ (0.6, 0) 
+                --++ (0, -1);
+            \path[draw, 
+                line width = 0.5, 
+                rounded corners=0.5] 
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5) 
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1) 
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+
+% Custom Titlepage
+\defbeamertemplate*{title page}{customized}[1][]
+{
+  \vspace{-0cm}\hfill\includegraphics[width=2.5cm]{../config/logo_cif} 
+  \includegraphics[width=1.9cm]{../config/seal_wwz} 
+  \\ \vspace{2em}
+  \usebeamerfont{title}\textbf{\inserttitle}\par
+  \usebeamerfont{title}\usebeamercolor[fg]{title}\insertsubtitle\par  \vspace{1.5em}
+  \small\usebeamerfont{author}\insertauthor\par
+  \usebeamerfont{author}\insertinstitute\par \vspace{2em}
+  \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+    \tiny \noindent \texttt{Commit Hash: \gitHash}\\ 
+	\texttt{Commit Time: \gitAuthorIsoDate}\\ \vspace{1em}
+  \link \href{https://github.com/cifunibas/Bitcoin-Blockchain-Cryptoassets/blob/main/slides/intro.pdf}
+  {Get most recent version}\\
+  \link \href{https://github.com/cifunibas/Bitcoin-Blockchain-Cryptoassets/blob/main/slides/intro.pdf}
+  {Watch video lecture}\\ \vspace{1em}
+  License: \texttt{Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International}\\\vspace{2em}
+  \includegraphics[width = 1.2cm]{../config/license}
+}
