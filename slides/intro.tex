@@ -1,0 +1,267 @@
+% Choose one to switch betweeen slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Intro: Welcome to the Course}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{Why Should I Take This Course?}
+	\uncover<1->{
+		\begin{figure}[h]
+  			\center
+			\input{../assets/figures/interdiciplinarity.tex}
+		\end{figure}
+	}
+	\vspace{1em}
+Bitcoin and public Blockchains can only be fully understood, when they are studied from various perspectives. This is the reason why this class uses an \color{focus} \textbf{interdisciplinary} \color{black} approach.	
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{How This Course is Structured 1}
+\footnotesize
+
+\textbf{1. Introductory Part:}
+	\begin{itemize}
+		\item Introduction to the Class
+		\item Foundations of Monetary Theory
+		\item Payment Systems
+		\item Bitcoin Primer
+	\end{itemize}
+	
+\vspace{0.5em}
+
+\textbf{2. Transaction Capacity:}
+	\begin{itemize}
+		\item Peer-to-Peer Networks
+		\item The Bitcoin Network
+	\end{itemize}
+
+\vspace{0.5em}	
+	
+\textbf{3. Introduction to Cryptography:}
+	\begin{itemize}
+		\item Hash Functions
+		\item Symmetric Cryptography
+		\item Asymmetric Cryptography
+		\item Elliptic Curve Cryptography
+		\item FAQ: Attack Vectors
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{How This Course is Structured 2}
+\footnotesize	
+
+\textbf{4. Transaction Legitimacy:}
+	\begin{itemize}
+		\item Transactions
+		\item Example Transaction
+		\item Bitcoin Script and Standard Transactions
+		\item Sig Hash Types
+	\end{itemize}	
+
+\vspace{0.5em}
+
+\textbf{5. Transaction Consensus:}
+	\begin{itemize}
+		\item Block Assembly
+		\item Chain Structure
+		\item Introduction to Consensus
+		\item Consensus Protocols Overview
+		\item Proof-of-Authority
+		\item Proof-of-Work
+		\item Fork Theory
+		\item Incentives and Potential Attacks
+	\end{itemize}	
+
+\end{frame}
+
+
+\begin{frame}{How This Course is Structured 3}
+\footnotesize	
+
+\textbf{6. Bitcoin as Money:}
+	\begin{itemize}
+		\item History of Digital Money
+		\item Pricing Models
+		\item Volatility
+		\item CBDC and Stablecoins
+		\item Risks and Illicit Activity
+	\end{itemize}	
+
+\vspace{0.5em}
+
+\textbf{7. Advanced Topics:}
+	\begin{itemize}
+		\item Bitcoin Applications
+		\item Economic Scripting
+		\item Scalability
+		\item Payment Channels and LN
+		\item Transaction Malleability and SegWit
+		\item Bitcoin Data Analysis
+		\item Teaser: Next Steps
+	\end{itemize}	
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Recommended Literature}
+	\uncover<1->{
+		\begin{columns}[T]
+			\begin{column}{0.1\textwidth}
+					\includegraphics[width = 1.7cm, frame]{../assets/images/schaer_berentsen_cover}
+			\end{column} %\hfill
+			\begin{column}{0.8\textwidth}
+				\textbf{Bitcoin, Blockchain and Cryptoassets} \\ 
+				Fabian Schär and Aleksander Berentsen \\
+				\texttt{ISBN: 978-0262539166}
+			\end{column}
+		\end{columns}
+	}
+	%
+	\vspace{1.5em}
+	%
+	\uncover<2->{
+		\begin{columns}[T]
+			\begin{column}{0.1\textwidth}
+					\includegraphics[width = 1.7cm, frame]{../assets/images/antonopoulos_cover}
+			\end{column} %\hfill
+			\begin{column}{0.8\textwidth}
+				\textbf{Mastering Bitcoin - Second Edition}\\
+				Andreas Antonopoulos\\
+				\texttt{ISBN: 978-1491954386}
+			\end{column}
+		\end{columns}
+	}
+	%
+	\vspace{1.5em}
+	%
+	\uncover<3->{
+		\begin{columns}[T]
+			\begin{column}{0.1\textwidth}
+					\includegraphics[width = 1.7cm, frame]{../assets/images/song_cover}
+			\end{column} %\hfill
+			\begin{column}{0.8\textwidth}
+				\textbf{Programming Bitcoin}\\
+				Jimmy Song\\
+				\texttt{ISBN: 978-1492031499}
+			\end{column}
+		\end{columns}
+	}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Part of Multi-Course Series}
+
+Blockchain courses have been part of the University of Basel's curriculum since 2017.
+
+\vspace{1.5em}
+
+\begin{columns}
+	\begin{column}{0.35 \textwidth}
+		\uncover<1->{
+			\includegraphics[width = 4cm]{../config/logo_cif}
+		}
+	\end{column}
+	\begin{column}{0.6 \textwidth}	
+			\begin{itemize}
+			\item<2-> This is a University undergrad-/ bachelor-level course
+			\item<3-> It is part of a series of courses
+			\item<4->  First course to switch to open lecture format
+		\end{itemize}
+	\end{column}	
+\end{columns}
+
+\vspace{2em}
+
+\uncover<5->{
+	$\rightarrow$ There will be more open lecture courses to come.
+}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Three Options to Take This Course}
+
+The goal of our open lectures is to make teaching resources freely available. There are \color{focus} \textbf{three options} \color{black} for taking this course:\vspace{1em}
+
+\begin{table}\footnotesize
+	\begin{tabular}{lcccc}
+	\hline \hline
+									& Videos 		& Platform 		& Assignments 	& ECTS 	\\ \cline{2-5}
+		YouTube 	 				& $\checkmark$	& 				& 				& 		\\
+		Teachable 					& $\checkmark$	& $\checkmark$	& $\checkmark$	&		\\
+		University of Basel			& $\checkmark$	& $\checkmark$	& $\checkmark$	& $\checkmark$	\\
+		\hline \hline
+	\end{tabular}
+\end{table} \vspace{2em}
+
+\uncover<2->{
+\link YouTube Channel \\
+\link Teachable Course \\
+\link University of Basel - General Information
+}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Information for University of Basel Students}
+
+If you want academic credits (ECTS) for this class you must follow three simple steps:
+\vspace{0.5em}
+
+	\begin{enumerate}
+		\item<2-> Enroll via the University of Basel
+		\item<3-> Login to teachable with your university email address
+		\item<4-> Study the material, hand-in the assignments and pass the (on-site) exam
+	\end{enumerate}
+\vspace{1em}
+	
+	\uncover<5->{
+\textbf{Exam:}
+	\begin{itemize}
+		\item 90 Minutes
+		\item Closed book
+		\item T/F, MC, Numbers and Text/Figure Boxes
+		\item You may use a non-programmable calculator (\link Restrictions)
+	\end{itemize}
+	}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Be an Active Member of our Community}
+	Add Repository, Contribution Guidelines and Discord Information.
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Meet the Team}
+	Add team picture.
+	%\includegraphics{../assets/images/team}
+\end{frame}
+%%%
+
+\end{document}
