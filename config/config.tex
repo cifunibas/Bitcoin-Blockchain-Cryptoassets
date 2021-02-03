@@ -1,5 +1,5 @@
 % Packages
-\usepackage[utf8]{inputenc} 
+\usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 \usepackage{gitinfo2}
 \usepackage{tikz}
@@ -28,39 +28,50 @@
 
 % Link Icon Command
 \newcommand{\link}{%
-    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{% 
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{%
         \begin{scope}[x=1ex, y=1ex]
-            \clip (-0.1,-0.1) 
-                --++ (-0, 1.2) 
-                --++ (0.6, 0) 
-                --++ (0, -0.6) 
-                --++ (0.6, 0) 
+            \clip (-0.1,-0.1)
+                --++ (-0, 1.2)
+                --++ (0.6, 0)
+                --++ (0, -0.6)
+                --++ (0.6, 0)
                 --++ (0, -1);
-            \path[draw, 
-                line width = 0.5, 
-                rounded corners=0.5] 
+            \path[draw,
+                line width = 0.5,
+                rounded corners=0.5]
                 (0,0) rectangle (1,1);
         \end{scope}
-        \path[draw, line width = 0.5] (0.5, 0.5) 
+        \path[draw, line width = 0.5] (0.5, 0.5)
             -- (1, 1);
-        \path[draw, line width = 0.5] (0.6, 1) 
+        \path[draw, line width = 0.5] (0.6, 1)
             -- (1, 1) -- (1, 0.6);
         }
     }
 
+% Read Git Data from Github Actions Workflow
+% Defaults to gitinfo2 for local builds
+\IfFileExists{gitInfo.txt}
+	{\input{gitInfo.txt}}
+	{
+		\newcommand{\gitRelease}{(Local Release)}
+		\newcommand{\gitSHA}{\gitHash}
+		\newcommand{\gitDate}{\gitAuthorIsoDate}
+	}
+
 % Custom Titlepage
 \defbeamertemplate*{title page}{customized}[1][]
 {
-  \vspace{-0cm}\hfill\includegraphics[width=2.5cm]{../config/logo_cif} 
-  \includegraphics[width=1.9cm]{../config/seal_wwz} 
+  \vspace{-0cm}\hfill\includegraphics[width=2.5cm]{../config/logo_cif}
+  \includegraphics[width=1.9cm]{../config/seal_wwz}
   \\ \vspace{2em}
   \usebeamerfont{title}\textbf{\inserttitle}\par
   \usebeamerfont{title}\usebeamercolor[fg]{title}\insertsubtitle\par  \vspace{1.5em}
   \small\usebeamerfont{author}\insertauthor\par
   \usebeamerfont{author}\insertinstitute\par \vspace{2em}
   \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
-    \tiny \noindent \texttt{Commit Hash: \gitHash}\\ 
-	\texttt{Commit Time: \gitAuthorIsoDate}\\ \vspace{1em}
+    \tiny \noindent \texttt{Release Ver.: \gitRelease}\\ 
+    \texttt{Version Hash: \gitSHA}\\
+    \texttt{Version Date: \gitDate}\\ \vspace{1em}
   \link \href{https://github.com/cifunibas/Bitcoin-Blockchain-Cryptoassets/blob/main/slides/intro.pdf}
   {Get most recent version}\\
   \link \href{https://github.com/cifunibas/Bitcoin-Blockchain-Cryptoassets/blob/main/slides/intro.pdf}

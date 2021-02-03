@@ -1,0 +1,55 @@
+name: Compile LaTeX and Release PDF
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release_latex:
+    name: Build LaTeX Files and Release PDFs
+    runs-on: ubuntu-latest
+    if: github.event.base_ref == 'refs/heads/master'
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - name: Export Git Infos To LaTeX
+        run: |
+          cd slides
+          tag_name="${GITHUB_REF##*/}"
+          commit_hash="${{ github.sha }}"
+          date_time="$(date +'%Y-%m-%d %T %z')"
+          echo "\newcommand{\gitRelease}{$tag_name}
+          \newcommand{\gitSHA}{$commit_hash}
+          \newcommand{\gitDate}{$date_time}" > gitInfo.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Collect LaTeX Slides
+        id: latex_files
+        run: |
+          cd slides
+          found_files="$(ls | grep .tex)"
+          found_files="${found_files//'%'/'%25'}"
+          found_files="${found_files//$'\n'/'%0A'}"
+          found_files="${found_files//$'\r'/'%0D'}"
+          echo "::set-output name=found_files::$found_files"
+
+      - name: Compile LaTeX Documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: slides
+          root_file: ${{ steps.latex_files.outputs.found_files }}
+
+      - name: Create Release and Publish Pdf Files
+        run: |
+          set -x
+          assets=()
+          for asset in slides/*.pdf; do
+            assets+=("-a" "$asset")
+          done
+          tag_name="${GITHUB_REF##*/}"
+          hub release create "${assets[@]}" -m "$tag_name" "$tag_name"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

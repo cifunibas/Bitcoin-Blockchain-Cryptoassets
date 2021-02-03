@@ -1,0 +1,31 @@
+name: Test Compile LaTeX
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_latex:
+    name: Test Collect and Build LaTeX Files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - name: Collect LaTeX Slides
+        id: latex_files
+        run: |
+          cd slides
+          found_files="$(ls | grep .tex)"
+          found_files="${found_files//'%'/'%25'}"
+          found_files="${found_files//$'\n'/'%0A'}"
+          found_files="${found_files//$'\r'/'%0D'}"
+          echo "::set-output name=found_files::$found_files"
+
+      - name: Compile LaTeX Documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: slides
+          root_file: ${{ steps.latex_files.outputs.found_files }}
