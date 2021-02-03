@@ -1,0 +1,15 @@
+\def\firstcircle{(90:1.75cm) circle (2.5cm)}
+\def\secondcircle{(210:1.75cm) circle (2.5cm)}
+\def\thirdcircle{(330:1.75cm) circle (2.5cm)}
+    
+\begin{tikzpicture}[scale = 0.67]
+	\begin{scope}
+    	\clip \secondcircle;
+    	\clip \thirdcircle;
+    	\fill[highlight] \firstcircle;
+    \end{scope}
+    \draw \firstcircle node[text=black,above] {\scriptsize{Cryptography}};
+    \draw \secondcircle node [text=black,below left] {\scriptsize{Economics}};
+    \draw \thirdcircle node [text=black, below right, align=left] {\scriptsize{Computer} \\
+    \scriptsize{Science}};
+\end{tikzpicture}
