@@ -312,3 +312,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# IDE hidden directories
+.idea/
