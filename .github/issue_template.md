@@ -1,6 +1,6 @@
-**Note: For support questions, please join our Discord. This repository's issues are reserved for feature requests and bug reports.**
+**Note: For general questions and discussions, please join our Discord. This repository's issues should only be used for feature requests and bug reports.**
 
-Decide if you are submitting a feature request, or a bug report and delete the unneeded section. 
+Specify if you are submitting a feature request, or a bug report and delete any unneeded section.
 
 ---
 ## Feature Request
@@ -9,13 +9,14 @@ Decide if you are submitting a feature request, or a bug report and delete the u
 Describe your feature request. A feature request is typically for:
 * Adding new information to a lecture or slide
 * Update outdated or inaccurate information
+* Propose new topic / slide deck
 
 ### Motivation
-Explain your motivation for the new feature and include a use case.
+Explain why the new feature is relevant.
 
 ### Sources
-Provide sources in the form of URLs that are relevant to implement the feature. 
-Adding or updating content will only be considered if accompanied by relevant sources.
+Provide sources in the form of URLs that are relevant to implement the feature.
+Additions and updates will only be considered for inclusion if relevant sources are provided.
 
 ### Licensing
 Provide all relevant licensing information for the requested content and assets.
@@ -37,7 +38,7 @@ Describe the expected behaviour and include a motivation or use case for changin
 ### Used Environment
 Please tell us what system and relevant software you use. E.g.:
 * Operating system: Windows 10 Pro (10.0.19041)
-* Editor: TeXStudio (3.0.4) 
+* Editor: TeXStudio (3.0.4)
 * Tex: MiKTeX-pdfTeX 4.3 (MiKTeX 21.1)
 
 ---

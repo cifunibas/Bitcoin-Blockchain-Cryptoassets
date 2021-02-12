@@ -4,6 +4,7 @@
 * Include relevant motivation and context.
 * List any dependencies that are required for this change.
 * Changes to a config file must be described in detail.
+* Check licenses of required packages.
 * Tag any issue that is related to this change, if applicable.
 
 ## Type of Change
