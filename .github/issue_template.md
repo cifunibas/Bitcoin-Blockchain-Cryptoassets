@@ -1,0 +1,43 @@
+**Note: For support questions, please join our Discord. This repository's issues are reserved for feature requests and bug reports.**
+
+Decide if you are submitting a feature request, or a bug report and delete the unneeded section. 
+
+---
+## Feature Request
+
+### Overview
+Describe your feature request. A feature request is typically for:
+* Adding new information to a lecture or slide
+* Update outdated or inaccurate information
+
+### Motivation
+Explain your motivation for the new feature and include a use case.
+
+### Sources
+Provide sources in the form of URLs that are relevant to implement the feature. 
+Adding or updating content will only be considered if accompanied by relevant sources.
+
+### Licensing
+Provide all relevant licensing information for the requested content and assets.
+If possible, add a link to the licensing information.
+
+[ ] I made sure all proposed content and assets are compatible with [this repo's license](../LICENSE.txt).
+
+---
+
+---
+##Bug Report
+
+### Current Behaviour
+Describe the current behaviour and if possible the steps to reproduce it.
+
+### Expected Behaviour
+Describe the expected behaviour and include a motivation or use case for changing the behaviour.
+
+### Used Environment
+Please tell us what system and relevant software you use. E.g.:
+* Operating system: Windows 10 Pro (10.0.19041)
+* Editor: TeXStudio (3.0.4) 
+* Tex: MiKTeX-pdfTeX 4.3 (MiKTeX 21.1)
+
+---
