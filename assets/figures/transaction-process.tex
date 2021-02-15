@@ -1,0 +1,147 @@
+
+\begin{tikzpicture}[
+      roundnode1/.style = {circle,  draw=highlight, fill=highlight!5},
+      roundnode2/.style = {circle,  draw=focus!50, fill=focus!5},
+      squarednode/.style = {rectangle, draw=black!60, fill=black!5},
+      ]
+
+     % 1st slide
+    \uncover<1->{
+    \node[roundnode1]    (nodeA)                                  {\texttt{A}};
+    \node[roundnode1]    (nodeB)        [below=8mm of nodeA]      {\texttt{B}};
+    \node[roundnode1]    (nodeC)        [below=8mm of nodeB]      {\texttt{C}};
+    \node[roundnode1]    (nodeD)        [below=8mm of nodeC]      {\texttt{D}};
+    \node[roundnode1]    (nodeE)        [below=10mm of nodeD]     {\texttt{E}};
+    }
+   
+    % 2nd slide
+    \uncover<2->{
+    \node[roundnode2]    (nodeA)                                    {\texttt{A}};
+    \node[roundnode2]    (nodeB)        [below=8mm of nodeA]        {\texttt{B}};
+    \node[roundnode2]    (nodeC)        [below=8mm of nodeB]        {\texttt{C}};
+    \node[roundnode2]    (nodeD)        [below=8mm of nodeC]        {\texttt{D}};
+    \node[roundnode2]    (nodeE)        [below=10mm of nodeD]       {\texttt{E}};
+    
+    \node[squarednode]  (TRX1)          [right =of nodeA]           {\texttt{TRX1}}; 
+    \node[squarednode]  (TRX2)          [below =17mm of TRX1]       {\texttt{TRX2}};
+    \node[squarednode]  (TRX3)          [right =of nodeD]           {\texttt{TRX3}};
+    \node[squarednode]  (TRX4)          [right =of nodeE]           {\texttt{TRX4}};
+    
+    \node[roundnode1]    (nodeF)        [right =of TRX1]            {\texttt{F}};
+    \node[roundnode1]    (nodeG)        [right =of TRX2]            {\texttt{G}};
+    \node[roundnode1]    (nodeI)        [right =of TRX3]            {\texttt{I}};
+    \node[roundnode1]    (nodeH)        [above =4mm of nodeI]       {\texttt{H}};
+    \node[roundnode1]    (nodeJ)        [below =2mm of nodeI]       {\texttt{J}};
+    \node[roundnode1]    (nodeK)        [right =of TRX4]            {\texttt{K}};
+    
+    \draw[-] (nodeA) -- (TRX1);
+    \draw[-] (nodeB) -- (TRX2);
+    \draw[-] (nodeC) -- (TRX2);
+    \draw[-] (nodeD) -- (TRX3);
+    \draw[-] (nodeE) -- (TRX4);
+    
+    \draw[-] (TRX1) -- (nodeF);
+    \draw[-] (TRX2) -- (nodeG);
+    \draw[-] (TRX3) -- (nodeH);
+    \draw[-] (TRX3) -- (nodeI);
+    \draw[-] (TRX3) -- (nodeJ);
+    \draw[-] (TRX4) -- (nodeK);
+    }
+   
+    % 3rd slide
+    \uncover<3->{
+    \node[roundnode2]    (nodeA)                                  {\texttt{A}};
+    \node[roundnode2]    (nodeB)        [below=8mm of nodeA]      {\texttt{B}};
+    \node[roundnode2]    (nodeC)        [below=8mm of nodeB]      {\texttt{C}};
+    \node[roundnode2]    (nodeD)        [below=8mm of nodeC]      {\texttt{D}};
+    \node[roundnode2]    (nodeE)        [below=10mm of nodeD]     {\texttt{E}};
+    
+    \node[squarednode]  (TRX1)          [right =of nodeA]           {\texttt{TRX1}}; 
+    \node[squarednode]  (TRX2)          [below =17mm of TRX1]       {\texttt{TRX2}};
+    \node[squarednode]  (TRX3)          [right =of nodeD]           {\texttt{TRX3}};
+    \node[squarednode]  (TRX4)          [right =of nodeE]           {\texttt{TRX4}};
+    
+    \node[roundnode2]    (nodeF)        [right =of TRX1]           {\texttt{F}};
+    \node[roundnode2]    (nodeG)        [right =of TRX2]           {\texttt{G}};
+    \node[roundnode1]    (nodeI)        [right =of TRX3]           {\texttt{I}};
+    \node[roundnode2]    (nodeH)        [above =4mm of nodeI]      {\texttt{H}};
+    \node[roundnode2]    (nodeJ)        [below =2mm of nodeI]      {\texttt{J}};
+    \node[roundnode2]    (nodeK)        [right =of TRX4]           {\texttt{K}};
+    
+    \node[squarednode]  (TRX5)          [right =of nodeF]          {\texttt{TRX5}}; 
+    \node[squarednode]  (TRX6)          [right =of nodeG]          {\texttt{TRX6}};
+    \node[squarednode]  (TRX7)          [right =of nodeK]          {\texttt{TRX7}};
+    
+    \node[roundnode1]    (nodeO)        [right =of TRX6]           {\texttt{O}};
+    \node[roundnode1]    (nodeN)        [above =3mm of nodeO]      {\texttt{N}};
+    \node[roundnode1]    (nodeM)        [above =3mm of nodeN]      {\texttt{M}};
+    \node[roundnode1]    (nodeL)        [above =2mm of nodeM]      {\texttt{L}};
+    \node[roundnode1]    (nodeP)        [below =4mm of nodeO]      {\texttt{P}};
+    \node[roundnode1]    (nodeQ)        [right =of TRX7]           {\texttt{Q}};
+    
+    \draw[-] (nodeF) -- (TRX5);
+    \draw[-] (nodeG) -- (TRX6);
+    \draw[-] (nodeH) -- (TRX6);
+    \draw[-] (nodeJ) -- (TRX7);
+    \draw[-] (nodeK) -- (TRX7);
+    
+    \draw[-] (TRX5) -- (nodeL);
+    \draw[-] (TRX5) -- (nodeM);
+    \draw[-] (TRX6) -- (nodeN);
+    \draw[-] (TRX6) -- (nodeO);
+    \draw[-] (TRX6) -- (nodeP);
+    \draw[-] (TRX7) -- (nodeQ);
+    }
+    
+    %4th slide
+    \uncover<4->{
+    \node[roundnode2]    (nodeA)                                    {\texttt{A}};
+    \node[roundnode2]    (nodeB)        [below=8mm of nodeA]        {\texttt{B}};
+    \node[roundnode2]    (nodeC)        [below=8mm of nodeB]        {\texttt{C}};
+    \node[roundnode2]    (nodeD)        [below=8mm of nodeC]        {\texttt{D}};
+    \node[roundnode2]    (nodeE)        [below=10mm of nodeD]       {\texttt{E}};
+    
+    \node[squarednode]  (TRX1)          [right =of nodeA]           {\texttt{TRX1}}; 
+    \node[squarednode]  (TRX2)          [below =17mm of TRX1]       {\texttt{TRX2}};
+    \node[squarednode]  (TRX3)          [right =of nodeD]           {\texttt{TRX3}};
+    \node[squarednode]  (TRX4)          [right =of nodeE]           {\texttt{TRX4}};
+    
+    \node[roundnode2]    (nodeF)        [right =of TRX1]            {\texttt{F}};
+    \node[roundnode2]    (nodeG)        [right =of TRX2]            {\texttt{G}};
+    \node[roundnode2]    (nodeI)        [right =of TRX3]            {\texttt{I}};
+    \node[roundnode2]    (nodeH)        [above =4mm of nodeI]       {\texttt{H}};
+    \node[roundnode2]    (nodeJ)        [below =2mm of nodeI]       {\texttt{J}};
+    \node[roundnode2]    (nodeK)        [right =of TRX4]            {\texttt{K}};
+    
+    \node[squarednode]  (TRX5)          [right =of nodeF]          {\texttt{TRX5}}; 
+    \node[squarednode]  (TRX6)          [right =of nodeG]          {\texttt{TRX6}};
+    \node[squarednode]  (TRX7)          [right =of nodeK]          {\texttt{TRX7}};
+    
+    \node[roundnode1]    (nodeO)        [right =of TRX6]            {\texttt{O}};
+    \node[roundnode2]    (nodeN)        [above =3mm of nodeO]       {\texttt{N}};
+    \node[roundnode2]    (nodeM)        [above =3mm of nodeN]       {\texttt{M}};
+    \node[roundnode1]    (nodeL)        [above =2mm of nodeM]       {\texttt{L}};
+    \node[roundnode2]    (nodeP)        [below =4mm of nodeO]       {\texttt{P}};
+    \node[roundnode2]    (nodeQ)        [right =of TRX7]            {\texttt{Q}};
+    
+    \node[squarednode]  (TRX9)          [right = 48mm of nodeI]    {\texttt{TRX9}};
+    \node[squarednode]  (TRX8)          [above = 33mm of TRX9]     {\texttt{TRX8}};
+    
+    \node[roundnode1]    (nodeS)        [right =of TRX8]            {\texttt{S}};
+    \node[roundnode1]    (nodeR)        [above =2mm of nodeS]       {\texttt{R}};
+    \node[roundnode1]    (nodeT)        [below =2mm of nodeS]       {\texttt{T}};
+    \node[roundnode1]    (nodeU)        [right =of TRX9]            {\texttt{U}};
+    
+    \draw[-] (nodeM) -- (TRX8);
+    \draw[-] (nodeN) -- (TRX8);
+    \draw[-] (nodeP) -- (TRX9);
+    \draw[-] (nodeQ) -- (TRX9);
+    \draw[-] (nodeI) -- (TRX9);
+    
+    \draw[-] (TRX8) -- (nodeR);
+    \draw[-] (TRX8) -- (nodeS);
+    \draw[-] (TRX8) -- (nodeT);
+    \draw[-] (TRX9) -- (nodeU);
+    } 
+ 
+\end{tikzpicture}
