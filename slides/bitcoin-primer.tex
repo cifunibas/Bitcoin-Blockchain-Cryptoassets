@@ -1,0 +1,143 @@
+% Choose one to switch betweeen slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Bitcoin Primer}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{Definition}
+Some key aspects of Bitcoin: \vspace{1em}
+
+	\begin{enumerate}
+		\item<2-> competitively created
+		\item<3-> virtually represented
+		\item<4-> decentrally managed
+	\end{enumerate}
+	\vspace{1em}	
+\uncover<5->{Bitcoin is a decentrally managed and unique public database.} \\	 			\vspace{1em}
+\uncover<6->{The innovation of bitcoin is the conscious ommission of central actors.} %and 		minimal dependencies on 3rd parties
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Bitcoin building blocks}
+\input{../assets/figures/bitcoin-system.tex}
+\begin{center}
+\uncover<2->{
+Because of the decentralized infrastructure, the transaction \textbf{capacity}, transaction \textbf{legitimacy} and transaction \textbf{consensus} are much more difficult to achieve.
+}
+\end{center}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Transaction capacity}
+\textbf{Goal:} ensuring the ability to initiate a transaction  \\
+\vspace{1em}
+\uncover<2->{Bitcoin network 
+        \begin{itemize}
+		\item {consists of all users}
+		\item {primary communication path}
+		%\item<2->{completely decentral}
+		\end{itemize}
+		}
+\vspace{1em}
+\uncover<3->{Bitcoin protocol
+        \begin{itemize}
+        \item<3->{defines manner (ruleset) in which communication has to take place}
+        \end{itemize}
+        }     
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Transaction capacity}  %example banking vs. decentral system?
+
+{\input{../assets/figures/transaction-capacity.tex}}
+
+\uncover<2->{        
+        \begin{itemize}
+		\item<1-> permissionless, censorship-resistant
+		\item<1-> participants are equal
+		\item<1-> peer-to-peer network %(an. Bit Torrent) %robust
+		\end{itemize}
+		}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Transaction legitimacy}
+\textbf{Goal:} ensuring that a transaction was initiated by the actual owner
+	\vspace{1em}
+\uncover<2->{
+	\input{../assets/figures/transaction-manipulation.tex}
+	\vspace{2em}
+\textbf{Tool:} asymmetric cryptography
+	}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Blocks and the blockchain}
+Transactions are bundled into blocks \\
+\includegraphics[width=6cm]{../assets/images/block_1.png} \\
+\uncover<2->{
+Those blocks are sequentially linked $\rightarrow $ blockchain \\
+\includegraphics[width=6cm]{../assets/images/blocks_3.png}
+} 
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Transaction consensus}
+Who can broadcast a new block? \\ \vspace{1.5em}
+
+
+\includegraphics[width=9cm]{../assets/images/consensus_problem.png}
+
+Possible consensus rules: \\
+	\begin{itemize}
+	\item central actor
+	\item decentralized lottery (proof-of-work)
+	\end{itemize} 
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Why do we need consensus?}
+
+Double spend problem: \\
+
+\input{../assets/figures/double-spend.tex}
+
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Recap/Schlussfolie}
+
+\end{frame}
+%%%
+
+\end{document}
