@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+	% agents
+	\node (agent1) at (-2, 0){\includegraphics[height = 0.15\textheight]{../assets/images/agents/agent_right}};
+	\alt<1>{\node (agent2) at (0, 2){\includegraphics[height = 0.15\textheight]{../assets/images/agents/agent_left}};}{\node (agent2) at (0, 2){\includegraphics[height = 0.15\textheight]{../assets/images/agents/agent_right}};}
+	\node (agent3) at (0, -2){\includegraphics[height = 0.15\textheight]{../assets/images/agents/agent_left}};
+	\node (agent4) at (2, 0){\includegraphics[height = 0.15\textheight]{../assets/images/agents/agent_left}};
+	
+	% relationships
+	\draw[->, very thick] (agent1) -- (agent2) node[midway, above left]{\includegraphics[height = 0.08\textheight]{../assets/images/horseshoe}};
+		\only<1>{\node[above right = 10pt] at (agent2){IOU!};}
+	
+	\uncover<2->{
+		\draw[->, very thick] (agent2) -- (agent4) node[midway, above right = -5pt]{\includegraphics[height = 0.08\textheight]{../assets/images/saddle}};
+		\only<2>{\node[above right = 10pt] at (agent4){IOU!};}
+	}
+	
+	\uncover<3->{
+		\draw[->, very thick] (agent2) -- (agent3) node[midway, right]{\includegraphics[height = 0.08\textheight]{../assets/images/wheat}};
+		\only<3>{\node[above right = 10pt] at (agent3){IOU!};}
+	}
+\end{tikzpicture}
