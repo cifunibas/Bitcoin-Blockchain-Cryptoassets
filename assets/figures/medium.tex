@@ -1,0 +1,24 @@
+\begin{footnotesize}
+	\begin{tikzpicture}
+		\begin{axis}[xmin = 0, xmax = 16,
+						ymin = 0, ymax = 125,
+						width = 0.9\textwidth,
+						height = 0.7\textheight,
+						legend pos = north west,
+						xtick distance = 5,
+						ytick distance = 50,
+						grid = both,
+						xlabel = {Number of goods and services $n$},
+						ylabel = {Possible pairs of trading goods}
+						]
+					
+			\addplot[focus, domain = 0:16, very thick] {(x^2 - x) / 2};
+			\addplot[highlight, domain = 0:16, very thick] {x - 1};
+		
+			\legend{
+				Without money, 
+				With money
+			};
+		\end{axis}
+	\end{tikzpicture}
+\end{footnotesize}
