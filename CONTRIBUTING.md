@@ -6,30 +6,22 @@ Reading and following these guidelines will help us make the contribution proces
 
 ## Quicklinks
 
-* [Code of Conduct](#code-of-conduct)
 * [Getting Started](#getting-started)
-    * [Issues](#issues)
-    * [Pull Requests](#pull-requests)
-* [Getting Help](#getting-help)
-
-## Code of Conduct
-
-We take our open source community seriously and hold ourselves and other contributors to high standards of communication. By participating and contributing to this project, you agree to uphold our Code of Conduct.
+* [Issues](#issues)
+* [Pull Requests](#pull-requests)
 
 ## Getting Started
 
-Contributions are made to this repo via Issues and Pull Requests (PRs). A few general guidelines that cover both:
+Contributions are made to this repo via Issues and Pull Requests (PRs). Please search for existing Issues and PRs before creating your own.
+We work hard to makes sure issues are handled in a timely manner. A friendly ping in the comment thread to the submitter or a contributor can help draw attention.
 
-- Search for existing Issues and PRs before creating your own.
-- We work hard to makes sure issues are handled in a timely manner. A friendly ping in the comment thread to the submitter or a contributor can help draw attention.
+## Issues
 
-### Issues
-
-Issues should be used to report problems with the project, request a new feature, or to discuss potential changes before a PR is created. When you create a new Issue, a template will be loaded that will guide you through collecting and providing the information we need to investigate.
+Issues should be used to report problems with the project, request a new feature, or to discuss potential changes before work is started on a PR. When you create a new Issue, a template will be loaded that will guide you through collecting and providing the information we need to investigate.
 
 If you find an Issue that addresses the problem you're having, please add your own reproduction information to the existing issue rather than creating a new one.
 
-### Pull Requests
+## Pull Requests
 
 PRs to our projects are always welcome and can be a quick way to get your fix or improvement slated for the next release. In general, PRs should:
 
@@ -39,7 +31,7 @@ PRs to our projects are always welcome and can be a quick way to get your fix or
 
 For changes that address core functionality or would require breaking changes (e.g. a major release), it's best to open an Issue to discuss your proposal first. This is not required but can save time creating and reviewing changes.
 
-If your PR exclusively addresses typos, please prefix the commits and the PR with "typo:".
+If your PR exclusively addresses typos, please prefix the commits and the PR with "typo:". Other, optional prefixes for your commits are "fix:" and "feat:" for changes and new features respectively.
 
 In general, we follow the ["fork-and-pull" Git workflow](https://github.com/susam/gitpr)
 
@@ -50,7 +42,3 @@ In general, we follow the ["fork-and-pull" Git workflow](https://github.com/susa
 5. Following any formatting and testing guidelines specific to this repo
 6. Push changes to your fork
 7. Open a PR in our repository and follow the PR template so that we can efficiently review the changes.
-
-## Getting Help
-
-Join us in the CIF discord and post your question there in the correct category with a descriptive tag.
