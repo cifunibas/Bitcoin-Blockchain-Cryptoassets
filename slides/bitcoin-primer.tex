@@ -24,18 +24,18 @@
 Some key aspects of Bitcoin: \vspace{1em}
 
 	\begin{enumerate}
-		\item<2-> competitively created
-		\item<3-> virtually represented
-		\item<4-> decentrally managed
+		\item<2-> Competitive creation
+		\item<3-> Virtual representation
+		\item<4-> Decentralized management
 	\end{enumerate}
 	\vspace{1em}	
-\uncover<5->{Bitcoin is a decentrally managed and unique public database.} \\	 			\vspace{1em}
-\uncover<6->{The innovation of bitcoin is the conscious ommission of central actors.} %and 		minimal dependencies on 3rd parties
+\uncover<5->{Bitcoin is a decentralized data structure.} \\	\vspace{1em}
+\uncover<6->{The system is maintained by its participants and works in the absence of centralized third parties.} 
 \end{frame}
 %%%	
 
 %%%
-\begin{frame}{Bitcoin building blocks}
+\begin{frame}{Bitcoin Building Blocks}
 	\begin{figure}[h!]
 		\center
 		\input{../assets/figures/bitcoin-system.tex}
@@ -51,7 +51,7 @@ Because of the decentralized infrastructure, the transaction \textbf{capacity}, 
 %%%
 
 %%%
-\begin{frame}{Transaction capacity}
+\begin{frame}{Transaction Capacity}
 \textbf{Goal:} ensuring the ability to initiate a transaction  \\
 \vspace{1em}
 \uncover<2->{Bitcoin network 
@@ -70,9 +70,8 @@ Because of the decentralized infrastructure, the transaction \textbf{capacity}, 
 \end{frame}
 %%%
 
-
 %%%
-\begin{frame}{Transaction capacity}  %example banking vs. decentral system?
+\begin{frame}{Transaction Capacity}  %example banking vs. decentral system?
 	
 	\begin{figure}[h!]
 		\center
@@ -89,6 +88,18 @@ Because of the decentralized infrastructure, the transaction \textbf{capacity}, 
 \end{frame}
 %%%
 
+%%%
+\begin{frame}{Transaction Legitimacy}
+\textbf{Goal:} Ensure that a transaction was initiated by the actual owner.\\ \vspace{1em}
+
+	\begin{figure}[h!]
+		\center
+		\input{../assets/figures/transaction-encryption.tex}
+		\caption{Encryption and decryption of the transaction message.}
+		\label{fig:asymmeinfach}
+	\end{figure}
+\end{frame}
+%%%
 
 %%%
 \begin{frame}{Transaction Legitimacy}
@@ -104,13 +115,12 @@ This approach ensures transaction \color{focus}authenticity \color{black}and \co
 \end{frame}
 %%%
 
-
 %%%
-\begin{frame}{Blocks and the blockchain}
+\begin{frame}{Blocks and the Blockchain}
 Transactions are bundled into blocks \\
 \includegraphics[width=6cm]{../assets/images/block_1.png} \\
 \uncover<2->{
-Those blocks are sequentially linked $\rightarrow $ blockchain \\
+Blocks are sequentially linked $\rightarrow $ blockchain \\
 \includegraphics[width=6cm]{../assets/images/blocks_3.png}
 } 
 \end{frame}
@@ -118,23 +128,23 @@ Those blocks are sequentially linked $\rightarrow $ blockchain \\
 
 
 %%%
-\begin{frame}{Transaction consensus}
-Who can broadcast a new block? \\ \vspace{1.5em}
+\begin{frame}{Transaction Consensus}
+Anyone can propose a new block. \\ \vspace{1.5em}
 
 
 \includegraphics[width=9cm]{../assets/images/consensus_problem.png}
 
-Possible consensus rules: \\
+How to reach a consensus?: \\
 	\begin{itemize}
-	\item central actor
-	\item decentralized lottery (proof-of-work)
+	\item Centralized decision (Proof-of-Authority)
+	\item \color{focus}Decentralized lottery (Proof-of-Work)
 	\end{itemize} 
 \end{frame}
 %%%
 
 
 %%%
-\begin{frame}{Why do we need consensus?}
+\begin{frame}{Double-Spending}
 
 Double spend problem: \\
 \begin{figure}[h!]
@@ -143,6 +153,5 @@ Double spend problem: \\
 \end{figure}
 \end{frame}
 %%%
-
 
 \end{document}
