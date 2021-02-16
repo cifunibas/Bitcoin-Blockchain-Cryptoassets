@@ -53,7 +53,7 @@
 %%%
 \begin{frame}{Monoalphabetic Substitution}
 	\begin{itemize}
-		\item<1-> Simple case: shift alphabet by 1 to 25 positions
+		\item<1-> Simple case: shift alphabet by $x\in\{1,25\}$ positions
 		\vspace{0.3cm}
 		\uncover<2 ->{
 			\begin{table}
@@ -74,7 +74,7 @@
 			\end{table}
 		}
 		\vspace{0.3cm}
-		\item<3-> Results in 25 available cipher alphabets
+		\item<3-> Results in 25 distinct cipher alphabets
 		\end{itemize}
 \end{frame}
 %%%
@@ -82,7 +82,7 @@
 %%%
 \begin{frame}{Monoalphabetic Substitution}
 	\begin{itemize}
-		\item<1-> More advanced: arbitrary pairs of letters\\
+		\item<1-> More advanced: arbitrary letter mapping\\
 		\uncover<2->{
 			\vspace{0.5cm}
 			\begin{table}
@@ -97,7 +97,7 @@
 			\end{table}
 		}
 		\vspace{0.5cm}
-		\item<3-> Available cipher alphabets: \\$26! = 403,291,461,126,605,635,584,000,000$ 
+		\item<3-> Available cipher alphabets: \\$26! =$ 403,291,461,126,605,635,584,000,000 
 	\end{itemize}
 
 \end{frame}
@@ -201,8 +201,8 @@
 	\end{minipage}
 	\vspace{-0.4cm}
 	\begin{itemize}
-		\item<3-> Try to find common words like "the" in text
-		\item<4-> Exploit relations amongst letters (e.g. "qu" or "th")
+		\item<3-> Try to find common words like ``the'' in text
+		\item<4-> Exploit relations amongst letters (e.g. ``qu'' or ``th'')
 		\item<5-> Insert deciphered letters \(\rightarrow\) repeat
 	\end{itemize}
 	\uncover<3->{
@@ -283,7 +283,7 @@
 \begin{frame}{Polyalphabetic Substitution}
 	\begin{itemize}
 		\centering
-		\item<1-> An example with the code word "\textit{CIF}"
+		\item<1-> An example with the code word ``\textit{CIF}''
 	\end{itemize}
 	\renewcommand{\arraystretch}{1.5}
 	\begin{table}
@@ -340,7 +340,7 @@
 				\hline
 			\end{tabular}
 		}
-		\caption{Encryption of \textit{b}, \textit{l} and \textit{o} with code word "\textit{CIF}"}
+		\caption{Encryption of \textit{b}, \textit{l} and \textit{o} with code word ``\textit{CIF}''}
 	\end{table}
 	\begin{tikzpicture}[overlay]
 		% 2,b
@@ -410,9 +410,9 @@
 		\end{tikzpicture}
 	}
 	\begin{itemize}
-		\item<2-> "the" can be enrcrypted in four ways: DPR, BUK, GNO, ZRM
+		\item<2-> ``the'' can be enrcrypted in four ways: DPR, BUK, GNO, ZRM
 		\item<4-> This depends on its relative position to the code word
-		\item<5-> "the" is encrypted twice with BUK
+		\item<5-> ``the'' is encrypted twice with BUK
 		\item<6-> Thanks to this we can gues the length of the code word
 	\end{itemize}
 \end{frame}
@@ -428,7 +428,7 @@
 			\item<3-> Random key (don't use words or lists)
 			\item<4-> Use each key only once
 		\end{itemize}
-		\item<5-> "\textit{onetime pad cipher}"\ \(\rightarrow\) theoretically unbreakable!
+		\item<5-> ``\textit{onetime pad cipher}''\ \(\rightarrow\) theoretically unbreakable!
 	\end{itemize}
 \end{frame}
 %%%
@@ -482,10 +482,10 @@
 \begin{frame}{DES: Data Encryption Standard}
 	\begin{itemize}
 		\item<1-> Companies need a standardized approach
-		\item<2-> Encryption Method "Lucifer" by Horst Feistel in early 1970s.
-		\item<3-> Becomes "Data Encryption Standard (DES)"
-		\item<4-> Advantage: Standardisation and security
-		\item<5-> Disadvantag: Key distribution problem persists
+		\item<2-> Encryption Method ``Lucifer'' by Horst Feistel in early 1970s.
+		\item<3-> Becomes ``Data Encryption Standard (DES)''
+		\item<4-> Advantage: Standardization and security
+		\item<5-> Disadvantage: Key distribution problem persists
 	\end{itemize}
 	\uncover<5->{
 		\begin{figure}
