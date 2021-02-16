@@ -33,12 +33,13 @@ Deterministic algorithm (\color{focus}function, $H()$\color{black}) that maps da
 \vspace{1.5em}
 	
 \uncover<1->{
-\textbf{Application fields:} (non exhaustive)
+\textbf{Application fields:} (non-exhaustive)
 	\begin{itemize}
 		\item Data protection
 		\item Verification and authentication
 		\item Error detection
 		\item Data lookup optimization
+		\item Proof-of-work
 	\end{itemize}
 }	
 	
@@ -49,7 +50,7 @@ Deterministic algorithm (\color{focus}function, $H()$\color{black}) that maps da
 %%%
 \begin{frame}{Simplified Hash Function Using Modular Arithmetic}
 	\begin{minipage}[T]{0.65\textwidth}
-	\textbf{Modular ("clock") arithmetic}
+	\textbf{Modular arithmetic}
 				\begin{align*}
 					8 &= 1\ (mod\ 7) \\
 					2 + 3 &= 5\ (mod\ 7) \\
@@ -119,7 +120,7 @@ Checksums find many applications to detect human errors in data entry or faulty 
 	\end{itemize}
 
 \vspace{1em}
-\uncover<1->{Purpose to \textbf{detect accidents}, not \textbf{prevent attacks}:
+\uncover<1->{Purpose to \textbf{detect accidents}, not to \textbf{prevent attacks}:
 \begin{center}
 CH\color{focus}56\color{black}04835012345678009 vs. CH\color{focus}56\color{black}048350123456\color{focus}877\color{black}09
 \end{center}}
@@ -173,7 +174,7 @@ $\Rightarrow$ \footnotesize \color{focus}aba56d7c281f8d\color{black}a\color{focu
 		\begin{itemize}
 			\item Nonlinarity due to choice, majority, mod, rotation and shifting operations.
 			\item Efficient for computers vs. 0.67 hashes / day by hand.
-			\item \link \href{https://www.youtube.com/watch?v=y3dqhixzGVo}{Manual calculation video}.
+			\item \link \href{https://www.youtube.com/watch?v=y3dqhixzGVo}{Video: Hash value by hand}.
 		\end{itemize}
 	\end{column}
 \end{columns}
