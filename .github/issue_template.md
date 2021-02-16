@@ -1,4 +1,4 @@
-**Note: For general questions and discussions, please join our Discord. This repository's issues should only be used for feature requests and bug reports.**
+**Note: This repository's issues should only be used for feature requests and bug reports, not for general questions and discussions.**
 
 Specify if you are submitting a feature request, or a bug report and delete any unneeded section.
 
