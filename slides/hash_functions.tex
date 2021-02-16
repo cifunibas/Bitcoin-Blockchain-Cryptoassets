@@ -60,7 +60,7 @@ Checksums find many applications to detect human errors in data entry or faulty 
 \footnotesize Steps:
 	\begin{itemize}
 		\item Take BBAN and append Country Code and 00 (empty checksum)
-		\item Translate characters of country code into 9 +position in alphabet
+		\item Translate characters of country code into 9 + position in alphabet
 		\item Perform mod97 operation and subtract from 98 to arrive at checksum
 		\item I.e., 98 - 4835012345678009121700 mod 97 = 56
 	\end{itemize}}
@@ -113,7 +113,7 @@ Additional criteria:
 \begin{frame}{Avalanche Effect with SHA2}
 
 \begin{center}
-$SHA256(<pre-image>)$
+$SHA256(<$\textit{pre-image}$>)$
 \end{center}
 
 This is the pre-image
@@ -172,7 +172,7 @@ $P(h \leq \color{focus}00\color{black}FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 %%%
 \begin{frame}{Example in Bitcoin Context}
 
-How much time would it take to find a pre-image that generates a specific hash using the cryptographic hash functions applied in Bitcoin with a try-and-error approach?
+How much time would it take to find a pre-image that generates a specific hash using the cryptographic hash functions applied in Bitcoin with a trial and error approach?
 
 \vspace{1em}
 
