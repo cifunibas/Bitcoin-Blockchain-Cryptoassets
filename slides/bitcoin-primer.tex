@@ -36,7 +36,12 @@ Some key aspects of Bitcoin: \vspace{1em}
 
 %%%
 \begin{frame}{Bitcoin building blocks}
-\input{../assets/figures/bitcoin-system.tex}
+	\begin{figure}[h!]
+		\center
+		\input{../assets/figures/bitcoin-system.tex}
+		\label{fig:bitcoinsystem}
+	\end{figure}
+
 \begin{center}
 \uncover<2->{
 Because of the decentralized infrastructure, the transaction \textbf{capacity}, transaction \textbf{legitimacy} and transaction \textbf{consensus} are much more difficult to achieve.
@@ -68,8 +73,11 @@ Because of the decentralized infrastructure, the transaction \textbf{capacity}, 
 
 %%%
 \begin{frame}{Transaction capacity}  %example banking vs. decentral system?
-
-{\input{../assets/figures/transaction-capacity.tex}}
+	
+	\begin{figure}[h!]
+		\center
+		\input{../assets/figures/transaction-capacity.tex}
+	\end{figure}\vspace{1em}
 
 \uncover<2->{        
         \begin{itemize}
@@ -83,13 +91,15 @@ Because of the decentralized infrastructure, the transaction \textbf{capacity}, 
 
 
 %%%
-\begin{frame}{Transaction legitimacy}
-\textbf{Goal:} ensuring that a transaction was initiated by the actual owner
+\begin{frame}{Transaction Legitimacy}
 	\vspace{1em}
-\uncover<2->{
-	\input{../assets/figures/transaction-manipulation.tex}
-	\vspace{2em}
-\textbf{Tool:} asymmetric cryptography
+This approach ensures transaction \color{focus}authenticity \color{black}and \color{focus}integrity\color{black}.
+	\vspace{1em}
+\uncover<1->{
+	\begin{figure}[h!]
+		\center
+		\input{../assets/figures/transaction-manipulation.tex}
+	\end{figure}
 	}
 \end{frame}
 %%%
@@ -127,9 +137,10 @@ Possible consensus rules: \\
 \begin{frame}{Why do we need consensus?}
 
 Double spend problem: \\
-
-\input{../assets/figures/double-spend.tex}
-
+\begin{figure}[h!]
+	\center
+	\input{../assets/figures/double-spend.tex}
+\end{figure}
 \end{frame}
 %%%
 
