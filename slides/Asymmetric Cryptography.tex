@@ -1,0 +1,228 @@
+% Choose one to switch betweeen slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Intro: Welcome to the Course}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{Diffie-Hellman-Merkle Key Exchange}
+	\begin{itemize}
+		\item<1-> Whitfield Diffie, Martin Hellman and Ralph Merkle find a solution for the \textit{key distribution} problem (1976)
+		\item<2-> They still use symmetric encryption, but the common key can be communicated on a public channel
+		\vspace{0.5cm}
+		\item<3-> Alice and Bob define ex-ante
+		\begin{itemize}
+			\item<4-> One-way function: \(Y^x\ (mod\ P)\)
+			\item<5-> Parameters: \(Y = 7\) and \(P = 11\)
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Diffie-Hellman-Merkle Key Exchange}
+	\begin{table}
+		\centering
+		\resizebox{10.5cm}{!}{
+			\begin{tabular}{c c c c}
+				\hline
+				&Alice&&Bob\\
+				\hline
+				&&&\\
+				Step 1 & chooses \(A = 3\) && chooses \(B = 6\)\\
+				&&&\\
+				Step 2 & \(\alpha = Y^A\ (mod\ P)\) && \(\beta = Y^B\ (mod\ P)\) \\					& \(\alpha = 7^3\ (mod\ 11) = 2\) &&\(\beta = 7^6\ (mod\ 11) = 4\) \\
+				&&&\\
+				Step 3 & Alice sends her result \(\alpha = 2\) to Bob && Bob sends his result \(\beta = 4\) to Alice \\
+				&&&\\
+				\textit{Exchange} & \multicolumn{3}{c}{\textit{The only exchange of information (not key!)}}\\
+				&&&\\
+				Step 4 & Alice calculates \(k = \beta^A\ (mod\ P)\) && Bob calculates \(k = \alpha^B\ (mod\ P)\) \\
+				&\(k = 4^3\ (mod\ 11) = 64\ (mod\ 11) = 9\) && \(k = 2^6\ (mod\ 11) = 64\ (mod\ 11) = 9\) \\
+				&&&\\
+				\textit{Key} & \multicolumn{3}{c}{\textit{Alice and Bob have agreed on key \(k = 9\), because:}}\\
+				& \multicolumn{3}{c}{$\alpha^{B}\ (mod\ P) = Y^{AB}\ (mod\ P) = Y^{BA}\ (mod\ P) = \beta^{A}\ (mod\ P)$}\\
+				&&&\\
+				\hline
+			\end{tabular}
+			}
+		\caption{Diffie-Hellman-Merkle-Key-Exchange. Based on \cite{singh1999}}
+	\end{table}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Issues}
+	\centering
+	%\includegraphics[width = 8cm]{../assetlib/images/earth.png}\\
+	\begin{itemize}
+		\item<2-> Inconvenience
+		\item<3-> Undermines spontaneity of online communication
+		\item<4-> Search for better solution continues
+	\end{itemize}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Asymmetric Cryptography}
+	\begin{itemize}
+		\item<1-> So far: Symmetric cryptography
+		\begin{itemize}
+			\item<1->Decryption is inverse algorithm of encryption
+		\end{itemize}
+		\item<2-> Diffie's Idea (1975): Asymmetric encryption
+		\begin{itemize}
+			\item<2->Key to encrypt and key to decrypt a message are not identical
+		\end{itemize}
+		\item<3->...but how?
+	\end{itemize}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Asymmetric Cryptography}
+	\begin{itemize}
+		\item<1-> Ronald Rivest, Adi Shamir and Leonard Adleman
+		\item<2-> Inspired by Diffie's idea of asymmetric cryptography
+		\item<3-> Develop first asymmetric encryption algorithm (\textit{RSA}) \cite{rivest1978}
+	\end{itemize}
+	\uncover<3->{
+		\begin{figure}
+			\centering
+			\includegraphics[width = 8cm]{../assets/images/cover_RSA}
+			%\caption{Source: \cite{rivest1978}}
+		\end{figure}
+	}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{RSA}
+	Properties of RSA
+	\begin{itemize}
+		\item<1->[(a)] Alice creates a \textit{public key} with which everyone can encrypt a message. The encryption with the public key is a one-way function and therefore not revertable.
+		\item<2->[(b)] Only Alice is able to decrypt the message with her \textit{private key} and revert the encryption process.
+	\end{itemize}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{RSA 1/4: Find Public Key}
+	Choose two primes \(p\) and \(q\) (e.g. \(p = 17\) and \(q = 11\)) and calculate
+	\begin{align*}
+		N &= p \cdot q \\
+		\intertext{In our example:}
+		\begin{split}
+			N &= 17 \cdot 11 = 187 
+		\end{split}
+	\end{align*} 
+	and choose an additional integer \(e\) (e.g. \(e = 7\)).\footnote{\tiny \(e\) and \((p-1)\cdot(q-1)\) have to be relative primes} \\
+	\vspace{0.5cm}
+	\(\Rightarrow\) \(N\) and \(e\) together make up the Public Key.
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{RSA 2/4: Encrypt Message}
+	Convert message \(M\) into an integer (e.g. \(M =\) letter \(X\) in ASCII \(= 88\)) and calculate the encrypted message \(C\) using the formula 
+	\begin{align*}
+		C &= M^e\ (mod\ N) \\
+		\intertext{In our example:}
+		C &= 88^7\ (mod\ 187) \\
+		C &= 11
+	\end{align*}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{RSA 3/4: Derive Private Key}
+	Calculate Private Key \(k_{p}\) using the formula
+	\begin{align*}
+		e \cdot k_{p} &= 1\ (mod\ \phi(N))\;\text{, where \(\phi(N) = (p-1)(q-1)\)}
+		\intertext{In our example:}
+		7 \cdot k_{p} &= 1\ (mod\ 16 \cdot 10) = 1\ (mod\ 160) \\
+		k_{p} &= 23
+	\end{align*}
+	\uncover<2->{Note: Extended Euclidean algorithm is needed for this step}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{RSA 4/4: Decrypt Message}
+	\begin{align*}
+		\intertext{Decrypt with formula}
+		M &= C^{k_{p}}\ (mod\ N)
+		\intertext{Insert and calculate}
+		M &= 11^{23}\ (mod\ 187) \\
+		M &= 88 = X
+		\text{\ in ASCII}
+	\end{align*}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{RSA: Requirements}
+	Crucial: 
+	\begin{itemize}
+		\item<1-> \(N\) has to be sufficiently large
+		\item<2-> It has to be impossible to find \(p\) and \(q\) by using prime factorization of \(N\).
+	\end{itemize}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Pretty Good Privacy}
+		\begin{itemize}
+			\item<1->RSA is computationally costly
+			\item<2->General public did not benefit 
+			\item<3->Phil Zimmermann wanted to protect privacy of the average citizen on the internet as well
+			\item<4->His solution: Pretty Good Privacy (PGP)
+		\end{itemize}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{PGP: Principle}
+	\begin{minipage}[T][5cm][t]{0.45\textwidth}
+		Encryption:
+		\begin{itemize}
+			\item<1->Encryption of message is done symmetrically
+			\item<2->Encryption of symmetric key using RSA-public-key of recipient
+			\item<3->Sending encrypted message and symmetric key to recipient
+		\end{itemize}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[T][5cm][t]{0.45\textwidth}
+		\uncover<4->{Decryption:}
+		\begin{itemize}
+			\item<4->Decryption of symmetric key with RSA-private-key of recipient.
+			\item<5->Decryption of message with decrypted symmetric key
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}%[allowframebreaks]
+	\frametitle{References and Recommended Reading}
+	\bibliographystyle{amsplain}
+	\bibliography{../assets/bib/refs}
+\end{frame}
+%%%
+\end{document}
