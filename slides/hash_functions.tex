@@ -23,7 +23,7 @@
 %%%
 \begin{frame}{What Is a Hash Function?}
 
-Deterministic algorithm (\color{focus}function, $H()$\color{black}) that maps data of arbitrary size (\color{focus}pre-image, $m$\color{black}) to fixed-length bit string (\color{focus}hash, $h$\color{black}).
+Deterministic algorithm (\color{focus}function, $H()$\color{black}) that maps data of quasi-arbitrary size (\color{focus}pre-image, $m$\color{black}) to fixed-length bit string (\color{focus}hash value, $h$\color{black}).
 
 	\begin{align}
 		h = H(m)
@@ -34,11 +34,11 @@ Deterministic algorithm (\color{focus}function, $H()$\color{black}) that maps da
 \uncover<1->{Example of a simplified hash function:
 
 	\begin{align}
-		h = m \: mod \: 12
+		h = m \: \mod \: 12
 		\label{eq:simple_hash_function}
 	\end{align}}
 
-This example accepts any numeric pre-image $m$ and returns a corresponding hash value $h$ $\epsilon$ $\{0,...,11\}$.
+This example accepts any numeric pre-image $m$ and returns a corresponding hash value $h$ $\in \{0,...,11\}$.
 	
 \end{frame}
 
@@ -60,9 +60,9 @@ Checksums find many applications to detect human errors in data entry or faulty 
 \footnotesize Steps:
 	\begin{itemize}
 		\item Take BBAN and append Country Code and 00 (empty checksum)
-		\item Translate characters of country code into 9 + position in alphabet
+		\item Translate characters of country code into 9 + \texttt{<position in alphabet>}
 		\item Perform mod97 operation and subtract from 98 to arrive at checksum
-		\item I.e., 98 - 4835012345678009121700 mod 97 = 56
+		\item e.g., $98 - 4835012345678009121700 \mod 97 = 56$
 	\end{itemize}}
 	
 \end{frame}
@@ -185,7 +185,7 @@ How much time would it take to find a pre-image that generates a specific hash u
 \vspace{1em}}
 	
 \uncover<2->{\textbf{Outcome:\\
- \color{focus}1\% \color{black}} chance to find a specific hash \textbf{within $7 * 10^{27}$ years}.}
+ \color{focus}1\% \color{black}} chance to find a specific hash \textbf{within $7 \cdot 10^{27}$ years}.}
 
 	
 \end{frame}
@@ -197,7 +197,7 @@ How much time would it take to find a pre-image that generates a specific hash u
 
 		\begin{columns}[T]
 			\begin{column}{0.1\textwidth}
-					\includegraphics[width = 1.7cm, frame]{../assets/images/singh_cover}
+					\includegraphics[width = 1.65cm, frame]{../assets/images/singh_cover}
 			\end{column} %\hfill
 			\begin{column}{0.8\textwidth}
 				\textbf{The Code Book} \\ 
@@ -211,7 +211,7 @@ How much time would it take to find a pre-image that generates a specific hash u
 	\uncover<1->{
 		\begin{columns}[T]
 			\begin{column}{0.1\textwidth}
-					\includegraphics[width = 1.7cm, frame]{../assets/images/katz_lindell_cover}
+					\includegraphics[width = 1.65cm, frame]{../assets/images/katz_lindell_cover}
 			\end{column} %\hfill
 			\begin{column}{0.8\textwidth}
 				\textbf{Introduction to Modern Cryptography} \\ 
@@ -226,7 +226,7 @@ How much time would it take to find a pre-image that generates a specific hash u
 	\uncover<2->{
 		\begin{columns}[T]
 			\begin{column}{0.1\textwidth}
-					\includegraphics[width = 1.7cm, frame]{../assets/images/schaer_berentsen_cover}
+					\includegraphics[width = 1.65cm, frame]{../assets/images/schaer_berentsen_cover}
 			\end{column} %\hfill
 			\begin{column}{0.8\textwidth}
 				\textbf{Bitcoin, Blockchain and Cryptoassets} \\ 
