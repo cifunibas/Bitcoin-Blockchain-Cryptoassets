@@ -29,20 +29,59 @@ Deterministic algorithm (\color{focus}function, $H()$\color{black}) that maps da
 		h = H(m)
 		\label{eq:hash_function}
 	\end{align}
-	\vspace{1em}
+
+\vspace{1.5em}
 	
-\uncover<1->{Example of a simplified hash function:
-
-	\begin{align}
-		h = m \: \mod \: 12
-		\label{eq:simple_hash_function}
-	\end{align}}
-
-This example accepts any numeric pre-image $m$ and returns a corresponding hash value $h$ $\in \{0,...,11\}$.
+\uncover<1->{
+\textbf{Application fields:} (non exhaustive)
+	\begin{itemize}
+		\item Data protection
+		\item Verification and authentication
+		\item Error detection
+		\item Data lookup optimization
+	\end{itemize}
+}	
 	
 \end{frame}
 
 %%%	
+
+%%%
+\begin{frame}{Simplified Hash Function Using Modular Arithmetic}
+	\begin{minipage}[T]{0.65\textwidth}
+	\textbf{Modular ("clock") arithmetic}
+				\begin{align*}
+					8 &= 1\ (mod\ 7) \\
+					2 + 3 &= 5\ (mod\ 7) \\
+					2^5 &= 2\ (mod\ 5)
+				\end{align*}
+	$\Rightarrow$ Useful to create one-way functions\\
+	\end{minipage}
+	\hfill
+	\begin{minipage}[T]{0.3\textwidth}
+		\begin{figure}[h!]
+			\centering
+			\resizebox{\linewidth}{!}{
+			\input{../assets/figures/mod_clock.tex}
+			}
+		\end{figure}
+	\end{minipage}
+
+
+
+\uncover<1->{
+\vspace{0.5em}
+\textbf{Simplified hash function}
+	\begin{align}
+		h = m \: \mod \: 12
+		\label{eq:simple_hash_function}
+	\end{align}}
+This example accepts any numeric pre-image $m$ and returns a corresponding hash value $h$ $\in \{0,...,11\}$.
+
+
+\end{frame}
+%%%
+
 
 %%%
 \begin{frame}{Simple Hash Functions: Checksums}
