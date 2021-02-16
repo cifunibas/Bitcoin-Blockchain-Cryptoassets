@@ -1,0 +1,51 @@
+\begin{tikzpicture}[thick]
+		
+		% define coordinates
+			\coordinate[label=below left:$0$] (0) at (0,0);
+			\coordinate[label=below:$1$] (1x) at (4,0);
+			\coordinate[label=left:$1$] (1y) at (0,4);
+			\coordinate (1) at (4,4);
+			\coordinate (mid) at (2,2);
+			\coordinate (midx) at (2,0);
+			\coordinate (midx2) at (2,4);
+		
+		% draw axes
+			\draw[->] (0) -- ([xshift = 8pt] 1x);
+			\draw[->] (0) -- ([yshift = 8pt] 1y);
+			
+		% draw dotted lines
+			\draw[dotted] (1y) -- (midx2);
+			\draw[dotted] (1x) -- (1);
+			
+		% draw diagonals
+			\draw (0) -- (1);
+			\uncover<3->{
+				\draw[->, dotted, thin] ([xshift = -4pt] mid) -- ([xshift = 4pt, yshift = 8pt] 0);
+				\draw[->, dotted, thin] ([xshift = 4pt] mid) -- ([xshift = -4pt, yshift = -8pt] 1);
+			}
+		
+		% draw NEs
+			% line
+			\draw[highlight, very thick] (0) -- (midx) -- (midx2) -- (1);
+			\uncover<3->{\draw[focus, very thick] (0) -- (midx) -- (midx2) -- (1);}
+			
+			% A
+			\filldraw[focus] (0) circle (2pt);
+			\filldraw[highlight] (1) circle (2pt);
+			
+			% B
+			\uncover<2->{\filldraw[focus] (1) circle (2pt);}
+			\filldraw[highlight] (mid) circle (2pt);
+			\uncover<3->{\filldraw[focus] (mid) circle (2pt);}
+								
+		% labels
+			\node[right] at (1) {$A$};
+			\node[below right] at (mid) {$B$};
+			\node[below right] at (0) {$C$};
+			\node[right = 8pt] at (1x) {$\Pi$};
+			\node[above = 8pt] at (1y) {$\pi$};
+			\node[above = 24pt, left = 4pt, highlight] at (mid) {$\pi(\Pi)$};
+			\uncover<3->{\node[above = 24pt, left = 4pt, focus] at (mid) {$\pi(\Pi)$};}
+			\node[below = 4pt] at (midx) {$\hat\Pi$};
+			
+\end{tikzpicture}
