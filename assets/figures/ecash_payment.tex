@@ -1,0 +1,35 @@
+    
+\begin{tikzpicture}[scale = 0.67]
+
+% Payee
+\node 			(payee) at (12,0) {\includegraphics[width = 1.2 cm]{../assets/images/avatar.png}};
+
+
+% Payer
+\node 			(payer) at (0,0) {\includegraphics[width = 1.2 cm]{../assets/images/avatar.png}};
+
+
+% Goods vs. Money flow	
+	\draw[->, thick, dashed]	([yshift=0.5cm]payer.south east) -- ([yshift=0.5cm]payee.south west) 
+						node[midway, fill=white] {Digital Cash};
+
+	\draw[<-, thick]	([yshift=-0.5cm]payer.north east) -- ([yshift=-0.5cm]payee.north west) node[midway, fill=white] {Goods / Services};
+
+
+% Copy-Paste Symbol
+	
+	\coordinate	(A) at ([xshift=-0.1cm, yshift=-0.1cm]payer.south west);
+	\coordinate	(B) at ([xshift = 1.2cm, yshift = -0.8cm]A);
+	\coordinate	(C) at ([xshift = 1.6cm]A);
+	\coordinate	(D) at ([xshift = 1.3cm]B);
+	\coordinate (E) at ([xshift = 1.5cm, yshift = -0.4cm]A);
+	
+	\draw[rounded corners=5pt, focus, very thick]	(A) rectangle (B) node [midway, focus] {Ctrl};
+	\draw[rounded corners=5pt, focus, very thick]	(C) rectangle (D) node [midway, focus] {C};
+	
+	%\draw (E) node [midway, focus] {+};
+	
+
+
+	 
+\end{tikzpicture}

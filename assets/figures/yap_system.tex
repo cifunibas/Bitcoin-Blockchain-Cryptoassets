@@ -1,0 +1,60 @@
+
+
+
+\begin{tikzpicture}[scale = 0.67]
+
+\definecolor {dgray}{rgb}{122,122,122}
+\definecolor {lgray}{rgb}{194,194,194}
+
+% Payee
+	\node 			(payee) at (12,7) {\includegraphics[width = 1 cm]{../assets/images/avatar.png}};
+
+% Payer
+	\node 			(payer) at (0,7) {\includegraphics[width = 1 cm]{../assets/images/avatar.png}};
+	
+
+% Stone
+	\node (outer) at (10.5,1.5) [circle, minimum width=2.5cm, draw = gray, fill = lightgray]{};
+
+	\node (inner) at (10.5,1.5) [circle, minimum width=0.9cm, draw = gray, fill = white]{};
+
+
+% Network
+	\node			(agenta) at (1,2.8) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};
+	\node 			(agentb) at (0.5,1) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};
+	\node 			(agentc) at (3,2.1) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};
+	\node 			(agentd) at (2.8,0) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};
+	\node 			(agente) at (5,4.3) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};	
+	\node 			(agentf) at (5.1,1.1) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};
+	\node 			(agentg) at (7.5,3.8) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};
+	\node 			(agenth) at (6.7,0.4) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};	
+	
+
+% Goods vs. Money flow
+	
+	\draw[->, thick, dashed]	([yshift=0.5cm]payer.south east) -- ([yshift=0.5cm]payee.south west) node[midway, fill=white] {Stone Property Rights};
+	
+	\draw[->, thick, dashed]	(payer.south) -- (agenta.north) node[midway, fill=white, align = center, text = focus] {\footnotesize "Payee is new owner\\ \footnotesize of stone XY"};
+
+	\draw[<-, thick]		([yshift=-0.5cm]payer.north east) -- ([yshift=-0.5cm]payee.north west) node[midway, fill=white] {Goods / Services};
+	
+% Network flow
+
+
+	\draw[<->, thick, dashed]	(agenta.south) -- (agentb.north);
+	\draw[<->, thick, dashed] 	(agenta.east) -- (agente.west);
+	\draw[<->, thick, dashed]	(agenta.south east) -- (agentc.west);
+	\draw[<->, thick, dashed]	(agente.south west) -- (agentc.north east);
+	\draw[<->, thick, dashed]	(agente.south) -- (agentf.north);
+	\draw[<->, thick, dashed]	(agente.east) -- (agentg.west);
+	\draw[<->, thick, dashed]	(agentc.south west) -- (agentb.east);
+	\draw[<->, thick, dashed]	(agentc.south) -- (agentd.north);
+	\draw[<->, thick, dashed]	(agentc.south east) --  (agentf.west);
+	\draw[<->, thick, dashed]	(agentg.south west) -- (agentf.north east);
+	\draw[<->, thick, dashed]	(agentg.south) -- (agenth.north);
+	\draw[<->, thick, dashed]	(agentb.south east) -- (agentd.west);
+	\draw[<->, thick, dashed]	(agentf.south west) -- (agentd.east);
+	\draw[<->, thick, dashed]	(agentf.south east) -- (agenth.west);
+	\draw[<->, thick, dashed]	(agenth.south west) -- (agentd.east);
+	
+\end{tikzpicture}
