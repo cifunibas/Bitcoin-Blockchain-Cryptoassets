@@ -4,7 +4,7 @@
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
-\subtitle{Bitcoin Primer}
+\subtitle{Transaction Overview}
 \author{Prof. Dr. Fabian Schär}
 \institute{University of Basel}
 
@@ -24,22 +24,6 @@
 
 
 %%%
-\begin{frame}{Review}
-
-What we already know: \\ 
-\vspace{1em}
-	\begin{enumerate}
-		\item<1->{Transactions = messages distributed over the bitcoin network}
-		\item<2->{Basis for adjustment of the ledger}
-		\item<3->{Only possibility to transfer funds}
-		\item<4->{No accounts}
-		\item<5->{All transactions are publicly viewable}
-	\end{enumerate}
-\end{frame}
-%%%
-
-
-%%%
 \begin{frame}{How to transfer a Bitcoin Unit} %mehr dazu auf Bitcoin Wiki nicht gefunden
 
 \begin{enumerate}
@@ -53,15 +37,15 @@ What we already know: \\
 
 
 %%%
-\begin{frame}{Content of a Transaction}
-\centering
-\begin{figure}
-\input{../assets/figures/transaction-structure.tex}
-\end{figure} 
+\begin{frame}{Structure of a Transaction}
+	\centering
+	\begin{figure}
+	\input{../assets/figures/transaction-structure.tex}
+	\end{figure} 
 \vspace{1em}
 \begin{itemize}
-  \item<2->{Must contain at least one input and one output}
-  \item<3->{Sum of inputs must be at least as high as sum of outputs}
+  	\item<2->{Must contain at least one in- and output}
+  	\item<3->{Sum of inputs must be at least as high as sum of outputs}
 	\item<4->{Credit can be divided to any number of output}
 \end{itemize}
 \end{frame}	
@@ -72,8 +56,9 @@ What we already know: \\
 \begin{frame}{Unlocking Condition}
 \begin{itemize}
     \item<1->{Transaction outputs contain unlocking condition}
-    \item<2->{Flexibility about what unlocking condition is defined}
-    \item<3->{E.g.: condition can be met by signature with corresponding private key}
+    \item<2->{E.g.: condition can be met by signature with corresponding private key}
+    \item<3->{In principle, there is a certain flexibility in setting the unlocking condition}
+    
 \end{itemize}
 \end{frame}        
 %%%
@@ -94,7 +79,7 @@ What we already know: \\
 
 %%%
 \begin{frame}{Example: Transaction Hierarchy}
-\resizebox{10.7cm}{7cm}{
+\resizebox{\textwidth}{!}{
 \input{../assets/figures/transaction-process.tex}
 }
 \end{frame}
@@ -114,7 +99,7 @@ What we already know: \\
 	\end{figure} 
 	\vspace{0.4cm}
 	\begin{figure}
-		\input{../assets/figures/dividing-transaction-type.tex}
+		\input{../assets/figures/splitting-transaction-type.tex}
 		\caption*{splitting}
 	\end{figure}
 \column{0.5\textwidth}
@@ -135,13 +120,15 @@ What we already know: \\
 
 %%%
 \begin{frame}{Input $\neq$ Output ?}
+If the input value doesn't correspond to the output value, there are the following two possibilities:
+\vspace{1em}
 \begin{itemize}
-    \item<1->{If value output $>$ value input $\rightarrow$ transaction invalid}
-    \item<2->{If value output $<$ value input $\rightarrow$ miner gets difference}
+    \item<1->{Value output $>$ Value input $\rightarrow$ Transaction invalid}
+    \item<2->{Value output $<$ Value input $\rightarrow$ Miner gets difference}
     \end{itemize} 
-    \vspace{2em}
+    \vspace{1.5em}
 \begin{center}
-\uncover<3->{Setting a higher fee usually results in a faster inclution in a block.}
+\uncover<3->{Setting a higher fee usually results in faster inclution in a block.}
 \end{center}  
 \end{frame}
 %%%
