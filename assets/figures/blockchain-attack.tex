@@ -1,0 +1,130 @@
+\begin{tikzpicture}[domain=-8:8,scale=0.35, every node/.style={scale=0.35}]
+
+  \draw (0,0.3) -- (4,0.3) -- (4,5) -- (0,5) node[below,midway]{\texttt{Block 1}} -- (0,0.3);
+  \draw (2,4) node[fill =highlight!50, draw=black, dotted,text width=3.5cm]{\footnotesize{Identification number}};
+
+  \draw [decorate,decoration={brace,amplitude=4pt},xshift=0pt]
+(0.2,3.3) -- (3.8,3.3) node[midway,yshift=12pt] {\footnotesize{}};
+
+  \draw (2,1.9) node[fill =highlight!50, draw=black, dashed,text width=3.4cm]{\footnotesize{$\bullet$ Transactions\\ \vspace{0.2cm}
+  $\bullet$ ID previous block\\ \vspace{0.2cm}
+  \hspace{1.4cm}\dots\\ \vspace{0.2cm}
+  $\bullet$ Variation (\textit{nonce})}};
+
+
+%%%%%%%
+\begin{scope}[shift={(5,0)},rotate=0]
+    \draw (0,0.3) -- (4,0.3) -- (4,5) -- (0,5) node[below,midway]{\texttt{Block 2}} -- (0,0.3);
+  \draw (2,4) node[fill =highlight!50, draw=black, dotted,text width=3.5cm]{\footnotesize{Identification number}};
+
+  \draw [decorate,decoration={brace,amplitude=4pt},xshift=0pt]
+(0.2,3.3) -- (3.8,3.3) node[midway,yshift=12pt] {\footnotesize{}};
+
+  \draw (2,1.9) node[fill =highlight!50, draw=black, dashed,text width=3.4cm]{\footnotesize{$\bullet$ Transactions\\ \vspace{0.2cm}
+  $\bullet$ ID previous block\\ \vspace{0.2cm}
+  \hspace{1.4cm}\dots\\ \vspace{0.2cm}
+  $\bullet$ Variation (\textit{nonce})}};
+\end{scope}
+
+%%%%%%%%
+\begin{scope}[shift={(10,0)},rotate=0]
+    \draw (0,0.3) -- (4,0.3) -- (4,5) -- (0,5) node[below,midway]{\texttt{Block 3}} -- (0,0.3);
+  \draw (2,4) node[fill =highlight!50, draw=black, dotted,text width=3.5cm]{\footnotesize{Identification number}};
+
+  \draw [decorate,decoration={brace,amplitude=4pt},xshift=0pt]
+(0.2,3.3) -- (3.8,3.3) node[midway,yshift=12pt] {\footnotesize{}};
+
+  \draw (2,1.9) node[fill =highlight!50, draw=black, dashed,text width=3.4cm]{\footnotesize{$\bullet$ Transactions\\ \vspace{0.2cm}
+  $\bullet$ ID previous block\\ \vspace{0.2cm}
+  \hspace{1.4cm}\dots\\ \vspace{0.2cm}
+  $\bullet$ Variation (\textit{nonce})}};
+\end{scope}
+
+%%%%%%%%
+\begin{scope}[shift={(15,0)},rotate=0]
+    \draw (0,0.3) -- (4,0.3) -- (4,5) -- (0,5) node[below,midway]{\texttt{Block 4}} -- (0,0.3);
+  \draw (2,4) node[fill =highlight!50, draw=black, dotted,text width=3.5cm]{\footnotesize{Identification number}};
+
+  \draw [decorate,decoration={brace,amplitude=4pt},xshift=0pt]
+(0.2,3.3) -- (3.8,3.3) node[midway,yshift=12pt] {\footnotesize{}};
+
+  \draw (2,1.9) node[fill =highlight!50, draw=black, dashed,text width=3.4cm]{\footnotesize{$\bullet$ Transactions\\ \vspace{0.2cm}
+  $\bullet$ ID previous block\\ \vspace{0.2cm}
+  \hspace{1.4cm}\dots\\ \vspace{0.2cm}
+  $\bullet$ Variation (\textit{nonce})}};
+\end{scope}
+
+%%%%%%%%
+\begin{scope}[shift={(20,0)},rotate=0]
+    \draw (0,0.3) -- (4,0.3) -- (4,5) -- (0,5) node[below,midway]{\texttt{Block 5}} -- (0,0.3);
+  \draw (2,4) node[fill =highlight!50, draw=black, dotted,text width=3.5cm]{\footnotesize{Identification number}};
+
+  \draw [decorate,decoration={brace,amplitude=4pt},xshift=0pt]
+(0.2,3.3) -- (3.8,3.3) node[midway,yshift=12pt] {\footnotesize{}};
+
+  \draw (2,1.9) node[fill =highlight!50, draw=black, dashed,text width=3.4cm]{\footnotesize{$\bullet$ Transactions\\ \vspace{0.2cm}
+  $\bullet$ ID previous block\\ \vspace{0.2cm}
+  \hspace{1.4cm}\dots\\ \vspace{0.2cm}
+  $\bullet$ Variation (\textit{nonce})}};
+\end{scope}
+
+%%%%%%%%
+\begin{scope}[shift={(25,0)},rotate=0]
+    \draw (0,0.3) -- (4,0.3) -- (4,5) -- (0,5) node[below,midway]{\texttt{Block 6}} -- (0,0.3);
+  \draw (2,4) node[fill =highlight!50, draw=black, dotted,text width=3.5cm]{\footnotesize{Identification number}};
+
+  \draw [decorate,decoration={brace,amplitude=4pt},xshift=0pt]
+(0.2,3.3) -- (3.8,3.3) node[midway,yshift=12pt] {\footnotesize{}};
+
+  \draw (2,1.9) node[fill =highlight!50, draw=black, dashed,text width=3.4cm]{\footnotesize{$\bullet$ Transactions\\ \vspace{0.2cm}
+  $\bullet$ ID previous block\\ \vspace{0.2cm}
+  \hspace{1.4cm}\dots\\ \vspace{0.2cm}
+  $\bullet$ Variation (\textit{nonce})}};
+\end{scope}
+
+%%%%%%%%
+
+\begin{scope}[shift={(10,-6)},rotate=0]
+    \draw[dotted] (0,0.3) -- (4,0.3) -- (4,5) -- (0,5) node[below,midway]{\texttt{B3 (Alternative)}} -- (0,0.3);
+  \draw (2,4) node[fill =black!20, draw=black, dotted,text width=3.5cm]{\footnotesize{Identification number}};
+
+  \draw [decorate,decoration={brace,amplitude=4pt},xshift=0pt]
+(0.2,3.3) -- (3.8,3.3) node[midway,yshift=12pt] {\footnotesize{}};
+
+  \draw (2,1.9) node[fill =black!20, draw=black, dashed,text width=3.4cm]{\footnotesize{$\bullet$ Transactions\\ \vspace{0.2cm}
+  $\bullet$ ID previous block\\ \vspace{0.2cm}
+  \hspace{1.4cm}\dots\\ \vspace{0.2cm}
+  $\bullet$ Variation (\textit{nonce})}};
+\end{scope}
+
+%%%%%%%%
+\begin{scope}[shift={(15,-6)},rotate=0]
+    \draw[dotted] (0,0.3) -- (4,0.3) -- (4,5) -- (0,5) node[below,midway]{\texttt{Block 4}} -- (0,0.3);
+  \draw (2,4) node[fill =black!20, draw=black, dotted,text width=3.5cm]{\footnotesize{Identification number}};
+
+  \draw [decorate,decoration={brace,amplitude=4pt},xshift=0pt]
+(0.2,3.3) -- (3.8,3.3) node[midway,yshift=12pt] {\footnotesize{}};
+
+  \draw (2,1.9) node[fill =black!20, draw=black, dashed,text width=3.4cm]{\footnotesize{$\bullet$ Transactions\\ \vspace{0.2cm}
+  $\bullet$ ID previous block\\ \vspace{0.2cm}
+  \hspace{1.4cm}\dots\\ \vspace{0.2cm}
+  $\bullet$ Variation (\textit{nonce})}};
+\end{scope}
+
+
+%%%%%%%%
+
+
+  \draw[->] (3.8,4) to[out = 0, in =180 ] (5.3,2.27);
+  \draw[->] (8.8,4) to[out = 0, in =180 ] (10.3,2.27);
+  \draw[->] (13.8,4) to[out = 0, in =180 ] (15.3,2.27);
+  \draw[->] (18.8,4) to[out = 0, in =180 ] (20.3,2.27);
+  \draw[->] (23.8,4) to[out = 0, in =180 ] (25.3,2.27);
+
+  \draw[->] (8.8,4) to[out = 320, in =180 ] (10.3,-3.73);
+  \draw[->] (13.8,-2) to[out = 0, in =180 ] (15.3,-3.73);
+
+  \draw (30,2.3) node[]{\Huge{\textbf{...}}};
+  \draw (20,-3.7) node[]{\Huge{\textbf{...}}};
+
+\end{tikzpicture}
