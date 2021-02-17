@@ -1,0 +1,272 @@
+% Choose one to switch between slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Monetary Theory Basics}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{What Is Money?}
+	Money emerges without government intervention \cite{mengerOrigin1892}.
+	\begin{figure}
+		\input{../assets/figures/barter.tex}
+	\end{figure}
+	\uncover<3->{$\rightarrow$ Generally accepted medium of exchange.}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Dominant Medium of Exchange}
+	The acceptance of money as a coordination game:
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\begin{footnotesize}
+				\begin{itemize}
+					\color{focus}
+					\item<1-> If $\Pi = 0$: choose $\pi = 0$
+					\item<2-> If $\Pi = 1$: choose $\pi = 1$
+					\item<3-> If $\Pi > \hat\Pi > 0$: choose $\pi = 1$
+					\item<3-> If $\Pi < \hat\Pi < 1$: choose $\pi = 0$
+				\end{itemize}
+			\end{footnotesize}
+			\begin{figure}
+				\input{../assets/figures/acceptance.tex}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\input{../assets/figures/coordination.tex}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Money Is Memory}
+	Money is a primitive form of memory \cite{kocherlakotaMoney1998}.
+		\begin{figure}
+			\input{../assets/figures/memory.tex}
+		\end{figure}
+	\uncover<4->{$\rightarrow$ Larger groups require money because trust is limited.}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{The Three Basic Functions of Money}
+	Money performs three basic functions:
+	\begin{figure}
+		\input{../assets/figures/functions.tex}
+	\end{figure}
+	\uncover<2->{\textbf{Medium of exchange:} more efficient trade and optimized allocation of goods and services.} \\
+	\vspace{0.5em}
+	\uncover<3->{\textbf{Unit of account:} universal reference to simplify the comparison of value between goods and services.} \\
+	\vspace{0.5em}
+	\uncover<4->{\textbf{Store of value:} saving.}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Medium of Exchange}
+	Double coincidence of wants: find someone who has bread \textcolor{focus}{\textbf{and}} wants an apple.
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\begin{center}
+					\includegraphics[height = 0.1\textheight, rotate = 30]{../assets/images/bread}
+				\end{center}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\begin{center}
+					\includegraphics[width = 0.1\textheight]{../assets/images/apple}
+				\end{center}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vspace{1.5em}
+	\uncover<2->{Number of trading pairs in a very simple economy:}
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\uncover<2->{
+				\begin{footnotesize}
+					\begin{center}
+						\begin{tabular}{l||c|c|c|c}
+			    				& Bread & Meat & Apple & Beer \\ \hline \hline
+							Bread    & \cellcolor{highlight!90} & \cellcolor{highlight!50} & \cellcolor{highlight!50} & \cellcolor{highlight!50} \\ \hline
+							Meat &      & \cellcolor{highlight!90} & \cellcolor{highlight!50} & \cellcolor{highlight!50} \\ \hline
+							Apple  &      &         & \cellcolor{highlight!90} & \cellcolor{highlight!50} \\ \hline
+							Beer    &      &         &        & \cellcolor{highlight!90} \\
+						\end{tabular}
+					\end{center}
+				\end{footnotesize}
+			}
+		\uncover<2->{
+			\begin{align*}
+				\frac{n^2-n}{2} = \frac{n(n-1)}{2}
+			\end{align*}
+		}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\uncover<3->{
+				\begin{footnotesize}
+					\begin{center}
+						\begin{tabular}{l||c|c|c|c}
+								& Bread & Meat & Apple & Beer \\ \hline \hline
+							Beer    &      &         &        & \cellcolor{highlight!90} \\
+						\end{tabular}
+					\end{center}
+				\end{footnotesize}
+				\uncover<3->{
+					\vspace{3.5em}
+					\begin{align*}
+						n-1
+					\end{align*}
+				}
+			}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%%%
+\begin{frame}{Medium of Exchange}
+	\begin{figure}
+		\input{../assets/figures/medium.tex}
+	\end{figure}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Examples of Dominant Media of Exchange}
+	\begin{figure}
+		\input{../assets/figures/money_examples}	
+	\end{figure}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Unit of Account}
+	The same problem occurs for the quantity ratios:
+	\vspace{1em}
+	\begin{center}
+		\begin{tabular}{l||c|c|c|c}
+       			& Bread & Meat & Apple & Beer \\ \hline \hline
+			Bread    & 1:1 & \cellcolor{highlight!50} & \cellcolor{highlight!50} & \cellcolor{highlight!50} \\ \hline
+			Meat &   1:8   & 1:1 & \cellcolor{highlight!50} & \cellcolor{highlight!50} \\ \hline
+			Apple  &   1:2  &    4:1 & 1:1 & \cellcolor{highlight!50} \\ \hline
+			Beer    &   1:4  &    2:1  &  1:2    & 1:1     
+		\end{tabular}
+	\end{center}
+	\vspace{1.5em}
+	\uncover<2->{
+		Instead, describe the price in terms of the dominant medium of exchange:\\
+		\begin{itemize}
+			\item Bread = 0.25 beer 
+			\item Meat = 2 beer
+			\item Apple = 0.5 beer
+		\end{itemize}
+	}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Store of Value}
+	Why do people save?
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\includegraphics[height = 0.1\textheight]{../assets/images/cake}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\uncover<2->{\includegraphics[height = 0.1\textheight]{../assets/images/mansion}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\uncover<3->{
+		\begin{figure}
+			\input{../assets/figures/inflation.tex}
+			\caption*{\textit{Data}: FRED Economic Research}
+		\end{figure}
+	}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{The Properties of Money}	
+	\begin{figure}
+		\input{../assets/figures/properties.tex}	
+	\end{figure}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Monetary Value}
+	\begin{table}[h]
+		\begin{center}
+			\begin{tabular}{rl}
+			\hline \hline
+  				& \text{Intrinsic value}               \\
+			\uncover<2->{\text{+} & \text{Promise of payment}} \\
+			\uncover<3->{\text{+} & \text{Liquidity premium}} \\
+			\hline
+			\uncover<3->{\text{=} & \text{Market value of monetary unit}} \\ \hline \hline
+			\end{tabular}
+		\end{center}
+	\end{table}
+	\vspace{0.8cm}
+	\textbf{Intrinsic value:} Material value of the good which does not depend on the good's monetary function.\\
+	\vspace{0.5em}
+	\uncover<2->{\textbf{Promise of payment:} Components which do not depend on the materialistic value of the good. Subject to issuer risk.} \\
+	\vspace{0.5em}
+	\uncover<3->{\textbf{Liquidity premium:} Option to flexibly trade the monetary unit for arbitrary goods.} \\
+	\vspace{0.5em}
+%	\uncover<5->{\textbf{Speculation value:} Option of profit in case of increase in value.}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Different Types of Money}
+	\begin{figure}
+		\input{../assets/figures/types.tex}
+	\end{figure}
+	\vspace{1.em}
+	\begin{table}[h]
+		\begin{center}
+			\begin{tabular}{lccc}
+				\hline \hline
+					& Intrinsic & Promise & Premium \\
+				Commodity money  &   +  &   & (+) \\
+				\uncover<2->{Credit money &      & + & (+)} \\
+				\uncover<3->{Fiat money  &      &   &  +}  \\ \hline \hline
+			\end{tabular}
+		\end{center}
+	\end{table}
+\end{frame}
+%%%
+
+\begin{frame}%[allowframebreaks]
+\frametitle{References}
+	\bibliographystyle{amsplain}
+	\bibliography{../assets/bib/refs}
+\end{frame}
+
+\end{document}
