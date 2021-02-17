@@ -29,68 +29,71 @@
 What we already know: \\ 
 \vspace{1em}
 	\begin{enumerate}
-		\item<1->{transactions = messages distributed over the bitcoin network}
-		\item<2->{basis for adjustment of the ledger}
-		\item<3->{only possibility to transfer funds}
-		\item<4->{no accounts}
-		\item<5->{all transactions are publicly viewable}
+		\item<1->{Transactions = messages distributed over the bitcoin network}
+		\item<2->{Basis for adjustment of the ledger}
+		\item<3->{Only possibility to transfer funds}
+		\item<4->{No accounts}
+		\item<5->{All transactions are publicly viewable}
 	\end{enumerate}
 \end{frame}
 %%%
 
 
 %%%
-\begin{frame}{How to transfer a bitcoin unit} %mehr dazu auf Bitcoin Wiki nicht gefunden
+\begin{frame}{How to transfer a Bitcoin Unit} %mehr dazu auf Bitcoin Wiki nicht gefunden
 
 \begin{enumerate}
-		\item<1->{create transaction message}
-		\item<2->{cryptographically sign message}
-		\item<3->{propagate transaction to other network participants}
-		\item<4->{nodes check if transaction is valid and forward it to their connected nodes}
+		\item<1->{Create transaction message}
+		\item<2->{Cryptographically sign message}
+		\item<3->{Propagate transaction to other network participants}
+		\item<4->{Nodes check if transaction is valid and forward it to their connected nodes}
 	\end{enumerate}	
 \end{frame}
 %%%
 
 
 %%%
-\begin{frame}{Content of a transaction} %Structure of a transaction
+\begin{frame}{Content of a Transaction}
+\centering
+\begin{figure}
 \input{../assets/figures/transaction-structure.tex}
+\end{figure} 
 \vspace{1em}
 \begin{itemize}
-  \item<2->{must contain at least one input and one output}
-  \item<3->{sum of inputs must be at least as high as sum of outputs}
-	\item<4->{credit can be divided to any number of output}
+  \item<2->{Must contain at least one input and one output}
+  \item<3->{Sum of inputs must be at least as high as sum of outputs}
+	\item<4->{Credit can be divided to any number of output}
 \end{itemize}
 \end{frame}	
 %%%
 
 
 %%%
-\begin{frame}{unlocking condition}
+\begin{frame}{Unlocking Condition}
 \begin{itemize}
-    \item<1->{transaction outputs contain unlocking condition}
-    \item<2->{flexibility about what unlocking condition is defined}
-    \item<3->{for example: condition can be met by signature with corresponding private key}
+    \item<1->{Transaction outputs contain unlocking condition}
+    \item<2->{Flexibility about what unlocking condition is defined}
+    \item<3->{E.g.: condition can be met by signature with corresponding private key}
 \end{itemize}
 \end{frame}        
 %%%
 
 
 %%%
-\begin{frame}{Unspent transaction outputs}
+\begin{frame}{Unspent Transaction Outputs}
 \begin{itemize}
-    \item<1->{output can only be used once as input}
-    \item<2->{unspent transaction output = UTXO}
+    \item<1->{Output can only be used once as input}
+    \item<2->{Unspent transaction output = UTXO}
     \item<3->{UTXO's are the systems value storage}
-    \item<4->{stored on the blockchain and RAM of every full-node}
-    \item<5->{bitcoin units can only exist in this form}
+    \item<4->{Stored on the blockchain and RAM of every full-node}
+    \item<5->{Bitcoin units can only exist in this form}
 \end{itemize}    
 \end{frame}
 %%%
 
 
 %%%
-\begin{frame}{Example: transaction hierarchy}
+\begin{frame}{Example: Transaction Hierarchy}
 \resizebox{10.7cm}{7cm}{
 \input{../assets/figures/transaction-process.tex}
 }
@@ -99,20 +102,32 @@ What we already know: \\
 
 
 %%%
-\begin{frame}{transaction types}
+\begin{frame}{Transaction Types}
 \begin{columns}
 
 \column{0.5\textwidth}
-\vspace{1cm}
-\input{../assets/figures/forwarding-transaction-type.tex} 
-\vspace{0.4cm}
-\input{../assets/figures/dividing-transaction-type.tex}
-
+	\vspace{1cm}
+	\begin{figure}
+		\input{../assets/figures/forwarding-transaction-type.tex}
+		\vspace{2.5em}
+		\caption*{forwarding}
+	\end{figure} 
+	\vspace{0.4cm}
+	\begin{figure}
+		\input{../assets/figures/dividing-transaction-type.tex}
+		\caption*{splitting}
+	\end{figure}
 \column{0.5\textwidth}
-\input{../assets/figures/aggregating-transaction-type.tex}
-\vspace{0.5cm}
-\input{../assets/figures/m-to-n-transaction-type.tex}
-
+	\begin{figure}
+		\input{../assets/figures/aggregating-transaction-type.tex}
+		\caption*{aggregating}
+	\end{figure}
+	\vspace{0.5cm}
+	\begin{figure}
+		\input{../assets/figures/m-to-n-transaction-type.tex}
+		\caption*{combined (m to n)}
+	\end{figure}
+	
 \end{columns}
 \end{frame}
 %%%
@@ -121,8 +136,8 @@ What we already know: \\
 %%%
 \begin{frame}{Input $\neq$ Output ?}
 \begin{itemize}
-    \item<1->{if value output $>$ value input $\rightarrow$ transaction invalid}
-    \item<2->{if value output $<$ value input $\rightarrow$ miner gets difference}
+    \item<1->{If value output $>$ value input $\rightarrow$ transaction invalid}
+    \item<2->{If value output $<$ value input $\rightarrow$ miner gets difference}
     \end{itemize} 
     \vspace{2em}
 \begin{center}

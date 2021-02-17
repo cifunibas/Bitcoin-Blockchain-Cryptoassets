@@ -1,8 +1,6 @@
 %forwarding transaction
 
 %%
-\begin{figure}
-\centering
 \begin{tikzpicture}[domain=-3:3,scale=0.7, every node/.style={scale=0.7}]
      
       \draw[color=black] plot (0,2)   node[fill=highlight!15, thick, draw=highlight,below, rotate = 0] (Input) {\texttt{Input 1}};
@@ -10,8 +8,5 @@
       \draw[color=black] plot (3,2)   node[fill=highlight!15, thick, draw=highlight,below, rotate = 0] (Output) {\texttt{Output 1}};
  
  \draw[ -> ] (Input) -- (Output);       
-\end{tikzpicture} \\
-\vspace{2.6em}
-forwarding
-\end{figure}
+\end{tikzpicture}
 %%
