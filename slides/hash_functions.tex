@@ -56,7 +56,7 @@ Deterministic algorithm (\color{focus}function, $H()$\color{black}) that maps da
 					2 + 3 &= 5\ (mod\ 7) \\
 					2^5 &= 2\ (mod\ 5)
 				\end{align*}
-	$\Rightarrow$ Useful to create one-way functions\\
+	$\Rightarrow$ Useful to create one-way functions.\\
 	\end{minipage}
 	\hfill
 	\begin{minipage}[T]{0.3\textwidth}
@@ -99,10 +99,10 @@ Checksums find many applications to detect human errors in data entry or faulty 
 
 \footnotesize Steps:
 	\begin{itemize}
-		\item Take BBAN and append Country Code and 00 (empty checksum)
-		\item Translate characters of country code into 9 + \texttt{<position in alphabet>}
-		\item Perform mod97 operation and subtract from 98 to arrive at checksum
-		\item e.g., $98 - 4835012345678009121700 \mod 97 = 56$
+		\item Take BBAN and append Country Code and 00 (empty checksum).
+		\item Translate characters of country code into 9 + \texttt{<position in alphabet>}.
+		\item Perform mod97 operation and subtract from 98 to arrive at checksum.
+		\item e.g., $98 - 4835012345678009121700 \mod 97 = 56$.
 	\end{itemize}}
 	
 \end{frame}
@@ -114,7 +114,7 @@ Checksums find many applications to detect human errors in data entry or faulty 
 \textbf{Other checksum examples:}
 	\begin{itemize}
 		\item Credit Cards
-		\item Vehicle Identification Numbers in US and Canada
+		\item Vehicle Identification Numbers (U.S. and Canada)
 		\item Radio protocols (often modulo on bytes)
 		\item Communication (parity bits)
 	\end{itemize}
@@ -126,7 +126,7 @@ CH\color{focus}56\color{black}04835012345678009 vs. CH\color{focus}56\color{blac
 \end{center}}
 
 
-$\Rightarrow$ For security purposes, simple hashes are of limited use
+$\Rightarrow$ For security purposes, simple hashes are of limited use.
 	
 \end{frame}
 %%%	
@@ -136,10 +136,10 @@ $\Rightarrow$ For security purposes, simple hashes are of limited use
 
 Additional criteria:
 	\begin{enumerate}
-		\item Approximately uniform hash value distribution
-		\item Quick to compute for any given pre-image
-		\item Trap-door: Infeasible to generate pre-image from hash value
-		\item Avalanche effect: Small change in input results in totally different output
+		\item Approximately uniform hash value distribution.
+		\item Quick to compute for any given pre-image.
+		\item Trap-door: Infeasible to generate pre-image from hash value.
+		\item Avalanche effect: Small change in input results in totally different output.
 		\item Very low collision probability: Unlikely that two pre-images generate the same hash value.
 	\end{enumerate}
 	\vspace{1em}
@@ -191,7 +191,7 @@ Due to the fixed size of $h$, the corresponding hash function $H()$ can only pro
 
 SHA256:
 	\begin{itemize}
-		\item Almost all known combinations of 256 Bits, i.e.,  $2^{256}$ $h$
+		\item Almost all known combinations of 256 Bits, i.e.,  $2^{256}$ $h$.
 		\item In base 10, this is any number between 1 and 115'792'089' 237'316'195'423'570'985'008'687'907’852'837'564'279'074' 904'382'605'163'141'518'161'494'336.
 	\end{itemize}
 \vspace{1em}
