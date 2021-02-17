@@ -116,6 +116,18 @@ This approach ensures transaction \color{focus}authenticity \color{black}and \co
 %%%
 
 %%%
+\begin{frame}{Transaction Consensus}
+\textbf{Goal: }Deciding which (legitimate) transactions are valid. \\
+\vspace{1em}
+Double spend problem: \\
+\begin{figure}[h!]
+	\center
+	\input{../assets/figures/double-spend.tex}
+\end{figure}
+\end{frame}
+%%%
+
+%%%
 \begin{frame}{Blocks and the Blockchain}
 Transactions are bundled into blocks \\
 \includegraphics[width=6cm]{../assets/images/block_1.png} \\
@@ -125,6 +137,20 @@ Blocks are sequentially linked $\rightarrow $ blockchain \\
 } 
 \end{frame}
 %%%
+
+%%%
+\begin{frame}{Simplified Structure of the Blockchain}
+\begin{figure}[h!]
+	\center
+	\input{../assets/figures/blockchain-example.tex}
+\end{figure}
+\begin{itemize}
+\item{Change in a block component results in a change in the identification number.}
+\item{If an earlier block content is changed, this leads to inconsistency in the chain structure.}
+\end{itemize}
+\end{frame}
+%%%
+
 
 %%%
 \begin{frame}{Bitcoin Miner}
@@ -171,15 +197,5 @@ How to reach a consensus?: \\
 %%%
 
 
-%%%
-\begin{frame}{Double-Spending}
-
-Double spend problem: \\
-\begin{figure}[h!]
-	\center
-	\input{../assets/figures/double-spend.tex}
-\end{figure}
-\end{frame}
-%%%
 
 \end{document}
