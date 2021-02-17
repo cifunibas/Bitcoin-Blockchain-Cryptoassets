@@ -78,11 +78,12 @@ Because of the decentralized infrastructure, the transaction \textbf{capacity}, 
 		\input{../assets/figures/transaction-capacity.tex}
 	\end{figure}\vspace{1em}
 
-\uncover<2->{        
+\uncover<2->{       
+	Peer-to-Peer Network: 
         \begin{itemize}
-		\item<1-> permissionless, censorship-resistant
-		\item<1-> participants are equal
-		\item<1-> peer-to-peer network %(an. Bit Torrent) %robust
+		\item<1-> permissionless
+		\item<1-> censorship-resistant
+		\item<1-> No special privileges
 		\end{itemize}
 		}
 \end{frame}
@@ -159,11 +160,12 @@ Network participants, who decide to allocate computing power in order to create 
 \includegraphics[width=6cm]{../assets/images/miner.png}
 
 \begin{itemize}
-\item{Chooses status quo on which to base its block (current state of consensus)}
-\item{Chooses any transactions from its queue to create a block, as long as they...}
+\item{Miner chooses the status quo on which to base its block (most recent version of Blockchain)}
+\item{Miner chooses a subset of the transactions from its queue (mempool) to create a block, as long as they...}
 	\begin{itemize}
-	\item{...are legitimate}
-	\item{...do not conflict with other transactions}
+	\item{\dots are legitimate}
+	\item{\dots do not conflict with other transactions}
+	\item{\dots do not exceed block size limitation}
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -188,14 +190,12 @@ Anyone can propose a new block. \\ \vspace{1.5em}
 
 \includegraphics[width=9cm]{../assets/images/consensus_problem.png}
 
-How to reach a consensus?: \\
+How to reach consensus?: \\
 	\begin{itemize}
 	\item Centralized decision (Proof-of-Authority)
 	\item \color{focus}Decentralized lottery (Proof-of-Work)
 	\end{itemize} 
 \end{frame}
 %%%
-
-
 
 \end{document}
