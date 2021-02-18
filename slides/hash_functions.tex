@@ -32,7 +32,7 @@ Deterministic algorithm (\color{focus}function, $H()$\color{black}) that maps da
 
 \vspace{1.5em}
 	
-\uncover<1->{
+\uncover<2->{
 \textbf{Application fields:} (non-exhaustive)
 	\begin{itemize}
 		\item Data protection
@@ -70,15 +70,15 @@ Deterministic algorithm (\color{focus}function, $H()$\color{black}) that maps da
 
 
 
-\uncover<1->{
+\uncover<2->{
 \vspace{0.5em}
 \textbf{Simplified hash function}
 	\begin{align}
 		h \ (mod\ 12) = m 
 		\label{eq:simple_hash_function}
-	\end{align}}
+	\end{align}
 This example accepts any numeric pre-image $m$ and returns a corresponding hash value $h$ $\in \{0,...,11\}$.
-
+}
 
 \end{frame}
 %%%
@@ -90,7 +90,7 @@ This example accepts any numeric pre-image $m$ and returns a corresponding hash 
 Checksums find many applications to detect human errors in data entry or faulty / incomplete data transmission.
 
 \vspace{1em} 
-\uncover<1->{IBAN Example:
+\uncover<2->{IBAN Example:
 
 		\begin{figure}[h]
   			\center
@@ -120,13 +120,14 @@ Checksums find many applications to detect human errors in data entry or faulty 
 	\end{itemize}
 
 \vspace{1em}
-\uncover<1->{Purpose to \textbf{detect accidents}, not to \textbf{prevent attacks}:
+\uncover<2->{Purpose to \textbf{detect accidents}, not to \textbf{prevent attacks}:
 \begin{center}
 CH\color{focus}56\color{black}04835012345678009 vs. CH\color{focus}56\color{black}048350123456\color{focus}877\color{black}09
-\end{center}}
+\end{center}
 
 
 $\Rightarrow$ For security purposes, simple hashes are of limited use.
+}
 	
 \end{frame}
 %%%	
@@ -144,7 +145,7 @@ Additional criteria:
 	\end{enumerate}
 	\vspace{1em}
 
-\uncover<1->{In Bitcoin context, the functions \color{focus}SHA2.256 \color{black} (in short SHA256) and \color{focus}RIPEMD160 \color{black}are used. Both satisfy the above criteria.}
+\uncover<2->{In Bitcoin context, the functions \color{focus}SHA2.256 \color{black} (in short SHA256) and \color{focus}RIPEMD160 \color{black}are used. Both satisfy the above criteria.}
 	
 \end{frame}
 %%%	
@@ -196,11 +197,11 @@ SHA256:
 	\end{itemize}
 \vspace{1em}
 
-\uncover<1->{Probability of a hexadecimal hash with certain characteristics:\\
-\vspace{0.5em}
+\uncover<2->{Probability of a hexadecimal hash with certain characteristics:\\
+\vspace{0.75em}
 \tiny 
 $P(h \leq \color{focus}0\color{black}FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF) = \dfrac{1}{16}$\\
-\vspace{1em}
+\vspace{0.75em}
 $P(h \leq \color{focus}00\color{black}FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF) = \left( \dfrac{1}{16} \right)^{2} $
 
 \normalsize}
@@ -254,7 +255,7 @@ $P(h \leq \color{focus}00\color{black}FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 	%
 	\vspace{1.5em}
 	%
-	\uncover<1->{
+	\uncover<2->{
 		\begin{columns}[T]
 			\begin{column}{0.1\textwidth}
 					\includegraphics[width = 1.65cm, frame]{../assets/images/katz_lindell_cover}
