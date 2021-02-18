@@ -52,7 +52,7 @@ Because of the decentralized infrastructure, the transaction \textbf{capacity}, 
 
 %%%
 \begin{frame}{Transaction Capacity}
-\textbf{Goal:} ensuring the ability to initiate a transaction  \\
+\textbf{Goal:} Ensuring the ability to initiate a transaction.  \\
 	\begin{figure}[h!]
 		\center
 		\input{../assets/figures/transaction-capacity.tex}
@@ -76,7 +76,7 @@ Because of the decentralized infrastructure, the transaction \textbf{capacity}, 
 	\begin{figure}[h!]
 		\center
 		\input{../assets/figures/transaction-encryption.tex}
-		\caption{Encryption and decryption of the transaction message.}
+		\caption*{Encryption and decryption of the transaction message}
 		\label{fig:asymmeinfach}
 	\end{figure}
 \end{frame}
@@ -110,10 +110,10 @@ Double-Spending: \\
 
 %%%
 \begin{frame}{Blocks and the Blockchain}
-Transactions are bundled into blocks \\
+Transactions are bundled into blocks. \\
 \includegraphics[width=6cm]{../assets/images/block_1.png} \\
 \uncover<2->{
-Blocks are sequentially linked $\rightarrow $ blockchain \\
+Blocks are sequentially linked $\rightarrow $ Blockchain \\
 \includegraphics[width=6cm]{../assets/images/blocks_3.png}
 } 
 \end{frame}
@@ -125,6 +125,7 @@ Blocks are sequentially linked $\rightarrow $ blockchain \\
 	\center
 	\input{../assets/figures/blockchain-example.tex}
 \end{figure}
+\vspace{1em}
 \begin{itemize}
 \item{Change in a block component results in a change in the identification number.}
 \item{If an earlier block content is changed, this leads to inconsistency in the chain structure.}
@@ -138,15 +139,18 @@ Blocks are sequentially linked $\rightarrow $ blockchain \\
 Network participants, who decide to allocate computing power in order to create new blocks are called Bitcoin Miners.
 \center
 \includegraphics[width=6cm]{../assets/images/miner.png}
-
-\begin{itemize}
-\item{Miner chooses the status quo on which to base its block (most recent version of Blockchain)}
-\item{Miner chooses a subset of the transactions from its queue (mempool) to create a block, as long as they...}
+\uncover<2->{
 	\begin{itemize}
-	\item{\dots are legitimate}
-	\item{\dots do not conflict with other transactions}
-	\item{\dots do not exceed block size limitation}
+	\item{Miner chooses the status quo on which to base its block. (Most recent version of Blockchain)}
+}
+\uncover<3->{
+	\item{Miner chooses a subset of the transactions from its queue (mempool) to create a block, as long as they...}
+	\begin{itemize}
+		\item{\dots are legitimate.}
+		\item{\dots do not conflict with other transactions.}
+		\item{\dots do not exceed block size limitation.}
 	\end{itemize}
+	}
 \end{itemize}
 \end{frame}
 %%%
@@ -179,7 +183,7 @@ How to reach consensus?: \\
 %%%
 
 %%%
-\begin{frame}{References and Recommended Reading}
+\begin{frame}{Recommended Reading}
 \begin{columns}
 	\begin{column}{0.3\textwidth}
 	\center
