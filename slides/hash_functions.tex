@@ -74,7 +74,7 @@ Deterministic algorithm (\color{focus}function, $H()$\color{black}) that maps da
 \vspace{0.5em}
 \textbf{Simplified hash function}
 	\begin{align}
-		h = m \: \mod \: 12
+		h \ (mod\ 12) = m 
 		\label{eq:simple_hash_function}
 	\end{align}}
 This example accepts any numeric pre-image $m$ and returns a corresponding hash value $h$ $\in \{0,...,11\}$.
@@ -101,8 +101,8 @@ Checksums find many applications to detect human errors in data entry or faulty 
 	\begin{itemize}
 		\item Take BBAN and append Country Code and 00 (empty checksum).
 		\item Translate characters of country code into 9 + \texttt{<position in alphabet>}.
-		\item Perform mod97 operation and subtract from 98 to arrive at checksum.
-		\item e.g., $98 - 4835012345678009121700 \mod 97 = 56$.
+		\item Perform modulo 97 operation and subtract from 98 to arrive at checksum.
+		\item e.g., $98 - 4835012345678009121700 = 56\ (mod\ 97) $.
 	\end{itemize}}
 	
 \end{frame}
