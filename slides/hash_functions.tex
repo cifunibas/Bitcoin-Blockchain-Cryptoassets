@@ -37,15 +37,15 @@ Deterministic algorithm (\color{focus}function, $H()$\color{black}) that maps da
 	\begin{itemize}
 		\item Data protection
 		\item Verification and authentication
-		\item Error detection
-		\item Data lookup optimization
 		\item Proof-of-work
+		\item Data lookup optimization
+		\item Error detection
 	\end{itemize}
 }	
 	
 \end{frame}
 
-%%%	
+%%%
 
 %%%
 \begin{frame}{Simplified Hash Function Using Modular Arithmetic}
@@ -207,6 +207,32 @@ $P(h \leq \color{focus}00\color{black}FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 
 	
 \end{frame}
+%%%	
+
+%%%
+\begin{frame}{Script Example: Mining for a Hash Meeting Set Criteria}
+
+\textbf{Goal:} Find a nonce that, together with a fixed input string, returns a SHA256 hash with five zeros to the left, i.e., 0x00000
+
+\vspace{1em}
+
+\textbf{Script logic:}
+\begin{enumerate}
+	\item Take \texttt{input} and add \texttt{nonce}, starting at 1.
+	\item Calculate SHA256 hash with \texttt{input} and \texttt{nonce} as pre-image.
+	\item Compare resulting \texttt{hash} against minimum zeros:
+	\begin{itemize}
+		\item Criteria not met: Increase nonce by 1 and  return to step 2.
+		\item Criteria met: Return \texttt{hash}, \texttt{nonce}, and time it took to find it.
+	\end{itemize} 
+\end{enumerate}
+
+\vspace{1em}
+
+\color{focus} \link \href {}{Try the script yourself.}
+	
+\end{frame}
+
 %%%	
 
 %%%	
