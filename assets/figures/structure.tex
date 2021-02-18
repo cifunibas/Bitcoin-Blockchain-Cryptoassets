@@ -11,13 +11,17 @@
 	\node[below = 18pt] at (1) {Creation};
 
 	% representation
-	\node[left] at (2) {\includegraphics[height = 0.1\textheight]{../assets/images/currency}};
-	\node[right] at (2) {\includegraphics[height = 0.1\textheight]{../assets/images/virtual}};
-	\node[below = 18pt] at (2) {Representation};
-
+	\uncover<2->{
+		\node[left] at (2) {\includegraphics[height = 0.1\textheight]{../assets/images/currency}};
+		\node[right] at (2) {\includegraphics[height = 0.1\textheight]{../assets/images/virtual}};
+		\node[below = 18pt] at (2) {Representation};
+	}
+	
 	% transaction processing
-	\node[left] at (3) {\includegraphics[height = 0.1\textheight]{../assets/images/agents/intermediary}};
-	\node[right] at (3) {\includegraphics[height = 0.1\textheight]{../assets/images/peer-to-peer}};
-	\node[below = 12pt] at (3) {Transaction\\ processing};
-
+	\uncover<3->{
+		\node[left] at (3) {\includegraphics[height = 0.1\textheight]{../assets/images/agents/intermediary}};
+		\node[right] at (3) {\includegraphics[height = 0.1\textheight]{../assets/images/peer-to-peer}};
+		\node[below = 12pt] at (3) {Transaction\\ processing};
+	}
+	
 \end{tikzpicture}
