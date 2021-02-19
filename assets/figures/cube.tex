@@ -19,21 +19,21 @@
      \draw[color=black, dotted] (6,-1) -- (11, 0.5);
      \draw[color=black, dotted] (6,4) -- (11, 5.5);
      
-	\draw[fill=highlight] (0,5) circle (0.12cm) node[right,color=black] {\scriptsize{Cash}};
+	 \draw[fill=highlight] (0,5) circle (0.12cm) node[right,color=black] {\scriptsize{Cash}};
      
      \draw[fill=highlight] (5,6.5) circle (0.12cm) node[right,color=black] {\scriptsize{Commodity money}};
      
      \draw[fill=highlight] (11,0.5) circle (0.12cm) node[right,color=black] {\scriptsize{Comm.\ bank deposits}};
      
-     \draw[fill=focus] (11,5.5) circle (0.12cm) node[right,color=focus] {\scriptsize{Bitcoin}};
+     \uncover<2->{\draw[fill=focus] (11,5.5) circle (0.12cm) node[right,color=focus] {\scriptsize{Bitcoin}};}
 
-     \draw[color=black] plot (0,0)                  node[left, rotate = 0] {\tiny{centralized}};
-     \draw[color=black] plot (0,5)                  node[left, rotate = 0] {\tiny{decentralized}};
+     \draw[color=black] plot (0,0) node[left, rotate = 0] {\tiny{centralized}};
+     \draw[color=black] plot (0,5) node[left, rotate = 0] {\tiny{decentralized}};
      
-     \draw[color=black] plot (0.5,0.2)                  node[right, rotate = 90] {\tiny{monopolistic}};
-     \draw[color=black] plot (4.45,3.1)                  node[left, rotate = 90] {\tiny{competitive}};
+     \draw[color=black] plot (0.5,0.2) node[right, rotate = 90] {\tiny{monopolistic}};
+     \draw[color=black] plot (4.45,3.1) node[left, rotate = 90] {\tiny{competitive}};
           
-     \draw[color=black] plot (0.85,-0.19)                  node[below, rotate = -9] {\tiny{physical}};
-     \draw[color=black] plot (5.1,-0.9)                  node[below, rotate = -9] {\tiny{virtual}};
+     \draw[color=black] plot (0.85,-0.19) node[below, rotate = -9] {\tiny{physical}};
+     \draw[color=black] plot (5.1,-0.9) node[below, rotate = -9] {\tiny{virtual}};
      
 \end{tikzpicture}
