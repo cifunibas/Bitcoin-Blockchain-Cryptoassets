@@ -31,25 +31,36 @@
 	\end{figure} 
 \vspace{1em}
 \begin{itemize}
-  	\item<2->{Must contain at least one in- and output}
-  	\item<3->{Sum of inputs must be at least as high as sum of outputs}
-	\item<4->{Credit can be divided to any number of output}
+  	\item<2->{Transaction must contain at least one in- and output.}
+  	\item<3->{Sum of inputs must be at least as high as sum of outputs.}
 \end{itemize}
 \end{frame}	
 %%%
 
 
 %%%
-\begin{frame}{Unlocking Condition \& UTXO model}
-    %\item{Transaction outputs contain unlocking condition}
-    %\item{E.g.: condition can be met by signature with corresponding private key}
-    %\item{In principle, there is a certain flexibility in setting the unlocking condition}
-    %\item{Output can only be used once as input}
+\begin{frame}{UTXO model}
+
+\begin{columns}
+  \begin{column}{0.7\textwidth}
+    \begin{figure}[h!]
+    \center
+    \input{../assets/figures/utxo.tex}
+    \end{figure}
+  \end{column}
+  
+  \begin{column}{0.3\textwidth}
+  Only Output 3 is a \texttt{UTXO}.
+  \end{column}
+\end{columns}
+\end{frame}
+%\begin{itemize}
+    %\item{Output can only be referenced once as input}
     %\item{Unspent transaction output = UTXO}
     %\item{UTXO's are the system's value storage}
     %\item{Stored on the blockchain and RAM of every full-node}
-    %\item{Bitcoin units can only exist in this form}
-\end{frame}       
+%\end{itemize} 
+%\end{frame}       
 %%%
 
 
