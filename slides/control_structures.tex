@@ -1,0 +1,183 @@
+% Choose one to switch betweeen slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Monetary Control Structures}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{Monetary Control Structures}
+	Monetary units display three different control structures:
+	\vspace{1.5em}
+	\begin{figure}
+		\input{../assets/figures/structure.tex}
+	\end{figure}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Matrix of the Control Structures}
+	\begin{figure}
+		\input{../assets/figures/cube_yap.tex}
+	\end{figure}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Competitive Creation}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\input{../assets/figures/competitive_creation_incr.tex}
+				\caption*{(a) Increasing marginal costs}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\uncover<2->{
+					\input{../assets/figures/competitive_creation_const.tex}
+					\caption*{(b) Constant marginal costs}
+				}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Monopolistic Creation}
+	\begin{figure}
+		\input{../assets/figures/monopolistic_creation.tex}
+		\caption*{Monopolistic money creation with constant marginal costs}
+	\end{figure}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Physical Representation}
+	\textbf{Physical monetary units are tied to an object}
+	\vspace{1em}
+	\begin{figure}
+		\centering
+		\includegraphics[height = 0.15\textheight]{../assets/images/currency}
+	\end{figure}
+	\vspace{1em}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\uncover<2->{
+				\textbf{Pros:}
+				\begin{itemize}
+					\item Simple
+					\item Clear ownership rights
+					\item Anonymity
+					\item No systemic dependency
+				\end{itemize}
+			}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\uncover<3->{
+				\textbf{Cons:}
+				\begin{itemize}
+					\item Location bound
+					\item Safekeeping and transport
+					\item Counterfeiting
+					\item Divisibility
+				\end{itemize}
+			}
+		\end{column}	
+	\end{columns}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Virtual Representation}
+	\textbf{Virtual monetary units allow the transfer of value without any change in the physical control of a particular object.}
+	\vspace{1em}
+	\begin{figure}
+		\centering
+		\includegraphics[height = 0.15\textheight]{../assets/images/virtual}
+	\end{figure}
+	\vspace{1em}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\uncover<2->{
+				\textbf{Pros:}
+				\begin{itemize}
+					\item No physical handover
+				\end{itemize}
+			}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\uncover<3->{
+				\textbf{Cons:}
+				\begin{itemize}
+					\item Contestable
+				\end{itemize}
+			}
+		\end{column}	
+	\end{columns}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Transaction Processing}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\textbf{Decentralized}
+			\begin{figure}
+				\begin{flushleft}
+					\input{../assets/figures/dec_process.tex}
+				\end{flushleft}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\uncover<2->{
+				\textbf{Centralized}
+				\begin{figure}
+					\begin{flushleft}
+						\input{../assets/figures/cen_process.tex}
+					\end{flushleft}
+				\end{figure}
+			}
+		\end{column}
+	\end{columns}
+	\vspace{1.5em}
+	\uncover<3->{
+	For virtual monetary units:
+	\begin{center}
+			\begin{tabular}{lccc}
+				\hline \hline
+					& Decentralized & Centralized \\
+				Transaction capacity  & \uncover<6->{\checkmark} & \uncover<4->{\checkmark} \\
+				Transaction legitimacy & \uncover<6->{\checkmark} & \uncover<4->{\checkmark} \\
+				Transaction consensus & \uncover<6->{?} & \uncover<4->{\checkmark} \\ \hline \hline
+			\end{tabular}
+		\end{center}
+	}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Desirable Control Structures}
+	\begin{figure}
+		\input{../assets/figures/cube.tex}
+	\end{figure}
+\end{frame}
+%%%
+
+\end{document}
