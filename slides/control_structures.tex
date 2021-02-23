@@ -22,7 +22,7 @@
 
 %%%
 \begin{frame}{Monetary Control Structures}
-	Monetary units display three different control structures:
+	Monetary control structures can be described along three dimensions:
 	\vspace{1.5em}
 	\begin{figure}
 		\input{../assets/figures/structure.tex}
@@ -136,28 +136,27 @@
 
 %%%
 \begin{frame}{Transaction Processing}
-	\begin{columns}
+	\begin{columns}[T]
 		\begin{column}{0.5\textwidth}
+			\center
 			\textbf{Decentralized}
 			\begin{figure}
-				\begin{flushleft}
-					\input{../assets/figures/dec_process.tex}
-				\end{flushleft}
+				\input{../assets/figures/dec_process.tex}
 			\end{figure}
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\uncover<2->{
+				\center
 				\textbf{Centralized}
 				\begin{figure}
-					\begin{flushleft}
-						\input{../assets/figures/cen_process.tex}
-					\end{flushleft}
+					\input{../assets/figures/cen_process.tex}
 				\end{figure}
 			}
 		\end{column}
 	\end{columns}
 	\vspace{1.5em}
 	\uncover<3->{
+	\vspace{1.5em}
 	For virtual monetary units:
 	\begin{center}
 			\begin{tabular}{lccc}
@@ -165,7 +164,7 @@
 					& Decentralized & Centralized \\
 				Transaction capacity  & \uncover<6->{\checkmark} & \uncover<4->{\checkmark} \\
 				Transaction legitimacy & \uncover<6->{\checkmark} & \uncover<4->{\checkmark} \\
-				Transaction consensus & \uncover<6->{?} & \uncover<4->{\checkmark} \\ \hline \hline
+				Transaction consensus & \uncover<6->{\textcolor{focus}?} & \uncover<4->{\checkmark} \\ \hline \hline
 			\end{tabular}
 		\end{center}
 	}
