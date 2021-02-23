@@ -7,10 +7,10 @@
 \definecolor {lgray}{rgb}{194,194,194}
 
 % Payee
-	\node 			(payee) at (12,7) {\includegraphics[width = 1 cm]{../assets/images/avatar.png}};
+	\node 			(payee) at (12,7) {\includegraphics[height = 1.6cm]{../assets/images/avatar_left.png}};
 
 % Payer
-	\node 			(payer) at (0,7) {\includegraphics[width = 1 cm]{../assets/images/avatar.png}};
+	\node 			(payer) at (0,7) {\includegraphics[height = 1.6cm]{../assets/images/avatar_right.png}};
 	
 
 % Stone
@@ -20,23 +20,23 @@
 
 
 % Network
-	\node			(agenta) at (1,2.8) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};
-	\node 			(agentb) at (0.5,1) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};
-	\node 			(agentc) at (3,2.1) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};
-	\node 			(agentd) at (2.8,0) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};
-	\node 			(agente) at (5,4.3) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};	
-	\node 			(agentf) at (5.1,1.1) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};
-	\node 			(agentg) at (7.5,3.8) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};
-	\node 			(agenth) at (6.7,0.4) {\includegraphics[width = 0.6 cm]{../assets/images/avatar.png}};	
+	\node			(agenta) at (1,2.8) {\includegraphics[width = 0.6 cm]{../assets/images/avatar_rand3.png}};
+	\node 			(agentb) at (0.5,1) {\includegraphics[width = 0.6 cm]{../assets/images/avatar_rand4.png}};
+	\node 			(agentc) at (3,2.1) {\includegraphics[width = 0.6 cm]{../assets/images/avatar_rand5.png}};
+	\node 			(agentd) at (2.8,0) {\includegraphics[width = 0.6 cm]{../assets/images/avatar_rand1.png}};
+	\node 			(agente) at (5,4.3) {\includegraphics[width = 0.6 cm]{../assets/images/avatar_rand2.png}};	
+	\node 			(agentf) at (5.1,1.1) {\includegraphics[width = 0.6 cm]{../assets/images/avatar_rand3.png}};
+	\node 			(agentg) at (7.5,3.8) {\includegraphics[width = 0.6 cm]{../assets/images/avatar_rand4.png}};
+	\node 			(agenth) at (6.7,0.4) {\includegraphics[width = 0.6 cm]{../assets/images/avatar_rand5.png}};	
 	
 
 % Goods vs. Money flow
 	
-	\draw[->, thick, dashed]	([yshift=0.5cm]payer.south east) -- ([yshift=0.5cm]payee.south west) node[midway, fill=white] {Stone Property Rights};
+	\draw[->, thick, dashed]	([yshift=1cm]payer.south east) -- ([yshift=1cm]payee.south west) node[midway, fill=white] {Stone Property Rights};
 	
 	\draw[->, thick, dashed]	(payer.south) -- (agenta.north) node[midway, fill=white, align = center, text = focus] {\footnotesize "Payee is new owner\\ \footnotesize of stone XY"};
 
-	\draw[<-, thick]		([yshift=-0.5cm]payer.north east) -- ([yshift=-0.5cm]payee.north west) node[midway, fill=white] {Goods / Services};
+	\draw[<-, thick]		([yshift=-1cm]payer.north east) -- ([yshift=-1cm]payee.north west) node[midway, fill=white] {Goods / Services};
 	
 % Network flow
 
