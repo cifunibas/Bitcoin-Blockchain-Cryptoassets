@@ -1,0 +1,229 @@
+% Choose one to switch between slides and handout
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Transaction Consensus: Fork Theory}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+
+%%%
+\begin{frame}{What is a Fork?}
+
+\color{focus} Disagreement on the current state \color{black} of the ledger that, if persisting, leads to a \color{focus} split of the network \color{black}  into two or more competing database instances
+
+\begin{columns}[T]
+	\begin{column}{0.45\textwidth}
+		\begin{figure}[h]
+  			\center
+  			\resizebox{0.9\textwidth}{!}{
+			\input{../assets/figures/simple-block-sequence.tex}
+			}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.45\textwidth}
+		\begin{figure}[h]
+  			\center
+  			\resizebox{0.9\textwidth}{!}{
+			\input{../assets/figures/simple-fork.tex}
+			}
+		\end{figure}
+	\end{column}
+\end{columns}
+
+\begin{columns}[T]
+	\begin{column}{0.45\textwidth}
+		\center		
+		\footnotesize Simple Block Sequence
+	\end{column}
+	\begin{column}{0.45\textwidth}
+		\center
+ 		\footnotesize Simple Fork 
+	\end{column}
+\end{columns}
+\begin{center}
+Figure: Illustration Blockchain Fork \cite{schar2020blockchain}
+\end{center}
+
+\uncover<2->{
+\vspace{1em}	
+$\Rightarrow$ Unique characteristic of Blockchains, not conclusively defined.
+}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Classification of Forks}
+
+Placeholder: Missing Classification table 
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Process-based Forks}
+
+\textbf{Probabilistic block race:} Unintentionally coexisting consensus versions, caused by network propagation delays. 
+\vspace{1em}	
+
+\uncover<2->{
+\textbf{Forced block race:} Deliberate mining of own chain with the goal to overtake consensus version.
+\vspace{1em}	
+
+
+\textbf{Block withholding:} Purposeful delay of propagation of own valid block candidate to gain head start on next block.
+\vspace{1em}	
+}
+
+\uncover<3->{
+$\Rightarrow$ All temporary and resolved through accumulated difficulty.
+}
+	
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Protocol-based forks}
+
+\textbf{Client incompatibility:} Delta in consensus rule implementations by different network client software, causing some nodes to accept certain blocks rejected by others. Root causes:
+\begin{itemize}
+	\item Loosely defined consensus rules
+	\item Software bugs
+\end{itemize}
+\vspace{0.5em}
+Example: Upgrade to Bitcoin client 0.8 in 2013
+\vspace{1em}	
+
+\uncover<2->{
+\textbf{Rule change:} Part of the network decides to alter the consensus rule set $S$ and proceed with adapted protocol.
+\vspace{0.5em}
+
+Example: Split of Bitcoin ABC over Blocksize increase.
+\vspace{1em}	
+	
+}
+
+\uncover<3->{
+$\Rightarrow$ Not resolved automatically and may cause permanent splits.
+}
+	
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Types of Protocol-based Forks}
+
+
+\begin{columns}[T]
+	\begin{column}{0.3\textwidth}
+		\center		
+		\textbf{Soft Fork}\\
+		\vspace{0.5em}
+		\begin{figure}[h]
+  			\resizebox{0.9\textwidth}{!}{
+			\input{../assets/figures/soft-fork.tex}
+			}
+		\end{figure}
+		\vspace{1em}
+		$S_{new}\subset S_{old}$
+	\end{column}
+	\begin{column}{0.3\textwidth}
+		\center
+ 		\textbf{Hard Fork}\\
+ 		\vspace{1em}
+ 		\begin{figure}[h]
+  			\center
+  			\resizebox{0.9\textwidth}{!}{
+			\input{../assets/figures/hard-fork.tex}
+			}
+		\end{figure}
+ 		\vspace{1.5em}
+ 		$S_{new}\supset S_{old}$
+	\end{column}
+		\begin{column}{0.3\textwidth}
+		\center
+ 		\textbf{Forced Fork}\\
+ 		\vspace{0.5em}
+ 		\begin{figure}[h]
+  			\center
+  			\resizebox{0.9\textwidth}{!}{
+			\input{../assets/figures/forced-fork.tex}
+			}
+		\end{figure}
+		\vspace{0.8em}
+ 		$(S_{new}\setminus S_{old} \neq \emptyset)$\\$\wedge$\\ $(S_{old}\setminus S_{new} \neq \emptyset)$
+	\end{column}
+\end{columns}
+
+\vspace{0.5em}
+
+\begin{center}
+	Figure: Types of protocol-based forks \cite{schar2020blockchain}
+\end{center}
+
+	
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Fork Persistency by Type and Dominance Scenario}
+
+	\begin{table}
+		\input{../assets/figures/fork-types.tex}
+		\caption{Persistency by fork type and scenario \cite{schar2020blockchain}}
+		\label{tbl:forkpersistencies}
+	\end{table}
+	
+\end{frame}
+%%%
+
+
+
+%%%
+\begin{frame}{Why Care about Forks?}
+
+\textbf{Uncertainty:} Confirmation status of transactions.
+\vspace{1.5em}
+
+\textbf{Confusion:} Which one is the "main" version.
+\vspace{1.5em}
+
+\textbf{Undermining trust:} Case of digital assets.
+\vspace{1.5em}
+
+\textbf{Cost driver:} Maintaining compatibility.
+\vspace{1.5em}
+
+\color{focus} \textbf{But:} \color{black} Pillar for political freedom and resilience against arbitrary changes.
+
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}%[allowframebreaks]
+\frametitle{References and Recommended Reading}
+
+	\bibliographystyle{amsplain}
+	\bibliography{../assets/bib/refs}
+
+\end{frame}
+
+
+\end{document}
