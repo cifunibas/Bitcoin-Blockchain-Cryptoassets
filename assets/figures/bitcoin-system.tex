@@ -1,0 +1,40 @@
+  \begin{tikzpicture}[domain=0:10,scale=0.8, every node/.style={scale=0.85}]
+    \draw[dashed, thick, fill=highlight!50] (0,0) -- (10.125,0) -- (10.125,7) -- (0,7) -- (0,0);
+
+
+    \draw[dotted, thick,fill=white] (0.25,0.25) -- (4.825,0.25) -- (4.825,1.5) -- (0.25,1.5) -- (0.25,0.25);
+    \draw[color=black] (2.5,0.925) node{\texttt{Bitcoin protocol}};
+
+    \draw[dotted, thick,fill=white] (0.25,1.75) -- (4.825,1.75) -- (4.825,3) -- (0.25,3) -- (0.25,1.75);
+    \draw[color=black] (2.5,2.475) node{\texttt{Bitcoin network}};
+
+    \draw[dotted, thick,fill=white] (0.25,3.5) -- (4.825,3.5) -- (4.825,5.75) -- (0.25,5.75) -- (0.25,3.5);
+    \draw[color=black] (2.5,4.625) node{\texttt{Bitcoin unit}};
+
+    \draw[dotted, thick,fill=white] (5.25,0.25) -- (9.875,0.25) -- (9.875,3) -- (5.25,3) -- (5.25,0.25);
+    \draw[color=black] (7.4,2.25) node[above]{\texttt{Blockchain}};
+    \draw[color=black] (5.35,1.6) node[right]{\footnotesize{$\bullet$ \texttt{Public ledger}}};
+    \draw[color=black] (5.35,0.8) node[right]{\footnotesize{$\bullet$ \texttt{Consensus protocol}}};
+
+    \draw[dotted, thick,fill=white] (5.25,3.5) -- (9.875,3.5) -- (9.875,5.75) -- (5.25,5.75) -- (5.25,3.5);
+    \draw[color=black] (7.4,4.5) node[above]{\texttt{Asymmetric}} node[below]{\texttt{cryptography}};
+
+    \draw (5,6.9)node[below]{\large{\texttt{Bitcoin system / technology}}};
+
+    \draw [decorate,decoration={brace,amplitude=5pt},xshift=0pt,yshift=0pt]
+  	(-0.25,0.25) -- (-0.25,3) node [above,black,midway,xshift=-0.3cm,rotate=90]{\footnotesize \texttt{trx-capacity}};
+
+    \draw [decorate,decoration={brace,amplitude=5pt,mirror},xshift=0pt,yshift=0pt]
+ 	(10.375,0.25) -- (10.375,3) node [below,black,midway,xshift=0.3cm,rotate=90]
+ 	{\footnotesize \texttt{trx-consensus}};
+
+    \draw [decorate,decoration={brace,amplitude=5pt},xshift=0pt,yshift=0pt]
+	(-0.25,3.5) -- (-0.25,5.75) node [above,black,midway,xshift=-0.3cm,rotate=90]
+	{\footnotesize \texttt{Monetary unit}};
+
+   	\draw [decorate,decoration={brace,amplitude=5pt,mirror},xshift=0pt,yshift=0pt]
+	(10.375,3.5) -- (10.375,5.75) node [below,black,midway,xshift=0.3cm,rotate=90]
+	{\footnotesize \texttt{trx-legitimacy}};
+
+  \end{tikzpicture}
+  %\caption{Overview Bitcoin-system (trx = transaction)}

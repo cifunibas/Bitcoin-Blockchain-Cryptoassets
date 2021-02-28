@@ -1,0 +1,29 @@
+\begin{tikzpicture}[domain=-8:8, scale=0.8]
+\coordinate (c1) at (0,0);
+\coordinate (c2) at (6,0);
+\coordinate (c3) at (7.8,0.8);
+\coordinate (c4) at (7.5,-0.5);
+\coordinate (c5) at (9,0.5);
+\coordinate (c6) at (10,1);
+\coordinate (c7) at (10.5,0);
+\filldraw[draw=black,fill=highlight!50] (c1) circle (5pt) node[below=0.15cm,color=black]{\footnotesize{Edith}};
+\filldraw[draw=black,fill=highlight!50] (c2) circle (5pt) node[below=0.15cm,color=black]{\footnotesize{Tony}};
+\filldraw[draw=black,fill=highlight!50] (c3) circle (5pt) node[above=0.15cm,color=black]{\footnotesize{Marcia}};
+\filldraw[draw=black,fill=highlight!50] (c4) circle (5pt) node[below=0.15cm,color=black]{\footnotesize{Michèle}};
+\filldraw[draw=black,fill=highlight!50] (c5) circle (5pt) node[above=0.15cm,color=black]{\footnotesize{Brian}};
+\filldraw[draw=black,fill=highlight!50] (c6) circle (5pt) node[above=0.15cm,color=black]{\footnotesize{Jake}};
+\filldraw[draw=black,fill=highlight!50] (c7) circle (5pt) node[below=0.15cm,color=black]{\footnotesize{Claudia}};
+
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c1) to[] (c2);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c2) to[] (c3);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c2) to[] (c4);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c2) to[] (c4);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c3) to[] (c5);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c4) to[] (c5);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c4) to[] (c7);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c5) to[] (c6);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c7) to[] (c6);
+
+\filldraw[fill=highlight!50,dotted,thick] (0.78,-0.7) -- (5.22,-0.7) -- (5.22,0.7) -- (0.78,0.7) -- (0.78,-0.7) node[midway, right=-0.02cm,text width=4.25cm]{\scriptsize{Edith: ``I transfer one \\ Bitcoin unit to Daniel.''}};
+
+\end{tikzpicture}
