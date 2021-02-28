@@ -1,0 +1,25 @@
+ \begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+    
+        \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, draw=black, dashed] (-4,-4) rectangle ++(304pt,90pt) ;
+    
+        \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (-3.6,-3.6) rectangle ++(128pt,60pt) ;
+    
+    \draw[->,thick] (1.15,-2.5) -- (1.685,-2.5) ;
+    
+    \draw[color=black] plot (-1.35,-1.6)   node[above] {\texttt{Input}};
+    \draw[color=black] plot (-3.5,-2)   node[right] {\small{\textbullet{} {Referenced output}}};
+    \draw[color=black] plot (-3.5,-2.6)   node[right] {\small{\textbullet{} Index}};
+    \draw[color=black] plot (-3.5,-3.25)   node[right] {\small{\textbullet{} Signature (\texttt{scriptSig})}};
+    \draw[color=black] plot (1.55,-0.2) node [below]
+    {\large{{Transaction}}};
+    
+    
+        \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.75,-3.6) rectangle ++(128pt,60pt) ;
+    
+    \draw[color=black] plot (4,-1.55)   node[above] {\texttt{Output}};
+    \draw[color=black] plot (1.85,-2)   node[right] {\small{\textbullet{} Amount in satoshi}};
+    \draw[color=black] plot (1.85,-2.6)   node[right] {\small{\textbullet{} Unlocking condition}};
+    \draw[color=black] plot (2,-3.1)   node[right] {\small{ (\texttt{scriptPubKey})}};
+    %\draw[color=black] plot (1.95,-3.2)   node[right] {\small{\textbullet{} Signatur / Lösung}};
+    
+    \end{tikzpicture}

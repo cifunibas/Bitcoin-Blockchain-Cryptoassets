@@ -1,0 +1,19 @@
+% aggregating transaction type
+
+%%
+\begin{tikzpicture}[domain=-3:3,scale=0.7, every node/.style={scale=0.7}]
+      %Aggregierende trx
+      \draw[color=black] plot (0,3)   node[fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{Input $1$}};
+      \draw[color=black] plot (0,2)   node[fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{Input 2}};
+        \filldraw[color=black] (0,1.12) circle (1pt) ;
+        \filldraw[color=black] (0,0.92) circle (1pt) ;
+        \filldraw[color=black] (0,0.72) circle (1pt) ;
+      \draw[color=black] plot (0,0.5)   node[fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{Input M}};
+      
+\draw [decorate,decoration={brace,amplitude=10pt},xshift=4pt,yshift=0pt,thick]
+      (1,3.05) -- (1,-0.25); %node [thick,black,midway,xshift=1.7cm,fill=scheme!15,draw=scheme] 
+      %{\texttt{Output 1}};
+          
+      \draw[color=black] plot (3,1.7)   node[fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{Output 1}};      
+\end{tikzpicture}
+%%

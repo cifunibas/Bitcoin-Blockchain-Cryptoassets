@@ -1,0 +1,121 @@
+% Choose one to switch betweeen slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Transaction Overview}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+%%
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Structure of a Transaction}
+	\centering
+	\begin{figure}
+	\input{../assets/figures/transaction-structure.tex}
+	\end{figure} 
+\vspace{1em}
+\begin{itemize}
+  	\item<2->{Transaction must contain at least one in- and output.}
+  	\item<3->{Sum of inputs must be at least as high as sum of outputs.}
+\end{itemize}
+\end{frame}	
+%%%
+
+
+%%%
+\begin{frame}{UTXO model}
+
+\begin{columns}
+  \begin{column}{0.7\textwidth}
+    \begin{figure}[h!]
+    \center
+    \input{../assets/figures/utxo.tex}
+    \end{figure}
+  \end{column}
+  
+  \begin{column}{0.3\textwidth}
+  Only Output 3 is a \texttt{UTXO}.
+  \end{column}
+\end{columns}
+\end{frame}
+%\begin{itemize}
+    %\item{Output can only be referenced once as input}
+    %\item{Unspent transaction output = UTXO}
+    %\item{UTXO's are the system's value storage}
+    %\item{Stored on the blockchain and RAM of every full-node}
+%\end{itemize} 
+%\end{frame}       
+%%%
+
+
+%%%
+\begin{frame}{Transaction Types}
+\begin{columns}
+
+\column{0.5\textwidth}
+	\vspace{1cm}
+	\begin{figure}
+		\input{../assets/figures/forwarding-transaction-type.tex}
+		\vspace{2.5em}
+		\caption*{forwarding}
+	\end{figure} 
+	\vspace{0.4cm}
+	\begin{figure}
+		\input{../assets/figures/splitting-transaction-type.tex}
+		\caption*{splitting}
+	\end{figure}
+\column{0.5\textwidth}
+	\begin{figure}
+		\input{../assets/figures/aggregating-transaction-type.tex}
+		\caption*{aggregating}
+	\end{figure}
+	\vspace{0.5cm}
+	\begin{figure}
+		\input{../assets/figures/m-to-n-transaction-type.tex}
+		\caption*{combined (m to n)}
+	\end{figure}
+	
+\end{columns}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Example: Transaction Hierarchy}
+\resizebox{\textwidth}{!}{
+\input{../assets/figures/transaction-process.tex}
+}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Input $\neq$ Output ?}
+If the input value does not correspond to the output value, there are the following two possibilities:
+\vspace{1em}
+\begin{itemize}
+    \item<1->{Output Value $>$ Input Value $\rightarrow$ Transaction invalid}
+    \item<2->{Output Value $<$ Input Value $\rightarrow$ Miner gets difference}
+    \end{itemize} 
+    \vspace{1.5em}
+\uncover<3->{A higher fee usually results in faster confirmation / block inclusion.}
+\end{frame}
+%%%
+
+
+\end{document}
