@@ -1,0 +1,78 @@
+    
+\begin{tikzpicture}[scale = 0.67]
+
+% Flow
+
+
+
+
+% Payee
+	\node 			(payee) at (11.25,-1.51) {\includegraphics[height = 1.2cm]{../assets/images/avatar_left.png}};
+
+% Payer
+	\node 			(payer) at (-1.75,-1.51) {\includegraphics[height = 1.2cm]{../assets/images/avatar_right.png}};
+	
+
+% Payment networks & Flow
+
+
+
+	\draw [line width=4,lightgray]  		(0,0) -- (3.5,0);
+	\draw [line width=4,lightgray]  		(0.875,1.51) -- (2.625,-1.51);
+	\draw [line width=4,lightgray]  		(2.625,1.51) -- (0.875,-1.51);
+	\draw [draw = focus, thick, fill=lightgray]	(0,0) circle (0.7);
+	\draw [draw = white, fill=lightgray]	(3.5,0) circle (0.7);
+	\draw [draw = white, fill=lightgray]	(0.875,1.51) circle (0.7);
+	\draw [draw = focus, thick, fill=lightgray]	(2.625,1.51) circle (0.7);
+	\draw [draw = white, fill=lightgray]	(0.875,-1.51) circle (0.7);
+	\draw [draw = white, fill=lightgray]	(2.625,-1.51) circle (0.7);
+
+	\draw [line width=4,lightgray]  		(6,0) -- (9.5,0);
+	\draw [line width=4,lightgray]  		(6.875,1.51) -- (8.625,-1.51);
+	\draw [line width=4,lightgray]  		(8.625,1.51) -- (6.875,-1.51);
+	\draw [draw = white, fill=lightgray]	(6,0) circle (0.7);
+	\draw [draw = white, fill=lightgray]	(9.5,0) circle (0.7);
+	\draw [draw = focus, thick, fill=lightgray]	(6.875,1.51) circle (0.7);
+	\draw [draw = focus, thick, fill=lightgray]	(8.625,1.51) circle (0.7);
+	\draw [draw = white, fill=lightgray]	(6.875,-1.51) circle (0.7);
+	\draw [draw = white, fill=lightgray]	(8.625,-1.51) circle (0.7);
+
+	
+	
+	\draw [draw = focus, fill=lightgray]	(11.25,1.51) circle (0.7); % Correspondent Bank
+
+
+
+% Border and Labels
+
+	\draw [line width=1.5,gray] 	(4.75,2.5) -- (4.75, -2.5) node [below, black] {\footnotesize Border};
+ 
+	\draw 	(1.75,-2.5) node [below, black] {\footnotesize Network A};
+	
+	\draw 	(7.75,-2.5) node [below, black] {\footnotesize Network B};
+	
+	\draw 	(-1.75,-2.5) node [below, black] {\footnotesize Payer};
+	
+	\draw 	(11.25,-2.5) node [below, black] {\footnotesize Payee};
+
+% Flow and clearing houses
+
+	\draw[->, dashed, line width = 1.5, focus]	(payer.north) -- (-1.75,0) -- (-0.7,0);
+	
+	\draw[line width = 1.5, focus]	(0.7,0) -- (1.75,0) -- (2.2725,0.91);
+	
+	\draw[<->, dashed, line width = 1.5, focus]	(3.325,1.51) -- (6.175,1.51);
+	
+	\draw[line width = 1.5, focus]	(7.225,0.91) -- (7.75,0) -- (8.2725,0.91);
+	
+	\draw[<->, dashed, line width = 1.5, focus]	(9.325,1.51) -- (10.55,1.51);
+	
+	\draw[->, dashed, line width = 1.5, focus]	(11.25,0.81) -- (payee.north);
+	
+	\node (CH1) at (1.75,0) {\includegraphics[width = 0.8 cm]{../assets/images/bank.png}};
+		
+	\node (CH2) at (7.75,0) {\includegraphics[width = 0.8 cm]{../assets/images/bank.png}};
+
+
+	
+\end{tikzpicture}

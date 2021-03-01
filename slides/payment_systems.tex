@@ -1,0 +1,199 @@
+% Choose one to switch betweeen slides and handout
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Introduction: Payment Systems}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{Payment Systems: Today's Challenge}
+
+Physical Cash: Presence in the same place at the same time
+\begin{figure}[h]
+	\center
+		\input{../assets/figures/cash_payment.tex}
+\end{figure}
+
+\vspace{1.5 em}
+
+\uncover<2->{Digital Cash: Proof of ownership
+\begin{figure}[h]
+	\center
+		\input{../assets/figures/ecash_payment.tex}
+\end{figure}}
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Today's Solution: Intermediaries Keeping Money Registries}
+
+\begin{figure}[h]
+	\center
+		\input{../assets/figures/registry_payment.tex}
+\end{figure}
+
+\uncover<2->{\vspace{1 em}
+
+Registry Types\\
+\vspace{1 em}
+\textbf{Implicit:} Verbal agreements, limited to tight-knit groups.\\
+\textbf{Explicit:} Records in written or digital databases, no limits.}
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Implicit Registry Example: The Stone Money of Yap}
+
+\begin{figure}[h]
+	\center
+		\input{../assets/figures/yap_system.tex}
+\end{figure}
+	
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Closed Loop Payment Systems}
+
+\textbf{Defining Characteristics}
+ 	\begin{itemize}
+ 		\item Direct relationships with both, payer and payee.
+ 		\item One operator, one set of rules.
+ 	\end{itemize}
+\vspace{1.5em}
+
+\uncover<2->{\textbf{Examples of Closed Loop Systems}
+ 	\begin{itemize}
+ 		\item Merchant issued payment cards
+ 		\item Western Union
+ 		\item PayPal
+ 		\item Several mobile payment services: MPesa, WeChat		
+ 	\end{itemize}}
+\vspace{1.5em}
+
+\uncover<3->{
+$\Rightarrow$ Highly efficient but utility depends on number of end-users.
+}
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Open Loop Payment Systems}
+
+\begin{figure}[h]
+	\center
+		\input{../assets/figures/ol_payment_system.tex}
+\end{figure}
+\vspace{1em}
+
+\uncover<2->{\textbf{Multiple relationships and rule sets lead to compounding of:}
+ 	\begin{itemize}
+ 		\item Processing time (from switch to settlement)
+ 		\item Fees (subscription and transaction based)
+ 		\item Network dependencies
+ 		\item Exception handling cost (fraud, errors, underfunding)		
+ 	\end{itemize}}
+
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Network Examples}
+
+\textbf{SWIFT}, global scope, since 1970s\\
+Standardized transaction \textit{messaging }system.
+
+\vspace{1em}
+
+\textbf{SEPA}, EU and EFTA, since 2008/2009\\
+Payment network for low cost EUR payments with a maximum transmission time.
+
+\vspace{1em}
+
+\textbf{Credit Card Networks}, e.g. Visa, Mastercard\\
+Focus on consumer transactions in multiple currencies. 
+
+\vspace{1em}
+
+\textbf{National Payment Networks}, e.g., SIC, CHIPS, FedWire.\\ 
+Connecting parties in one currency and one regulatory environment.
+
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Bitcoin as a Solution?}
+
+A physical cash payment system does not meet today's needs.
+\vspace{1em}
+
+Today's digital payment solutions depend on one or several centrally maintained registries and proprietary networks.
+\vspace{1em}
+
+Centralized registries and proprietary networks introduce single points of failure or attacks, i.e., the risk of data loss, manipulation, or censorship.
+\vspace{1em}
+
+
+$\Rightarrow$ A desirable solution would \color{focus} combine the efficiency of digitalization without dependency on centralized registries \color{black} and intermediaries. 
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}%[allowframebreaks]
+\frametitle{References and Recommended Reading}
+
+		\begin{columns}[T]
+			\begin{column}{0.1\textwidth}
+					\includegraphics[width = 1.7cm, frame]{../assets/images/nakamoto_cover}
+			\end{column} %\hfill
+			\begin{column}{0.8\textwidth}
+				\textbf{Bitcoin: A Peer-to-Peer Electronic Cash System} \\ 
+				Satoshi Nakamoto \\
+				\link \href{https://bitcoin.org/bitcoin.pdf}{Online version}
+			\end{column}
+		\end{columns}
+	%
+	\vspace{1.5em}
+	%
+	\uncover<2->{
+		\begin{columns}[T]
+			\begin{column}{0.1\textwidth}
+					\includegraphics[width = 1.7cm, frame]{../assets/images/benson_cover}
+			\end{column} %\hfill
+			\begin{column}{0.8\textwidth}
+				\textbf{Payments Systems in the U.S.} \\ 
+				Carol Coye Benson \\
+				\texttt{ISBN: 978-0982789742}
+			\end{column}
+		\end{columns}
+	}
+	%
+	\vspace{1.5em}
+	%
+	
+
+\end{frame}
+%%%
+
+
+\end{document}
