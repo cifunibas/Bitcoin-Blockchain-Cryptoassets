@@ -145,16 +145,16 @@ Additional criteria:
 	\end{enumerate}
 	\vspace{1em}
 
-\uncover<2->{In Bitcoin context, the functions \color{focus}SHA2.256 \color{black} (in short SHA256) and \color{focus}RIPEMD160 \color{black}are used. Both satisfy the above criteria.}
+\uncover<2->{In Bitcoin context, the functions \color{focus}\texttt{SHA2.256} \color{black} (in short \texttt{SHA256}) and \color{focus}\texttt{RIPEMD160} \color{black}are used. Both satisfy the above criteria.}
 	
 \end{frame}
 %%%	
 
 %%%
-\begin{frame}{Avalanche Effect with SHA2}
+\begin{frame}{Avalanche Effect with \texttt{SHA2}}
 
 \begin{center}
-$SHA256(<$\textit{pre-image}$>)$
+$\texttt{SHA256}(<$\textit{pre-image}$>)$
 \end{center}
 
 This is the pre-image
@@ -190,7 +190,7 @@ $\Rightarrow$ \footnotesize \color{focus}aba56d7c281f8d\color{black}a\color{focu
 Due to the fixed size of $h$, the corresponding hash function $H()$ can only produce a finite set of distinct hashes.
 \vspace{1em}
 
-SHA256:
+\texttt{SHA256}:
 	\begin{itemize}
 		\item Almost all known combinations of 256 Bits, i.e.,  $2^{256}$ $h$.
 		\item In base 10, this is any number between 1 and 115'792'089' 237'316'195'423'570'985'008'687'907’852'837'564'279'074' 904'382'605'163'141'518'161'494'336.
@@ -211,16 +211,16 @@ $P(h \leq \color{focus}00\color{black}FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 %%%	
 
 %%%
-\begin{frame}{Script Example: Mining for a Hash Meeting Set Criteria}
+\begin{frame}{Script Example: Brute Forcing Attempt}
 
-\textbf{Goal:} Find a nonce that, together with a fixed input string, returns a SHA256 hash with five zeros to the left, i.e., 0x00000
+\textbf{Goal:} Find a nonce that, together with a fixed input string, returns a \texttt{SHA256} hash with, preset characteristics, in this case $x$ leading zeros.
 
 \vspace{1em}
 
 \textbf{Script logic:}
 \begin{enumerate}
 	\item Take \texttt{input} and add \texttt{nonce}, starting at 1.
-	\item Calculate SHA256 hash with \texttt{input} and \texttt{nonce} as pre-image.
+	\item Calculate \texttt{SHA256} hash with \texttt{input} and \texttt{nonce} as pre-image.
 	\item Compare resulting \texttt{hash} against minimum zeros:
 	\begin{itemize}
 		\item Criteria not met: Increase nonce by 1 and  return to step 2.
