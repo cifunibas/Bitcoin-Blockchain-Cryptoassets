@@ -70,8 +70,24 @@ $\Rightarrow$ Unique characteristic of Blockchains, not conclusively defined.
 
 %%%
 \begin{frame}{Classification of Forks}
-
-Placeholder: Missing Classification table 
+\footnotesize
+\begin{table}
+  \center
+  \begin{tabular}[]{rll}
+    \hline\hline 
+    ~                      & \textbf{Process-based ($A=B=S$)} & \textbf{Protocol-based $(A \neq B)$}      \\ \cline{2-3} 
+    \rule{0pt}{3ex}    
+    \textbf{Unintentional} & Probabilistic Block Race & Client Incompatibility \\ 
+        &  & \makecell[l]{\hspace{1em}\textbullet{ }\footnotesize{Soft Fork} \\   \hspace{1em}\textbullet{ }\footnotesize{Hard Fork} \\  \hspace{1em}\textbullet{ }\footnotesize{Forced Fork} }   \\
+    \rule{0pt}{3ex}    
+    \textbf{Deliberate}    & Block Withholding \&  & Rule Change                  \\
+        & \makecell[l]{Forced Block Race\vspace{2.5em}} & \makecell[l]{\hspace{1em}\textbullet{ }\footnotesize{Soft Fork} \\   \hspace{1em}\textbullet{ }\footnotesize{Hard Fork} \\  \hspace{1em}\textbullet{ }\footnotesize{Forced Fork} }     \\
+    \hline\hline
+  \end{tabular}
+  \caption{The four fork types \cite{schar2020blockchain}}
+  \label{tbl:classification}
+\end{table}
+%%%
 	
 \end{frame}
 %%%	
