@@ -115,7 +115,7 @@ Example: Upgrade to Bitcoin client 0.8 in 2013
 \vspace{0.5em}
 
 Example: Split of Bitcoin ABC over Blocksize increase.
-\vspace{1em}	
+\vspace{2em}	
 	
 }
 
@@ -184,11 +184,22 @@ $\Rightarrow$ Not resolved automatically and may cause permanent splits.
 %%%
 \begin{frame}{Fork Persistency by Type and Dominance Scenario}
 
+\center \footnotesize
+$P(\,b \in S_{new} \wedge b \in S_{old})\, = \dfrac{r_{old}}{R} \left( 1-\frac{|S_{new} \cap S_{old}|}{|S_{old}|}\right) + \dfrac{r_{new}}{R} \left( 1-\frac{|S_{new} \cap S_{old}|}{|S_{new}|}\right)$ 
+\label{eq:forkprobability}
+
+\vspace{1.5em}
+
+
 	\begin{table}
 		\input{../assets/figures/fork-types.tex}
 		\caption{Persistency by fork type and scenario \cite{schar2020blockchain}}
 		\label{tbl:forkpersistencies}
 	\end{table}
+
+	
+
+
 	
 \end{frame}
 %%%
