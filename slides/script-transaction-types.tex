@@ -1,0 +1,209 @@
+% Choose one to switch between slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Bitcoin Script Transaction Types}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+\usepackage{fancybox}
+\usepackage{ragged2e}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+%%%
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Unlocking Condition and \texttt{Script}}
+\begin{itemize}
+	\item Unlocking conditions are written and verified in \texttt{Script}.\\
+	 $\rightarrow$ Scripting-Language with predetermined list of commands, called $OP\ Codes$.
+	 \item Is based on the stacking principle. (Last in First out)
+	 \item Only if all commands run through without errors and the end result of the stack is a \texttt{1} (\texttt{TRUE}), the transaction is considered valid.
+	 \item Does not contain any loops, as these enable potential attack vectors.
+\end{itemize}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{\texttt{scriptPubKey} and \texttt{scriptSig} in Transactions}
+\begin{figure}
+	\input{../assets/figures/scriptPubKey-scriptSig-in-transactions}
+\end{figure}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Pay-to-Public-Key}
+\shadowbox{
+\begin{minipage}[c]{4.1in}
+\texttt{scriptSig: <sig>}\\
+\texttt{scriptPubKey: <pubKey> OP\_CHECKSIG}
+\end{minipage}
+}
+\vspace{2em}
+\begin{itemize}
+	\item{Pay-to-Public-Key links output directly to the public key.}
+	\item{Solution (\texttt{scriptSig}) only includes corresponding signature (\texttt{<sig>}).}
+	\item{Public key (\texttt{<pubKey>}) is deposited as part of the unlocking condition.}
+\end{itemize}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{P2PK}
+\begin{figure}
+\centering
+\input{../assets/figures/animation-p2pk}
+\end{figure}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Pay-to-Address / Pay-to-Public-Key-Hash}
+\shadowbox{
+\begin{minipage}[c]{4.1in}
+\texttt{scriptSig: <sig> <pubKey>}\\
+\texttt{scriptPubKey: OP\_DUP OP\_HASH160 <pubKeyHash> OP\_EQUALVERIFY OP\_CHECKSIG}
+\end{minipage}
+}
+\vspace{1em}
+\begin{itemize}
+	\item<2-> Output is linked to Bitcoin address instead of public key.
+	\item<3-> Reference of an output with this unlocking condition only valid if the \texttt{scriptSig} contains:
+	
+	\begin{enumerate}
+	 \item<4-> The public key (\texttt{<pubKey>}) associated with the address.
+	 \item<4-> A matching signature (\texttt{<sig>}) by the underlying private key.
+	\end{enumerate}
+\end{itemize}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{P2PKH}
+	
+\begin{figure}
+\centering
+\input{../assets/figures/animation-p2pkh} 
+\end{figure}
+
+\end{frame}
+%%% 
+
+%%%
+\begin{frame}{Multisig (M of N)}
+\shadowbox{
+\begin{minipage}[c]{4.1in}
+\texttt{scriptSig: OP\_0 <sig1> <sig2>}\\
+\texttt{scriptPubKey: M <pubKey1>\dots<pubKeyN> N {OP\_CHECKMULTISIG}}
+\end{minipage}
+}
+\vspace{1em}
+\begin{itemize}
+  \item Enables payout conditions that require $M$ of $N$ signatures to reference the corresponding transaction output.
+  \item<2-> Unlocking condition (\texttt{scriptPubKey}) includes $N$ public keys.
+  \item<3-> At least $M$ of the corresponding private keys must provide a valid signature in \texttt{scriptSig}.
+  \item<4-> Applications include increasing the security of funds and the possibility of imitating classic bank accounts. (joint account, corporate account).
+\end{itemize}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Pay-to-Multisig (2 out of 3 Script)}
+\centering
+\input{../assets/figures/animation-multisig}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Pay-to-Script-Hash (Flexible Scripts)}
+\shadowbox{
+\begin{minipage}[c]{4.1in}
+\texttt{scriptSig: }Any valid script\\
+\texttt{scriptPubKey: {OP\_HASH160 <scriptHash> OP\_EQUALVERIFY}}
+\end{minipage}
+}
+  \vspace{1em}
+\begin{itemize}
+  \item<1-> In the \texttt{scriptPubKey}, only the hash value of a script is recorded.
+  \item<2-> To reference the transaction output, a person must provide a \texttt{scriptSig} whose hash value corresponds to the hash value set in the \texttt{scriptPubKey}.
+  \item<3-> If this succeeds, the complete script of the \texttt{scriptSig} is run through in the second step.
+\end{itemize}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{P2SH}
+\centering
+\begin{figure}
+	\input{../assets/figures/animation-p2sh}
+\end{figure}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Characteristics and Risks of Pay-to-Script-Hash}
+\begin{itemize}
+	\item<1-> By using the cryptographically secure hash value, it can be ensured that the unlocking condition can only be solved using the previously specified script.
+	\item<2-> High degree of flexibility, as Bitcoin units can be collateralised by a wide variety of scripts.
+	\item<3-> Scripts only need to be submitted at the time of a transaction. %(reduce amount of data and prevent complex and long scripts from becoming part of a non-used transaction output).
+	\item<4-> Can be represented as a kind of Bitcoin address with prefix 3. %Enables uncomplicated payment orders analogous to classic Bitcoin addresses.
+	\vspace{1em}
+	\item<5-> Possible problems: 
+	\begin{itemize}
+  \item<5-> P2SH addresses based on invalid scripts.
+  \item<5-> Loss of payout script.
+\end{itemize}\vspace{0.5em}
+$\Rightarrow$ Both result in loss of Bitcoin units.
+\end{itemize}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Null Data (\texttt{OP\_RETURN)}}
+\shadowbox{
+\begin{minipage}[c]{4.1in}
+\texttt{scriptSig: }Non-existent.\\
+\texttt{scriptPubKey: {OP\_RETURN <0 to 40 Bytes of Data>}}
+\end{minipage}
+}
+\begin{itemize}
+  \item<1-> Null Data unlocking conditions are not really transactions.
+  \item<2-> Used to immortalise arbitrary data up to 40 bytes (320 bits) in the blockchain.
+  \item<3-> Possible applications: 
+    \begin{itemize}
+      \item<3-> \textit{Proof-of-Existence}: Proof that a certain file existed at a certain point in time. For this purpose, the hash value of a file is stored in the blockchain using a zero data transaction.
+      \item<3-> Many \textit{Colored Coin} implementations also use the additional data to identify the linked promises to pay.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+%%%
+
+
+
+
+\end{document}

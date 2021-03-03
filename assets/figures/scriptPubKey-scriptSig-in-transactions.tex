@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=1]
+    \draw[densely dashed, thick, fill=highlight!15] (0,0) -- (4,0) -- (4,3.25) -- (0,3.25) node[midway,above]{{\texttt{Previous Transaction}}} -- (0,0);
+    \draw[densely dashed, thick, fill=highlight!15] (6,0) -- (10,0) -- (10,3.25) -- (6,3.25) node[midway,above]{{\texttt{New Transaction}}} -- (6,0);
+    
+  \draw[thick,black] (3.75,0.625) -- (5,0.625) -- (5,2.125) -- (6.25, 2.125);
+    
+    \draw[color = highlight, fill = highlight!25, thick] (0.25,0.25) -- (3.75,0.25) -- (3.75,1) -- (0.25, 1) node[midway,above,color=black]{{\texttt{Output:}}}  node[below,midway,color=black]{\texttt{scriptPubKey}} -- (0.25,0.25);
+      \draw[color = highlight, dotted, fill = highlight!25, thick] (0.25,1.75) -- (3.75,1.75) -- (3.75,2.5) -- (0.25, 2.5) node[midway,above,color=black!50]{{\texttt{Input:}}} -- (0.25,1.75);
+      
+    \draw[color = highlight, dotted, fill = highlight!25, thick] (6.25,0.25) -- (9.75,0.25) -- (9.75,1) -- (6.25, 1) node[midway,above,color=black!50]{{\texttt{Output:}}} -- (6.25,0.25);
+      \draw[color = highlight, fill = highlight!25, thick] (6.25,1.75) -- (9.75,1.75) -- (9.75,2.5) -- (6.25, 2.5) node[midway,above,color=black]{{\texttt{Input:}}} node[below,midway,color=black]{\texttt{scriptSig}} -- (6.25,1.75);   
+  \end{tikzpicture}
