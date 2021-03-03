@@ -1,0 +1,175 @@
+% Choose one to switch between slides and handout
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Peer-to-Peer Networks}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{The Origin of Peer-to-Peer Networks}
+	Peer-to-peer (p2p) networks were popularized by file sharing systems in the early 2000s.
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\begin{center}
+					\includegraphics[height = 0.25\textheight]{../assets/images/napster}
+				\end{center}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\begin{center}
+					\includegraphics[height = 0.17\textheight]{../assets/images/btt}
+				\end{center}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				Napster
+			\end{center}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				BitTorrent
+			\end{center}
+		\end{column}
+	\end{columns}
+	\vspace{1.8em}
+	\uncover<2->{They allow network participants to directly interact with eachother, without the need for servers or stable hosts.}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Peer-to-Peer vs. Centralized Networks}
+	\vspace{1em}
+	In a peer-to-peer network, each participant...
+	\vspace{0.5em}
+%	\begin{footnotesize}
+		\begin{itemize}
+			\item<2-> Can connect to any number of other participants
+			\item<3-> Has equal privileges (no administration)
+			\item<4-> Is consumer and provider of resources (client and server)
+		\end{itemize}
+%	\end{footnotesize}
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\vspace{2.5em}
+			\begin{figure}
+				\input{../assets/figures/p2p.tex}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\input{../assets/figures/centralized_network.tex}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Node Software}
+	To facilitate a peer-to-peer network, each participant installs a network specific piece of software which establishes them as a node in the network and is able to:
+	\begin{itemize}
+		\item Discover other nodes
+		\item Establish connections to discovered nodes
+	\end{itemize}
+	\vspace{1em}
+	Furthermore, in a pure p2p network, each node acts as a client and server simultaneously. The node software should therefore also be able to:
+	\begin{itemize}
+		\item Share local resources (e.g., storage or computing power)
+		\item Access shared resources
+	\end{itemize}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Network Specification}
+	Each peer-to-peer network formally describes the communication between nodes in a \color{focus}protocol specification document\color{black}. Node software clients then implement and adhere to these specifications.
+
+	\vspace{1em}
+
+	This makes it possible for nodes in a peer-to-peer network to run with different node software, \color{focus}further decentralizing \color{black}the system.
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Peer Discovery}
+	P2p networks can be grouped into two categories: \color{focus}Unstructured and structured networks\color{black}. The latter are advantageous when the shared resources are heterogeneous. They provide a way to quickly find even very rare resources in the network. However, this comes at the cost of reduced decentralization.
+	
+	\vspace{1em}
+	
+	For a p2p payment network, the resources on the nodes are similar or even identical. Consequently, \color{focus}most existing p2p payment networks choose an unstructured approach\color{black}.
+	
+	\vspace{1em}
+	
+	Steps to connect to peers in an unstructured p2p network:
+	\begin{enumerate}
+		\item Connect to a random node in a seed list
+		\item Ask this node for a list of their connections
+		\item Connect to a random set of nodes on this list
+		\item Repeat steps 2 and 3 until enough connections are established
+	\end{enumerate}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Advantages of P2P Networks}
+	Due to its architecture, a p2p network offers key advantages over a centralized network:
+	\begin{itemize}
+		\item Easy to scale
+			\begin{itemize}
+				\item No bandwidth bottlenecks
+				\item Only requires connection to a subset of peers
+			\end{itemize}
+		\item No central point for an attack
+			\begin{itemize}
+				\item No single node is critical for a functioning network
+				\item No node has special privileges or powers
+				\item Very difficult to overload the network via DoS attacks
+			\end{itemize}	
+		\item Every participant supplies hardware
+		\item Difficult to regulate or stop
+	\end{itemize}
+	
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Problems of P2P Networks}
+	While p2p networks provide a highly decentralized system, there are trade-offs, especially regarding security:
+	\begin{itemize}
+		\item A node can share malicious, illegal or irrelevant resources
+		\item Difficult to regulate illicit activity
+		\item The network can be limited by the nodes with the weakest hardware
+	\end{itemize}
+	
+\end{frame}
+%%%
+
+
+\begin{frame}%[allowframebreaks]
+\frametitle{References}
+	\bibliographystyle{amsplain}
+	\bibliography{../assets/bib/refs}
+\end{frame}
+
+\end{document}
