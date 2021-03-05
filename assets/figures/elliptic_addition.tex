@@ -1,0 +1,35 @@
+\begin{tikzpicture}[scale = 0.7]
+	\begin{axis}[xmin=-2.8,
+            	xmax=2.8,
+            	ymin=-2.8,
+           		ymax=2.8,
+            	xlabel={$x$},
+            	ylabel={$y$},
+            	scale only axis,
+           		axis lines=middle,
+         		domain=-1.76929235423863:3, % manually add min value to domain
+            	samples=500,
+            	smooth,
+            	axis equal image=true,
+        		]
+		\addplot[focus]{sqrt(x^3 + -2*x + 2)};
+		\addplot[focus]{-sqrt(x^3 + -2*x + 2)};
+		
+		\only<2->{
+			\draw [fill=black] (axis cs: -1.5, 1.2748) circle (2pt) node[left] {$P_1$};
+			\draw [fill=black] (axis cs: 0, 1.4142) circle (2pt) node[above right] {$P_2$};
+			\draw (axis cs: -1.5, 1.2748) -- (axis cs: 0, 1.4142);
+		}
+		
+		\only<3->{
+			\draw [fill=black] (axis cs: 1.5086, 1.5545) circle (2pt) node[right] {$-P_3$};
+			\draw (axis cs: 0, 1.4142135) -- (axis cs: 1.5086, 1.5545);
+		}
+		
+		\only<4->{
+			\draw [dotted] (axis cs: 1.5086, 1.5545) -- (axis cs: 1.5086, -1.5545);
+			\draw [fill=black] (axis cs: 1.5086, -1.5545) circle (2pt) node[right] {$P_3$};
+		}
+		
+	\end{axis}
+\end{tikzpicture}
