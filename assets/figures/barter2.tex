@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+	% top left: smith
+	\node (smith) at (-3, 2){\includegraphics[height = 0.15\textheight]{../assets/images/agents/agent_right}};
+	
+	% top right: saddler
+	\node (saddler) at (3, 2){\includegraphics[height = 0.15\textheight]{../assets/images/agents/agent_left}};
+
+	\draw[<->, very thick] (smith.east) -- (saddler.west) node[midway, above]{\includegraphics[height = 0.08\textheight]{../assets/images/horseshoe}} node[midway, below]{\includegraphics[height = 0.08\textheight]{../assets/images/potatoes}};
+	
+	\node (farmer) at (0, -2){\includegraphics[height = 0.15\textheight]{../assets/images/agents/agent_right}};
+	\draw[<->, very thick] (smith.south east) -- (farmer.north west) node[midway, above right]{\includegraphics[height = 0.08\textheight]{../assets/images/horseshoe}} node[midway, below left]{\includegraphics[height = 0.08\textheight]{../assets/images/potatoes}};
+	\draw[<->, very thick] (saddler.south west) -- (farmer.north east) node[midway, above left]{\includegraphics[height = 0.08\textheight]{../assets/images/saddle}} node[midway, below right]{\includegraphics[height = 0.08\textheight]{../assets/images/potatoes}};
+	
+\end{tikzpicture}
