@@ -1,0 +1,24 @@
+
+\begin{tikzpicture}[scale = 0.67]
+	
+	\definecolor {dgray}{rgb}{122,122,122}
+	\definecolor {lgray}{rgb}{194,194,194}
+	
+	% Title
+%	\node[draw, align=center] at (2.2,4.5) {Peer-to-Peer};
+%	
+
+	
+	% Agents
+	\node (agenta) at (1,0) {\includegraphics[height = 2 cm]{../assets/images/agents/avatar_discover}};
+	\uncover<-1>{\node (agentc) at (10,0) {\includegraphics[height = 2 cm, decodearray={0.6 0 0.6 0 0.6 0}] {../assets/images/agents/avatar_rand4}};} % grayed out agent for first slide
+	\uncover<2->{\node (agentb) at (10,0) {\includegraphics[height = 2 cm] {../assets/images/agents/avatar_rand4}};}
+	
+	\node[above] at (agenta.north) {Discover};
+	
+	% Actions
+	\uncover<2->{\draw[<->, thick, dashed]	(agenta.east) -- node [above] {Connect} (agentb.west);}
+	\uncover<3->{\draw[->, thick, dashed]	(agenta.north east) -- node [above] {Share} (agentb.north west);}
+	\uncover<4->{\draw[<-, thick, dashed]	(agenta.south east) -- node [above] {Access} (agentb.south west);}
+	
+\end{tikzpicture}
