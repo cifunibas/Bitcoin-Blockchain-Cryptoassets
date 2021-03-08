@@ -1,0 +1,16 @@
+
+\begin{tikzpicture}[scale = 0.67]
+	
+	% Agents
+	\node (agenta) at (1,0) {\includegraphics[height = 2 cm]{../assets/images/agents/avatar_rand1}};
+	\node (agentb) at (10,0) {\includegraphics[height = 2 cm] {../assets/images/agents/avatar_rand4}};
+	
+	% Text
+	\node[below] (clienta) at (agenta.south) {Software A};
+	\node[below] (clientb) at (agentb.south) {Software B};
+	
+	% Actions
+	\draw[<->, thick, dashed]	(agenta.east) -- node [above] {\includegraphics[height = 1.5 cm]{../assets/images/checklist}} (agentb.west);
+
+	
+\end{tikzpicture}
