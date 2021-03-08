@@ -1,12 +1,12 @@
 
 % Agents
-\node (agenta) at (1,0) {\includegraphics[height = 2 cm]{../assets/images/agents/discover_right}};
-\uncover<-1>{\node (agentc) at (10,0) {\includegraphics[height = 2 cm, decodearray={0.6 0 0.6 0 0.6 0}] {../assets/images/agents/agent_left}};} % grayed out agent for first slide
-\uncover<2->{\node (agentb) at (10,0) {\includegraphics[height = 2 cm] {../assets/images/agents/reaching_left}};}
+\node (agenta) at (1,0) {\includegraphics[height = 2.5 cm]{../assets/images/agents/discover_right}};
+\uncover<-1>{\node (agentc) at (10,0) {\includegraphics[height = 2.5 cm, decodearray={0.6 0 0.6 0 0.6 0}] {../assets/images/agents/agent_left}};} % grayed out agent for first slide
+\uncover<2->{\node (agentb) at (10,0) {\includegraphics[height = 2.5 cm] {../assets/images/agents/reaching_left}};}
 
 \node[above] at (agenta.north) {Discover};
 
 % Actions
 \uncover<2->{\draw[<->, thick, dashed]	(agenta.east) -- node [above] {Connect} (agentb.west);}
-\uncover<3->{\draw[->, thick, dashed]	(agenta.north east) -- node [above] {Share} (agentb.north west);}
-\uncover<4->{\draw[<-, thick, dashed]	(agenta.south east) -- node [above] {Access} (agentb.south west);}
+\uncover<3->{\draw[->, thick, dashed]	([yshift=-8mm] agenta.north east) -- node [above] {Share} ([yshift=-8mm] agentb.north west);}
+\uncover<4->{\draw[<-, thick, dashed]	([yshift=8mm] agenta.south east) -- node [above] {Access} ([yshift=8mm] agentb.south west);}
