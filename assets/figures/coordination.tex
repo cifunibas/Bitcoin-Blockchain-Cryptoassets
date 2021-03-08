@@ -26,17 +26,17 @@
 		
 		% draw NEs
 			% line
-			\draw[highlight, very thick] (0) -- (midx) -- (midx2) -- (1);
-			\uncover<3->{\draw[focus, very thick] (0) -- (midx) -- (midx2) -- (1);}
+			\alt<3>{\draw[focus, very thick] (0) -- (midx) -- (midx2) -- (1);}{\draw[highlight, very thick] (0) -- (midx) -- (midx2) -- (1);}
+			
+			% C
+			\alt<1>{\filldraw[focus] (0) circle (2pt)}{\filldraw[highlight] (0) circle (2pt)};
 			
 			% A
-			\filldraw[focus] (0) circle (2pt);
-			\filldraw[highlight] (1) circle (2pt);
+			\alt<2>{\filldraw[focus] (1) circle (2pt)}{\filldraw[highlight] (1) circle (2pt)};
 			
-			% B
-			\uncover<2->{\filldraw[focus] (1) circle (2pt);}
+			\alt<2>{\filldraw[focus] (1) circle (2pt);}{\filldraw[highlight] (1) circle (2pt);}
 			\filldraw[highlight] (mid) circle (2pt);
-			\uncover<3->{\filldraw[focus] (mid) circle (2pt);}
+			\alt<3>{\filldraw[focus] (mid) circle (2pt);}{\filldraw[highlight] (mid) circle (2pt);}
 								
 		% labels
 			\node[right] at (1) {$A$};
