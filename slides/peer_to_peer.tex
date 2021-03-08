@@ -72,14 +72,14 @@
 	\begin{columns}[T]
 		\begin{column}{0.5\textwidth}
 			\vspace{2.5em}
-			\begin{figure}
-				\input{../assets/figures/p2p.tex}
-			\end{figure}
+			\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
+				\input{../assets/figures/p2p}
+			\end{tikzpicture}
 		\end{column}
 		\begin{column}{0.5\textwidth}
-			\begin{figure}
-				\input{../assets/figures/centralized_network.tex}
-			\end{figure}
+			\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
+				\input{../assets/figures/centralized_network}
+			\end{tikzpicture}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -88,26 +88,30 @@
 
 %%%
 \begin{frame}{Node Software}
-	\begin{figure}
-		\input{../assets/figures/node_software.tex}
-	\end{figure}
-	\vspace{.5 cm}
-	Node software functionality:
-	\begin{enumerate}
-		\item Discover other nodes
-		\item<2-> Connect to discovered nodes
-		\item<3-> Share resources with peers
-		\item<4-> Access resources from peers
-	\end{enumerate}
+	\centering
+	\begin{tikzpicture}[scale=0.7, every node/.style={scale=1}]
+		\input{../assets/figures/node_software}
+	\end{tikzpicture}
+%	\vspace{.5 cm}
+%	Node software functionality:
+%	\begin{enumerate}
+%		\item Discover other nodes
+%		\item<2-> Connect to discovered nodes
+%		\item<3-> Share resources with peers
+%		\item<4-> Access resources from peers
+%	\end{enumerate}
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{Network Specification}
-	\begin{figure}
-		\input{../assets/figures/node_protocol.tex}
-	\end{figure}
+	\begin{center}
+		\begin{tikzpicture}[scale=0.7, every node/.style={scale=1}]
+			\input{../assets/figures/node_protocol}
+		\end{tikzpicture}
+	\end{center}
 	\vspace{.5 cm}
+	
 	Node communication is defined by the \color{focus}protocol specifications\color{black}.
 	\begin{itemize}
 		\item<2-> Nodes can run different software implementations
@@ -119,9 +123,11 @@
 
 %%%
 \begin{frame}{Peer Discovery}
-	\begin{figure}
-		\input{../assets/figures/peer_discovery.tex}
-	\end{figure}
+	\begin{center}
+		\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+			\input{../assets/figures/peer_discovery}
+		\end{tikzpicture}
+	\end{center}
 	%\vspace{0.5 cm}
 	\uncover<2->{Basic peer discovery:}
 	\begin{enumerate}
