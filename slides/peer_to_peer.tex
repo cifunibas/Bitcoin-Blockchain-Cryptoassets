@@ -85,69 +85,74 @@
 \end{frame}
 %%%
 
+
 %%%
 \begin{frame}{Node Software}
-	To facilitate a peer-to-peer network, each participant installs a network specific piece of software which establishes them as a node in the network and is able to:
-	\begin{itemize}
+	\begin{figure}
+		\input{../assets/figures/node_software.tex}
+	\end{figure}
+	\vspace{.5 cm}
+	Node software functionality:
+	\begin{enumerate}
 		\item Discover other nodes
-		\item Establish connections to discovered nodes
-	\end{itemize}
-	\vspace{1em}
-	Furthermore, in a pure p2p network, each node acts as a client and server simultaneously. The node software should therefore also be able to:
-	\begin{itemize}
-		\item Share local resources (e.g., storage or computing power)
-		\item Access shared resources
-	\end{itemize}
+		\item<2-> Connect to discovered nodes
+		\item<3-> Share resources with peers
+		\item<4-> Access resources from peers
+	\end{enumerate}
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{Network Specification}
-	Each peer-to-peer network formally describes the communication between nodes in a \color{focus}protocol specification document\color{black}. Node software clients then implement and adhere to these specifications.
-
-	\vspace{1em}
-
-	This makes it possible for nodes in a peer-to-peer network to run with different node software, \color{focus}further decentralizing \color{black}the system.
+	\begin{figure}
+		\input{../assets/figures/node_protocol.tex}
+	\end{figure}
+	\vspace{.5 cm}
+	Node communication is defined by the \color{focus}protocol specifications\color{black}.
+	\begin{itemize}
+		\item<2-> Nodes can run different software implementations
+		\item<3-> Allows specialization of nodes
+		\item<3-> \color{focus}Further decentralizes \color{black}the system
+	\end{itemize}
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{Peer Discovery}
-	P2p networks can be grouped into two categories: \color{focus}Unstructured and structured networks\color{black}. The latter are advantageous when the shared resources are heterogeneous. They provide a way to quickly find even very rare resources in the network. However, this comes at the cost of reduced decentralization.
-	
-	\vspace{1em}
-	
-	For a p2p payment network, the resources on the nodes are similar or even identical. Consequently, \color{focus}most existing p2p payment networks choose an unstructured approach\color{black}.
-	
-	\vspace{1em}
-	
-	Steps to connect to peers in an unstructured p2p network:
+	\begin{figure}
+		\input{../assets/figures/peer_discovery.tex}
+	\end{figure}
+	%\vspace{0.5 cm}
+	\uncover<2->{Basic peer discovery:}
 	\begin{enumerate}
-		\item Connect to a random node in a seed list
-		\item Ask this node for a list of their connections
-		\item Connect to a random set of nodes on this list
-		\item Repeat steps 2 and 3 until enough connections are established
+		\item<2-> Connect to a known peer
+		\item<3-> Ask this peer for a list of their connections
+		\item<4-> Connect to a random set of peers from this list
+		\item<5-> Repeat steps 2 and 3 until enough connections are established
 	\end{enumerate}
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{Advantages of P2P Networks}
-	Due to its architecture, a p2p network offers key advantages over a centralized network:
+	A peer-to-peer architecture offers key advantages:
+	\vspace{0.3 cm}
 	\begin{itemize}
-		\item Easy to scale
+		\item No central point of failure
+		\begin{itemize}
+			\item No single node is critical for a functioning network
+			\item No bandwidth bottlenecks
+		\end{itemize}
+		\vspace{0.3 cm}
+		\item<2-> No central point for an attack
 			\begin{itemize}
-				\item No bandwidth bottlenecks
-				\item Only requires connection to a subset of peers
-			\end{itemize}
-		\item No central point for an attack
-			\begin{itemize}
-				\item No single node is critical for a functioning network
 				\item No node has special privileges or powers
 				\item Very difficult to overload the network via DoS attacks
 			\end{itemize}	
-		\item Every participant supplies hardware
-		\item Difficult to regulate or stop
+		\vspace{0.3 cm}
+		\item<3-> Every peer supplies hardware
+		\vspace{0.3 cm}
+		\item<4-> Difficult to regulate or stop
 	\end{itemize}
 	
 \end{frame}
@@ -155,11 +160,14 @@
 
 %%%
 \begin{frame}{Problems of P2P Networks}
-	While p2p networks provide a highly decentralized system, there are trade-offs, especially regarding security:
+	Trade-offs have to be made, especially regarding security:
+	\vspace{0.3 cm}
 	\begin{itemize}
-		\item A node can share malicious, illegal or irrelevant resources
-		\item Difficult to regulate illicit activity
-		\item The network can be limited by the nodes with the weakest hardware
+		\item A node can share malicious or irrelevant resources
+		\vspace{0.3 cm}
+		\item<2-> Difficult to regulate illicit activity
+		\vspace{0.3 cm}
+		\item<3-> Limited by the nodes with the weakest hardware
 	\end{itemize}
 	
 \end{frame}
@@ -167,9 +175,10 @@
 
 
 \begin{frame}%[allowframebreaks]
-\frametitle{References}
-	\bibliographystyle{amsplain}
-	\bibliography{../assets/bib/refs}
+\frametitle{Further Reading}
+		\textbf{Cryptocurrency Networks: A New P2P Paradigm}, \\
+		Delgado-Segura et al., 2018, Mobile Information Systems, \\
+		\link \url{https://doi.org/10.1155/2018/2159082}
 \end{frame}
 
 \end{document}
