@@ -10,22 +10,25 @@
 
 
 % Goods vs. Money flow	
-	\draw[->, thick, dashed]	([yshift=1cm]payer.south east) -- ([yshift=1cm]payee.south west) 
+	\uncover<4->{
+		\draw[->, thick, dashed]	([yshift=1cm]payer.south east) -- ([yshift=1cm]payee.south west) 
 						node[midway, fill=white] {Digital Cash};
+		}d
 
-	\draw[<-, thick]	([yshift=-1cm]payer.north east) -- ([yshift=-1cm]payee.north west) node[midway, fill=white] {Goods / Services};
+		\draw[<-, thick]	([yshift=-1cm]payer.north east) -- ([yshift=-1cm]payee.north west) node[midway, fill=white] {Goods / Services};
 
 
 % Copy-Paste Symbol
 	
-	\coordinate	(A) at ([xshift=-0.1cm, yshift=-0.1cm]payer.south west);
-	\coordinate	(B) at ([xshift = 1.2cm, yshift = -0.8cm]A);
-	\coordinate	(C) at ([xshift = 1.6cm]A);
-	\coordinate	(D) at ([xshift = 1.3cm]B);
+	\uncover<5->{
+		\coordinate	(A) at ([xshift=-0.1cm, yshift=-0.1cm]payer.south west);
+		\coordinate	(B) at ([xshift = 1.2cm, yshift = -0.8cm]A);
+		\coordinate	(C) at ([xshift = 1.6cm]A);
+		\coordinate	(D) at ([xshift = 1.3cm]B);
 	
-	\draw[rounded corners=5pt, focus, very thick]	(A) rectangle (B) node [midway, focus] {\footnotesize{Ctrl}};
-	\draw[rounded corners=5pt, focus, very thick]	(C) rectangle (D) node [midway, focus] {\scriptsize{C/V}};
-	
+		\draw[rounded corners=5pt, focus, very thick]	(A) rectangle (B) node [midway, focus] {\footnotesize{Ctrl}};
+		\draw[rounded corners=5pt, focus, very thick]	(C) rectangle (D) node [midway, focus] {\scriptsize{C/V}};
+	}
 	%\draw (E) node [midway, focus] {+};
 	
 

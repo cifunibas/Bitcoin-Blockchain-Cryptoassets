@@ -10,9 +10,10 @@
 
 % Goods vs. Money flow
 	
-	\draw[->, thick, dashed]	([yshift=1cm]payer.south east) -- ([yshift=1cm]payee.south west) node[midway, fill=white] {Cash};
+	\uncover<2->{
+		\draw[->, thick, dashed]	([yshift=1cm]payer.south east) -- ([yshift=1cm]payee.south west) node[midway, fill=white] {Cash};
+	}
 
-	\draw[<-, thick]		([yshift=-1cm]payer.north east) -- ([yshift=-1cm]payee.north west) node[midway, fill=white] {Goods / Services};
-
+		\draw[<-, thick]		([yshift=-1cm]payer.north east) -- ([yshift=-1cm]payee.north west) node[midway, fill=white] {Goods / Services};
 	
 \end{tikzpicture}

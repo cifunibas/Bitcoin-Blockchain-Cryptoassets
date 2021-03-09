@@ -10,15 +10,15 @@
 
 
 % Intermediary
-\node 			(intermediary) at (6,-2.5) {\includegraphics[height = 1.6cm]{../assets/images/agents/intermediary}};
+\uncover<2->{\node 			(intermediary) at (6,-2.5) {\includegraphics[height = 1.6cm]{../assets/images/agents/intermediary}};}
 
 
 % Goods vs. Money flow	
-	\draw[->, thick, dashed]	([yshift=1cm] payer.south east) -- (intermediary.west) 
-						node[midway, fill=white] {Payment order};
+	\uncover<3->{\draw[->, thick, dashed]	([yshift=1cm] payer.south east) -- (intermediary.west) 
+						node[midway, fill=white] {Payment order};}
 						
-\draw[->, thick, dashed]	(intermediary.east) -- ([yshift=1cm] payee.south west) 
-						node[midway, fill=white] {Credit note};
+\uncover<5->{\draw[->, thick, dashed]	(intermediary.east) -- ([yshift=1cm] payee.south west) 
+						node[midway, fill=white] {Credit note};}
 
 	\draw[<-, thick]	(payer.east) -- (payee.west) node[midway, fill=white] {Goods / Services};
 
@@ -34,13 +34,13 @@
 \coordinate	(G) at (2.4,-4.5);
 \coordinate	(H) at (9.6,-4.5);
 
-\draw[thick,focus]	(A) -- (C);
-\draw[thick,focus]	(B) -- (G);
-\draw[thick,focus]	(D) -- (F);
-\draw[thick,focus]	(E) -- (H);
+\uncover<4->{\draw[thick,focus]	(A) -- (C);
+\draw[thick,focus]	(B) -- (G);}
+\uncover<6->{\draw[thick,focus]	(D) -- (F);
+\draw[thick,focus]	(E) -- (H);}
 
-\node[draw=none, fill=none]	at(0.7,-2.8)[focus,right]{\tiny Amount};
-\node[draw=none, fill=none]	at(11.3,-2.8)[focus,left]{\tiny Amount};
+\uncover<4->{\node[draw=none, fill=none]	at(0.7,-2.8)[focus,right]{\tiny Amount};}
+\uncover<6->{\node[draw=none, fill=none]	at(11.3,-2.8)[focus,left]{\tiny Amount};}
 
 
 	
