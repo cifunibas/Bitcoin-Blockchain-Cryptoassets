@@ -77,7 +77,7 @@ c03f999b8643f656b412a3ac00000000}
 
 
 %%%
-\begin{frame}[t]{Raw Transaction Data}
+\begin{frame}[t]{Version}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -99,9 +99,7 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000}}
 
 
 %%%
-\begin{frame}[t]{Inputs}
-
-\only<1>{
+\begin{frame}[t]{Transaction Inputs}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -117,10 +115,12 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000}}
 \begin{itemize}
 	\item Raw Transaction Input Data
 \end{itemize}
-}
+\end{frame}
+%%%
 
 
-\only<2>{
+%%%
+\begin{frame}[t]{Number of Inputs}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -137,10 +137,12 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000}}
 	\item \textcolor{focus}{01}
 	\item Number of Inputs
 \end{itemize}
-}
+\end{frame}
+%%%
 
 
-\only<3>{
+%%%
+\begin{frame}[t]{Reference to previous transaction}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -155,11 +157,14 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000}}
 }
 \begin{itemize}
 	\item {\scriptsize \textcolor{focus}{c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704}}
-	\item Reverse byte order of previous transaction. (Starting from 0)
+	\item Reverse byte order of previous transaction.
 \end{itemize}
-}
+\end{frame}
+%%%
 
-\only<4>{
+
+%%%
+\begin{frame}[t]{Inputs}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -174,11 +179,14 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000}}
 }
 \begin{itemize}
 	\item \textcolor{focus}{00000000}
-	\item Index of Output within previous transaction as little-endian integer.
+	\item Index of Output within previous transaction as little-endian integer. (Starting from 0)
 \end{itemize}
-}
+\end{frame}
+%%%
 
-\only<5>{
+
+%%%
+\begin{frame}[t]{Bytes length \texttt{scriptSig}}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -192,12 +200,15 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000}}
 \end{minipage}
 }
 \begin{itemize}
-	\item \textcolor{focus}{48} (72 in dec): Specifies bytes length of the following \texttt{scriptSig} in hexadecimal.
+	\item \textcolor{focus}{48} (72 in dec): Specifies bytes length of the following \texttt{scriptSig}.
 	\item In P2PK, \texttt{ScriptSig} only contains the signature, which is derived by the ECDSA of the private key.
 \end{itemize}
-}
+\end{frame}
+%%%
 
-\only<6>{
+
+%%%
+\begin{frame}[t]{\texttt{scriptSig}}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -213,11 +224,14 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000}}
 \begin{itemize}
 	\item \textcolor{focus}{47} (71 in dec): Specifies bytes length of the following signature.
 	\item {\scriptsize\textcolor{focus}{30 44 02 20 4e 45 e1 69 32 b8 af 51 49 61 a1 d3 a1 a2 5f df 3f 4f 77 32 e9 d6 24 c6 c6 15 48 ab 5f b8 cd 41 02 20 18 15 22 ec 8e ca 07 de 48 60 a4 ac dd 12 90 9d 83 1c c5 6c bb ac 46 22 08 22 21 a8 76 8d 1d 09 01}}
-	\item Signature that matches Public Key definded in the \texttt{scriptPubKey} of the previous transaction.
+	\item Signature that matches Public Key defined in the \texttt{scriptPubKey} of the previous transaction.
 \end{itemize}
-}
+\end{frame}
+%%%
 
-\only<7>{
+
+%%%
+\begin{frame}[t]{Sequence Number}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -235,17 +249,12 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000}}
 	\item Default Sequence Number
 	\item Deprecated feature of bitcoin
 \end{itemize}
-}
-
-
 \end{frame}
 %%%
 
 
 %%%
 \begin{frame}[t]{Outputs}
-
-\only<1>{
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -261,9 +270,12 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac}\textcolor{black!
 \begin{itemize}
 	\item Raw Transaction Output Data
 \end{itemize}
-}
+\end{frame}
+%%%
 
-\only<2>{
+
+%%%
+\begin{frame}[t]{Number of Outputs}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -281,9 +293,12 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac}\textcolor{black!
 	\item Number of Outputs
 	\item Splitting transaction type
 \end{itemize}
-}
+\end{frame}
+%%%
 
-\only<3>{
+
+%%%
+\begin{frame}[t]{Satoshi Amount of first Output}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -300,9 +315,12 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac}\textcolor{black!
 	\item \textcolor{focus}{00ca9a3b00000000}
 	\item Amout of Satoshis as little-endian integer (10 BTCs = 1 Billion Satoshis)
 \end{itemize}
-}
+\end{frame}
+%%%
 
-\only<4>{
+
+%%%
+\begin{frame}[t]{Bytes length of \texttt{scriptPubKey}}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -318,9 +336,12 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac}\textcolor{black!
 \begin{itemize}
 	\item \textcolor{focus}{43} (67 in dec): Specifies bytes length of \texttt{scriptPubKey} of first Output
 \end{itemize}
-}
+\end{frame}
+%%%
 
-\only<5>{
+
+%%%
+\begin{frame}[t]{\texttt{scriptPubKey}}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -340,9 +361,12 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac}\textcolor{black!
 	\item \textcolor{focus}{ac}: \texttt{OP\_CHECKSIG}
 	\item Together they make up 67 bytes
 \end{itemize}
-} 
+\end{frame}
+%%%
 
-\only<6>{
+
+%%%
+\begin{frame}[t]{Satoshi Amount of second Output}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -359,9 +383,12 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac}\textcolor{black!
 	\item \textcolor{focus}{00286bee00000000}
 	\item Amout of Satoshis as little-endian integer (40 BTCs = 4 Billion Satoshis)
 \end{itemize}
-}
+\end{frame}
+%%%
 
-\only<7>{
+
+%%%
+\begin{frame}[t]{Bytes length of \texttt{scriptPubkey}}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -377,9 +404,12 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac}\textcolor{black!
 \begin{itemize}
 	\item \textcolor{focus}{43} (67 in decimal): Specifies bytes length of \texttt{scriptPubKey} of second Output.
 \end{itemize}
-}
+\end{frame}
+%%%
 
-\only<8>{
+
+%%%
+\begin{frame}[t]{\texttt{scriptPubKey}}
 \shadowbox{
 \begin{minipage}[c]{4.2in}
 \begin{tiny}
@@ -399,8 +429,6 @@ ea dd fb 84 cc f9 74 44 64 f8 2e 16 0b fa 9b 8b 64 f9 d4 c0 3f 99 9b 86 43 f6 56
 	\item \textcolor{focus}{ac}: \texttt{OP\_CHECKSIG}
 	\item Together they make up 67 bytes
 \end{itemize}
-}
-
 \end{frame}
 %%%
 
