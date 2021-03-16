@@ -48,15 +48,29 @@ Refers to the memory organisation for simple numerical values, primarily the sto
 
 
 %%%
-\begin{frame}{First ever Bitcoin Transaction}
+\begin{frame}{First ever Bitcoin Transaction - A story}
 \begin{itemize}
-\item From Satoshi Nakamoto to Hal Finney
-\item Pay-to-Public-Key Transaction Type
-\item Transaction Hash: \\
-{\scriptsize \texttt{f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16}}
-\item SHA256(SHA256(Raw TRX Data)) $\rightarrow$ TRX Hash
+\item Satoshi mined 50 BTC and has a plan \dots
+\item He wants to send 10 BTC to his friend Hal Finney.
+\item He does that by sending 10 BTC to Finney's Public Key.
+\item Since he has to reference the whole UTXO, he returns the remaining 40 BTC to himself.
+\item How does Satoshi form this transaction?
 \end{itemize}
 \end{frame}
+%%%
+
+
+%\item Satoshis Public Key:  0411db93e1dcdb8a016b49840f8c53bc1eb68a382e97b1482ecad7b148a6909a5cb2e0eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3
+%\item Hal Finney's Public Key: 04ae1a62fe09c5f51b13905f07f06b99a2f7159b2225f374cd378d71302fa28414e7aab37397f554a7df5f142c21c1b7303b8a0626f1baded5c72a704f7e6cd84c
+
+%%%
+%\begin{frame}{Transaction Hash}
+%\begin{itemize}
+%\item Transaction Hash: \\
+%{\scriptsize \texttt{f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16}}
+%\item SHA256(SHA256(Raw TRX Data)) $\rightarrow$ TRX Hash
+%\end{itemize}
+%\end{frame}
 %%%	
 
 
@@ -91,8 +105,7 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000}}
 \end{minipage}
 }
 \begin{itemize}
-	\item \textcolor{focus}{01000000}
-	\item Version as a little-endian integer
+	\item Version as a little-endian integer: \textcolor{focus}{01000000}
 \end{itemize}
 \end{frame}
 %%%
@@ -134,8 +147,7 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000}}
 \end{minipage}
 }
 \begin{itemize}
-	\item \textcolor{focus}{01}
-	\item Number of Inputs
+	\item Number of Inputs: \textcolor{focus}{01}
 \end{itemize}
 \end{frame}
 %%%
@@ -156,8 +168,9 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000}}
 \end{minipage}
 }
 \begin{itemize}
-	\item {\scriptsize \textcolor{focus}{c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704}}
-	\item Reverse byte order of previous transaction.
+	\item Reverse byte order of previous transaction: \\ {\scriptsize
+	{c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704}}
+	\item Coinbase transaction in Block 9.
 \end{itemize}
 \end{frame}
 %%%
@@ -178,8 +191,7 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000}}
 \end{minipage}
 }
 \begin{itemize}
-	\item \textcolor{focus}{00000000}
-	\item Index of Output within previous transaction as little-endian integer. (Starting from 0)
+	\item Index of Output within previous transaction as little-endian integer: \textcolor{focus}{00000000}
 \end{itemize}
 \end{frame}
 %%%
@@ -450,6 +462,20 @@ eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac}\textcolor{focus}
 \begin{itemize}
 	\item \textcolor{focus}{00000000}: Block height 0
 \end{itemize}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Bitcoin Pizza Transaction}
+General infos (picture?, blogpost?)
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Raw Transaction Data}
+
 \end{frame}
 %%%
 
