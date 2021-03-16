@@ -27,21 +27,22 @@
 \draw[<->, thick, dashed]	(agenth.south west) -- (agentd.east);
 \color{black}
 
-\uncover<2->{
-	\node (agente2) at (agente) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand2}};	
-	
-	\draw[<->, thick, dashed] 	(agentc.north east) -- (agente.south west);
-}
 
-\uncover<3-3>{
-	\node (agenta2) at (agenta) {\includegraphics[width = 0.6 cm, decodearray={0.8 0 0.5 0 0.5 0}]{../assets/images/agents/avatar_rand3}};
-	\node (agentf2) at (agentf) {\includegraphics[width = 0.6 cm, decodearray={0.8 0 0.5 0 0.5 0}]{../assets/images/agents/avatar_rand3}};	
-	\node (agentg2) at (agentg) {\includegraphics[width = 0.6 cm, decodearray={0.8 0 0.5 0 0.5 0}]{../assets/images/agents/avatar_rand4}};		
+\node (agente2) at (agente) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand2}};	
+\draw[<->, thick, dashed] 	(agentc.north east) -- (agente.south west);
+
+\node (agenta2) at (agenta) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3}};
+\node (agentf2) at (agentf) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3}};	
+
+\draw[<->, thick, dashed]	(agentc.west) -- (agenta.east);
+\draw[<->, thick, dashed]	(agentc.south east) -- (agentf.west);
+
+\uncover<2->{
+	\node (agentg2) at (agentg) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4}};	
+	\node (agentd2) at (agentd) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand1}};	
 	
-	\color{Redish}
-	\draw[<->, thick, dashed] 	(agenta.north east) -- (agente.west);
-	\draw[<->, thick, dashed]	(agente.south) -- (agentf.north);
-	\draw[<->, thick, dashed]	(agente.east) -- (agentg.north west);
-	\color{black}
+	\draw[<->, thick, dashed]	(agentg.west) -- (agentc.east);
+	\draw[<->, thick, dashed]	(agentc.south) -- (agentd.north);
+	
 }
 

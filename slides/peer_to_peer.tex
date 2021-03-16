@@ -1,6 +1,6 @@
 % Choose one to switch between slides and handout
-\documentclass[]{beamer}
-%\documentclass[handout]{beamer}
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
@@ -59,19 +59,33 @@
 
 %%%
 \begin{frame}{Peer-to-Peer vs. Centralized Networks}
-	\vspace{1em}
-	In a peer-to-peer network, each participant...
-	\vspace{0.5em}
-%	\begin{footnotesize}
-		\begin{itemize}
-			\item<2-> Can connect to any number of other participants
-			\item<3-> Has equal privileges (no administration)
-			\item<4-> Is consumer and provider of resources (client and server)
-		\end{itemize}
-%	\end{footnotesize}
+%	\vspace{1em}
+%	In a peer-to-peer network, each participant...
+%	\vspace{0.5em}
+%%	\begin{footnotesize}
+%		\begin{itemize}
+%			\item<2-> Can connect to any number of other participants
+%			\item<3-> Has equal privileges (no administration)
+%			\item<4-> Is consumer and provider of resources (client and server)
+%		\end{itemize}
+%%	\end{footnotesize}
+
+% align pictures
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				Peer-to-Peer
+			\end{center}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				Centralized
+			\end{center}
+		\end{column}
+	\end{columns}
+	\vspace{.8 cm}
 	\begin{columns}[T]
 		\begin{column}{0.5\textwidth}
-			\vspace{2.5em}
 			\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
 				\input{../assets/figures/p2p}
 			\end{tikzpicture}
@@ -133,11 +147,25 @@
 	\begin{enumerate}
 		\item<2-> Connect to a known peer
 		\item<3-> Ask this peer for a list of their connections
-		\item<4-> Connect to a random set of peers from this list
-		\item<5-> Repeat steps 2 and 3 until enough connections are established
 	\end{enumerate}
 \end{frame}
 %%%
+
+\begin{frame}{Peer Discovery}
+	\begin{center}
+		\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+			\input{../assets/figures/peer_discovery2}
+		\end{tikzpicture}
+	\end{center}
+	%\vspace{0.5 cm}
+	\uncover{Basic peer discovery:}
+	\begin{enumerate}
+		\item Connect to a known peer
+		\item Ask this peer for a list of their connections
+		\item Connect to a random set of peers from this list
+		\item<2-> Repeat steps 2 and 3 until enough connections are established
+	\end{enumerate}
+\end{frame}
 
 %%%
 \begin{frame}{Advantages of P2P Networks}
@@ -150,13 +178,13 @@
 			\item No bandwidth bottlenecks
 		\end{itemize}
 		\vspace{0.3 cm}
-		\item<2-> No central point for an attack
+		\item<2-> No central point of attack
 			\begin{itemize}
 				\item No node has special privileges or powers
 				\item Very difficult to overload the network via DoS attacks
 			\end{itemize}	
 		\vspace{0.3 cm}
-		\item<3-> Every peer supplies hardware
+		\item<3-> No centralized infrastructure requirement
 		\vspace{0.3 cm}
 		\item<4-> Difficult to regulate or stop
 	\end{itemize}
@@ -179,12 +207,19 @@
 \end{frame}
 %%%
 
-
-\begin{frame}%[allowframebreaks]
-\frametitle{Further Reading}
-		\textbf{Cryptocurrency Networks: A New P2P Paradigm}, \\
-		Delgado-Segura et al., 2018, Mobile Information Systems, \\
-		\link \url{https://doi.org/10.1155/2018/2159082}
+%%%
+\begin{frame}{Recommended Literature}
+	\begin{columns}[T]
+		\begin{column}{0.1\textwidth}
+			\includegraphics[width = 1.7cm, frame]{../assets/images/p2p_paper}
+		\end{column} %\hfill
+		\begin{column}{0.8\textwidth}
+			\textbf{Cryptocurrency Networks: A New P2P Paradigm} \\ 
+			Delgado-Segura et al., 2018 \\
+			\link \texttt{\url{https://doi.org/10.1155/2018/2159082}}
+		\end{column}
+	\end{columns}
 \end{frame}
+%%%
 
 \end{document}
