@@ -1,0 +1,108 @@
+% Choose one to switch between slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Signature Hash Type}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+\begin{frame}{Signature}
+	Network participants exchange signed transaction messages. Usually, they sign all inputs and outputs, but sometimes they may only want to protect some of them.\\
+	\vspace{1.5em}
+	\uncover<2->{$\rightarrow$ \texttt{SIGHASH} types enable this.}
+\end{frame}
+
+\begin{frame}{SIGHASH Types Overview}
+	There are three base \texttt{SIGHASH} types plus the \texttt{ANYONECANPAY} modifier:\\
+	\vspace{1.5em}
+	\scriptsize
+	\begin{tabular}{lll}
+		& All inputs & Only your input\\
+		\hline
+	All outputs & \texttt{SIGHASH\_ALL} & \texttt{SIGHASH\_ALL|SIGHASH\_ANYONECANPAY}\\
+	Single output & \texttt{SIGHASH\_SINGLE} & \texttt{SIGHASH\_SINGLE|SIGHASH\_ANYONECANPAY}\\
+	No outputs & \texttt{SIGHASH\_NONE} & \texttt{SIGHASH\_NONE|SIGHASH\_ANYONECANPAY}
+	\end{tabular}
+\end{frame}
+
+\begin{frame}{\texttt{SIGHASH\_ALL}}
+	\begin{figure}
+		\input{../assets/figures/SIGHASH_ALL.tex}
+	\end{figure}
+	\begin{itemize}
+		\item Default value
+		\item Signs all inputs and outputs.
+		\item Modified inputs or outputs invalidate the signature.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{SIGHASH\_SINGLE}}
+	\begin{figure}
+		\input{../assets/figures/SIGHASH_SINGLE.tex}	
+	\end{figure}
+	\begin{itemize}
+		\item Signs all inputs and \emph{one} output only.
+		\item Modified inputs or the modification of the signed output invalidate the signature.
+		\item Other people can change any of the unsigned outputs. Usage?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{SIGHASH\_NONE}}
+	\begin{figure}
+		\input{../assets/figures/SIGHASH_NONE.tex}	
+	\end{figure}
+	\begin{itemize}
+		\item Signs all inputs but \emph{none} of the outputs.
+		\item Anyone can freely modify the unlocking conditions.
+		\item Usage?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{SIGHASH\_ALL|SIGHASH\_ANYONECANPAY}}
+	\begin{figure}
+		\input{../assets/figures/SIGHASH_ALL_ANYONECANPAY.tex}
+	\end{figure}
+	\begin{itemize}
+		\item Signs only the signer's inputs and all outputs.
+		\item Anyone can add or remove other inputs.
+		\item E.g.\ crowdfunding campaign
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{SIGHASH\_SINGLE|SIGHASH\_ANYONECANPAY}}
+	\begin{figure}
+		\input{../assets/figures/SIGHASH_SINGLE_ANYONECANPAY.tex}	
+	\end{figure}
+	\begin{itemize}
+		\item Signs only the signer's input and \emph{one} output.
+		\item Other people are free to add or remove additional inputs and outputs.\\
+		\item Any change to the signer's part of the transaction will invalidate the signature.	
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{SIGHASH\_NONE|SIGHASH\_ANYONECANPAY}}
+	\begin{figure}
+		\input{../assets/figures/SIGHASH_NONE_ANYONECANPAY.tex}
+	\end{figure}
+	\begin{itemize}
+		\item Signs only the signer's inputs and no outputs.
+		\item Anyone can add or remove other inputs and outputs.
+		\item Anyone can use the signed input in any way.	
+	\end{itemize}
+\end{frame}
+
+\end{document}
