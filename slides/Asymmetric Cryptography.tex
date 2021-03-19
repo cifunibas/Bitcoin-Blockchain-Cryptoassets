@@ -1,10 +1,10 @@
 % Choose one to switch betweeen slides and handout
-\documentclass[]{beamer}
-%\documentclass[handout]{beamer}
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
-\subtitle{Intro: Welcome to the Course}
+\subtitle{Asymmetric Cryptography}
 \author{Prof. Dr. Fabian Schär}
 \institute{University of Basel}
 
@@ -115,17 +115,17 @@
 
 %%%
 \begin{frame}{RSA}
-	Properties of RSA
-	\begin{itemize}
-		\item<1->[(a)] Alice creates a \textit{public key} with which everyone can encrypt a message. The encryption with the public key is a one-way function and therefore not revertable
-		\item<2->[(b)] Only Alice is able to decrypt the message with her \textit{private key} and revert the encryption process
-	\end{itemize}
+	Properties of asymmetric cryptography:\\
+	\huge{Placeholder for application-for-symmetric-cryptography graphic}
+%	\begin{figure}
+%		\input{../assets/figures/application_for_asymmetric_cryptography}
+%	\end{figure}
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{RSA 1/4: Find Public Key}
-	Choose two primes \(p\) and \(q\) (e.g. \(p = 17\) and \(q = 11\)) and calculate
+	Alice chooses two primes \(p\) and \(q\) (e.g. \(p = 17\) and \(q = 11\)) and calculate
 	\begin{align*}
 		N &= p \cdot q \\
 		\intertext{In our example:}
@@ -135,13 +135,13 @@
 	\end{align*} 
 	and choose an additional integer \(e\) (e.g. \(e = 7\)).\footnote{\tiny \(e\) and \((p-1)\cdot(q-1)\) have to be relative primes} \\
 	\vspace{0.5cm}
-	\(\Rightarrow\) \(N\) and \(e\) together make up the Public Key
+	\(\Rightarrow\) \(N\) and \(e\) together make up the public key which Alice can make publicly available.
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{RSA 2/4: Encrypt Message}
-	Convert message \(M\) into an integer (e.g. \(M =\) letter \(X\) in ASCII \(= 88\)) and calculate the encrypted message \(C\) using the formula 
+	Bob converts message \(M\) into an integer (e.g. \(M =\) letter \(X\) in ASCII \(= 88\)) and calculates the encrypted message \(C\) using Alice's public key and the formula 
 	\begin{align*}
 		C &= M^e\ (mod\ N) \\
 		\intertext{In our example:}
@@ -153,7 +153,7 @@
 
 %%%
 \begin{frame}{RSA 3/4: Derive Private Key}
-	Calculate Private Key \(k_{p}\) using the formula
+	Alice calculates private key \(k_{p}\) using the formula
 	\begin{align*}
 		e \cdot k_{p} &= 1\ (mod\ \phi(N))\;\text{, where \(\phi(N) = (p-1)(q-1)\)}
 		\intertext{In our example:}
@@ -167,9 +167,9 @@
 %%%
 \begin{frame}{RSA 4/4: Decrypt Message}
 	\begin{align*}
-		\intertext{Decrypt with formula}
+		\intertext{Alice decrypts Bob's message with formula}
 		M &= C^{k_{p}}\ (mod\ N)
-		\intertext{Insert and calculate}
+		\intertext{and calculates}
 		M &= 11^{23}\ (mod\ 187) \\
 		M &= 88 = X
 		\text{\ in ASCII}
@@ -199,7 +199,7 @@
 %%%
 
 %%%
-\begin{frame}{PGP: Principle}
+\begin{frame}{PGP: Workings}
 	\begin{minipage}[T][5cm][t]{0.45\textwidth}
 		Encryption:
 		\begin{itemize}
