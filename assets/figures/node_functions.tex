@@ -1,0 +1,38 @@
+\begin{footnotesize}
+	\coordinate (1) at (-4, 3);
+	\coordinate (2) at (0, 3);
+	\coordinate (3) at (4, 3);
+	\coordinate (4) at (-2, 0);
+	\coordinate (5) at (2, 0);
+%	\coordinate (6) at (4, 0);
+	
+	\coordinate (a) at (-5.3, 4);
+	\coordinate (b) at (5.3, 2);
+	\filldraw[fill=highlight] (a) rectangle (b);
+	\node at (0, 4.2) {Mandatory};
+	
+	\coordinate (c) at (-5.3, 1);
+	\coordinate (d) at (5.3, -1);
+	\filldraw[fill=highlight!30!white] (c) rectangle (d);
+	\node at (0, 1.2) {Optional};
+	
+	\node at (1) {\includegraphics[height = 0.1\textheight]{../assets/images/copy}};
+	\node[below = 14pt] at (1) {Copy of Ledger};
+	
+	\node at (2) {\includegraphics[height = 0.1\textheight]{../assets/images/verify}};
+	\node[below = 14pt] at (2) {Verify};
+	
+	\node at (3) {\includegraphics[height = 0.1\textheight]{../assets/images/forward}};
+	\node[below = 14pt] at (3) {Distribute};
+	
+	\node at (4) {\includegraphics[height = 0.1\textheight]{../assets/images/wallet}};
+	\node[below = 14pt] at (4) {Wallet};
+	
+	\node at (5) {\includegraphics[height = 0.1\textheight]{../assets/images/pickaxe}};
+	\node[below = 14pt] at (5) {Mining};
+	
+%	\node at (6) {\includegraphics[height = 0.1\textheight]{../assets/images/currency}};
+%	\node[below = 12pt] at (6) {Currency};
+	
+	
+\end{footnotesize}

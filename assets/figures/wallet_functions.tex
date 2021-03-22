@@ -1,0 +1,20 @@
+\begin{footnotesize}
+	\coordinate (1) at (-4, 3);
+	\coordinate (2) at (0, 3);
+	\coordinate (3) at (4, 3);
+	
+	\coordinate (a) at (-5.3, 4);
+	\coordinate (b) at (5.3, 1.5);
+	\filldraw[fill=highlight] (a) rectangle (b);
+	\node at (0, 4.25) {Security Layer};
+	
+	\node (keys) at (1) {\includegraphics[height = 0.15\textheight]{../assets/images/key}};
+	\node[below = 3pt] at (keys.south) {Keys};
+	
+	\node (balance) at (2) {\includegraphics[height = 0.15\textheight]{../assets/images/bitcoin}};
+	\node[below = 3pt] at (balance.south) {Balance};
+	
+	\node (gui) at (3) {\includegraphics[height = 0.15\textheight]{../assets/images/ui}};
+	\node[below = 3pt] at (gui.south) {GUI};
+	
+\end{footnotesize}
