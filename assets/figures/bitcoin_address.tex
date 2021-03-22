@@ -1,0 +1,27 @@
+  \begin{tikzpicture}[domain=-6:6,scale=0.6]
+    \draw[color=black, densely dotted,->, thick] (0,2) -- (0,1.4);
+    \draw[color=black, densely dotted,->, thick] (0,0.8) -- (0,0.15);
+    \draw[color=black, densely dotted,->, thick] (0,-1.1) -- (0,-1.5);
+    \draw[color=black, densely dotted,->, thick] (0,-2.2) -- (0,-2.5);
+    \draw[color=black, densely dotted,->, thick] (0,-3.2) -- (0,-3.8);
+    \draw[color=black, densely dotted,<->, thick] (0,-5.1) -- (0,-5.55);
+    \draw[color=black, densely dotted,<->, thick] (0,-6.2) -- (0,-6.8);
+    
+    \draw [decorate,decoration={brace,amplitude=5pt,mirror},xshift=4pt,yshift=0pt]
+    (-1.8,-1.4) -- (-1.8,-3.4) node [black,midway,xshift=-1.6cm] 
+    {\footnotesize Double Hash};
+    
+    \draw[color=black] plot (0,3)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {Private Key};
+         \draw[color=black] plot (0,1.5)   node[below, rotate = 0] {\footnotesize{Multiplication on Elliptic Curve}};
+         \draw[color=black] plot (0,0)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {Public Key};
+         \draw[color=black] plot (0,-1.5)   node[below, rotate = 0] {\footnotesize{\texttt{SHA256}}};
+         \draw[color=black] plot (0,-2.5)   node[below, rotate = 0] {\footnotesize{\texttt{RIPEMD160}}};
+         \draw[color=black] plot (0,-4)   node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {Public Key Hash};             
+         \draw[color=black] plot (0,-5.5)   node[below, rotate = 0] {\footnotesize{\texttt{Base58Check} Encoding, Prefix 1}};
+         \draw[color=black] plot (0,-7)   node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {Bitcoin Address};
+         
+         \draw[color=black] plot (-3.5,-8.5)   node[fill=black!15, thick, rounded corners=4pt, draw=black, below, rotate = 0] {+Flexibility};
+         \draw[color=black] plot (0,-8.5)   node[fill=black!15, thick, rounded corners=4pt, draw=black, below, rotate = 0] {+Security};
+         \draw[color=black] plot (3.3,-8.5)   node[fill=black!15, thick, rounded corners=4pt, draw=black, below, rotate = 0, minimum height=0.6cm] {+Comfort};
+        
+  \end{tikzpicture}
