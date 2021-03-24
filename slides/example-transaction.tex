@@ -96,7 +96,64 @@
 	\small
 	\uncover<3->{$\rightarrow$ If you know the private key to \texttt{11db...a3} you can spend the UTXO \phantom{$\rightarrow$} of 50 BTC.}
 \end{frame}
+%%%
 
+
+%%%
+\begin{frame}{Bitcoin Script}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{tikzpicture}[scale=1, every node/.style={scale=1.4}]  %,domain=0:8
+
+\draw[very thick] (-0.1,0) -- (4.1,0);
+\draw[very thick] (-0.1,0) -- (-0.1,4);
+\draw[very thick] (4.1,0) -- (4.1,4);
+\draw (2,-0.5) node[below] {\texttt{Stack}};
+
+\only<1-3>{
+\draw[color=black] plot (2,1)   node[minimum width=2.7cm,fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{484730...0901}};
+  }
+
+\only<2,3>{
+\draw[color=black] plot (2,2)   node[minimum width=2.7cm,fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{410411...12a3}};
+}
+
+\only<3,4>{
+\draw[color=black] plot (6.1,5)   node[minimum width=2.7cm, minimum height= 0.5cm , fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{ac}};
+}
+
+\only<4>{
+\draw[color=black] plot (2,5)   node[minimum width=2.7cm,fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{410411...12a3}};
+}
+
+\only<4>{
+\draw[color=black] plot (2,4)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{484730...0901}};
+}
+
+\only<5>{
+\draw[color=black] plot (2,0.9)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{1}};
+}
+
+\only<1,2,5>{
+\draw[color=white] plot (6.1,5)   node[minimum width=2.7cm,fill=white, thick,  draw=white,below, rotate = 0] {\texttt{Dummy}};
+}
+\end{tikzpicture}
+\column{0.5\textwidth}
+
+\begin{enumerate}
+\item<1-> \texttt{<sig>}
+\item<2-> \texttt{<PubKey>} from previous trx
+\item<3-> \texttt{OP\_Checksig} from previous trx
+\item<4-> Check if they match
+\item<5-> If yes $\rightarrow$ \texttt{1} \\ If not $\rightarrow$ \texttt{0} 
+\end{enumerate}
+
+\end{columns}
+\end{frame}
+%%%
+
+
+%%%
 \begin{frame}{Transaction Outputs}
 	\begin{figure}
 		\input{../assets/figures/transaction-structure-example2.tex}
