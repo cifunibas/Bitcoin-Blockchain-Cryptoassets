@@ -741,23 +741,31 @@ c03f999b8643f656b412a3ac}00000000}
 
 \begin{tikzpicture}[domain=-8:8,scale=0.4]
 
-\draw[color=black] plot (0,8)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 042e930f39ba...c4e9dcebcabb}}};
+\draw[color=black] plot (0,8)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 042e930f39...e9dcebcabb}}};
 
 \draw[color=black] plot (0,6.3)   node[below, rotate = 0] {\texttt{\footnotesize{SHA256 Hash Function}}};
 
-\draw[color=black] plot (0,4.6)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 16966722f33b1c4bf6e871953415f50779ec07cd27ead6d1429ae82ba28d499e}}};
+\draw[color=black] plot (0,4.6)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 16966722f3...2ba28d499e}}};
 
 \draw[color=black] plot (0,2.9)   node[below, rotate = 0] {\texttt{\footnotesize{RIPEMD160 Hash Function}}};
 
-\draw[color=black] plot (0,1.2)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 46af3fb481837fadbb421727f9959c2d32a36829}}};
+\draw[color=black] plot (0,1.2)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 46af3fb481...2d32a36829}}};
 
 \draw[color=black] plot (0,-0.5)   node[below, rotate = 0] {\texttt{\footnotesize{Add Prefix 00}}};
  
-\draw[color=black] plot (0,-2.2)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize \textcolor{focus}{00}46af3fb481837fadbb421727f9959c2d32a36829}}};
+\draw[color=black] plot (0,-2.2)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize \textcolor{focus}{00}46af3fb481...2d32a36829}}};
 
-\draw[color=black] plot (0,-3.9)   node[below, rotate = 0] {\texttt{\footnotesize{Add Checksum (last 4 bytes of dSHA256(Prefix + HASH160))}}};
+\draw[color=black] plot (8.3,-2.2)   node[below, rotate = 0] {\texttt{\footnotesize{dSHA256()}}};
 
-\draw[color=black] plot (0,-5.6)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 0046af3fb481837fadbb421727f9959c2d32a36829\textcolor{focus}{71c823e7}}}};
+\draw[color=black] plot (15.3,-2.2)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize xxx...xxx71c823e7}}};
+
+\draw[color=black] plot (15.3,-3.9)   node[below, rotate = 0] {{\footnotesize \texttt{Take last 4 Bytes}}};
+
+\draw[color=black] plot (15.3,-5.6)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {\scriptsize{71c823e7}};
+
+\draw[color=black] plot (9.7,-5.6)   node[below, rotate = 0] {\texttt{\footnotesize{Add as Checksum}}};
+
+\draw[color=black] plot (0,-5.6)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 0046af3fb481...2d32a36829\textcolor{focus}{71c823e7}}}};
 
 \draw[color=black] plot (0,-7.3)   node[below, rotate = 0] {\texttt{\footnotesize{Base58 Encoding}}};
 
@@ -769,8 +777,16 @@ c03f999b8643f656b412a3ac}00000000}
 \draw[color=black, densely dotted,->, thick] (0,2) -- (0,1.3);
 \draw[color=black, densely dotted,->, thick] (0,0) -- (0,-0.7);
 \draw[color=black, densely dotted,->, thick] (0,-1.4) -- (-0,-2.1);
-\draw[color=black, densely dotted,->, thick] (0,-3.4) -- (0,-4.1);
-\draw[color=black, densely dotted,->, thick] (0,-4.9) -- (0,-5.6);
+
+\draw[color=black, densely dotted,->, thick] (5,-2.8) -- (6.3,-2.8);
+\draw[color=black, densely dotted,->, thick] (10.2,-2.8) -- (11.5,-2.8);
+
+\draw[color=black, densely dotted,->, thick] (15,-3.4) -- (15,-4.1);
+\draw[color=black, densely dotted,->, thick] (15,-4.9) -- (15,-5.6);
+
+\draw[color=black, densely dotted,<-, thick] (6,-6.2) -- (6.5,-6.2);
+\draw[color=black, densely dotted,<-, thick] (13,-6.2) -- (13.5,-6.2);
+
 \draw[color=black, densely dotted,->, thick] (0,-6.8) -- (0,-7.5);
 \draw[color=black, densely dotted,->, thick] (0,-8.3) -- (0,-9);
 \end{tikzpicture}
