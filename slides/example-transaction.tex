@@ -731,65 +731,19 @@ c03f999b8643f656b412a3ac}00000000}
 %%%
 \begin{frame}{Pay-to-Public-Key-Hash}
 	\href{https://blockstream.info/tx/a1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d}{\link The pizza transaction:}\\
-	Illustration with stickmen
+	\begin{figure}
+	\includegraphics[scale=0.3]{../assets/images/pizza_blogpost}	
+	\end{figure}
+Illustration with stickmen
 \end{frame}
 %%%
 
 
 %%%
 \begin{frame}{From Public Key to Bitcoin Address}
-
-\begin{tikzpicture}[domain=-8:8,scale=0.4]
-
-\draw[color=black] plot (0,8)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 042e930f39...e9dcebcabb}}};
-
-\draw[color=black] plot (0,6.3)   node[below, rotate = 0] {\texttt{\footnotesize{SHA256 Hash Function}}};
-
-\draw[color=black] plot (0,4.6)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 16966722f3...2ba28d499e}}};
-
-\draw[color=black] plot (0,2.9)   node[below, rotate = 0] {\texttt{\footnotesize{RIPEMD160 Hash Function}}};
-
-\draw[color=black] plot (0,1.2)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 46af3fb481...2d32a36829}}};
-
-\draw[color=black] plot (0,-0.5)   node[below, rotate = 0] {\texttt{\footnotesize{Add Prefix 00}}};
- 
-\draw[color=black] plot (0,-2.2)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize \textcolor{focus}{00}46af3fb481...2d32a36829}}};
-
-\draw[color=black] plot (8.3,-2.2)   node[below, rotate = 0] {\texttt{\footnotesize{dSHA256()}}};
-
-\draw[color=black] plot (15.3,-2.2)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize xxx...xxx71c823e7}}};
-
-\draw[color=black] plot (15.3,-3.9)   node[below, rotate = 0] {{\footnotesize \texttt{Take last 4 Bytes}}};
-
-\draw[color=black] plot (15.3,-5.6)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {\scriptsize{71c823e7}};
-
-\draw[color=black] plot (9.7,-5.6)   node[below, rotate = 0] {\texttt{\footnotesize{Add as Checksum}}};
-
-\draw[color=black] plot (0,-5.6)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 0046af3fb481...2d32a36829\textcolor{focus}{71c823e7}}}};
-
-\draw[color=black] plot (0,-7.3)   node[below, rotate = 0] {\texttt{\footnotesize{Base58 Encoding}}};
-
-\draw[color=black] plot (0,-9)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 17SkEw2md5avVNyYgj6RiXuQKNwkXaxFyQ}}};
-
-\draw[color=black, densely dotted,->, thick] (0,6.75) -- (0,6.15);
-\draw[color=black, densely dotted,->, thick] (0,5.4) -- (0,4.7);
-\draw[color=black, densely dotted,->, thick] (0,3.4) -- (0,2.7);
-\draw[color=black, densely dotted,->, thick] (0,2) -- (0,1.3);
-\draw[color=black, densely dotted,->, thick] (0,0) -- (0,-0.7);
-\draw[color=black, densely dotted,->, thick] (0,-1.4) -- (-0,-2.1);
-
-\draw[color=black, densely dotted,->, thick] (5,-2.8) -- (6.3,-2.8);
-\draw[color=black, densely dotted,->, thick] (10.2,-2.8) -- (11.5,-2.8);
-
-\draw[color=black, densely dotted,->, thick] (15,-3.4) -- (15,-4.1);
-\draw[color=black, densely dotted,->, thick] (15,-4.9) -- (15,-5.6);
-
-\draw[color=black, densely dotted,<-, thick] (6,-6.2) -- (6.5,-6.2);
-\draw[color=black, densely dotted,<-, thick] (13,-6.2) -- (13.5,-6.2);
-
-\draw[color=black, densely dotted,->, thick] (0,-6.8) -- (0,-7.5);
-\draw[color=black, densely dotted,->, thick] (0,-8.3) -- (0,-9);
-\end{tikzpicture}
+\begin{figure}
+	\input{../assets/figures/pubkey_to_address}
+\end{figure}
 \end{frame}
 %%%
 
@@ -802,6 +756,45 @@ c03f999b8643f656b412a3ac}00000000}
 	What is different?
 \end{frame}
 %%%
+
+
+\begin{frame}{Raw Transaction Data (Outputs)}
+\begin{scriptsize}
+\texttt{\textcolor{highlight}{01000000830d2e8f94c33a10f3834554cc1f1469e069f0fcf31a47309d42a9d00f4ba5
+7d86000000008c493046022100bc57dc26f46fecc1da03272cb2298d8a08b22d865541
+f5b3a3e862cc87da4b47022100ce1fc72771d164d608b15065832542a0e9040cfdf288
+62c5175c81fcb0e0b65501410434417dd8d89deaf0f6481c2c160d6de0921624ef7b95
+6f38eef9ed4a64e36877be84b77cdee5a8d92b7d93694f89c3011bf1cbdf4fd7d8ca13
+b58a7bb4ab0804ffffffff}...010010a5d4e8000000\textcolor{focus}{1976a91446af3fb481837fadbb4
+21727f9959c2d32a3682988ac}00000000
+}
+\end{scriptsize}
+\vspace{1em}
+\footnotesize
+\begin{columns}
+\column{0.5\textwidth}
+\begin{itemize}
+	\item 1 output: \texttt{01}
+	\item 10000 BTC: \texttt{0010a5d4e8000000}
+	\item 26 byte long \texttt{scriptPubKey}: \texttt{19}
+	\item \texttt{OP\_DUP}: \texttt{76}
+	\item \texttt{OP\_HASH160}: \texttt{a9}
+\end{itemize}
+\column{0.5\textwidth}
+\begin{itemize}
+	\item 20 byte long Public Key Hash: \texttt{14}
+	\item {\scriptsize 46af3fb481837fadbb421\\727f9959c2d32a36829} \\(compare to slide 14)
+	\item \texttt{OP\_EQUALVERIFY}: \texttt{88}
+	\item \texttt{OP\_CHECKSIG}: \texttt{ac}
+\end{itemize}
+\end{columns}
+
+\end{frame}
+
+
+
+
+
 \end{document}
 
 %\only<6>{
