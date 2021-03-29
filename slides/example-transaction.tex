@@ -256,43 +256,11 @@ c03f999b8643f656b412a3ac}00000000}
 \begin{frame}{Bitcoin Script}
 \begin{columns}
 \column{0.5\textwidth}
-\begin{tikzpicture}[scale=1, every node/.style={scale=1.4}]  %,domain=0:8
+\begin{figure}
+	\input{../assets/figures/example_p2pk}
+\end{figure}
 
-\draw[very thick] (-0.1,0) -- (4.1,0);
-\draw[very thick] (-0.1,0) -- (-0.1,4);
-\draw[very thick] (4.1,0) -- (4.1,4);
-\draw (2,-0.5) node[below] {\texttt{Stack}};
-
-\only<1-3>{
-\draw[color=black] plot (2,1)   node[minimum width=2.7cm,fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{484730...0901}};
-  }
-
-\only<2,3>{
-\draw[color=black] plot (2,2)   node[minimum width=2.7cm,fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{410411...12a3}};
-}
-
-\only<3,4>{
-\draw[color=black] plot (6.1,5)   node[minimum width=2.7cm, minimum height= 0.5cm , fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{ac}};
-}
-
-\only<4>{
-\draw[color=black] plot (2,5)   node[minimum width=2.7cm,fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{410411...12a3}};
-}
-
-\only<4>{
-\draw[color=black] plot (2,4)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{484730...0901}};
-}
-
-\only<5>{
-\draw[color=black] plot (2,0.9)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{1}};
-}
-
-\only<1,2,5>{
-\draw[color=white] plot (6.1,5)   node[minimum width=2.7cm,fill=white, thick,  draw=white,below, rotate = 0] {\texttt{Dummy}};
-}
-\end{tikzpicture}
 \column{0.5\textwidth}
-
 \begin{enumerate}
 \item<1-> \texttt{<sig>}
 \item<2-> \texttt{<PubKey>} from previous trx
@@ -478,6 +446,27 @@ b58a7bb4ab0804}ffffffff\textcolor{black!50}{...}\textcolor{highlight}{010010a5d4
 	\vspace{1em}
 	\uncover<2->{$\rightarrow$ Duplicate the public key \texttt{XYZ} and take the \texttt{Hash160} of it to get \texttt{46af...6829}}\\
 	\uncover<3->{$\rightarrow$ If you know the private key to this public key, you can spend the 10,000 BTC.}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Bitcoin Script}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{figure}
+	\input{../assets/figures/example_p2pkh}
+\end{figure}
+\column{0.5\textwidth}
+\begin{enumerate}
+\item<1-> \texttt{<sig>} and \texttt{<pubKey>}
+\item<2-> \texttt{OP\_Dup}
+\item<6-> \texttt{OP\_Hash160}
+\item<10-> \texttt{pubKeyHash}
+\item<11-> \texttt{OP\_Equalverify}
+\item<14-> \texttt{OP\_Checksig}
+\end{enumerate}
+\end{columns}
 \end{frame}
 %%%
 
