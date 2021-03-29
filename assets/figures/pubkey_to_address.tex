@@ -2,6 +2,8 @@
 
 \draw[color=black] plot (0,8)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 042e930f39...e9dcebcabb}}};
 
+\draw[color = black] plot (12,8) node[fill=focus!15, thick, rounded corners=4pt, draw = focus, below, rotate = 0] {{{\scriptsize Uncompressed public key}}};
+
 \draw[color=black] plot (0,6.3)   node[below, rotate = 0] {\texttt{\footnotesize{SHA256 Hash Function}}};
 
 \draw[color=black] plot (0,4.6)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 16966722f3...2ba28d499e}}};
@@ -9,6 +11,8 @@
 \draw[color=black] plot (0,2.9)   node[below, rotate = 0] {\texttt{\footnotesize{RIPEMD160 Hash Function}}};
 
 \draw[color=black] plot (0,1.2)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 46af3fb481...2d32a36829}}};
+
+\draw[color=black] plot (12,1.2)    node[fill=focus!15, thick, rounded corners=4pt,draw=focus,below, rotate = 0] {{{\scriptsize \texttt{Hash160}}}};
 
 \draw[color=black] plot (0,-0.5)   node[below, rotate = 0] {\texttt{\footnotesize{Add Prefix 00}}};
  
@@ -30,6 +34,8 @@
 
 \draw[color=black] plot (0,-9)    node[fill=highlight!15, thick, rounded corners=4pt,draw=highlight,below, rotate = 0] {{{\scriptsize 17SkEw2md5avVNyYgj6RiXuQKNwkXaxFyQ}}};
 
+\draw[color = black] plot (12,-9) node[fill=focus!15, thick, rounded corners=4pt, draw = focus, below, rotate = 0] {{{\scriptsize Bitcoin Address}}};
+
 \draw[color=black, densely dotted,->, thick] (0,6.75) -- (0,6.15);
 \draw[color=black, densely dotted,->, thick] (0,5.4) -- (0,4.7);
 \draw[color=black, densely dotted,->, thick] (0,3.4) -- (0,2.7);
@@ -48,4 +54,8 @@
 
 \draw[color=black, densely dotted,->, thick] (0,-6.8) -- (0,-7.5);
 \draw[color=black, densely dotted,->, thick] (0,-8.3) -- (0,-9);
+
+\draw[dotted, color = black!50] (7.6, 7.4) -- (4.3, 7.4);
+\draw[dotted, color = black!50] (10.4, 0.6) -- (4.3, 0.6);
+\draw[dotted, color = black!50] (7.6, -9.7) -- (9.1, -9.7);
 \end{tikzpicture}
