@@ -1,21 +1,22 @@
 \begin{tikzpicture}[scale=1, every node/.style={scale=1}]  %,domain=0:8
 
-
+%Stack
 \draw[very thick] (0.5,0) -- (3.5,0);
 \draw[very thick] (0.5,0) -- (0.5,5.5);
 \draw[very thick] (3.5,0) -- (3.5,5.5);
 \draw (2,-0.3) node[below] {\texttt{Stack}};
 
+%Boxes
 \only<1-5>{
 \draw[color=black] plot (2,0.6)   node[minimum width=2.7cm,fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{OP\_0}};
   }
   
 \only<1-5>{
-\draw[color=black] plot (2,1.3)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig 2>}};
+\draw[color=black] plot (2,1.3)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig 1>}};
 }
 
 \only<1-5>{
-\draw[color=black] plot (2,2)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig 3>}};
+\draw[color=black] plot (2,2)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig 2>}};
 }
 
 \only<2-4>{
@@ -46,11 +47,11 @@
 \draw[color=black] plot (2,6.2)   node[minimum width=2.7cm, minimum height= 0.55cm, fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{n <3>}};
 }
 
-\only<4-7>{
+\only<4-9>{
 \draw[color=black] plot (2,4.1)   node[minimum width=2.7cm,fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{<pubKey 1>}};
 }
 
-\only<8-10>{
+\only<10>{
 \draw[color=black] plot (2,4.1)   node[minimum width=2.7cm,fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{<pubKey 1>}};
 }
 
@@ -66,7 +67,7 @@
 \draw[color=black] plot (2,5.5)   node[minimum width=2.7cm, fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{<pubKey 3>}};
 }
 
-\only<10>{
+\only<8-10>{
 \draw[color=black] plot (2,5.5)   node[minimum width=2.7cm, fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{<pubKey 3>}};
 }
 
@@ -74,58 +75,53 @@
 \draw[color=black] plot (2,3.4)   node[minimum width=2.7cm, minimum height= 0.55cm, fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{m <2>}};
 }
 
-\only<6-8>{
-\draw[color=black] plot (2,2)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig 2>}};
-}
-
-\only<9,10>{
-\draw[color=black] plot (2,2)   node[minimum width=2.7cm,fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{<sig 2>}};
-}
-
 \only<6-9>{
-\draw[color=black] plot (2,2.7)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig 3>}};
+\draw[color=black] plot (2,2)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig 1>}};
 }
 
 \only<10>{
-\draw[color=black] plot (2,2.7)   node[minimum width=2.7cm, fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{<sig 3>}};
+\draw[color=black] plot (2,2)   node[minimum width=2.7cm,fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{<sig 1>}};
 }
 
-\only<6>{
+\only<6-8>{
+\draw[color=black] plot (2,2.7)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig 2>}};
+}
+
+\only<9-10>{
+\draw[color=black] plot (2,2.7)   node[minimum width=2.7cm, fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{<sig 2>}};
+}
+
+\only<6-9>{
 \draw[color=black] plot (2,1.3)   node[minimum width=2.7cm,fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{OP\_0}};
   }
   
   
-\only<7-10>{
+\only<10>{
 \draw[color=black] plot (2,1.3)   node[minimum width=2.7cm,fill=black!15, thick, draw=black,below, rotate = 0] {\texttt{OP\_0}};
   }
   
+%Lines, Checkmarks & Counters (Checkmultisig)  
 \only<7>{
-\draw[color=black, dashed] (0.6,1.7) -- (0.3,1.7);
-\draw[color=black, dashed] (0.3,1.7) -- (0.3,3.8);
-\draw[color=black, dashed] (0.3,3.8) -- (0.6,3.8);
-\draw (0.3,2.7) node[left] {X};
+\draw[color=black, dashed] (0.6,2.4) -- (0.3,2.4);
+\draw[color=black, dashed] (0.3,2.4) -- (0.3,5.2);
+\draw[color=black, dashed] (0.3,5.2) -- (0.6,5.2);
+\draw (0.3,3.8) node[left] {X};
 \draw (3.7,3.1) node[right] {0/2};
 }
 
-%Dummy
-\only<1-11>{
-\draw[color=white] (0.3,0.7) -- (0.3,1.0);
-\draw[color=white] (0.3,0.7) node[left] {X};
-}
-
 \only<8>{
-\draw[color=black, dashed] (0.6,1.7) -- (0.3,1.7);
-\draw[color=black, dashed] (0.3,1.7) -- (0.3,4.5);
+\draw[color=black, dashed] (0.6,2.4) -- (0.3,2.4);
+\draw[color=black, dashed] (0.3,2.4) -- (0.3,4.5);
 \draw[color=black, dashed] (0.3,4.5) -- (0.6,4.5);
-\draw (0.4,3.1) node[left] {$\checkmark$};
+\draw (0.4,3.45) node[left] {$\checkmark$};
 \draw (3.7,3.1) node[right] {1/2};
 }
 
 \only<9>{
-\draw[color=black, dashed] (0.6,2.4) -- (0.3,2.4);
-\draw[color=black, dashed] (0.3,2.4) -- (0.3,5.2);
-\draw[color=black, dashed] (0.3,5.2) -- (0.6,5.2);
-\draw (0.4,3.8) node[left] {$\checkmark$};
+\draw[color=black, dashed] (0.6,1.7) -- (0.3,1.7);
+\draw[color=black, dashed] (0.3,1.7) -- (0.3,3.8);
+\draw[color=black, dashed] (0.3,3.8) -- (0.6,3.8);
+\draw (0.4,2.75) node[left] {$\checkmark$};
 \draw (3.7,3.1) node[right] {2/2};
 }
 
@@ -134,17 +130,23 @@
 \draw (3.7,3.1) node[right] {2/2};
 }
 
-
+%True
 \only<11>{
 \draw[color=black] plot (2,0.6)   node[minimum width=2.7cm,fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{1}};
 }
 
-%Dummy
+%Dummy 1
+\only<1-11>{
+\draw[color=white] (0.3,0.7) -- (0.3,1.0);
+\draw[color=white] (0.3,0.7) node[left] {X};
+}
+
+%Dummy 2
 \only<1,11>{
 \draw[color=white] plot (5.3,6.2)   node[minimum width=2.7cm, minimum height= 0.55cm , fill=white!15, thick,  draw=white,below, rotate = 0] {\texttt{OP\_CHECKMULTISIG}};
 }
 
-%Dummy
+%Dummy 3
 \only<1-9,11>{
 \draw[color=white] (7,5.9) node[right] {$\checkmark$};
 }

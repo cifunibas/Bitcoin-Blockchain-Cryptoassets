@@ -1,11 +1,12 @@
 \begin{tikzpicture}[scale=1, every node/.style={scale=1.4}]  %,domain=0:8
 
-
+%Stack
 \draw[very thick] (-0.1,0) -- (4.1,0);
 \draw[very thick] (-0.1,0) -- (-0.1,4);
 \draw[very thick] (4.1,0) -- (4.1,4);
 \draw (2,-0.5) node[below] {\texttt{Stack}};
 
+%Boxes
 \only<1-14>{
 \draw[color=black] plot (2,1)   node[minimum width=2.7cm,fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{<sig>}};
   }
@@ -18,6 +19,7 @@
 \draw[color=black] plot (2,3)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKey>}};
 }
 
+%OP Codes
 \only<2,3>{
 \draw[color=black] plot (6.3,5)   node[minimum width=3.1cm, minimum height= 0.55cm ,fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{OP\_DUP}};
 }
@@ -34,7 +36,7 @@
 \draw[color=black] plot (6.3,5)   node[minimum width=3.1cm, minimum height= 0.55cm , fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{OP\_CHECKSIG   }};
 }
 
-
+%Boxes 2
 \only<3,4,7>{
 \draw[color=black] plot (2,5)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKey>}};
 }

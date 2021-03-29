@@ -1,5 +1,6 @@
 \begin{tikzpicture}[scale=1, every node/.style={scale=1}]  %,domain=0:8
 
+%Stack
 \only<1-11>{
 \draw[very thick] (5,0) -- (8,0);
 \draw[very thick] (5,0) -- (5,5.5);
@@ -7,6 +8,7 @@
 \draw (6.5,-0.3) node[below] {\texttt{Stack}};
 }
 
+%Copy Stack
 \only<3-11>{
 \draw[color=black!20, very thick] (0.5,0) -- (3.5,0);
 \draw[color=black!20, very thick] (0.5,0) -- (0.5,5.5);
@@ -14,6 +16,7 @@
 \draw[color=black!20] (2,-0.3) node[below] {\texttt{Copy}};
 }
 
+%Boxes
 \only<1-11>{
 \draw[color=black] plot (6.5,0.7)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig 2>}};
 
@@ -65,17 +68,20 @@
 \draw[color=black] plot (6.5,2.1)   node[minimum width=2.7cm, minimum height= 0.55cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{1}};
 }
 
+%Copy Stack 2
 \only<12>{
 \draw[very thick] (0.5,0) -- (3.5,0);
 \draw[very thick] (0.5,0) -- (0.5,5.5);
 \draw[very thick] (3.5,0) -- (3.5,5.5);
 \draw (2,-0.3) node[below] {\texttt{Copy}};
 
+%Stack 2
 \draw[color=black!20, very thick] (5,0) -- (8,0);
 \draw[color=black!20, very thick] (5,0) -- (5,5.5);
 \draw[color=black!20, very thick] (8,0) -- (8,5.5);
 \draw[color=black!20] (6.5,-0.3) node[below] {\texttt{Stack}};
 
+%more Boxes
 \draw[color=black] plot (2,0.7)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig 2>}};
 
 \draw[color=black] plot (2,1.4)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig 3>}};
@@ -89,6 +95,7 @@
 \draw[color=black] plot (2,2.1)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<script>}};
 }
 
+%another Stack
 \only<13>{
 \draw[color=black, very thick] (0.5,0) -- (3.5,0);
 \draw[color=black, very thick] (0.5,0) -- (0.5,5.5);
