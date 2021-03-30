@@ -1,0 +1,45 @@
+    
+% Title: The two core challenges in finding Consensus
+
+
+% Arrangement
+	\coordinate (o0) at (0,2);
+	\coordinate (o1) at (1,2);
+	\coordinate (o2) at (3,2);
+	\coordinate (o3) at (5,2);
+	\coordinate (o4) at (7,2);
+
+	\coordinate	(dm) at (5.9,4);
+
+	\coordinate	(hm0) at (4,0);
+	\coordinate (hm1) at (10,0);
+
+
+
+
+% Chain
+  \draw 		 (o0) -- (o1) -- (o2) -- (o3);
+  \draw [dashed] (o3) -- (o4) ;
+  \node (block1) at (o1) [fill=white,draw,minimum width=0.4cm,minimum height=0.4cm] {};
+  \node (block2) at (o2) [fill=white,draw,minimum width=0.4cm,minimum height=0.4cm] {};
+  \node (block3) at (o3) [fill=white,draw,minimum width=0.4cm,minimum height=0.4cm] {};
+  \node (block4) at (o4) [fill=white,draw,dashed,minimum width=0.4cm,minimum height=0.4cm, text = focus] {\scriptsize ?};
+  
+
+% Dishonest Miner
+	\node	(badminer) at (dm) {\includegraphics[width = 1.2 cm]{../assets/images/agents/miner_devil.png}};
+	\node	(invalidblock) at (badminer.east) {\includegraphics[width = 1 cm]{../assets/images/invalid_block.png}};
+	\draw [->, thick, dashed, focus]	(invalidblock.south) -- (block4.north);
+
+\uncover<2->{
+
+% Honest Miners
+ 	\node	(goodminer0) at (hm0) {\includegraphics[width = 1.2 cm]{../assets/images/agents/miner_right.png}};
+ 	\node 	(validblock0) at (goodminer0.east) {\includegraphics[width = 1 cm]{../assets/images/valid_block.png}};
+ 	\draw [->,dashed,thick,focus]	(validblock0.north east) -- (block4.south west);
+ 	
+ 	\node	(goodminer1) at (hm1) {\includegraphics[width = 1.2 cm]{../assets/images/agents/miner_left.png}};
+ 	\node 	(validblock1) at (goodminer1.west) {\includegraphics[width = 1 cm]{../assets/images/valid_block.png}};
+ 	\draw [->,dashed,thick,focus]	(validblock1.north west) -- (block4.south east);
+
+}	
