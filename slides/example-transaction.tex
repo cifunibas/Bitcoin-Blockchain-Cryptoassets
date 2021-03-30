@@ -10,7 +10,6 @@
 
 % Config File
 \input{../config/config.tex}
-\usepackage{fancybox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,13 +54,13 @@
 		\scriptsize
 			\begin{tabular}{ll}
 				\texttt{scriptPubKey} from the previous transaction: & \\
-				\texttt{OP\_PUSHBYTES\_65:} & \texttt{41}\\
+				\textcolor{black!60}{\texttt{OP\_PUSHBYTES\_65:}} & \textcolor{black!60}{\texttt{41}}\\
 				Uncompressed public key: & \texttt{04}\\
 				Public key: & \texttt{11db93e1dcdb8a016b49840f8c53bc1e}\\
 				 & \texttt{b68a382e97b1482ecad7b148a6909a5c}\\
 				 & \texttt{b2e0eaddfb84ccf9744464f82e160bfa}\\
 				 & \texttt{9b8b64f9d4c03f999b8643f656b412a3}\\
-				\texttt{OP\_CHECKSIG:} & \texttt{ac}
+				\textcolor{black!60}{\texttt{OP\_CHECKSIG:}} & \textcolor{black!60}{\texttt{ac}}
 			\end{tabular}
 	}
 	\vspace{0.5em}\\
@@ -84,13 +83,13 @@
 	10 BTC & = 1,000,000,000 Satoshis\\
 	\uncover<2->{& = \texttt{00ca9a3b00000000} as little-endian integer}\\
 	\uncover<3->{\texttt{scriptPubKey:} & \\
-		\texttt{OP\_PUSHBYTES\_65:} & \texttt{41}\\
+		\textcolor{black!60}{\texttt{OP\_PUSHBYTES\_65:}} & \textcolor{black!60}{\texttt{41}}\\
 		Uncompressed public key: & \texttt{04}\\
 		Public key: & \texttt{ae1a62fe09c5f51b13905f07f06b99a2}\\
 		 & \texttt{f7159b2225f374cd378d71302fa28414}\\
 		 & \texttt{e7aab37397f554a7df5f142c21c1b730}\\
 		 & \texttt{3b8a0626f1baded5c72a704f7e6cd84c}\\
-		\texttt{OP\_CHECKSIG:} & \texttt{ac}
+		\textcolor{black!60}{\texttt{OP\_CHECKSIG:}} & \textcolor{black!60}{\texttt{ac}}
 	}
 	\end{tabular}
 	\vspace{1em}\\
@@ -99,13 +98,13 @@
 	40 BTC & = 4,000,000,000 Satoshis\\
 	\uncover<2->{& = \texttt{00286bee00000000} as little-endian integer}\\
 	\uncover<3->{\texttt{scriptPubKey:} & \\
-		\texttt{OP\_PUSHBYTES\_65:} & \texttt{41}\\
+		\textcolor{black!60}{\texttt{OP\_PUSHBYTES\_65:}} & \textcolor{black!60}{\texttt{41}}\\
 		Uncompressed public key: & \texttt{04}\\
 		Public key: & \texttt{11db93e1dcdb8a016b49840f8c53bc1e}\\
 		 & \texttt{b68a382e97b1482ecad7b148a6909a5c}\\
 		 & \texttt{b2e0eaddfb84ccf9744464f82e160bfa}\\
 		 & \texttt{9b8b64f9d4c03f999b8643f656b412a3}\\
-		\texttt{OP\_CHECKSIG:} & \texttt{ac}
+		\textcolor{black!60}{\texttt{OP\_CHECKSIG:}} & \textcolor{black!60}{\texttt{ac}}
 	}
 	\end{tabular}
 
@@ -133,22 +132,22 @@
 %%%
 \begin{frame}{Raw Transaction Data (Additional Information)}
 \begin{scriptsize}
-\texttt{01000000\textcolor{highlight}{01c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704
-00000000}\textcolor{focus}{4847304402204e45e16932b8af514961a1d3a1a25fdf3f4f7732e9d624c6c61548
+\texttt{\alert<1>{01000000}\textcolor{black!50}{01c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704
+000000004847304402204e45e16932b8af514961a1d3a1a25fdf3f4f7732e9d624c6c61548
 ab5fb8cd410220181522ec8eca07de4860a4acdd12909d831cc56cbbac4622082221a8768d
-1d0901}ffffffff\textcolor{highlight}{0200ca9a3b00000000434104ae1a62fe09c5f51b13905f07f06b99a2f715
+1d0901}\alert<2>{ffffffff}\textcolor{black!50}{0200ca9a3b00000000434104ae1a62fe09c5f51b13905f07f06b99a2f715
 9b2225f374cd378d71302fa28414e7aab37397f554a7df5f142c21c1b7303b8a0626f1bade
 d5c72a704f7e6cd84cac00286bee0000000043410411db93e1dcdb8a016b49840f8c53bc1e
 b68a382e97b1482ecad7b148a6909a5cb2e0eaddfb84ccf9744464f82e160bfa9b8b64f9d4
-c03f999b8643f656b412a3ac}00000000}
+c03f999b8643f656b412a3ac}\alert<3>{00000000}}
 \vspace{1em}
 \end{scriptsize}
 \scriptsize \\
-\uncover<2->{\textbf{Black sections:}}\\
+\uncover<1->{\textbf{Black sections:}}\\
 \begin{itemize}
-	\item<2-> Version as little-endian integer: \texttt{01000000}
-	\item<2-> Sequence number (deprecated): \texttt{ffffffff}
-	\item<2-> Timelock: \texttt{00000000}
+	\item \alert<1>{Version as little-endian integer: \texttt{01000000}}
+	\item \alert<2>{Sequence number (deprecated): \texttt{ffffffff}}
+	\item \alert<3>{Timelock: \texttt{00000000}}
 \end{itemize}
 \end{frame}
 %%%
@@ -156,22 +155,22 @@ c03f999b8643f656b412a3ac}00000000}
 %%%
 \begin{frame}{Raw Transaction Data (Input)}
 \begin{scriptsize}
-\texttt{01000000\textcolor{highlight}{01c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704
-00000000}\textcolor{focus}{4847304402204e45e16932b8af514961a1d3a1a25fdf3f4f7732e9d624c6c61548
+\texttt{\textcolor{black!50}{01000000}{\alert<1>{01}\alert<2>{c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704}
+\alert<3>{00000000}}\textcolor{black!50}{4847304402204e45e16932b8af514961a1d3a1a25fdf3f4f7732e9d624c6c61548
 ab5fb8cd410220181522ec8eca07de4860a4acdd12909d831cc56cbbac4622082221a8768d
-1d0901}ffffffff\textcolor{highlight}{0200ca9a3b00000000434104ae1a62fe09c5f51b13905f07f06b99a2f715
+1d0901ffffffff0200ca9a3b00000000434104ae1a62fe09c5f51b13905f07f06b99a2f715
 9b2225f374cd378d71302fa28414e7aab37397f554a7df5f142c21c1b7303b8a0626f1bade
 d5c72a704f7e6cd84cac00286bee0000000043410411db93e1dcdb8a016b49840f8c53bc1e
 b68a382e97b1482ecad7b148a6909a5cb2e0eaddfb84ccf9744464f82e160bfa9b8b64f9d4
-c03f999b8643f656b412a3ac}00000000}
+c03f999b8643f656b412a3ac00000000}}
 \end{scriptsize}
 \vspace{1em}
 \scriptsize \\
 \textbf{First mint section:}\\
 \begin{itemize}
-	\item 1 input: \texttt{01}
-	\item Previous transaction in reverse byte order: \texttt{c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704}
-	\item Index of the output within the previous transaction as little-endian integer: \texttt{00000000}
+	\item \alert<1>{1 input: \texttt{01}}
+	\item \alert<2>{Previous transaction in reverse byte order: \texttt{c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704}}
+	\item \alert<3>{Index of the output within the previous transaction as little-endian integer: \texttt{00000000}}
 \end{itemize}
 \end{frame}
 %%%
@@ -180,14 +179,14 @@ c03f999b8643f656b412a3ac}00000000}
 %%%
 \begin{frame}{Raw Transaction Data (Outputs)}
 \begin{scriptsize}
-\texttt{01000000\textcolor{highlight}{01c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704
-00000000}\textcolor{focus}{4847304402204e45e16932b8af514961a1d3a1a25fdf3f4f7732e9d624c6c61548
+\texttt{\textcolor{black!50}{0100000001c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704
+000000004847304402204e45e16932b8af514961a1d3a1a25fdf3f4f7732e9d624c6c61548
 ab5fb8cd410220181522ec8eca07de4860a4acdd12909d831cc56cbbac4622082221a8768d
-1d0901}ffffffff\textcolor{highlight}{0200ca9a3b00000000434104ae1a62fe09c5f51b13905f07f06b99a2f715
+1d0901ffffffff}{\alert<1>{02}\alert<2>{00ca9a3b00000000}\alert<3>{43}\alert<4>{4104}\alert<5>{ae1a62fe09c5f51b13905f07f06b99a2f715
 9b2225f374cd378d71302fa28414e7aab37397f554a7df5f142c21c1b7303b8a0626f1bade
-d5c72a704f7e6cd84cac00286bee0000000043410411db93e1dcdb8a016b49840f8c53bc1e
+d5c72a704f7e6cd84c}\alert<6>{ac}\alert<7>{00286bee00000000}\alert<8>{43}\alert<9>{4104}\alert<10>{11db93e1dcdb8a016b49840f8c53bc1e
 b68a382e97b1482ecad7b148a6909a5cb2e0eaddfb84ccf9744464f82e160bfa9b8b64f9d4
-c03f999b8643f656b412a3ac}00000000}
+c03f999b8643f656b412a3}\alert<11>{ac}}\textcolor{black!50}{00000000}}
 \end{scriptsize}
 \vspace{1em}
 \scriptsize \\
@@ -195,20 +194,20 @@ c03f999b8643f656b412a3ac}00000000}
 \begin{columns}[T]
 \column{0.5\textwidth}
 \begin{itemize}
-	\item 2 outputs: \texttt{02}
-	\item 10 BTC: \texttt{00ca9a3b00000000}
-	\item 67 byte long \texttt{scriptPubKey}: \texttt{43}
-	\item 65 byte long uncompressed public key: \texttt{4104}
-	\item Public key
-	\item \texttt{OP\_CHECKSIG}: \texttt{ac}
+	\item \alert<1>{2 outputs: \texttt{02}}
+	\item \alert<2>{10 BTC: \texttt{00ca9a3b00000000}}
+	\item \alert<3>{67 byte long \texttt{scriptPubKey}: \texttt{43}}
+	\item \alert<4>{65 byte long uncompressed public key: \texttt{4104}}
+	\item \alert<5>{Public key}
+	\item \alert<6>{\texttt{OP\_CHECKSIG}: \texttt{ac}}
 \end{itemize}
 \column{0.5\textwidth}
 \begin{itemize}
-	\item 40 BTC ''change": \texttt{00286bee00000000}
-	\item 67 byte long \texttt{scriptPubKey}: \texttt{43}
-	\item 65 byte long uncompressed public key: \texttt{4104}
-	\item Public key
-	\item \texttt{OP\_CHECKSIG}: \texttt{ac}
+	\item \alert<7>{40 BTC ''change": \texttt{00286bee00000000}}
+	\item \alert<8>{67 byte long \texttt{scriptPubKey}: \texttt{43}}
+	\item \alert<9>{65 byte long uncompressed public key: \texttt{4104}}
+	\item \alert<10>{Public key}
+	\item \alert<11>{\texttt{OP\_CHECKSIG}: \texttt{ac}}
 \end{itemize}
 \end{columns}
 
@@ -218,14 +217,14 @@ c03f999b8643f656b412a3ac}00000000}
 %%%
 \begin{frame}{Raw Transaction Data (Signature)}
 	\begin{scriptsize}
-\texttt{01000000\textcolor{highlight}{01c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704
-00000000}\textcolor{focus}{4847304402204e45e16932b8af514961a1d3a1a25fdf3f4f7732e9d624c6c61548
-ab5fb8cd410220181522ec8eca07de4860a4acdd12909d831cc56cbbac4622082221a8768d
-1d0901}ffffffff\textcolor{highlight}{0200ca9a3b00000000434104ae1a62fe09c5f51b13905f07f06b99a2f715
+\texttt{\textcolor{black!50}{0100000001c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704
+00000000}{\alert<1>{48}\alert<2>{47}\alert<3>{30}\alert<4>{44}\alert<5>{02}\alert<6>{20}\alert<7>{4e45e16932b8af514961a1d3a1a25fdf3f4f7732e9d624c6c61548
+ab5fb8cd41}\alert<8>{02}\alert<9>{20}\alert<10>{181522ec8eca07de4860a4acdd12909d831cc56cbbac4622082221a8768d
+1d09}\alert<11>{01}}\textcolor{black!50}{ffffffff0200ca9a3b00000000434104ae1a62fe09c5f51b13905f07f06b99a2f715
 9b2225f374cd378d71302fa28414e7aab37397f554a7df5f142c21c1b7303b8a0626f1bade
 d5c72a704f7e6cd84cac00286bee0000000043410411db93e1dcdb8a016b49840f8c53bc1e
 b68a382e97b1482ecad7b148a6909a5cb2e0eaddfb84ccf9744464f82e160bfa9b8b64f9d4
-c03f999b8643f656b412a3ac}00000000}
+c03f999b8643f656b412a3ac00000000}}
 \end{scriptsize}
 \vspace{1em}
 \scriptsize \\
@@ -233,20 +232,20 @@ c03f999b8643f656b412a3ac}00000000}
 \begin{columns}[T]
 \column{0.5\textwidth}
 \begin{itemize}
-	\item 72 byte long \texttt{scriptSig}: \texttt{48}
-	\item 71 byte long signature: \texttt{47}
-	\item DER sequence follows: \texttt{30}
-	\item 68 bytes long: \texttt{44}
-	\item An integer follows: \texttt{02}
-	\item The integer is 32 bytes long: \texttt{20}
-	\item $r$ from the ECDSA signature: 	\texttt{4e45e16932b8af514961a1d3a1a25fdf\\3f4f7732e9d624c6c61548ab5fb8cd41}
+	\item \alert<1>{72 byte long \texttt{scriptSig}: \texttt{48}}
+	\item \alert<2>{71 byte long signature: \texttt{47}}
+	\item \alert<3>{DER sequence follows: \texttt{30}}
+	\item \alert<4>{68 bytes long: \texttt{44}}
+	\item \alert<5>{An integer follows: \texttt{02}}
+	\item \alert<6>{The integer is 32 bytes long: \texttt{20}}
+	\item \alert<7>{$r$ from the ECDSA signature: 	\texttt{4e45e16932b8af514961a1d3a1a25fdf\\3f4f7732e9d624c6c61548ab5fb8cd41}}
 \end{itemize}
 \column{0.5\textwidth}
 \begin{itemize}
-	\item An integer follows: \texttt{02}
-	\item The integer is 32 bytes long: \texttt{20}
-	\item $s$ from the ECDSA signature: \texttt{181522ec8eca07de4860a4acdd12909d\\831cc56cbbac4622082221a8768d1d09}
-	\item \texttt{SIGHASH\_ALL}: \texttt{01}
+	\item \alert<8>{An integer follows: \texttt{02}}
+	\item \alert<9>{The integer is 32 bytes long: \texttt{20}}
+	\item \alert<10>{$s$ from the ECDSA signature: \texttt{181522ec8eca07de4860a4acdd12909d\\831cc56cbbac4622082221a8768d1d09}}
+	\item \alert<11>{\texttt{SIGHASH\_ALL}: \texttt{01}}
 \end{itemize}
 \end{columns}
 \end{frame}
@@ -263,8 +262,8 @@ c03f999b8643f656b412a3ac}00000000}
 \column{0.5\textwidth}
 \begin{enumerate}
 \item<1-> \texttt{<sig>}
-\item<2-> \texttt{<PubKey>} from previous trx
-\item<3-> \texttt{OP\_Checksig} from previous trx
+\item<2-> \texttt{<PubKey>} from previous output script
+\item<3-> \texttt{OP\_Checksig} from previous output script
 \item<4-> Check if they match
 \item<5-> If yes $\rightarrow$ \texttt{1} \\ If not $\rightarrow$ \texttt{0} 
 \end{enumerate}
@@ -325,21 +324,21 @@ c03f999b8643f656b412a3ac}00000000}
 %%%
 \begin{frame}{Raw Transaction Data (Additional Information)}
 \begin{scriptsize}
-\texttt{01000000\textcolor{highlight}{830d2e8f94c33a10f3834554cc1f1469e069f0fcf31a47309d42a9d00f4ba5
-7d8600000000}\textcolor{focus}{8c493046022100bc57dc26f46fecc1da03272cb2298d8a08b22d865541
+\texttt{\alert<1>{01000000}\textcolor{black!50}{830d2e8f94c33a10f3834554cc1f1469e069f0fcf31a47309d42a9d00f4ba5
+7d86000000008c493046022100bc57dc26f46fecc1da03272cb2298d8a08b22d865541
 f5b3a3e862cc87da4b47022100ce1fc72771d164d608b15065832542a0e9040cfdf288
 62c5175c81fcb0e0b65501410434417dd8d89deaf0f6481c2c160d6de0921624ef7b95
 6f38eef9ed4a64e36877be84b77cdee5a8d92b7d93694f89c3011bf1cbdf4fd7d8ca13
-b58a7bb4ab0804}ffffffff\textcolor{black!50}{...}\textcolor{highlight}{010010a5d4e80000001976a91446af3fb481837fadbb4
-21727f9959c2d32a3682988ac}00000000}
+b58a7bb4ab0804}\alert<2>{ffffffff}\textcolor{black!50}{...010010a5d4e80000001976a91446af3fb481837fadbb4
+21727f9959c2d32a3682988ac}\alert<3>{00000000}}
 \end{scriptsize}
 \vspace{1em}
 \scriptsize \\
-\uncover<2->{\textbf{Black sections:}}\\
+\uncover<1->{\textbf{Black sections:}}\\
 \begin{itemize}
-	\item<2-> Version as little-endian integer: \texttt{01000000}
-	\item<2-> Sequence number (deprecated): \texttt{ffffffff}
-	\item<2-> Timelock: \texttt{00000000}
+	\item \alert<1>{Version as little-endian integer: \texttt{01000000}}
+	\item \alert<2>{Sequence number (deprecated): \texttt{ffffffff}}
+	\item \alert<3>{Timelock: \texttt{00000000}}
 \end{itemize}
 \end{frame}
 %%%
@@ -347,21 +346,21 @@ b58a7bb4ab0804}ffffffff\textcolor{black!50}{...}\textcolor{highlight}{010010a5d4
 %%%
 \begin{frame}{Raw Transaction Data (Inputs)}
 \begin{scriptsize}
-\texttt{01000000\textcolor{highlight}{830d2e8f94c33a10f3834554cc1f1469e069f0fcf31a47309d42a9d00f4ba5
-7d8600000000}\textcolor{focus}{8c493046022100bc57dc26f46fecc1da03272cb2298d8a08b22d865541
+\texttt{\textcolor{black!50}{01000000}{\alert<1>{83}\alert<2>{0d2e8f94c33a10f3834554cc1f1469e069f0fcf31a47309d42a9d00f4ba5
+7d86}\alert<3>{00000000}}\textcolor{black!50}{8c493046022100bc57dc26f46fecc1da03272cb2298d8a08b22d865541
 f5b3a3e862cc87da4b47022100ce1fc72771d164d608b15065832542a0e9040cfdf288
 62c5175c81fcb0e0b65501410434417dd8d89deaf0f6481c2c160d6de0921624ef7b95
 6f38eef9ed4a64e36877be84b77cdee5a8d92b7d93694f89c3011bf1cbdf4fd7d8ca13
-b58a7bb4ab0804}ffffffff\textcolor{black!50}{...}\textcolor{highlight}{010010a5d4e80000001976a91446af3fb481837fadbb4
-21727f9959c2d32a3682988ac}00000000}
+b58a7bb4ab0804ffffffff...010010a5d4e80000001976a91446af3fb481837fadbb4
+21727f9959c2d32a3682988ac00000000}}
 \end{scriptsize}
 \vspace{1em}
 \scriptsize \\
 \textbf{First mint section:}\\
 \begin{itemize}
-	\item 131 inputs: \texttt{83}
-	\item Previous transaction in reverse byte order: \texttt{0d2e8f94c33a10f3834554cc1f1469e069f0fcf31a47309d42a9d00f4ba57d86}
-	\item Index of the output within the previous transaction as little-endian integer: \texttt{00000000}
+	\item \alert<1>{131 inputs: \texttt{83}}
+	\item \alert<2>{Previous transaction in reverse byte order: \texttt{0d2e8f94c33a10f3834554cc1f1469e069f0fcf31a47309d42a9d00f4ba57d86}}
+	\item \alert<3>{Index of the output within the previous transaction as little-endian integer: \texttt{00000000}}
 	\item \dots
 \end{itemize}
 \end{frame}
@@ -370,13 +369,13 @@ b58a7bb4ab0804}ffffffff\textcolor{black!50}{...}\textcolor{highlight}{010010a5d4
 %%%
 \begin{frame}{Raw Transaction Data (Signature)}
 \begin{scriptsize}
-\texttt{01000000\textcolor{highlight}{830d2e8f94c33a10f3834554cc1f1469e069f0fcf31a47309d42a9d00f4ba5
-7d8600000000}\textcolor{focus}{8c493046022100bc57dc26f46fecc1da03272cb2298d8a08b22d865541
-f5b3a3e862cc87da4b47022100ce1fc72771d164d608b15065832542a0e9040cfdf288
-62c5175c81fcb0e0b65501410434417dd8d89deaf0f6481c2c160d6de0921624ef7b95
+\texttt{\textcolor{black!50}{01000000830d2e8f94c33a10f3834554cc1f1469e069f0fcf31a47309d42a9d00f4ba5
+7d8600000000}{\alert<1>{8c}\alert<2>{49}\alert<3>{30}\alert<4>{46}\alert<5>{02}\alert<6>{21}\alert<7>{00bc57dc26f46fecc1da03272cb2298d8a08b22d865541
+f5b3a3e862cc87da4b47}\alert<8>{02}\alert<9>{21}\alert<10>{00ce1fc72771d164d608b15065832542a0e9040cfdf288
+62c5175c81fcb0e0b655}\alert<11>{01}\alert<12>{41}\alert<13>{04}\alert<14>{34417dd8d89deaf0f6481c2c160d6de0921624ef7b95
 6f38eef9ed4a64e36877be84b77cdee5a8d92b7d93694f89c3011bf1cbdf4fd7d8ca13
-b58a7bb4ab0804}ffffffff\textcolor{black!50}{...}\textcolor{highlight}{010010a5d4e80000001976a91446af3fb481837fadbb4
-21727f9959c2d32a3682988ac}00000000}
+b58a7bb4ab0804}}\textcolor{black!50}{ffffffff...010010a5d4e80000001976a91446af3fb481837fadbb4
+21727f9959c2d32a3682988ac00000000}}
 \end{scriptsize}
 \vspace{1em}
 \scriptsize \\
@@ -384,28 +383,28 @@ b58a7bb4ab0804}ffffffff\textcolor{black!50}{...}\textcolor{highlight}{010010a5d4
 \begin{columns}[T]
 \column{0.5\textwidth}
 \begin{itemize}
-	\item 140 byte long \texttt{scriptSig}: \texttt{8c}
-	\item 73 byte long signature: \texttt{49}
-	\item DER sequence follows: \texttt{30}
-	\item 70 bytes long: \texttt{46}
-	\item An integer follows: \texttt{02}
-	\item The integer is 33 bytes long: \texttt{21}
-	\item $r$ from the ECDSA signature: 	\texttt{00bc57dc26f46fecc1da03272cb2298d8\\
-	a08b22d865541f5b3a3e862cc87da4b47}
-	\item An integer follows: \texttt{02}
-	\item The integer is 33 bytes long: \texttt{21}
+	\item \alert<1>{140 byte long \texttt{scriptSig}: \texttt{8c}}
+	\item \alert<2>{73 byte long signature: \texttt{49}}
+	\item \alert<3>{DER sequence follows: \texttt{30}}
+	\item \alert<4>{70 bytes long: \texttt{46}}
+	\item \alert<5>{An integer follows: \texttt{02}}
+	\item \alert<6>{The integer is 33 bytes long: \texttt{21}}
+	\item \alert<7>{$r$ from the ECDSA signature: 	\texttt{00bc57dc26f46fecc1da03272cb2298d8\\
+	a08b22d865541f5b3a3e862cc87da4b47}}
+	\item \alert<8>{An integer follows: \texttt{02}}
+	\item \alert<9>{The integer is 33 bytes long: \texttt{21}}
 \end{itemize}
 \column{0.5\textwidth}
 \begin{itemize}
-	\item $s$ from the ECDSA signature: \texttt{00ce1fc72771d164d608b15065832542a\\
-	0e9040cfdf28862c5175c81fcb0e0b655}
-	\item \texttt{SIGHASH\_ALL}: \texttt{01}
-	\item 65 byte long public key: \texttt{41}
-	\item Uncompressed public key: \texttt{04}
-	\item Public key: \texttt{34417dd8d89deaf0f6481c2c160d6de0\\
+	\item \alert<10>{$s$ from the ECDSA signature: \texttt{00ce1fc72771d164d608b15065832542a\\
+	0e9040cfdf28862c5175c81fcb0e0b655}}
+	\item \alert<11>{\texttt{SIGHASH\_ALL}: \texttt{01}}
+	\item \alert<12>{65 byte long public key: \texttt{41}}
+	\item \alert<13>{Uncompressed public key: \texttt{04}}
+	\item \alert<14>{Public key: \texttt{34417dd8d89deaf0f6481c2c160d6de0\\
 	921624ef7b956f38eef9ed4a64e36877\\
 	be84b77cdee5a8d92b7d93694f89c301\\
-	1bf1cbdf4fd7d8ca13b58a7bb4ab0804}
+	1bf1cbdf4fd7d8ca13b58a7bb4ab0804}}
 \end{itemize}
 \end{columns}
 \end{frame}
@@ -414,13 +413,13 @@ b58a7bb4ab0804}ffffffff\textcolor{black!50}{...}\textcolor{highlight}{010010a5d4
 %%%
 \begin{frame}{Raw Transaction Data (Output)}
 \begin{scriptsize}
-\texttt{01000000\textcolor{highlight}{830d2e8f94c33a10f3834554cc1f1469e069f0fcf31a47309d42a9d00f4ba5
-7d8600000000}\textcolor{focus}{8c493046022100bc57dc26f46fecc1da03272cb2298d8a08b22d865541
+\texttt{\textcolor{black!50}{01000000830d2e8f94c33a10f3834554cc1f1469e069f0fcf31a47309d42a9d00f4ba5
+7d86000000008c493046022100bc57dc26f46fecc1da03272cb2298d8a08b22d865541
 f5b3a3e862cc87da4b47022100ce1fc72771d164d608b15065832542a0e9040cfdf288
 62c5175c81fcb0e0b65501410434417dd8d89deaf0f6481c2c160d6de0921624ef7b95
 6f38eef9ed4a64e36877be84b77cdee5a8d92b7d93694f89c3011bf1cbdf4fd7d8ca13
-b58a7bb4ab0804}ffffffff\textcolor{black!50}{...}\textcolor{highlight}{010010a5d4e80000001976a91446af3fb481837fadbb4
-21727f9959c2d32a3682988ac}00000000}
+b58a7bb4ab0804ffffffff...}{\alert<1>{01}\alert<2>{0010a5d4e8000000}\alert<3>{19}\alert<4>{76}\alert<5>{a9}\alert<6>{14}\alert<7>{46af3fb481837fadbb4
+21727f9959c2d32a36829}\alert<8>{88}\alert<9>{ac}}\textcolor{black!50}{00000000}}
 \end{scriptsize}
 \vspace{1em}
 	\scriptsize \\
@@ -428,24 +427,24 @@ b58a7bb4ab0804}ffffffff\textcolor{black!50}{...}\textcolor{highlight}{010010a5d4
 	\begin{columns}
 	\column{0.5\textwidth}
 	\begin{itemize}
-		\item 1 output: \texttt{01}
-		\item 10,000 BTC: \texttt{0010a5d4e8000000}
-		\item 26 byte long \texttt{scriptPubKey}: \texttt{19}
-		\item \texttt{OP\_DUP}: \texttt{76}
-		\item \texttt{OP\_HASH160}: \texttt{a9}
+		\item \alert<1>{1 output: \texttt{01}}
+		\item \alert<2>{10,000 BTC: \texttt{0010a5d4e8000000}}
+		\item \alert<3>{26 byte long \texttt{scriptPubKey}: \texttt{19}}
+		\item \alert<4>{\texttt{OP\_DUP}: \texttt{76}}
+		\item \alert<5>{\texttt{OP\_HASH160}: \texttt{a9}}
 	\end{itemize}
 	\column{0.5\textwidth}
 	\begin{itemize}
-		\item 20 byte long Public Key Hash: \texttt{14}
-		\item \texttt{Hash160}:\\
-		\texttt{46af3fb481837fadbb42\\1727f9959c2d32a36829}
-		\item \texttt{OP\_EQUALVERIFY}: \texttt{88}
-		\item \texttt{OP\_CHECKSIG}: \texttt{ac}
+		\item \alert<6>{20 byte long Public Key Hash: \texttt{14}}
+		\item \alert<7>{\texttt{Hash160}:\\
+		\texttt{46af3fb481837fadbb42\\1727f9959c2d32a36829}}
+		\item \alert<8>{\texttt{OP\_EQUALVERIFY}: \texttt{88}}
+		\item \alert<9>{\texttt{OP\_CHECKSIG}: \texttt{ac}}
 	\end{itemize}
 	\end{columns}
 	\vspace{1em}
-	\uncover<2->{$\rightarrow$ Duplicate the public key \texttt{XYZ} and take the \texttt{Hash160} of it to get \texttt{46af...6829}}\\
-	\uncover<3->{$\rightarrow$ If you know the private key to this public key, you can spend the 10,000 BTC.}
+	\uncover<10->{$\rightarrow$ Duplicate the public key \texttt{XYZ} and take the \texttt{Hash160} of it to get \texttt{46af...6829}}\\
+	\uncover<10->{$\rightarrow$ If you know the private key to this public key, you can spend the 10,000 BTC.}
 \end{frame}
 %%%
 
