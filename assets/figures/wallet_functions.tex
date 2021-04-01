@@ -3,13 +3,14 @@
 	\coordinate (2) at (0, 3);
 	\coordinate (3) at (4, 3);
 	
-	\coordinate (a) at (-5.3, 4);
-	\coordinate (b) at (5.3, 1.5);
-	\filldraw[fill=highlight] (a) rectangle (b);
-	\node at (0, 4.25) {Security Layer};
+%	\coordinate (a) at (-5.3, 4);
+%	\coordinate (b) at (5.3, 1.5);
+%	\filldraw[fill=highlight] (a) rectangle (b);
+%	\node at (0, 4.25) {Security Layer};
 	
 	\node (keys) at (1) {\includegraphics[height = 0.15\textheight]{../assets/images/key}};
-	\node[below = 3pt] at (keys.south) {Keys};
+	\node[xshift=0.2cm, yshift=0.3cm] (padlock) at (keys.south) {\includegraphics[height = 0.06\textheight]{../assets/images/locked-padlock}};
+	\node[below = 3pt] at (keys.south) {Keystore};
 	
 	\node (balance) at (2) {\includegraphics[height = 0.15\textheight]{../assets/images/bitcoin}};
 	\node[below = 3pt] at (balance.south) {Balance};
