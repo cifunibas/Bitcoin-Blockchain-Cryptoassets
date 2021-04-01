@@ -1,0 +1,38 @@
+% Title: Equilibrium in Mining Market
+
+% Basics
+
+\uncover<1-3>{
+  \draw[->] (0,0)--(5,0) node[below,midway]{\small{Computing power in the network}};
+  \draw[->] (0,0)--(0,5) node[above,midway,rotate=90]{\small{Marginal cost / revenues}};
+  \draw 	(0.5,1.5) -- (4.5,1.5) node[above left]{\scriptsize{Marginal cost}};
+  \draw		(0.45,4.9) node[rotate= -75,above right]{\scriptsize{Marginal revenue}};
+  \draw		(4.5,0.5) to[bend left = 40] (0.5,4.5);
+  \draw[fill=focus] 	(2,1.5) circle(2pt);
+  \draw[dotted,thick] 	(2,1.5) -- (2,0.5) node[below]{\scriptsize{Equilibrium}};
+
+ }
+  
+% Underallocation
+
+\mode<beamer>{
+\uncover<2>{
+    \draw[fill=black] (1.06,1.5) circle(2pt);
+    \draw[fill=black] (1.06,2.69) circle(2pt);
+    \draw [decorate,decoration={mirror, brace,amplitude=5pt},xshift=-8pt,yshift=0pt](1.3,2.7) -- (1.3,1.5) node [black,midway,xshift=-0.6cm, rotate=90] {\scriptsize{Marg.}}node [black,midway,xshift=-0.35cm, rotate=90] {\scriptsize{profit}};
+    \draw [color = focus,->,thick] (1.2,2.69) to[bend right = 8.5] (2.05,1.63);
+
+ }
+
+
+% Overallocation
+
+\uncover<3>{
+    \draw[fill=black] (4.07,1.5) circle(2pt);
+    \draw[fill=black] (4.07,0.55) circle(2pt);
+    \draw [decorate,decoration={brace,amplitude=5pt},xshift=-8pt,yshift=0pt](4.4,1.5) -- (4.4,0.54) node [black,midway,xshift=0.35cm, rotate=90] {\scriptsize{Marg.}}node [black,midway,xshift=0.6cm, rotate=90] {\scriptsize{loss}};
+    \draw [color = focus,->,thick] (4.0,0.44) to[bend left = 12] (2.05,1.3);
+    
+ }
+
+}
