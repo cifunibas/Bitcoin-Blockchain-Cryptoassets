@@ -1,6 +1,6 @@
 \begin{tikzpicture}[scale = 0.8]
-	\begin{axis}[xmin=0, xmax=36,
-				ymin=0, ymax=36,
+	\begin{axis}[xmin=0, xmax=37,
+				ymin=0, ymax=37,
             	xlabel={$x$},
             	ylabel={$y$},
          		domain=0:36,
@@ -11,7 +11,7 @@
            
         % show slope for 3G and all points from finite field
         \only<4-7>{
-        	\draw [highlight, ultra thick] (axis cs: 7, 0) -- (axis cs: 36, 29);
+        	\draw [highlight, ultra thick] (axis cs: 7, 0) -- (axis cs: 37, 30);
         	
         	\draw [fill] (axis cs: 0, 9) circle (1pt){};
         	\draw [fill] (axis cs: 0, 28) circle (1pt){};
@@ -70,7 +70,7 @@
         % show point -3G and dotted line to 3G
         \only<6-7>{
         	\draw [dotted, highlight, ultra thick] (axis cs: 6, 36) -- (axis cs: 6, 1);
-        	\draw [fill = focus, draw = focus] (axis cs: 6, 36) circle (1pt) node[below left, focus]{\scriptsize{$-3G$}};
+        	\draw [fill = focus, draw = focus] (axis cs: 6, 36) circle (1pt) node[left, focus]{\scriptsize{$-3G$}};
         }
         
         \draw [fill = focus, draw = focus] (axis cs: 8, 1) circle (1pt) node[above right, focus]{\scriptsize{$G$}};
@@ -81,7 +81,7 @@
         }
         
         \only<7->{
-        	\draw [fill = focus, draw = focus] (axis cs: 6, 1) circle (1pt) node[above, focus]{\scriptsize{$3G$}};
+        	\draw [fill = focus, draw = focus] (axis cs: 6, 1) circle (1pt) node[left, focus]{\scriptsize{$3G$}};
         	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 24, 17) to[out=-150,in=45] (axis cs: 6, 1);
         }
         
@@ -116,7 +116,7 @@
         }
 
 		\only<14->{
-			\draw [fill = focus, draw = focus] (axis cs: 6, 36) circle (1pt) node[below, focus]{\scriptsize{$10G$}};
+			\draw [fill = focus, draw = focus] (axis cs: 6, 36) circle (1pt) node[left, focus]{\scriptsize{$10G$}};
         	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 23, 1) to[out=180,in=-135] (axis cs: 6, 36);
         }
 
