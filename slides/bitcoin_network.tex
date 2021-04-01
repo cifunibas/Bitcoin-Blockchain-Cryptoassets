@@ -68,7 +68,7 @@
 %%%
 
 %%%
-\begin{frame}{Distribute Verified Blocks}
+\begin{frame}{Relay Verified Blocks}
 	
 	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
 		\input{../assets/figures/full_node_functions2}
@@ -171,18 +171,24 @@
 %%%
 \begin{frame}{Mobile Options}
 
-Challenges for a mobile node:
+	Running a node on a mobile device is challenging.
+	\vspace{0.1cm}
+	
+	\begin{center}
+		\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+			\input{../assets/figures/mobile}
+		\end{tikzpicture}
+	\end{center}
+	\vspace{0.8 cm}
 
-\begin{itemize}
-	\item High storage requirements
-\end{itemize}
-
-%% Data Volume
-%% Connections
-
-%% -> Further options for independence
-%% SPV
-%% Connection to your own full node
+	There are compromises to retain some independence.
+	\vspace{0.1cm}
+	
+	\begin{center}
+		\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+			\input{../assets/figures/spv}
+		\end{tikzpicture}
+	\end{center}
 
 \end{frame}
 %%%
