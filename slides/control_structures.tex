@@ -1,6 +1,6 @@
-% Choose one to switch betweeen slides and handout
-\documentclass[]{beamer}
-%\documentclass[handout]{beamer}
+% Choose one to switch between slides and handout
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
@@ -177,8 +177,8 @@
 			\begin{tabular}{lccc}
 				\hline \hline
 					& Decentralized & Centralized \\
-				Transaction capacity  & \uncover<6->{\checkmark} & \uncover<4->{\checkmark} \\
-				Transaction legitimacy & \uncover<6->{\checkmark} & \uncover<4->{\checkmark} \\
+				Transaction capacity  & \uncover<6->{\textcolor{focus}?} & \uncover<4->{\checkmark} \\
+				Transaction legitimacy & \uncover<6->{\textcolor{focus}?} & \uncover<4->{\checkmark} \\
 				Transaction consensus & \uncover<6->{\textcolor{focus}?} & \uncover<4->{\checkmark} \\ \hline \hline
 			\end{tabular}
 		\end{center}
@@ -193,5 +193,23 @@
 	\end{figure}
 \end{frame}
 %%%
+
+%%%
+\begin{frame}%[allowframebreaks]
+\frametitle{References and Recommended Reading}
+
+		\begin{columns}[T]
+			\begin{column}{0.1\textwidth}
+					\includegraphics[width = 1.7cm, frame]{../assets/images/central_bank_crypto.png}
+			\end{column} %\hfill
+			\begin{column}{0.8\textwidth}
+				\textbf{The Case for Central Bank Electronic Money and \\ the Non-Case for Central Bank Cryptocurrencies} \\ 
+				Aleksander Berentsen and Fabian Schär \\
+				\link \href{https://research.stlouisfed.org/publications/review/2018/02/13/the-case-for-central-bank-electronic-money-and-the-non-case-for-central-bank-cryptocurrencies}{Online Version}
+			\end{column}
+		\end{columns}
+\end{frame}
+%%%
+	
 
 \end{document}

@@ -1,0 +1,11 @@
+\begin{footnotesize}
+
+	\node (install) at (0, 0) {\includegraphics[height = 0.15\textheight]{../assets/images/server}};
+	\node[below = 2pt] at (install.south) {Install Client};
+	
+	\node (peer) at (8, 0) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/agent_left}};
+	
+	\draw[->, thick] ([yshift=5pt]install.east) -- node[midway, above = 3pt] {version} ([yshift=5pt]peer.west);
+	\draw[<-, thick] ([yshift=-5pt]install.east) -- node[midway, below = 3pt] {verack} ([yshift=-5pt]peer.west);
+	
+\end{footnotesize}

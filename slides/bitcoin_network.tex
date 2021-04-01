@@ -1,0 +1,218 @@
+% Choose one to switch between slides and handout
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{The Bitcoin Network}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{Bitcoin is a Peer-to-Peer Network}
+	\centering
+	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+		\input{../assets/figures/p2p}
+	\end{tikzpicture}
+	
+	\vspace{0.5cm}
+	
+	In the Bitcoin network, participants are called \color{focus}nodes\color{black}.
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Joining the Network}
+	\begin{center}
+		\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+			\input{../assets/figures/join_network}
+		\end{tikzpicture}
+	\end{center}
+
+	\vspace{1cm}
+	
+	After the initial handshake, we request a list of IP addresses and connect to additional peers.
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Functionality of a Full Node}
+	\centering
+	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+		\input{../assets/figures/node_functions}
+	\end{tikzpicture}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Verify New Blocks}
+	
+	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+		\input{../assets/figures/full_node_functions}
+	\end{tikzpicture}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Relay Verified Blocks}
+	
+	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+		\input{../assets/figures/full_node_functions2}
+	\end{tikzpicture}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Exchange of Blocks}
+	\begin{center}
+		\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+			\input{../assets/figures/block_exchange}
+		\end{tikzpicture}
+	\end{center}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Exchange of Transactions}
+	\begin{center}
+		\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+			\input{../assets/figures/tx_exchange}
+		\end{tikzpicture}
+	\end{center}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Wallet Functionality}
+	\centering
+	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+		\input{../assets/figures/wallet_functions}
+	\end{tikzpicture}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Mining Functionality}
+	\centering
+	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+		\input{../assets/figures/mining_functions}
+	\end{tikzpicture}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Pool Mining}
+	\centering
+	\begin{figure}[t]
+		\includegraphics[height = 0.8\textheight]{../assets/images/mining_pools}
+		
+		Source: \link \url{https://blockchain.info/pools}, March 2021
+	\end{figure}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Node Distribution}
+	\begin{figure}[t]
+		\includegraphics[width = 0.9\textwidth]{../assets/images/node_distribution}
+		Source: \link \url{https://bitnodes.io/}, March 2021
+	\end{figure}
+
+	\begin{footnotesize}
+		\begin{itemize}
+			\item $\sim$50\% of nodes in Europe
+			\item $\sim$20\% of nodes in the USA
+		\end{itemize}
+	\end{footnotesize}
+	
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Historic Number of Full Nodes}
+	\begin{description}
+		\item[\textbf{Dec 2013:}] $\sim$15500 full nodes
+		\item[\textbf{Dec 2015:}] $\sim$5500 full nodes
+		\item[\textbf{Mar 2017:}] $\sim$6500 full nodes
+		\item[\textbf{Mar 2019:}] 10362 full nodes
+		\item[\textbf{Mar 2021:}] 10179 full nodes
+	\end{description}	
+		
+	\vspace{1 cm}
+	
+	Motivations for running a full node:
+	\begin{itemize}
+		\item Idependence
+		\item Direct access to data
+	\end{itemize}
+	
+\end{frame}
+%%%
+
+%%%
+%\begin{frame}{Network Partitions}
+%	%% Leave out for now
+%	\centering
+%	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+%		\input{../assets/figures/partitioned_network}
+%	\end{tikzpicture}
+%\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Extended Network}
+	\centering
+	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+		\input{../assets/figures/extended_network}
+	\end{tikzpicture}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Mobile Options}
+
+	Running a node on a mobile device is challenging.
+	\vspace{0.1cm}
+	
+	\begin{center}
+		\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+			\input{../assets/figures/mobile}
+		\end{tikzpicture}
+	\end{center}
+	\vspace{0.8 cm}
+
+	There are compromises to retain some independence.
+	\vspace{0.1cm}
+	
+	\begin{center}
+		\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+			\input{../assets/figures/spv}
+		\end{tikzpicture}
+	\end{center}
+
+\end{frame}
+%%%
+
+%%%
+%\begin{frame}{Recommended Literature}
+%	Nothing so far, paper will be added when released
+%\end{frame}
+%%%
+
+\end{document}

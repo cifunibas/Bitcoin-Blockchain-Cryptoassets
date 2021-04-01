@@ -1,0 +1,85 @@
+\begin{tikzpicture}[scale=1, every node/.style={scale=1.2}]  %,domain=0:8
+
+%Stack
+\draw[very thick] (-0.1,0) -- (4.1,0);
+\draw[very thick] (-0.1,0) -- (-0.1,4);
+\draw[very thick] (4.1,0) -- (4.1,4);
+\draw (2,-0.5) node[below] {\texttt{Stack}};
+
+%Boxes
+\only<1-14>{
+\draw[color=black] plot (2,0.7)   node[minimum width=2.7cm,fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{304502...ee0e01}};
+  }
+  
+\only<1,2,5-14>{
+\draw[color=black] plot (2,1.4)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{042e93...ebcabb}};
+}
+
+\only<5,6>{
+\draw[color=black] plot (2,2.1)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{042e93...ebcabb}};
+}
+
+%OP Codes
+\only<2,3>{
+\draw[color=black] plot (6,4.8)   node[minimum width=3.1cm ,fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{76}};
+}
+
+\only<6,7>{
+\draw[color=black] plot (6,4.8)   node[minimum width=3.1cm ,fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{a9}};
+}
+
+\only<11,12>{
+\draw[color=black] plot (6,4.8)   node[minimum width=3.1cm, fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{88}};
+}
+
+\only<14,15>{
+\draw[color=black] plot (6,4.8)   node[minimum width=3.1cm, fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{ac}};
+}
+
+%Boxes 2
+\only<3,4,7>{
+\draw[color=black] plot (2,4.8)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{042e93...ebcabb}};
+}
+
+\only<4>{
+\draw[color=black] plot (2,4.1)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{042e93...ebcabb}};
+}
+
+\only<8,12>{
+\draw[color=black] plot (2,4.8)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{46af3f...a36829}};
+}
+
+\only<9,10,11>{
+\draw[color=black] plot (2,2.1)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{46af3f...a36829}};
+}
+
+\only<10,11>{
+\draw[color=black] plot (2,2.8)   node[minimum width=2.7cm,fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{46af3f...a36829}};
+}
+
+\only<12>{
+\draw[color=black] plot (2,4.8)   node[minimum width=2.7cm,fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{46af3f...a36829}};
+}
+
+\only<12>{
+\draw[color=black] plot (2,4.1)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{46af3f...a36829}};
+}
+
+\only<15>{
+\draw[color=black] plot (2,4.8)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{042e93...ebcabb}};
+}
+
+\only<15>{
+\draw[color=black] plot (2,4.1)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{304502...ee0e01}};
+}
+
+\only<16>{
+\draw[color=black] plot (2,0.7)   node[minimum width=3.3cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{1}};
+}
+
+%Dummy
+\only<1,4,5,8,9,10,13,16>{
+\draw[color=white] plot (6,4.8)   node[minimum width=3.1cm,fill=white, thick,  draw=white,below, rotate = 0] {\texttt{OP\_HASH160}};
+}
+
+\end{tikzpicture}

@@ -1,0 +1,12 @@
+\coordinate (1) at (-4, 0);
+\coordinate (2) at (4, 0);
+
+\node(node1)[minimum size = 1.3cm] at (1) {};
+\node(node2)[minimum size = 1.3cm] at (2) {};
+
+\filldraw[fill=highlight, thick](node1) circle (.3);
+\filldraw[fill=highlight, thick](node2) circle (.3);
+
+\draw[<-, thick] (node1) edge [out=30, in=-210] node[midway,above] {\texttt{inv[H(t$_1$),H(t$_2$),$\dots$]}} (node2);
+\draw[->, thick] (node1.east) -- node[midway,below] {\texttt{getdata[H(t$_i$)]}} (node2.west);
+\draw[<-, thick] (node1) edge [out=-30, in=210] node[midway,below] {\texttt{tx[H(t$_i$)]}} (node2);

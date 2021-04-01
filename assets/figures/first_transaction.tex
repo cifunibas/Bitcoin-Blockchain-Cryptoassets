@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+	\node (Satoshi) at (-3,0)[label=below: Satoshi Nakamoto] {\includegraphics[height = 0.2\textheight]{../assets/images/agents/handing_money_right.png}};
+	\node (Hal) at (3, 0)[label=below: Hal Finney] {\includegraphics[height = 0.2\textheight]{../assets/images/agents/reaching_left.png}};
+	
+	\uncover<2->{
+		\draw[->, ultra thick] (Satoshi.east) -- (Hal.west) node[midway, above] {10 BTC};
+	}
+	
+	\uncover<3->{
+		\node (pubKey1) at (-3, -3.5) {\scriptsize{$K_{pub}^{SN} = $
+		\begin{tabular}{l} \texttt{04}\\
+			\texttt{\color{focus}{11db93e1dcdb8a01}}\\
+			\texttt{\color{focus}{6b49840f8c53bc1e}}\\
+			\texttt{\color{focus}{b68a382e97b1482e}}\\
+			\texttt{\color{focus}{cad7b148a6909a5c}}\\
+			\texttt{\color{highlight}{b2e0eaddfb84ccf9}}\\
+			\texttt{\color{highlight}{744464f82e160bfa}}\\
+			\texttt{\color{highlight}{9b8b64f9d4c03f99}}\\
+			\texttt{\color{highlight}{9b8643f656b412a3}}\\
+		\end{tabular}}};
+	}
+	
+	\uncover<3->{
+		\node (pubKey1) at (3, -3.5) {\scriptsize{$K_{pub}^{HF} = $
+		\begin{tabular}{l} \texttt{04}\\
+			\texttt{\color{focus}{ae1a62fe09c5f51b}}\\
+			\texttt{\color{focus}{13905f07f06b99a2}}\\
+			\texttt{\color{focus}{f7159b2225f374cd}}\\
+			\texttt{\color{focus}{378d71302fa28414}}\\
+			\texttt{\color{highlight}{e7aab37397f554a7}}\\
+			\texttt{\color{highlight}{df5f142c21c1b730}}\\
+			\texttt{\color{highlight}{3b8a0626f1baded5}}\\
+			\texttt{\color{highlight}{c72a704f7e6cd84c}}
+		\end{tabular}}};
+	}
+	
+\end{tikzpicture}
