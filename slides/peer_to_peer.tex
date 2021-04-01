@@ -130,7 +130,7 @@
 	\begin{itemize}
 		\item<2-> Nodes can run different software implementations
 		\item<3-> Allows specialization of nodes
-		\item<3-> \color{focus}Further decentralizes \color{black}the system
+		\item<4-> \color{focus}Further decentralizes \color{black}the system
 	\end{itemize}
 \end{frame}
 %%%
@@ -146,8 +146,9 @@
 	\uncover<2->{Basic peer discovery:}
 	\begin{enumerate}
 		\item<2-> Connect to a known peer
-		\item<3-> Ask this peer for a list of their connections
+		\item<3-> Ask this peer for a list of known nodes
 	\end{enumerate}
+	\vspace{1em}
 \end{frame}
 %%%
 
@@ -161,8 +162,8 @@
 	\uncover{Basic peer discovery:}
 	\begin{enumerate}
 		\item Connect to a known peer
-		\item Ask this peer for a list of their connections
-		\item Connect to a random set of peers from this list
+		\item Ask this peer for a list of known nodes
+		\item Connect to a random subset of peers from this list
 		\item<2-> Repeat steps 2 and 3 until enough connections are established
 	\end{enumerate}
 \end{frame}
