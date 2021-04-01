@@ -3,14 +3,14 @@
 	\node (ledger) at (0, 3) {\includegraphics[height = 0.3\textheight, rotate = -90]{../assets/images/blocks_4}};
 	\node (client) at (2, 3) {\includegraphics[height = 0.2\textheight]{../assets/images/agents/agent_right}};
 	\node (agent1) at (6, 5) {\includegraphics[height = 0.2\textheight]{../assets/images/agents/handing_left}};
-	\node (block1) at (agent1) {\includegraphics[height = 0.3\textheight, decodearray={1 1 0 1 0 1}]{../assets/images/block_1}};
+	\node (block1) at (agent1) {\includegraphics[height = 0.3\textheight]{../assets/images/block_1_red}};
 	\node (agent2) at (6, 1) {\includegraphics[height = 0.2\textheight]{../assets/images/agents/handing_left}};
-	\node (block2) at (agent2) {\includegraphics[height = 0.3\textheight, decodearray={0.65 .8 0.84 .8 0.82 .8}]{../assets/images/block_1}};
+	\node (block2) at (agent2) {\includegraphics[height = 0.3\textheight]{../assets/images/block_1_mint}};
 	
 %	\draw[->, thick, color = highlight] (ledger.south east) + (-1, 1) -- (node.west);
 %	\draw[->, thick, color = focus] (block1.west) + (0.5, 0) -- (client.north east);
-	\draw[->, line width=0.5mm, color = focus] (block1.west) + (0.5, 0) -- node[midway, xshift=7, yshift=-7] {\includegraphics[height = 0.05\textheight, decodearray={1 1 0 1 0 1}]{../assets/images/remove}} (client.north east);
-	\draw[->, line width=0.5mm, color = highlight] (block2.west) + (0.5, 0) -- node[midway, xshift=7, yshift=7] {\includegraphics[height = 0.05\textheight, decodearray={0.65 .8 0.84 .8 0.82 .8}]{../assets/images/check}} (client.south east);
+	\draw[->, line width=0.5mm, color = focus] (block1.west) + (0.5, 0) -- node[midway, xshift=7, yshift=-7] {\includegraphics[height = 0.05\textheight]{../assets/images/remove_red}} (client.north east);
+	\draw[->, line width=0.5mm, color = highlight] (block2.west) + (0.5, 0) -- node[midway, xshift=7, yshift=7] {\includegraphics[height = 0.05\textheight]{../assets/images/check_mint}} (client.south east);
 	
 	
 \end{footnotesize}
