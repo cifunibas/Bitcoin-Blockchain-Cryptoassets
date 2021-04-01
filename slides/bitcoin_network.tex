@@ -26,11 +26,15 @@
 	\centering
 	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
 		\input{../assets/figures/p2p}
-		\color{focus}
-		\node (text) at (-0.5,3.5) { Nodes };
-		\draw[->, thick]	(text.south) -- (agenta.west);
-		\draw[->, thick]	(text.south) -- (agentb.north west);
+%		\color{focus}
+%		\node (text) at (-0.5,3.5) { Nodes };
+%		\draw[->, thick]	(text.south) -- (agenta.west);
+%		\draw[->, thick]	(text.south) -- (agentb.north west);
 	\end{tikzpicture}
+	
+	\vspace{0.5cm}
+	
+	In the Bitcoin network, participants are called \color{focus}nodes\color{black}.
 \end{frame}
 %%%
 
@@ -76,6 +80,11 @@
 \end{frame}
 %%%
 
+%% Grafiken von alten slides
+%% Mehr Info
+%% Blocks und Transactions separately
+
+
 %%%
 \begin{frame}{Wallet Functionality}
 	\centering
@@ -119,20 +128,25 @@
 		\item[\textbf{Mar 2021:}] 10179 full nodes
 	\end{description}	
 		
-	\vspace{1.5 cm}
-		
-	Reasons for decline?
+	\vspace{1 cm}
+	
+	Motivations for running a full node:
+	\begin{itemize}
+		\item Idependence
+		\item Direct access to data
+	\end{itemize}
 	
 \end{frame}
 %%%
 
 %%%
-\begin{frame}{Network Partitions}
-	\centering
-	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
-		\input{../assets/figures/partitioned_network}
-	\end{tikzpicture}
-\end{frame}
+%\begin{frame}{Network Partitions}
+%	%% Leave out for now
+%	\centering
+%	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+%		\input{../assets/figures/partitioned_network}
+%	\end{tikzpicture}
+%\end{frame}
 %%%
 
 
@@ -146,13 +160,27 @@
 %%%
 
 %%%
-\begin{frame}{Simplified Payment Verification}
+\begin{frame}{Mobile Options}
+
+Challenges for a mobile node:
+
+\begin{itemize}
+	\item High storage requirements
+\end{itemize}
+
+%% Data Volume
+%% Connections
+
+%% -> Further options for independence
+%% SPV
+%% Connection to your own full node
 
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{Pool Mining}
+	%% Nach mining functionality
 	\centering
 	\begin{figure}[t]
 		\includegraphics[height = 0.8\textheight]{../assets/images/mining_pools}
@@ -163,9 +191,9 @@
 %%%
 
 %%%
-\begin{frame}{Recommended Literature}
-	
-\end{frame}
+%\begin{frame}{Recommended Literature}
+%	Nothing so far, paper will be added when released
+%\end{frame}
 %%%
 
 \end{document}
