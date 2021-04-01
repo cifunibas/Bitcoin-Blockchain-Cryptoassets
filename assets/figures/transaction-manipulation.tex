@@ -1,0 +1,29 @@
+\begin{tikzpicture}[domain=-8:8, scale=0.8]
+\coordinate (c1) at (0,0);
+\coordinate (c2) at (6,0);
+%\coordinate (c3) at (7.8,0.8);
+%\coordinate (c4) at (7.5,-0.5);
+%\coordinate (c5) at (9,0.5);
+%\coordinate (c6) at (10,1);
+%\coordinate (c7) at (10.5,0);
+\filldraw[draw=black,fill=highlight!50] (c1) circle (5pt) node[below=0.15cm,color=black]{\footnotesize{Edith}};
+\filldraw[draw=black,fill=black!20] (c2) circle (5pt) node[below=0.15cm,color=black]{\footnotesize{Tony}};
+
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c1) to[] (c2);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c2) to[] (9,0);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (9,0) to[bend right = 10] (12,0.5);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (9,0) to[bend left = 10] (12,-0.5);
+
+\filldraw[draw=black,fill=focus!50] (12,0.5) circle (5pt) node[above=0.15cm,color=black]{\footnotesize{Marcia}};
+\filldraw[draw=black,fill=focus!50] (12,-0.5) circle (5pt) node[below=0.15cm,color=black]{\footnotesize{Michèle}};
+
+
+\filldraw[fill=highlight!50,dotted,thick] (0.7,-0.7) -- (5.25,-0.7) -- (5.25,0.7) -- (0.7,0.7) -- (0.7,-0.7) node[midway, right=-0.03cm,text width=3.5cm]{\scriptsize{Edith: ``I transfer one Bitcoin unit to \textbf{Daniel}.''}};
+
+\filldraw[fill=black!20,dotted,thick] (6.75,-0.7) -- (11.1,-0.7) -- (11.1,0.7) -- (6.75,0.7) -- (6.75,-0.7) node[midway, right=-0.03cm,text width=3.3cm]{\scriptsize{Edith: ``I transfer one Bitcoin unit to \color{focus}\textbf{Tony}\color{black}.''}};
+
+\draw[dashed, thick] (5.5,-1) -- (11.3,-1) -- (11.3,1) -- (5.5,1) node[midway,above]{\footnotesize{\texttt{Manipulation of the message}}} -- (5.5,-1) ;
+
+\draw (12.15,0) node[color=black]{\tiny{\texttt{rejected!}}};
+
+\end{tikzpicture}

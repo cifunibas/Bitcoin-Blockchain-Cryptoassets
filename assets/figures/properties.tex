@@ -1,0 +1,47 @@
+\begin{tikzpicture}[scale = 0.8]
+	\begin{footnotesize}
+		
+		\coordinate (1) at (-4, 3);
+		\coordinate (2) at (0, 3);
+		\coordinate (3) at (4, 3);
+		\coordinate (4) at (-4, 0);
+		\coordinate (5) at (0, 0);
+		\coordinate (6) at (4, 0);
+		\coordinate (7) at (0, -3);
+
+			
+		\node at (1) {\includegraphics[height = 0.1\textheight]{../assets/images/rotten_apple}};
+		\node[below = 12pt] at (1) {Storability};
+		
+		\uncover<2->{
+			\node[minimum size = 0.35cm] at (2) {\input{../assets/figures/yap.tex}};
+			\node[below = 12pt] at (2) {Transferability};
+		}
+		
+		\uncover<3->{
+			\node at (3) {\includegraphics[height = 0.1\textheight]{../assets/images/ingots}};
+			\node[below = 12pt] at (3) {Divisibility};
+		}
+		
+		\uncover<4->{
+			\node at (4) {\includegraphics[height = 0.1\textheight]{../assets/images/car}};
+			\node[below = 12pt] at (4) {Fungibility};
+		}
+		
+		\uncover<5->{
+			\node at (5) {\includegraphics[height = 0.1\textheight]{../assets/images/check}};
+			\node[below = 12pt] at (5) {Verifiability};
+		}
+		
+		\uncover<6->{
+			\node at (6) {\includegraphics[height = 0.1\textheight]{../assets/images/sand}};
+			\node[below = 12pt] at (6) {Scarcity};
+		}
+		
+		\uncover<7->{
+			\node at (7) {\includegraphics[height = 0.1\textheight]{../assets/images/wheat}};
+			\node[below = 12pt] at (7) {Low Price Volatility};
+		}
+		
+	\end{footnotesize}
+\end{tikzpicture}

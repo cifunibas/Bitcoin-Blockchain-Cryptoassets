@@ -1,0 +1,20 @@
+\begin{tikzpicture}[scale = 0.8]
+	\begin{footnotesize}
+		\draw[dotted] (-5.9, 0) rectangle (-2.1, 4) node[above = 1cm, midway] {\textbf{Commodity money}};
+		\uncover<2->{\draw[dotted] (-1.9, 0) rectangle (1.9, 4) node[above = 1cm, midway] {\textbf{Credit money}};}
+		\uncover<3->{\draw[dotted] (2.1, 0) rectangle (5.9, 4) node[above = 1cm, midway] {\textbf{Fiat money}};}
+
+		\node at (-5, 2.5) {\includegraphics[height = 0.07\textheight]{../assets/images/shell}};
+		\node at (-3, 2.5) {\includegraphics[height = 0.07\textheight]{../assets/images/ingots}};
+		\node at (-5, 1) {\includegraphics[height = 0.07\textheight]{../assets/images/jewel}};
+		\node at (-3, 1) {\includegraphics[height = 0.07\textheight]{../assets/images/cigarettes}};
+		
+		\uncover<2->{
+			\node[rectangle, thick, draw] at (0, 2.5) {IOU};
+		}
+		
+		\uncover<3->{
+			\node at (4, 2.5) {\includegraphics[height = 0.07\textheight]{../assets/images/bulb}};
+		}
+\end{footnotesize}
+\end{tikzpicture}

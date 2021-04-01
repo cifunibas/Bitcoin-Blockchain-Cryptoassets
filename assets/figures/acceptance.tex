@@ -1,0 +1,38 @@
+\begin{tikzpicture}
+
+% define positions
+\coordinate (0) at (0,0);
+\coordinate (1) at (1,1);
+\coordinate (2) at (-1,2);
+\coordinate (3) at (-2,0);
+\coordinate (4) at (-3,1);
+
+% draw economic agent
+\node at (4) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/handing_money_right}};
+
+% last, first and second slide
+\alt<3>{
+	% NE			
+	% expectation of PI > PI_hat > 0: choose pi = 1
+	% expectation of PI < PI_hat < 1: choose pi = 0
+	\node at (0) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/nope_left}};
+	\node at (1) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/reaching_left}};
+	\node at (2) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/nope_left}};
+	\node at (3) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/reaching_left}};
+}{
+	% expectation of PI = 0: choose pi = 0
+	\only<1>{
+		\node at (0) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/nope_left}};
+		\node at (1) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/nope_left}};
+		\node at (2) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/nope_left}};
+		\node at (3) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/nope_left}};
+	}
+	% expectation of PI = 1: choose pi = 1
+	\only<2>{
+		\node at (0) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/reaching_left}};
+		\node at (1) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/reaching_left}};
+		\node at (2) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/reaching_left}};
+		\node at (3) {\includegraphics[height = 0.15\textheight]{../assets/images/agents/reaching_left}};
+	}
+}
+\end{tikzpicture}

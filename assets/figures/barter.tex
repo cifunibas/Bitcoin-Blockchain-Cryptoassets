@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+	% top left: smith
+	\node (smith) at (-3, 2){\includegraphics[height = 0.15\textheight]{../assets/images/agents/agent_right}};
+	
+	% top right: saddler
+	\node (saddler) at (3, 2){\includegraphics[height = 0.15\textheight]{../assets/images/agents/agent_left}};
+
+	\draw[->, very thick] ([yshift = 0.2cm]smith.east) -- ([yshift = 0.2cm]saddler.west) node[midway, above]{\includegraphics[height = 0.08\textheight]{../assets/images/horseshoe}} ;
+	
+	\draw[->, very thick] ([yshift = -0.2cm]saddler.west) -- ([yshift = -0.2cm]smith.east) node[midway, below]{\includegraphics[height = 0.08\textheight]{../assets/images/saddle}};
+	
+\end{tikzpicture}

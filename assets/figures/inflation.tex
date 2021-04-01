@@ -1,0 +1,47 @@
+\begin{footnotesize}
+	\alt<4>{
+	\begin{tikzpicture}
+			\begin{axis}[
+				xmin = 1959, xmax = 2019, xlabel = Time, /pgf/number format/1000 sep={},
+				ymin = 0, ymax = 1, ylabel = {Real value of money, 1960 = 1},
+				height = 5cm,
+				width = 11cm,
+				grid = both,
+				legend pos = south west
+				]
+				\addplot[thick] table[x=time, y=usa, col sep=comma] {../assets/data/cpi.csv};
+				\addplot[thick, focus] table[x=time, y=gbp, col sep=comma] {../assets/data/cpi.csv};
+				\addplot[thick, highlight] table[x=time, y=swi, col sep=comma] {../assets/data/cpi.csv};
+				\addplot[thick, dotted] table[x=time, y=jpy, col sep=comma] {../assets/data/cpi.csv};
+	
+				\legend{
+					USD, 
+					GBP,
+					CHF,
+					JPY
+				};
+			\end{axis}
+		\end{tikzpicture}
+	}{
+		\begin{tikzpicture}
+			\begin{axis}[
+				xmin = 1959, xmax = 2019, xlabel = Time, /pgf/number format/1000 sep={},
+				ymin = 10^(-15), ymax = 1, ylabel = {Real value of money, 1960 = 1}, ymode = log,
+				height = 5cm,
+				width = 11cm,
+				grid = both,
+				legend pos = south west
+				]
+				\addplot[thick] table[x=time, y=arg, col sep=comma] {../assets/data/cpi.csv};
+				\addplot[thick, focus] table[x=time, y=mex, col sep=comma] {../assets/data/cpi.csv};
+				\addplot[thick, highlight] table[x=time, y=tur, col sep=comma] {../assets/data/cpi.csv};
+	
+				\legend{
+					ARS, 
+					MXN,
+					TRY
+				};
+			\end{axis}
+		\end{tikzpicture}
+	}
+\end{footnotesize}

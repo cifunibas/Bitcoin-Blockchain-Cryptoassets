@@ -1,6 +1,6 @@
-% Choose one to switch betweeen slides and handout
-\documentclass[]{beamer}
-%\documentclass[handout]{beamer}
+% Choose one to switch between slides and handout
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
@@ -21,20 +21,7 @@
 \end{frame}
 
 %%%
-\begin{frame}{Why Should I Take This Course?}
-	\uncover<1->{
-		\begin{figure}[h]
-  			\center
-			\input{../assets/figures/interdiciplinarity.tex}
-		\end{figure}
-	}
-	\vspace{1em}
-Bitcoin and public Blockchains can only be fully understood, when they are studied from various perspectives. This is the reason why this class uses an \color{focus} \textbf{interdisciplinary} \color{black} approach.	
-\end{frame}
-%%%
-
-%%%
-\begin{frame}{How This Course is Structured 1}
+\begin{frame}{Course Structure 1}
 \footnotesize
 
 \textbf{1. Introductory Part:}
@@ -42,6 +29,7 @@ Bitcoin and public Blockchains can only be fully understood, when they are studi
 		\item Introduction to the Class
 		\item Foundations of Monetary Theory
 		\item Payment Systems
+		\item Monetary Control Structures
 		\item Bitcoin Primer
 	\end{itemize}
 	
@@ -66,14 +54,14 @@ Bitcoin and public Blockchains can only be fully understood, when they are studi
 	
 \end{frame}
 
-\begin{frame}{How This Course is Structured 2}
+\begin{frame}{Course Structure 2}
 \footnotesize	
 
 \textbf{4. Transaction Legitimacy:}
 	\begin{itemize}
 		\item Transactions
-		\item Example Transaction
 		\item Bitcoin Script and Standard Transactions
+		\item Example Transaction
 		\item Sig Hash Types
 	\end{itemize}	
 
@@ -94,13 +82,13 @@ Bitcoin and public Blockchains can only be fully understood, when they are studi
 \end{frame}
 
 
-\begin{frame}{How This Course is Structured 3}
+\begin{frame}{Course Structure 3}
 \footnotesize	
 
 \textbf{6. Bitcoin as Money:}
 	\begin{itemize}
 		\item History of Digital Money
-		\item Pricing Models
+		\item Valuation Models
 		\item Volatility
 		\item CBDC and Stablecoins
 		\item Risks and Illicit Activity
@@ -115,12 +103,25 @@ Bitcoin and public Blockchains can only be fully understood, when they are studi
 		\item Scalability
 		\item Payment Channels and LN
 		\item Transaction Malleability and SegWit
-		\item Bitcoin Data Analysis
 		\item Teaser: Next Steps
 	\end{itemize}	
 
 \end{frame}
 %%%
+
+%%%
+\begin{frame}{Interdisciplinary Approach}
+	\uncover<1->{
+		\begin{figure}[h]
+  			\center
+			\input{../assets/figures/interdiciplinarity.tex}
+		\end{figure}
+	}
+	\vspace{1em}
+Bitcoin and public Blockchains can only be fully understood, when they are studied from various perspectives. This is the reason why this class uses an \color{focus} \textbf{interdisciplinary} \color{black} approach.	
+\end{frame}
+%%%
+
 
 %%%
 \begin{frame}{Recommended Literature}
@@ -194,7 +195,7 @@ Blockchain courses have been part of the University of Basel's curriculum since 
 \vspace{2em}
 
 \uncover<5->{
-	$\rightarrow$ There will be more open lecture courses to come.
+	$\rightarrow$ There will be more open lecture courses.
 }
 
 \end{frame}
@@ -210,16 +211,17 @@ The goal of our open lectures is to make teaching resources freely available. Th
 	\hline \hline
 									& Videos 		& Platform 		& Assignments 	& ECTS 	\\ \cline{2-5}
 		YouTube 	 				& $\checkmark$	& 				& 				& 		\\
-		Teachable 					& $\checkmark$	& $\checkmark$	& $\checkmark$	&		\\
+		Cryptolectures.io 			& $\checkmark$	& $\checkmark$	& $\checkmark$	&		\\
 		University of Basel			& $\checkmark$	& $\checkmark$	& $\checkmark$	& $\checkmark$	\\
 		\hline \hline
 	\end{tabular}
 \end{table} \vspace{2em}
 
 \uncover<2->{
-\link YouTube Channel \\
-\link Teachable Course \\
-\link University of Basel - General Information
+\link \href{https://www.youtube.com/channel/UCOA52m4BOqtI8cHIx4zJAWg}
+  {YouTube Channel}  \\
+\link \href{https://www.cryptolectures.io}{Cryptolectures.io} \\
+\link \href{https://www.unibas.ch/en/Studies/Application-Admission.html}{University of Basel - General Information}
 }
 
 \end{frame}
@@ -228,39 +230,72 @@ The goal of our open lectures is to make teaching resources freely available. Th
 %%%
 \begin{frame}{Information for University of Basel Students}
 
-If you want academic credits (ECTS) for this class you must follow three simple steps:
-\vspace{0.5em}
-
-	\begin{enumerate}
-		\item<2-> Enroll via the University of Basel
-		\item<3-> Login to teachable with your university email address
-		\item<4-> Study the material, hand-in the assignments and pass the (on-site) exam
-	\end{enumerate}
-\vspace{1em}
-	
-	\uncover<5->{
+	\uncover<1->{
 \textbf{Exam:}
 	\begin{itemize}
 		\item 90 Minutes
 		\item Closed book
 		\item T/F, MC, Numbers and Text/Figure Boxes
-		\item You may use a non-programmable calculator (\link Restrictions)
+		\item You may use a non-programmable calculator (\link \href{https://wwz.unibas.ch/en/studies/examinations/use-of-materials-and-aids/}{Rules})
 	\end{itemize}
 	}
+	
+	\vspace{1em}
+	
+	\uncover<2->{
+	\textbf{Mid-Semester Problem Set:}
+	\begin{itemize}
+		\item Problem set will be published mid-semester 
+		\item Extra credit if you hand-in correct solutions before deadline.
+	\end{itemize}
+}	
+	
 \end{frame}
 %%%
 
 %%%
-\begin{frame}{Be an Active Member of our Community}
-	Add Repository, Contribution Guidelines and Discord Information.
-
-\end{frame}
-%%%
-
-%%%
-\begin{frame}{Meet the Team}
-	Add team picture.
-	%\includegraphics{../assets/images/team}
+\begin{frame}{Meet the Open Crypto Lectures Team}
+	\begin{columns}[T]
+		\begin{column}{0.31\textwidth}
+			\center \textbf{Professor}
+			\begin{table}\small
+				\begin{tabular}{c}
+					Fabian Schär\\
+					\href{https://linkedin.com/in/fabian-schaer/}{\faLinkedinSquare}\ \href{https://twitter.com/chainomics}{\faTwitterSquare}\\
+				\end{tabular}
+			\end{table}
+		\end{column}
+		\begin{column}{0.31\textwidth}
+			\center \textbf{PhD Candidates}
+			\begin{table}\small
+				\begin{tabular}{c}
+					Mitchell Goldberg\\
+					\href{https://linkedin.com/in/mitchell-goldberg/}{\faLinkedinSquare}\ \href{https://twitter.com/golmit_crypto}{\faTwitterSquare}\\
+					\vspace{0.5em}\\
+					Matthias Nadler\\
+					\href{https://linkedin.com/in/mat-nadler/}{\faLinkedinSquare}\ \href{https://twitter.com/mat_nadler}{\faTwitterSquare}\\
+					\vspace{0.5em}\\
+					Katrin Schuler\\
+					\href{https://linkedin.com/in/kmschuler/}{\faLinkedinSquare}\ \href{https://twitter.com/Katatcrypt}{\faTwitterSquare}\\
+				\end{tabular}
+			\end{table}
+		\end{column}
+		\begin{column}{0.31\textwidth}
+			\center \textbf{Student Assistants}
+			\begin{table}\small
+				\begin{tabular}{c}
+					Lorenz Geering\\
+					\href{https://linkedin.com/in/lorenz-geering-770359a8/}{\faLinkedinSquare}\ \href{https://twitter.com/lorenz_geering}{\faTwitterSquare}\\
+					\vspace{0.5em}\\
+					Jakob Roth\\
+					\href{https://linkedin.com/in/jakob-roth}{\faLinkedinSquare}\ \href{https://twitter.com/jakob_rouge}{\faTwitterSquare}\\
+					\vspace{0.5em}\\
+					Dario Thürkauf\\
+					\href{https://linkedin.com/in/dario-thuerkauf/}{\faLinkedinSquare} \href{https://twitter.com/dario_thuerkauf}{\faTwitterSquare}\\
+				\end{tabular}
+			\end{table}
+		\end{column}
+	\end{columns}
 \end{frame}
 %%%
 

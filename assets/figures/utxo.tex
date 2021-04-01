@@ -1,0 +1,39 @@
+ \begin{tikzpicture}[domain=-8:8,scale=0.9, every node/.style={scale=0.8}]
+      
+      
+      \draw[color=black] plot (-3,3)   node[below, rotate = 0] {Transaktion 1:};
+      \draw[color=black] plot (-3,1)   node[below, rotate = 0] {Transaktion 2:};
+      \draw[color=black] plot (-3,-1)   node[below, rotate = 0] {Transaktion 3:};
+      
+        \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, draw=black, dashed] (-1.37,2.05) rectangle ++(155pt,40pt) ;
+      
+      \draw[color=black] plot (0,3)   node[fill=highlight!25, thick, draw=highlight,below, rotate = 0] {\texttt{Input 1}};
+      \draw[->,thick] (1.1,2.68) -- (1.6,2.68) ;
+      \draw[color=black] plot (2.8,3) node [fill=highlight!25, thick, draw=highlight,below, rotate = 0]
+      {\texttt{Output 1}};
+      
+      
+        \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, draw=black, dashed] (-1.37,0.05) rectangle ++(155pt,40pt) ;
+      
+      \draw[color=black] plot (0,1)   node[fill=highlight!25, thick, draw=highlight,below, rotate = 0] {\texttt{Input 2}};
+      \draw[->,thick] (1.1,0.68) -- (1.6,0.68) ;
+      \draw[color=black] plot (2.8,1) node [fill=highlight!25, thick, draw=highlight,below, rotate = 0]
+      {\texttt{Output 2}};
+      
+      \draw[thick] (2.9,2.3) -- (2.9,1.7);
+      \draw[thick] (2.915,1.7) -- (0,1.7);
+      \draw[->,thick] (0,1.7175) -- (0,1.1);
+      
+      
+        \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, draw=black, dashed] (-1.37,-1.95) rectangle ++(155pt,40pt) ;
+      
+      \draw[color=black] plot (0,-1)   node[fill=highlight!25, thick, draw=highlight,below, rotate = 0] {\texttt{Input 3}};
+      \draw[->,thick] (1.1,-1.32) -- (1.6,-1.32) ;
+      \draw[color=black] plot (2.8,-1) node [fill=highlight!25, thick, draw=highlight,below, rotate = 0]
+      {\texttt{Output 3}};
+      
+      \draw[thick] (2.9,0.3) -- (2.9,-0.3);
+      \draw[thick] (2.915,-0.3) -- (0,-0.3);
+      \draw[->,thick] (0,-0.2825) -- (0,-0.9);
+      
+\end{tikzpicture}

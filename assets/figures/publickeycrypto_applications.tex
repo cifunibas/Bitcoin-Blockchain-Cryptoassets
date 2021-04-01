@@ -1,51 +1,51 @@
 \begin{tikzpicture}[domain=-6:12,scale=0.6, every node/.style={scale=0.6}]
-	
-	\draw[fill= highlight!15, draw=black, thick, dashed] (0,0) -- (4,0) -- (4,4) -- (0,4) -- (0,0);
-	\draw[fill= highlight!15, draw=black, thick, dashed] (6,0) -- (10,0) -- (10,4) -- (6,4) -- (6,0);
-	
-	\draw[draw=black, thick, densely dotted] (-1.75,2.5) -- (11.75,2.5) -- (11.75,3.75) -- (-1.75,3.75) -- (-1.75,2.5) node[left,midway,text width=3cm]{\small{\textbf{Secrecy}}};
-	\draw[draw=black, thick, densely dotted] (-1.75,0.25) -- (11.75,0.25) -- (11.75,1.5) -- (-1.75,1.5) -- (-1.75,0.25)node[left,midway,text width=3cm]{\small{\textbf{Integrity and\\ Authenticity}}};
-	
-	
-	
-	\draw[<-,thick] (-0.25,3) -- (4.25,3) node[above, midway] {\footnotesize{Encrypt/Hide}};
-	\draw[<-,thick] (5.75,3) -- (10.25,3) node[above, midway] {\footnotesize{Decrypt/Read}};
-	
-	\draw[->,thick] (-0.25,1) -- (4.25,1) node[below, midway] {\footnotesize{Encrypt/Sign}} ;
-	\draw[->,thick] (5.75,1) -- (10.25,1) node[below, midway] {\footnotesize{Decrypt/Verify}} ;
-	
-	
-	%\draw[<-,thick] (-0.3,3) -- node[above] {\footnotesize{Entschlüsselung}} ++(4.6,0);
-	%\draw[<-,thick] (5.7,3) -- node[above] {\footnotesize{Verschlüsselung}} ++(4.6,0);
-	
-	%\draw[->,thick] (-0.3,1) -- node[below] {\footnotesize{Verschlüsseln/Signatur}} ++(4.6,0);
-	%\draw[->,thick] (5.7,1) -- node[below] {\footnotesize{Entschlüsseln/Kontrolle}} ++(4.6,0);
-	
-	\draw  plot (5,3) node[]{\small{Cipher}};
-	\draw  plot (5,1) node[]{\small{Signature}};
-	
-	\draw  plot (-0.99,3) node[]{\small{Message}};
-	\draw  plot (-0.99,1) node[]{\small{Message}};
-	
-	\draw  plot (10.99,3) node[]{\small{Message}};
-	\draw  plot (10.99,1) node[]{\small{Message}};
-	
-	%private key
-	\filldraw[color=black] (1.8,2.2) circle (5pt) ;
-	\filldraw[color=highlight!15] (1.8,2.2) circle (2pt);
-	\filldraw[yshift=-0.05cm, xshift=0.1cm,color = black] (1.8,2.2) rectangle ++(15pt,3pt) ;
-	\filldraw[yshift=-0.13cm, xshift=0.4cm,color = black] (1.8,2.2) rectangle ++(1pt,4pt) ;
-	\filldraw[yshift=-0.13cm, xshift=0.5cm,color = black] (1.8,2.2) rectangle ++(1pt,4pt) ;
-	\draw[color=black] plot (2,2.05) node[below] {\small{KO's Private Key}};
-	\draw[color=black] plot (2,4) node[above] {\textbf{Key Owner}};
-	
-	%public key
-	\filldraw[color=black] (7.8,2.2) circle (5pt);
-	\filldraw[color=highlight!15] (7.8,2.2) circle (2pt);
-	\filldraw[yshift=-0.05cm, xshift=0.1cm,color = black] (7.8,2.2) rectangle ++(15pt,3pt) ;
-	\filldraw[yshift=-0.13cm, xshift=0.4cm,color = black] (7.8,2.2) rectangle ++(1pt,4pt) ;
-	\filldraw[yshift=-0.13cm, xshift=0.5cm,color = black] (7.8,2.2) rectangle ++(1pt,4pt) ;
-	\draw[color=black] plot (8,2.1) node[below] {\small{KO's Public Key}};
-	\draw[color=black] plot (8,4) node[above] {\textbf{Any Third Party}};
-	
+
+\draw[fill= highlight!15, draw=black, thick, dashed] (0,0) -- (4,0) -- (4,4) -- (0,4) -- (0,0);
+\draw[fill= highlight!15, draw=black, thick, dashed] (6,0) -- (10,0) -- (10,4) -- (6,4) -- (6,0);
+
+\draw[draw=black, thick, densely dotted] (-1.75,2.5) -- (11.75,2.5) -- (11.75,3.75) -- (-1.75,3.75) -- (-1.75,2.5) node[left,midway,text width=3cm]{\small{\textbf{Secrecy}}};
+\draw[draw=black, thick, densely dotted] (-1.75,0.25) -- (11.75,0.25) -- (11.75,1.5) -- (-1.75,1.5) -- (-1.75,0.25)node[left,midway,text width=3cm]{\small{\textbf{Integrity and\\ Authenticity}}};
+
+
+
+\draw[<-,thick] (-0.25,3) -- (4.25,3) node[above, midway] {\footnotesize{Encrypt/Hide}};
+\draw[<-,thick] (5.75,3) -- (10.25,3) node[above, midway] {\footnotesize{Decrypt/Read}};
+
+\draw[->,thick] (-0.25,1) -- (4.25,1) node[below, midway] {\footnotesize{Encrypt/Sign}} ;
+\draw[->,thick] (5.75,1) -- (10.25,1) node[below, midway] {\footnotesize{Decrypt/Verify}} ;
+
+
+%\draw[<-,thick] (-0.3,3) -- node[above] {\footnotesize{Entschlüsselung}} ++(4.6,0);
+%\draw[<-,thick] (5.7,3) -- node[above] {\footnotesize{Verschlüsselung}} ++(4.6,0);
+
+%\draw[->,thick] (-0.3,1) -- node[below] {\footnotesize{Verschlüsseln/Signatur}} ++(4.6,0);
+%\draw[->,thick] (5.7,1) -- node[below] {\footnotesize{Entschlüsseln/Kontrolle}} ++(4.6,0);
+
+\draw  plot (5,3) node[]{\small{Cipher}};
+\draw  plot (5,1) node[]{\small{Signature}};
+
+\draw  plot (-0.99,3) node[]{\small{Message}};
+\draw  plot (-0.99,1) node[]{\small{Message}};
+
+\draw  plot (10.99,3) node[]{\small{Message}};
+\draw  plot (10.99,1) node[]{\small{Message}};
+
+%private key
+  \filldraw[color=black] (1.8,2.2) circle (5pt) ;
+  \filldraw[color=highlight!15] (1.8,2.2) circle (2pt);
+  \filldraw[yshift=-0.05cm, xshift=0.1cm,color = black] (1.8,2.2) rectangle ++(15pt,3pt) ;
+  \filldraw[yshift=-0.13cm, xshift=0.4cm,color = black] (1.8,2.2) rectangle ++(1pt,4pt) ;
+  \filldraw[yshift=-0.13cm, xshift=0.5cm,color = black] (1.8,2.2) rectangle ++(1pt,4pt) ;
+  \draw[color=black] plot (2,2.05) node[below] {\small{KO's Private Key}};
+  \draw[color=black] plot (2,4) node[above] {\textbf{Key Owner}};
+
+%public key
+  \filldraw[color=black] (7.8,2.2) circle (5pt);
+  \filldraw[color=highlight!15] (7.8,2.2) circle (2pt);
+  \filldraw[yshift=-0.05cm, xshift=0.1cm,color = black] (7.8,2.2) rectangle ++(15pt,3pt) ;
+  \filldraw[yshift=-0.13cm, xshift=0.4cm,color = black] (7.8,2.2) rectangle ++(1pt,4pt) ;
+  \filldraw[yshift=-0.13cm, xshift=0.5cm,color = black] (7.8,2.2) rectangle ++(1pt,4pt) ;
+  \draw[color=black] plot (8,2.1) node[below] {\small{KO's Public Key}};
+  \draw[color=black] plot (8,4) node[above] {\textbf{Any Third Party}};
+
 \end{tikzpicture}

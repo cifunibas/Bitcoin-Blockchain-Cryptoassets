@@ -1,0 +1,218 @@
+% Choose one to switch between slides and handout
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Bitcoin Primer}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{Let's Begin}
+	\center
+	\includegraphics[width=6cm]{../assets/images/meltem_tweet}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{What We Already Know...}
+\textbf{Bitcoin key characteristics:}
+	\begin{enumerate}
+		\item Competitive creation
+		\item Virtual representation
+		\item Decentralized management
+		\begin{itemize}
+			\item Transaction capacity
+			\item Transaction legitimacy
+			\item Transaction consensus
+		\end{itemize}
+	\end{enumerate}
+	\vspace{1em}
+	\uncover<2->{
+	\textbf{Key Idea:}\\
+	\uncover<2->{Bitcoin is a decentralized data structure.}
+	\uncover<2->{The system is maintained by its participants and works in the absence of centralized third parties.}
+	}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Bitcoin Building Blocks}
+	\begin{figure}[h!]
+		\center
+		\input{../assets/figures/bitcoin-system.tex}
+		\label{fig:bitcoinsystem}
+	\end{figure}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Transaction Capacity}
+\textbf{Goal:} Ensure that each participant can reliably \color{focus}initiate a transaction \color{black} without having to fear censorship. \\
+\uncover<2->{
+	\begin{figure}[h!]
+		\center
+		\input{../assets/figures/transaction-capacity.tex}
+	\end{figure}\vspace{1em}
+}
+\uncover<2->{
+	Peer-to-Peer Network:
+        \begin{itemize}
+		\item<1-> Permissionless
+		\item<1-> Censorship-resistant
+		\item<1-> No special privileges
+		\end{itemize}
+		}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Transaction Legitimacy}
+\textbf{Goal:} Ensure transaction \color{focus}authenticity \color{black}and \color{focus} integrity\color{black}, i.e., ensure that the transaction was initiated by its owner of the funds and has not been changed.
+\uncover<2->{
+		\center
+		\input{../assets/figures/transaction-legit.tex}
+		}
+\uncover<3->{
+		\vspace{2em}
+		\input{../assets/figures/transaction-manipulation.tex}
+	}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Public/Private Key Pair}
+	\input{../assets/figures/key_creation}
+
+\vspace{1em}
+
+\textbf{Two key principles:}
+\begin{enumerate}
+\item<1-> Private key is created (chosen) without the help of an intermediary, and can be used to derive public key.
+\item<2-> If information is encrypted with one key, it can only be decrypted with the other key.
+\end{enumerate}
+
+\vspace{1em}
+
+\uncover<3->{
+\textbf{Key assumption:}\\
+Asymmetric cryptography and its applications assume that you are willing and able to keep your private key secret. }
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Two Distinct Applications}
+	\input{../assets/figures/publickeycrypto_applications}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Transaction Legitimacy}
+	\begin{figure}[h!]
+		\center
+		\input{../assets/figures/transaction-encryption.tex}
+		\caption*{Encryption and decryption of the transaction message}
+		\label{fig:asymmeinfach}
+	\end{figure}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Transaction Consensus}
+\textbf{Goal: }Deciding which (legitimate) transactions are valid. \\
+\vspace{1em}
+\uncover<2->{
+Potential Problem: Assume both transactions have valid signatures, but spend the same Bitcoin units. What now? \\
+\begin{figure}[h!]
+	\center
+	\input{../assets/figures/double-spend.tex}
+\end{figure}
+}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Blocks and the Blockchain}
+Transactions are bundled into blocks. \\
+\includegraphics[width=6cm]{../assets/images/block_1.png} \\
+\uncover<2->{
+Blocks are sequentially linked $\rightarrow $ Blockchain \\
+\includegraphics[width=6cm]{../assets/images/blocks_3.png}
+}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Bitcoin Mining}
+Network participants, who assemble candidate blocks are usually referred to as Bitcoin Miners.
+\center
+\includegraphics[width=6cm]{../assets/images/miner.png}
+\uncover<2->{
+	\begin{itemize}
+	\item{Miner chooses the status quo on which to base its block. (Most recent version of Blockchain)}
+}
+\uncover<3->{
+	\item{Miner chooses a subset of the transactions from its queue (mempool) to create a block, as long as they...}
+	\begin{itemize}
+		\item{\dots are legimitate.}
+		\item{\dots do not conflict with other transactions.}
+		\item{\dots do not exceed block size limitation.}
+	\end{itemize}
+	}
+\end{itemize}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Bitcoin Miner}
+\center{
+\includegraphics[width=4cm]{../assets/images/miner.png} \hspace{1cm} \includegraphics[width=4cm]{../assets/images/miner.png}\\
+\includegraphics[width=4cm]{../assets/images/miner.png} \hspace{1cm} \includegraphics[width=4cm]{../assets/images/miner.png}\\
+\includegraphics[width=4cm]{../assets/images/miner.png} \hspace{1cm} \includegraphics[width=4cm]{../assets/images/miner.png}\\
+}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Transaction Consensus}
+\includegraphics[width=9cm]{../assets/images/consensus_problem.png}
+
+How to reach consensus?: \\
+	\begin{itemize}
+	\item Centralized decision (Proof-of-Authority)
+	\item \color{focus}Decentralized lottery (Proof-of-Work)
+	\end{itemize}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Recommended Reading}
+\begin{columns}
+	\begin{column}{0.3\textwidth}
+	\center
+	\includegraphics[width=\textwidth , frame]{../assets/images/short-introduction-cryptocurrencies.png}
+	\end{column}
+	\begin{column}{0.7\textwidth}
+	\textbf{A Short Introduction to the World of Cryptocurrencies} \\
+	Aleksander Berentsen and Fabian Schär \\
+	\link \href{https://files.stlouisfed.org/files/htdocs/publications/review/2018/01/10/a-short-introduction-to-the-world-of-cryptocurrencies.pdf}{Online PDF}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\end{document}

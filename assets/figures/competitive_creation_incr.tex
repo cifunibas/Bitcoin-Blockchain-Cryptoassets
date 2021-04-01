@@ -1,0 +1,23 @@
+\begin{tikzpicture}[scale = 0.7]
+
+	% define coordinates
+			\coordinate (0) at (0,0);
+			\coordinate (1x) at (6,0);
+			\coordinate (1y) at (0,6);
+			\coordinate (mid) at (3,3);
+		
+		% draw axes
+			\draw[->] (0) -- ([xshift = 8pt] 1x) node[midway, below] {Total money supply};
+			\draw[->] (0) -- ([yshift = 8pt] 1y) node[midway, above, rotate = 90] {Marginal costs/revenue};
+		
+		% MC
+			\draw[focus] (0.5, 0.5) -- (5.5, 5.5) node[rotate = 45, above = 5pt, left]{\scriptsize{Marginal costs}};
+			
+		% MR
+			\draw[focus] (0.5, 5.5) -- (5.5, 0.5) node[rotate = -45, above = 5pt, left]{\scriptsize{Marginal revenue}};
+			
+		% Equilibrium
+			\fill[fill, circle] (mid) circle[radius = 2pt];
+			\draw[dotted] (mid) -- (3, 0.5) node[below = -2pt]{\scriptsize{Equilibrium}};
+			
+\end{tikzpicture}

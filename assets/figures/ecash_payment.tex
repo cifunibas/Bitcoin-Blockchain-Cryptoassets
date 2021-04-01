@@ -1,0 +1,30 @@
+    
+\begin{tikzpicture}[scale = 0.67]
+
+% Payee
+\node 			(payee) at (12,0) {\includegraphics[height = 1.6cm]{../assets/images/agents/reaching_left}};
+
+% Payer
+\node 			(payer) at (0,0) {\includegraphics[height = 1.6cm]{../assets/images/agents/handing_right}};
+
+% Goods vs. Money flow	
+	\draw[->, thick, dashed]	([yshift=1cm]payer.south east) -- ([yshift=1cm]payee.south west) 
+						node[midway, fill=white] {Digital Cash};
+
+	\draw[<-, thick]	([yshift=-1cm]payer.north east) -- ([yshift=-1cm]payee.north west) node[midway, fill=white] {Goods / Services};
+
+% Copy-Paste Symbol
+	
+	\coordinate	(A) at ([xshift=-0.4cm, yshift=-0.4cm]payer.south west);
+	\coordinate	(B) at ([xshift = 1.2cm, yshift = -0.8cm]A);
+	\coordinate	(C) at ([xshift = 1.8cm]A);
+	\coordinate	(D) at ([xshift = 1.5cm]B);
+	\coordinate	(E) at ([xshift = 0.3cm,yshift = 0.4cm]B);
+
+\uncover<3->{	
+	\draw[rounded corners=5pt, focus, very thick]	(A) rectangle (B) node [midway, focus] {\footnotesize{\texttt{Ctrl}}};
+	\draw[rounded corners=5pt, focus, very thick]	(C) rectangle (D) node [midway, focus] {\scriptsize{\texttt{C}}};
+	\draw[rounded corners=5pt, focus, very thick]	(E) node [focus] {\footnotesize{+}};
+	}
+	
+\end{tikzpicture}

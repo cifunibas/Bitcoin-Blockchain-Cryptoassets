@@ -1,0 +1,32 @@
+\begin{tikzpicture}[domain=-8:8, scale=0.8]
+\coordinate (c1) at (0,0);
+\coordinate (c2) at (6,0);
+\coordinate (c3) at (7.8,0.8);
+\coordinate (c4) at (7.5,-0.5);
+\coordinate (c5) at (9,0.5);
+\coordinate (c6) at (10,1);
+\coordinate (c7) at (10.5,0);
+\filldraw[draw=black,fill=white] (c1) circle (5pt) node[below=0.15cm,color=black]{\footnotesize{Edith}};
+\filldraw[color=black,fill=black!20] (c2) circle (5pt) node[below=0.15cm,color=black]{\footnotesize{Tony}};
+\filldraw[color=black,fill=black!20] (c3) circle (5pt) node[above=0.15cm,color=black]{\footnotesize{Marcia}};
+\filldraw[color=black,fill=black!20] (c4) circle (5pt) node[below=0.15cm,color=black]{\footnotesize{Michèle}};
+\filldraw[color=black,fill=highlight!50] (c5) circle (5pt) node[above=0.15cm,color=black]{\footnotesize{Brian}};
+\filldraw[color=black,fill=highlight!50] (c6) circle (5pt) node[right=0.15cm,color=black]{\footnotesize{Jake}};
+\filldraw[color=black,fill=highlight!50] (c7) circle (5pt) node[below=0.15cm,color=black]{\footnotesize{Claudia}};
+
+\draw[shorten >=0.28cm,shorten <=0.28cm,->,color=black] (c1) to[bend left = 60] (c6);
+
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c1) to[] (c2);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c2) to[] (c3);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->] (c2) to[] (c4);
+\draw[shorten >=0.28cm,shorten <=0.28cm, dotted] (c3) to[] (c5);
+\draw[shorten >=0.28cm,shorten <=0.28cm,dotted] (c4) to[] (c5);
+\draw[shorten >=0.28cm,shorten <=0.28cm,dotted] (c4) to[] (c7);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->,color=black] (c6) to[] (c5);
+\draw[shorten >=0.28cm,shorten <=0.28cm,->,color=black] (c6) to[] (c7);
+
+\filldraw[fill=black!20,dotted,thick] (0.76,-0.7) -- (5.24,-0.7) -- (5.24,0.7) -- (0.76,0.7) -- (0.76,-0.7) node[midway, right=-0.0cm,text width=3.5cm]{\scriptsize{Edith: ``I transfer Bitcoin unit \texttt{XY} to Daniel.''}};
+
+\filldraw[fill=highlight!50,dotted,thick] (3.16,2.3) -- (7.64,2.3) -- (7.64,3.7) -- (3.16,3.7) -- (3.16,2.3) node[midway, right=-0.02cm,text width=3.5cm]{\scriptsize{Edith: ``I transfer Bitcoin unit \texttt{XY} to Lucas.''}};
+
+\end{tikzpicture}

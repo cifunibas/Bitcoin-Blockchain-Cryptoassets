@@ -1,0 +1,22 @@
+
+% Title
+%\node[above] at (2.5,5.7) {Centralized};
+
+
+% Network
+\node (server) at (4.5,2.8) {\includegraphics[width = 0.5 cm]{../assets/images/agents/intermediary.png}};
+\node (agenta) at (1,4.7) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3.png}};
+\node (agentb) at (0.5,2) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4.png}};
+\node (agentc) at (2.8,0) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand1.png}};
+\node (agentd) at (5,5.7) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand2.png}};	
+\node (agente) at (7.5,3.8) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4.png}};
+\node (agentf) at (6.7,0.2) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5.png}};
+
+% Network flow
+\draw[<->, thick, dashed]	(agenta.east) -- (server.north west);
+\draw[<->, thick, dashed] 	(agentb.east) -- (server.west);
+\draw[<->, thick, dashed]	(agentc.north east) -- (server.south west);
+\draw[<->, thick, dashed]	(agentd.south) -- (server.north);
+\draw[<->, thick, dashed]	(agente.west) -- (server.east);
+\draw[<->, thick, dashed]	(agentf.north west) -- (server.south east);
+
