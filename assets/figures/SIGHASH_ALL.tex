@@ -1,0 +1,38 @@
+\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+    
+        \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, draw=black, dashed] (-4,-6.4) rectangle ++(304pt,160pt);
+        
+    \draw[color=black] plot (1.55,-0.2) node [below]
+    {\large{{Transaction}}};
+    
+    % Inputs
+    \draw[color=black] plot (-1.35,-1.6) node[above] {\texttt{inputs:}};
+    
+    % top left
+    \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (-3.6,-3.6) rectangle ++(128pt,60pt);
+    \draw[color=black] plot (-3.5,-2.3) node[right] {\small{\textbullet{} Amount: 3 BTC}};
+%    \draw[color=black] plot (-3.5,-2.6)   node[right] {\small{\textbullet{} Anyone's input}};
+    \draw[color=black] plot (-3.5,-2.9)   node[right] {\small{\textbullet{} Signed}};
+    
+    % bottom left
+    \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (-3.6,-6) rectangle ++(128pt,60pt);
+    \draw[color=black] plot (-3.5,-4.65) node[right] {\small{\textbullet{} Amount: 2 BTC}};
+%    \draw[color=black] plot (-3.5,-4.95)   node[right] {\small{\textbullet{} Anyone's input}};
+    \draw[color=black] plot (-3.5,-5.25)   node[right] {\small{\textbullet{} Signed}};
+
+	% Outputs
+    \draw[color=black] plot (4,-1.55)   node[above] {\texttt{outputs:}};
+
+	% top right
+	\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.75,-3.6) rectangle ++(128pt,60pt);
+	\draw[color=black] plot (1.85,-2.3)   node[right] {\small{\textbullet{} Amount: 4 BTC}};
+%    \draw[color=black] plot (1.85,-2.6)   node[right] {\small{\textbullet{} Unlocking condition}};
+    \draw[color=black] plot (1.85,-2.9)   node[right] {\small{\textbullet{} Signed}};
+
+	% bottom right
+    \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.75,-6) rectangle ++(128pt,60pt);
+    \draw[color=black] plot (1.85,-4.65)   node[right] {\small{\textbullet{} Amount: 1 BTC}};
+%    \draw[color=black] plot (1.85,-4.95)   node[right] {\small{\textbullet{} Unlocking condition}};
+    \draw[color=black] plot (1.85,-5.25)   node[right] {\small{\textbullet{} Signed}};
+
+\end{tikzpicture}
