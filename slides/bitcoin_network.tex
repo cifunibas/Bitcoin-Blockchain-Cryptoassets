@@ -26,10 +26,6 @@
 	\centering
 	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
 		\input{../assets/figures/p2p}
-%		\color{focus}
-%		\node (text) at (-0.5,3.5) { Nodes };
-%		\draw[->, thick]	(text.south) -- (agenta.west);
-%		\draw[->, thick]	(text.south) -- (agentb.north west);
 	\end{tikzpicture}
 	
 	\vspace{0.5cm}
@@ -48,7 +44,7 @@
 
 	\vspace{1cm}
 	
-	After the initial handshake, we request a list of addresses and connect to more peers.
+	After the initial handshake, we request a list of IP addresses and connect to additional peers.
 \end{frame}
 %%%
 
@@ -94,12 +90,25 @@
 \end{frame}
 %%%
 
+%%%
 \begin{frame}{Mining Functionality}
 	\centering
 	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
 		\input{../assets/figures/mining_functions}
 	\end{tikzpicture}
 \end{frame}
+%%%
+
+%%%
+\begin{frame}{Pool Mining}
+	\centering
+	\begin{figure}[t]
+		\includegraphics[height = 0.8\textheight]{../assets/images/mining_pools}
+		
+		Source: \link \url{https://blockchain.info/pools}, March 2021
+	\end{figure}
+\end{frame}
+%%%
 
 %%%
 \begin{frame}{Node Distribution}
@@ -175,18 +184,6 @@ Challenges for a mobile node:
 %% SPV
 %% Connection to your own full node
 
-\end{frame}
-%%%
-
-%%%
-\begin{frame}{Pool Mining}
-	%% Nach mining functionality
-	\centering
-	\begin{figure}[t]
-		\includegraphics[height = 0.8\textheight]{../assets/images/mining_pools}
-		
-		Source: \link \url{https://blockchain.info/pools}, March 2021
-	\end{figure}
 \end{frame}
 %%%
 
