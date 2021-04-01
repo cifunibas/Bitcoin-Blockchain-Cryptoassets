@@ -4,7 +4,7 @@
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
-\subtitle{Signature Hash Type}
+\subtitle{Signature Hash Types}
 \author{Prof. Dr. Fabian Schär}
 \institute{University of Basel}
 
@@ -21,7 +21,9 @@
 \end{frame}
 
 \begin{frame}{Signature}
-	Network participants exchange signed transaction messages. Usually, they sign all inputs and outputs, but sometimes they may only want to protect some of them.\\
+Network participants exchange signed transaction messages.\\ \vspace{1em}
+	
+In most cases, they sign all in- and outputs. However, in some cases, there may be a need for a more flexible approach. As such, there is the option to only sign certain in- and outputs.\\
 	\vspace{1.5em}
 	\uncover<2->{$\rightarrow$ \texttt{SIGHASH} types enable this.}
 \end{frame}
