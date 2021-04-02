@@ -5,15 +5,23 @@
 \draw[very thick] (4.1,0) -- (4.1,4);
 \draw (2,-0.5) node[below] {\texttt{Stack}};
 
+\only<1,2,5>{
+\draw[color=white] plot (6.1,4.7)   node[minimum width=2.7cm, minimum height=0.55cm,fill=white, thick,  draw=white,below, rotate = 0] {\texttt{Dummy}};
+}
+
+\only<5>{
+\draw[color=black] plot (2,0.8)   node[minimum width=2.9cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{1}};
+}
+
 \only<1-3>{
 \draw[color=black] plot (2,0.8)   node[minimum width=2.7cm,fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{304402...0901}};
 }
 
-\only<2,3>{
+\only<2-3>{
 \draw[color=black] plot (2,1.6)   node[minimum width=2.7cm, fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{0411db...12a3}};
 }
 
-\only<3,4>{
+\only<3-4>{
 \draw[color=black] plot (6.1,4.7)   node[minimum width=2.7cm ,minimum height= 0.5cm, fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{ac}};
 }
 
@@ -25,11 +33,4 @@
 \draw[color=black] plot (2,3.9)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{304402...0901}};
 }
 
-\only<5>{
-\draw[color=black] plot (2,0.8)   node[minimum width=2.9cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{1}};
-}
-
-\only<1,2,5>{
-\draw[color=white] plot (6.1,4.7)   node[minimum width=2.7cm, minimum height=0.55cm,fill=white, thick,  draw=white,below, rotate = 0] {\texttt{Dummy}};
-}
 \end{tikzpicture}
