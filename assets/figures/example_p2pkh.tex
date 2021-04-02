@@ -6,6 +6,15 @@
 \draw[very thick] (4.1,0) -- (4.1,4);
 \draw (2,-0.5) node[below] {\texttt{Stack}};
 
+%Dummy
+\only<1,4,5,8,9,10,13,16>{
+\draw[color=white] plot (6,4.8)   node[minimum width=3.1cm,fill=white, thick,  draw=white,below, rotate = 0] {\texttt{OP\_HASH160}};
+}
+
+\only<16>{
+\draw[color=black] plot (2,0.7)   node[minimum width=3.3cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{1}};
+}
+
 %Boxes
 \only<1-14>{
 \draw[color=black] plot (2,0.7)   node[minimum width=2.7cm,fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{304502...ee0e01}};
@@ -33,7 +42,7 @@
 }
 
 \only<14,15>{
-\draw[color=black] plot (6,4.8)   node[minimum width=3.1cm, fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{ac}};
+\draw[color=black] plot (6,4.8)   node[minimum width=3.1cm, minimum height=0.5cm, fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{ac}};
 }
 
 %Boxes 2
@@ -71,15 +80,6 @@
 
 \only<15>{
 \draw[color=black] plot (2,4.1)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{304502...ee0e01}};
-}
-
-\only<16>{
-\draw[color=black] plot (2,0.7)   node[minimum width=3.3cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{1}};
-}
-
-%Dummy
-\only<1,4,5,8,9,10,13,16>{
-\draw[color=white] plot (6,4.8)   node[minimum width=3.1cm,fill=white, thick,  draw=white,below, rotate = 0] {\texttt{OP\_HASH160}};
 }
 
 \end{tikzpicture}
