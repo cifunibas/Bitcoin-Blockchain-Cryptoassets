@@ -100,9 +100,15 @@ Checksums find many applications to detect human errors in data entry or faulty 
 \footnotesize Steps:
 	\begin{itemize}
 		\item Take BBAN and append Country Code and 00 (empty checksum).
-		\item Translate characters of country code into 9 + \texttt{<position in alphabet>}.
-		\item Perform modulo 97 operation and subtract from 98 to arrive at checksum.
-		\item e.g., $98 - 4835012345678009121700 = 56\ (mod\ 97) $.
+		\item Replace any letters with number: 9 + \texttt{<position in alphabet>}.
+		\item Perform modulo 97 operation.
+		\begin{itemize}
+			\item[$\rightarrow$] $4835012345678009121700 = 42\ (mod\ 97) $.
+		\end{itemize}
+		\item and subtract the result from 98.
+		\begin{itemize}
+			\item[$\rightarrow$] $98 - 42 = 56$.
+		\end{itemize}
 	\end{itemize}}
 	
 \end{frame}
