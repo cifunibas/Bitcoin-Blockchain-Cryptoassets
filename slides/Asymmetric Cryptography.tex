@@ -28,8 +28,8 @@
 		\vspace{0.5cm}
 		\item<3-> Alice and Bob define ex-ante
 		\begin{itemize}
-			\item<4-> One-way function: $Y^x\ (mod\ P)$
-			\item<5-> Parameters: $Y = 7$ and $P = 11$
+			\item<4-> One-way function: $G^x\ (mod\ P)$
+			\item<5-> Parameters: $G = 7$ and $P = 11$
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -47,17 +47,17 @@
 				&&&\\
 				Step 1 & chooses $A = 3$ && chooses $B = 6$\\
 				&&&\\
-				Step 2 & $\alpha = Y^A\ (mod\ P)$ && $\beta = Y^B\ (mod\ P)$ \\					& $\alpha = 7^3\ (mod\ 11) = 2$ &&$\beta = 7^6\ (mod\ 11) = 4$ \\
+				Step 2 & $\alpha = G^A\ (mod\ P)$ && $\beta = G^B\ (mod\ P)$ \\					& $\alpha = 7^3\ (mod\ 11) = 2$ &&$\beta = 7^6\ (mod\ 11) = 4$ \\
 				&&&\\
 				Step 3 & Alice sends her result $\alpha = 2$ to Bob && Bob sends his result $\beta = 4$ to Alice \\
 				&&&\\
-				\textit{Exchange} & \multicolumn{3}{c}{\textit{The only exchange of information (not key!)}}\\
+				\textit{Exchange} & \multicolumn{3}{c}{\textit{They exchange $\alpha$ and $\beta$ (not $A$ and $B$!)}}\\
 				&&&\\
 				Step 4 & Alice computes $k = \beta^A\ (mod\ P)$ && Bob computes $k = \alpha^B\ (mod\ P)$ \\
 				&$k = 4^3\ (mod\ 11) = 64\ (mod\ 11) = 9$ && $k = 2^6\ (mod\ 11) = 64\ (mod\ 11) = 9$ \\
 				&&&\\
 				\textit{Key} & \multicolumn{3}{c}{\textit{Alice and Bob have agreed on key $k = 9$, because:}}\\
-				& \multicolumn{3}{c}{$\alpha^{B}\ (mod\ P) = Y^{AB}\ (mod\ P) = Y^{BA}\ (mod\ P) = \beta^{A}\ (mod\ P)$}\\
+				& \multicolumn{3}{c}{$\alpha^{B}\ (mod\ P) = G^{AB}\ (mod\ P) = G^{BA}\ (mod\ P) = \beta^{A}\ (mod\ P)$}\\
 				&&&\\
 				\hline
 			\end{tabular}
@@ -75,8 +75,10 @@
 		\includegraphics[width = 9cm]{../assets/images/drawing_DHM_exchange.png}
 	\end{figure}
 	\vspace{0.5cm}
+	 Interactive process may be cumbersome.
 	\begin{itemize}
-		\item<1-> Undermines spontaneity of online communication
+		\item<1-> Synchronous communication to establish key
+		\item<1-> Separate setup for each peer
 	\end{itemize}
 \end{frame}
 %%%
@@ -126,7 +128,7 @@
 
 %%%
 \begin{frame}{RSA 1/4: Find Public Key}
-	Alice chooses two primes $p$ and $q$ (e.g. $p = 17$ and $q = 11$) and computes
+	Alice chooses two primes $p$ and $q$ (e.g., $p = 17$ and $q = 11$) and computes
 	\begin{align*}
 		N &= p \cdot q \\
 		\intertext{In our example:}
@@ -134,7 +136,7 @@
 			N &= 17 \cdot 11 = 187 
 		\end{split}
 	\end{align*} 
-	and choose an additional integer $e$ (e.g. $e = 7$).\footnote{\tiny $e$ and $(p-1)\cdot(q-1)$ have to be relative primes} \\
+	and choose an additional integer $e$ (e.g., $e = 7$).\footnote{\tiny $e$ and $(p-1)\cdot(q-1)$ must be relatively prime, i.e. not share any factors other than 1.} \\
 	\vspace{0.5cm}
 	$\Rightarrow$ $N$ and $e$ together make up the public key which Alice can make publicly available.
 \end{frame}
@@ -142,7 +144,7 @@
 
 %%%
 \begin{frame}{RSA 2/4: Encrypt Message}
-	Bob encodes message $M$ as an integer (e.g. If $M =$ letter $X$ in ASCII $= 88$) and computes the encrypted message $C$ using Alice's public key and:  
+	Bob encodes message $M$ as an integer (e.g., letter $X$ in ASCII $= 88$) and computes the encrypted message $C$ using Alice's public key and the message:  
 	\begin{align*}
 		C &= M^e\ (mod\ N) \\
 		\intertext{In our example:}
@@ -188,6 +190,7 @@
 \end{frame}
 %%%
 
+\iffalse
 %%%
 \begin{frame}{Pretty Good Privacy}
 		\begin{itemize}
@@ -219,6 +222,7 @@
 	\end{minipage}
 \end{frame}
 %%%
+\fi
 
 %%%
 \begin{frame}%[allowframebreaks]
