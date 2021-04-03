@@ -1,0 +1,31 @@
+
+% Title
+%\node[above] at (2,4.3) {Peer-to-Peer};
+
+
+% Network
+\node (agenta) at (1,2.8) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3.png}};
+\node (agentb) at (0.5,1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4.png}};
+\node (agentc) at (3,2.1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5.png}};
+\node (agentd) at (2.8,0) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand1.png}};
+\node (agente) at (5,4.3) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand2.png}};	
+\node (agentf) at (5.1,1.1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3.png}};
+\node (agentg) at (7.5,3.8) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4.png}};
+\node (agenth) at (6.7,0.4) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5.png}};
+
+% Network flow
+\draw[<->, thick, dashed]	(agenta.south) -- (agentb.north);
+\draw[<->, thick, dashed] 	(agenta.east) -- (agente.west);
+\draw[<->, thick, dashed]	(agenta.south east) -- (agentc.west);
+\draw[<->, thick, dashed]	(agente.south west) -- (agentc.north east);
+\draw[<->, thick, dashed]	(agente.south) -- (agentf.north);
+\draw[<->, thick, dashed]	(agente.east) -- (agentg.west);
+\draw[<->, thick, dashed]	(agentc.south west) -- (agentb.east);
+\draw[<->, thick, dashed]	(agentc.south) -- (agentd.north);
+\draw[<->, thick, dashed]	(agentc.south east) --  (agentf.west);
+\draw[<->, thick, dashed]	(agentg.south west) -- (agentf.north east);
+\draw[<->, thick, dashed]	(agentg.south) -- (agenth.north);
+\draw[<->, thick, dashed]	(agentb.south east) -- (agentd.west);
+\draw[<->, thick, dashed]	(agentf.south west) -- (agentd.east);
+\draw[<->, thick, dashed]	(agentf.south east) -- (agenth.west);
+\draw[<->, thick, dashed]	(agenth.south west) -- (agentd.east);

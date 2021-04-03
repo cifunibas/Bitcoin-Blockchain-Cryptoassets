@@ -1,0 +1,44 @@
+% Network
+\node (agentc) at (3,2.1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5}};
+
+\node (agenta) at (1,2.8) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3_gray}};
+\node (agentb) at (0,1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4_gray}};
+\node (agentd) at (2.8,0) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand1_gray}};
+\node (agente) at (5,4.3) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand2_gray}};	
+\node (agentf) at (5.1,1.1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3_gray}};
+\node (agentg) at (8,3.4) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4_gray}};
+\node (agenth) at (6.7,0.4) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5_gray}};
+
+% Network flow
+\color{lightgray}
+\draw[<->, thick, dashed]	(agenta.south east) -- (agentd.north west);
+\draw[<->, thick, dashed]	(agenta.south west) -- (agentb.north);
+\draw[<->, thick, dashed] 	(agenta.north east) -- (agente.west);
+\draw[<->, thick, dashed]	(agente.south) -- (agentf.north);
+\draw[<->, thick, dashed]	(agente.east) -- (agentg.north west);
+\draw[<->, thick, dashed]	(agentg.south west) -- (agentf.north east);
+\draw[<->, thick, dashed]	(agentg.south) -- (agenth.north);
+\draw[<->, thick, dashed]	(agentb.south east) -- (agentd.west);
+\draw[<->, thick, dashed]	(agentf.south west) -- (agentd.east);
+\draw[<->, thick, dashed]	(agentf.south east) -- (agenth.west);
+\draw[<->, thick, dashed]	(agenth.south west) -- (agentd.east);
+\color{black}
+
+\visible<2->{
+	\node (agente2) at (agente) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand2}};	
+	
+	\draw[<->, thick, dashed] 	(agentc.north east) -- (agente.south west);
+}
+
+\visible<3-3>{
+	\node (agenta2) at (agenta) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3_red}};
+	\node (agentf2) at (agentf) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3_red}};	
+	\node (agentg2) at (agentg) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4_red}};		
+	
+	\color{lightred}
+	\draw[<->, thick, dashed] 	(agenta.north east) -- (agente.west);
+	\draw[<->, thick, dashed]	(agente.south) -- (agentf.north);
+	\draw[<->, thick, dashed]	(agente.east) -- (agentg.north west);
+	\color{black}
+}
+

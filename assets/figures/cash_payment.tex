@@ -1,0 +1,18 @@
+    
+\begin{tikzpicture}[scale = 0.67]
+
+% Payee
+	\node 			(payee) at (12,0) {\includegraphics[height = 1.6cm]{../assets/images/agents/reaching_left.png}};
+
+% Payer
+	\node 			(payer) at (0,0) {\includegraphics[height = 1.6cm]{../assets/images/agents/handing_right.png}};
+	
+
+% Goods vs. Money flow
+	
+	\draw[->, thick, dashed]	([yshift=1cm]payer.south east) -- ([yshift=1cm]payee.south west) node[midway, fill=white] {Cash};
+
+	\draw[<-, thick]		([yshift=-1cm]payer.north east) -- ([yshift=-1cm]payee.north west) node[midway, fill=white] {Goods / Services};
+
+	
+\end{tikzpicture}

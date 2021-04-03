@@ -1,0 +1,270 @@
+% Choose one to switch between slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Introduction to Cryptography: Hash Functions}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{What Is a Hash Function?}
+
+Deterministic algorithm (\color{focus}function, $H()$\color{black}) that maps data of quasi-arbitrary size (\color{focus}pre-image, $m$\color{black}) to fixed-length bit string (\color{focus}hash value, $h$\color{black}).
+
+	\begin{align}
+		h = H(m)
+		\label{eq:hash_function}
+	\end{align}
+
+\vspace{1.5em}
+	
+\uncover<2->{
+\textbf{Application fields:} (non-exhaustive)
+	\begin{itemize}
+		\item Data protection
+		\item Verification and authentication
+		\item Proof-of-work
+		\item Data lookup optimization
+		\item Error detection
+	\end{itemize}
+}	
+	
+\end{frame}
+
+%%%
+
+%%%
+\begin{frame}{Simplified Hash Function Using Modular Arithmetic}
+	\begin{minipage}[T]{0.65\textwidth}
+	\textbf{Modular arithmetic}
+				\begin{align*}
+					8 &= 1\ (mod\ 7) \\
+					2 + 3 &= 5\ (mod\ 7) \\
+					2^5 &= 2\ (mod\ 5)
+				\end{align*}
+	$\Rightarrow$ Useful to create one-way functions.\\
+	\end{minipage}
+	\hfill
+	\begin{minipage}[T]{0.3\textwidth}
+		\begin{figure}[h!]
+			\centering
+			\resizebox{\linewidth}{!}{
+			\input{../assets/figures/mod_clock.tex}
+			}
+		\end{figure}
+	\end{minipage}
+
+
+
+\uncover<2->{
+\vspace{0.5em}
+\textbf{Simplified hash function}
+	\begin{align}
+		h \ (mod\ 12) = m 
+		\label{eq:simple_hash_function}
+	\end{align}
+This example accepts any numeric pre-image $m$ and returns a corresponding hash value $h$ $\in \{0,...,11\}$.
+}
+
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Simple Hash Functions: Checksums}
+
+Checksums find many applications to detect human errors in data entry or faulty / incomplete data transmission.
+
+\vspace{1em} 
+\uncover<2->{IBAN Example:
+
+		\begin{figure}[h]
+  			\center
+			\input{../assets/figures/IBAN_checksum.tex}
+		\end{figure}
+
+\footnotesize Steps:
+	\begin{itemize}
+		\item Take BBAN and append Country Code and 00 (empty checksum).
+		\item Translate characters of country code into 9 + \texttt{<position in alphabet>}.
+		\item Perform modulo 97 operation and subtract from 98 to arrive at checksum.
+		\item e.g., $98 - 4835012345678009121700 = 56\ (mod\ 97) $.
+	\end{itemize}}
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Further Examples and Limitations}
+
+\textbf{Other checksum examples:}
+	\begin{itemize}
+		\item Credit Cards
+		\item Vehicle Identification Numbers (U.S. and Canada)
+		\item Radio protocols (often modulo on bytes)
+		\item Communication (parity bits)
+	\end{itemize}
+
+\vspace{1em}
+\uncover<2->{Purpose to \textbf{detect accidents}, not to \textbf{prevent attacks}:
+\begin{center}
+CH\color{focus}56\color{black}04835012345678009 vs. CH\color{focus}56\color{black}048350123456\color{focus}877\color{black}09
+\end{center}
+
+
+$\Rightarrow$ For security purposes, simple hashes are of limited use.
+}
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Cryptographic Hash Functions}
+
+Additional criteria:
+	\begin{enumerate}
+		\item Approximately uniform hash value distribution.
+		\item Quick to compute for any given pre-image.
+		\item Trap-door: Infeasible to generate pre-image from hash value.
+		\item Avalanche effect: Small change in input results in totally different output.
+		\item Very low collision probability: Unlikely that two pre-images generate the same hash value.
+	\end{enumerate}
+	\vspace{1em}
+
+\uncover<2->{In Bitcoin context, the functions \color{focus}\texttt{SHA2.256} \color{black} (in short \texttt{SHA256}) and \color{focus}\texttt{RIPEMD160} \color{black}are used. Both satisfy the above criteria.}
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Avalanche Effect with \texttt{SHA2}}
+
+\begin{center}
+$\texttt{SHA256}(<$\textit{pre-image}$>)$
+\end{center}
+
+This is the pre-image
+
+$\Rightarrow$ \footnotesize 5e13fffedd642aaddea7872463fd44d8b8a336cb822ebd4c12d9e6282c88cea8 \normalsize
+\vspace{1em}
+
+\color{focus}t\color{black}his is the pre-image
+
+$\Rightarrow$ \footnotesize \color{focus}aba56d7c281f8d\color{black}a\color{focus}cb1076baed182538d2ce21494075f7377982bf9d5d0\color{black}8\color{focus}e6ccf\color{black} \normalsize
+\vspace{1em}
+
+\begin{columns}[T]
+	\begin{column}{0.35\textwidth}
+		\includegraphics[width = 4 cm, frame]{../assets/images/manual_hashing_video.png}
+	\end{column} %\hfill
+	\begin{column}{0.65\textwidth}
+		\begin{itemize}
+			\item Nonlinarity due to choice, majority, mod, rotation and shifting operations.
+			\item Efficient for computers vs. 0.67 hashes / day by hand.
+			\item \link \href{https://www.youtube.com/watch?v=y3dqhixzGVo}{Video: Hash value by hand}.
+		\end{itemize}
+	\end{column}
+\end{columns}
+
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Low Collision Probability}
+
+Due to the fixed size of $h$, the corresponding hash function $H()$ can only produce a finite set of distinct hashes.
+\vspace{1em}
+
+\texttt{SHA256}:
+	\begin{itemize}
+		\item Almost all known combinations of 256 Bits, i.e.,  $2^{256}$ $h$.
+		\item In base 10, this is any number between 1 and 115'792'089' 237'316'195'423'570'985'008'687'907’852'837'564'279'074' 904'382'605'163'141'518'161'494'336.
+	\end{itemize}
+\vspace{1em}
+
+\uncover<2->{Probability of a hexadecimal hash with certain characteristics:\\
+\vspace{0.75em}
+\tiny 
+$P(h \leq \color{focus}0\color{black}FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF) = \dfrac{1}{16}$\\
+\vspace{0.75em}
+$P(h \leq \color{focus}00\color{black}FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF) = \left( \dfrac{1}{16} \right)^{2} $
+
+\normalsize}
+
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Script Example: Brute Forcing Attempt}
+
+\textbf{Goal:} Find a nonce that, together with a fixed input string, returns a \texttt{SHA256} hash with, preset characteristics, in this case $x$ leading zeros.
+
+\vspace{1em}
+
+\textbf{Script logic:}
+\begin{enumerate}
+	\item Take \texttt{input} and add \texttt{nonce}, starting at 1.
+	\item Calculate \texttt{SHA256} hash with \texttt{input} and \texttt{nonce} as pre-image.
+	\item Compare resulting \texttt{hash} against minimum zeros:
+	\begin{itemize}
+		\item Criteria not met: Increase nonce by 1 and  return to step 2.
+		\item Criteria met: Return \texttt{hash}, \texttt{nonce}, and time it took to find it.
+	\end{itemize} 
+\end{enumerate}
+
+\vspace{1em}
+
+\color{focus} \link \href {https://github.com/cifunibas/Bitcoin-Blockchain-Cryptoassets/blob/main/assets/scripts/miner.py}{Example script in Python.}
+	
+\end{frame}
+%%%	
+
+%%%	
+\begin{frame}%[allowframebreaks]
+\frametitle{References and Recommended Reading}
+
+		\begin{columns}[T]
+			\begin{column}{0.1\textwidth}
+					\includegraphics[width = 1.65cm, frame]{../assets/images/singh_cover}
+			\end{column} %\hfill
+			\begin{column}{0.8\textwidth}
+				\textbf{The Code Book} \\ 
+				Simon Singh \\
+				\texttt{ISBN: 978-0385495325}
+			\end{column}
+		\end{columns}
+	%
+	\vspace{1.5em}
+	%
+	\uncover<1>{
+		\begin{columns}[T]
+			\begin{column}{0.1\textwidth}
+					\includegraphics[width = 1.65cm, frame]{../assets/images/katz_lindell_cover}
+			\end{column} %\hfill
+			\begin{column}{0.8\textwidth}
+				\textbf{Introduction to Modern Cryptography} \\ 
+				Jonathan Katz and Yehuda Lindell \\
+				\texttt{ISBN: 978-1466570269}
+			\end{column}
+		\end{columns}
+	}
+\end{frame}
+%%%	
+
+\end{document}

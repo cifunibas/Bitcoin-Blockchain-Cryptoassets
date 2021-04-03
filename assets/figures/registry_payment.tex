@@ -1,0 +1,50 @@
+    
+\begin{tikzpicture}[scale = 0.67]
+
+% Payee
+\node 			(payee) at (12,0) {\includegraphics[height = 1.6cm]{../assets/images/agents/reaching_left}};
+
+
+% Payer
+\node 			(payer) at (0,0) {\includegraphics[height = 1.6cm]{../assets/images/agents/handing_right}};
+
+
+% Intermediary
+\node 			(intermediary) at (6,-2.5) {\includegraphics[height = 1.6cm]{../assets/images/agents/intermediary}};
+
+
+% Goods vs. Money flow	
+	\draw[->, thick, dashed]	([yshift=1cm] payer.south east) -- (intermediary.west) 
+						node[midway, fill=white] {Payment order};
+						
+\draw[->, thick, dashed]	(intermediary.east) -- ([yshift=1cm] payee.south west) 
+						node[midway, fill=white] {Notification};
+
+	\draw[<-, thick]	(payer.east) -- (payee.west) node[midway, fill=white] {Goods / Services};
+
+
+% Registry
+
+\coordinate	(A) at (0.8,-2.5);
+\coordinate	(B) at (2.4,-2.5);
+\coordinate	(C) at (4,-2.5);
+\coordinate	(D) at (8,-2.5);
+\coordinate	(E) at (9.6,-2.5);
+\coordinate	(F) at (11.2,-2.5);
+\coordinate	(G) at (2.4,-4.5);
+\coordinate	(H) at (9.6,-4.5);
+
+\draw[thick,focus]	(A) -- (C);
+\draw[thick,focus]	(B) -- (G);
+\draw[thick,focus]	(D) -- (F);
+\draw[thick,focus]	(E) -- (H);
+
+\node[draw=none, fill=none]	at(0.7,-2.8)[focus,right]{\tiny Amount};
+\node[draw=none, fill=none]	at(11.3,-2.8)[focus,left]{\tiny Amount};
+
+
+	
+
+
+	 
+\end{tikzpicture}

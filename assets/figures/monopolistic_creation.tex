@@ -1,0 +1,27 @@
+\begin{tikzpicture}[scale = 0.8]
+
+	% define coordinates
+			\coordinate (0) at (0,0);
+			\coordinate (1x) at (6,0);
+			\coordinate (1y) at (0,6);
+			\coordinate (mid) at (3,3);
+		
+		% draw axes
+			\draw[->] (0) -- ([xshift = 8pt] 1x) node[midway, below] {Total money supply};
+			\draw[->] (0) -- ([yshift = 8pt] 1y) node[midway, above, rotate = 90] {Marginal costs/revenue};
+		
+		% MC
+			\draw[focus] (0.5, 1) node[below = 5pt, right ]{\scriptsize{Marginal costs}} -- (5.5, 1) ;
+			
+		% MR
+			\draw[focus] (0.5, 5.5) node[rotate = -45, above = 5pt, right]{\scriptsize{Marginal revenue}} -- (5.5, 0.5);
+			
+		% Active management
+			\fill[fill, circle] (3,1) circle[radius = 2pt];
+			\fill[fill, circle] (mid) circle[radius = 2pt];
+			\draw[dotted] (mid) -- (3,0.5) node[below = -2pt]{\scriptsize{Active management}};
+			\draw[decoration={brace, mirror, raise = 2pt}, decorate]
+  (mid) -- (3,1) node[midway, left = 5pt] {\scriptsize{Marginal return}};
+  			\draw[<->] (2.5,0.5) -- (3.5,0.5);
+			
+\end{tikzpicture}

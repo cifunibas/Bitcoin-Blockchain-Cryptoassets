@@ -1,0 +1,22 @@
+ \begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+    
+        \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, draw=black, dashed] (-4,-6.4) rectangle ++(304pt,160pt) ;
+        
+    \draw[color=black] plot (1.55,-0.2) node [below]
+    {\large{{Transaction}}};
+
+    
+        \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.75,-3.6) rectangle ++(128pt,60pt) ;
+    
+    \draw[color=black] plot (4,-1.55)   node[above] {\texttt{2 outputs:}};
+    \draw[color=black] plot (1.85,-2)   node[right] {\small{\textbullet{} \textcolor{focus}{10 BTC ($10^{12}$ Satoshis)}}};
+    \draw[color=black] plot (1.85,-2.6)   node[right] {\small{\textbullet{} \textcolor{focus}{Unlocking condition}}};
+    \draw[color=black] plot (2,-3.1)   node[right] {\small{ \textcolor{focus}{(\texttt{scriptPubKey})}}};
+
+	\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.75,-6) rectangle ++(128pt,60pt) ;
+
+    \draw[color=black] plot (1.85,-4.35)   node[right] {\small{\textbullet{} \textcolor{focus}{40 BTC ($4 \cdot 10^{12}$ Satoshis)}}};
+    \draw[color=black] plot (1.85,-4.95)   node[right] {\small{\textbullet{} \textcolor{focus}{Unlocking condition}}};
+    \draw[color=black] plot (2,-5.45)   node[right] {\small{ \textcolor{focus}{(\texttt{scriptPubKey})}}};
+
+\end{tikzpicture}

@@ -1,0 +1,13 @@
+\coordinate (1) at (-4, 0);
+\coordinate (2) at (4, 0);
+
+\node(node1)[minimum size = 1.3cm] at (1) {};
+\node(node2)[minimum size = 1.3cm] at (2) {};
+
+\filldraw[fill=highlight, thick](node1) circle (.3);
+\filldraw[fill=highlight, thick](node2) circle (.3);
+
+\draw[->, thick, dotted] (node1) edge [out=30, in=-210] node[midway,above] {\texttt{getblocks}} (node2);
+\draw[<-, thick] ([yshift=3pt]node1.east) -- node[midway,above] {\texttt{inv[H(b$_1$),$\dots$,H(b$_{500}$)]}} ([yshift=3pt]node2.west);
+\draw[->, thick] ([yshift=-3pt]node1.east) -- node[midway,below] {\texttt{getdata[H(b$_i$)]}} ([yshift=-3pt]node2.west);
+\draw[<-, thick] (node1) edge [out=-30, in=210] node[midway,below] {\texttt{block[H(b$_i$)]}} (node2);
