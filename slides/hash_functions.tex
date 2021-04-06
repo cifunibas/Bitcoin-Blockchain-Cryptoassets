@@ -4,7 +4,7 @@
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
-\subtitle{Introduction to Cryptography: Hash Functions}
+\subtitle{Hash Functions}
 \author{Prof. Dr. Fabian Schär}
 \institute{University of Basel}
 
@@ -97,13 +97,19 @@ Checksums find many applications to detect human errors in data entry or faulty 
 			\input{../assets/figures/IBAN_checksum.tex}
 		\end{figure}
 
-\footnotesize Steps:
-	\begin{itemize}
+\footnotesize \textbf{Steps:}
+	\begin{enumerate}
 		\item Take BBAN and append Country Code and 00 (empty checksum).
-		\item Translate characters of country code into 9 + \texttt{<position in alphabet>}.
-		\item Perform modulo 97 operation and subtract from 98 to arrive at checksum.
-		\item e.g., $98 - 4835012345678009121700 = 56\ (mod\ 97) $.
-	\end{itemize}}
+		\item Replace any letters with number: 9 + \texttt{<position in alphabet>}.
+		\item Perform modulo 97 operation.
+		\begin{itemize}
+			\item[$\rightarrow$] 4,835,012,345,678,009,121,700 $= 42\ (mod\ 97) $.
+		\end{itemize}
+		\item and subtract the result from 98.
+		\begin{itemize}
+			\item[$\rightarrow$] $98 - 42 = 56$.
+		\end{itemize}
+	\end{enumerate}}
 	
 \end{frame}
 %%%	
@@ -122,7 +128,7 @@ Checksums find many applications to detect human errors in data entry or faulty 
 \vspace{1em}
 \uncover<2->{Purpose to \textbf{detect accidents}, not to \textbf{prevent attacks}:
 \begin{center}
-CH\color{focus}56\color{black}04835012345678009 vs. CH\color{focus}56\color{black}048350123456\color{focus}877\color{black}09
+CH\color{highlight}56\color{black}048350123456\color{focus}780\color{black}09 vs. CH\color{highlight}56\color{black}048350123456\color{focus}877\color{black}09
 \end{center}
 
 
@@ -192,8 +198,8 @@ Due to the fixed size of $h$, the corresponding hash function $H()$ can only pro
 
 \texttt{SHA256}:
 	\begin{itemize}
-		\item Almost all known combinations of 256 Bits, i.e.,  $2^{256}$ $h$.
-		\item In base 10, this is any number between 1 and 115'792'089' 237'316'195'423'570'985'008'687'907’852'837'564'279'074' 904'382'605'163'141'518'161'494'336.
+		\item All possible combinations of 256 Bits, i.e., $2^{256}$ $h$.
+		\item In base 10, the number of combinations corresponds to 115,792,089,237,316,195,423,570,985,008,687,907,853,269,\\984,665,640,564,039,457,584,007,913,129,639,936
 	\end{itemize}
 \vspace{1em}
 
@@ -219,8 +225,8 @@ $P(h \leq \color{focus}00\color{black}FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 
 \textbf{Script logic:}
 \begin{enumerate}
-	\item Take \texttt{input} and add \texttt{nonce}, starting at 1.
-	\item Calculate \texttt{SHA256} hash with \texttt{input} and \texttt{nonce} as pre-image.
+	\item Take \texttt{input} and add \texttt{nonce}, starting at 0.
+	\item Compute \texttt{SHA256} hash with \texttt{<input>}$^\frown$\texttt{<nonce>} as pre-image.
 	\item Compare resulting \texttt{hash} against minimum zeros:
 	\begin{itemize}
 		\item Criteria not met: Increase nonce by 1 and  return to step 2.
