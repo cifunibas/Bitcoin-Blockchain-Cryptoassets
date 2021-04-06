@@ -1,6 +1,6 @@
 % Choose one to switch between slides and handout
-\documentclass[]{beamer}
-%\documentclass[handout]{beamer}
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
@@ -29,11 +29,6 @@
 	\begin{figure}
 	\input{../assets/figures/transaction-structure.tex}
 	\end{figure} 
-\vspace{1em}
-\begin{itemize}
-  	\item<2->{Transaction must contain at least one in- and output.}
-  	\item<3->{Sum of inputs must be at least as high as sum of outputs.}
-\end{itemize}
 \end{frame}	
 %%%
 
@@ -50,7 +45,7 @@
   \end{column}
   
   \begin{column}{0.3\textwidth}
-  Only Output 3 is a \texttt{UTXO}.
+  Output 3 is an unspent transaction output or \texttt{UTXO}.
   \end{column}
 \end{columns}
 \end{frame}
