@@ -33,27 +33,7 @@ Why do we need blocks?
 \begin{columns}
 \column{0.7\textwidth}
 \begin{figure}
-\begin{tikzpicture}[domain=-6:6,scale=1, every node/.style={scale=1}]
-
-% 1st level
-\draw[color=black, -] (-5,5) -- (-4.1,4.5); 
-\draw (-5,5)node[above]{\footnotesize{$a$}};
-\draw[color=black, -] (-3,5) -- (-3.9,4.5);
-\draw (-3,5)node[above]{\footnotesize{$b$}};
-
-\draw[color=black, -] (-1,5) -- (-0.1,4.5);
-\draw (-1,5)node[above]{\footnotesize{$c$}};
-\draw[color=black, -, dashed] (1,5) -- (0.1,4.5);
-\draw (1,5)node[above]{\footnotesize{$\dots$}};
-
-% 2nd level
-\draw[color=black, -] (-4,4) -- (-2.1,3.5);
-\draw (-4,3.95)node[above]{\scriptsize{$H_{ab}=\texttt{SHA256}\left[\texttt{SHA256}(a,b)\right]$}};
-\draw[color=black, -] (0,4) -- (-1.9,3.5);
-\draw (0,3.95)node[above]{\scriptsize{$H_{cc}=\texttt{SHA256}\left[\texttt{SHA256}(c,c)\right]$}};
-
-\draw (-2,3.5)node[below]{\scriptsize{$\text{Merkle Root}={}\texttt{SHA256}\left[\texttt{SHA256}(H_{ab},H_{cc})\right]$}};
-\end{tikzpicture}
+	\input{../assets/figures/merkle_tree}
 \end{figure}
 \begin{itemize}
 	\item Represents all transactions of the block in the form of a compact 256-bit entry.
@@ -62,29 +42,7 @@ Why do we need blocks?
 
 \column{0.3\textwidth}
 \begin{figure}
-\begin{tikzpicture}[domain=-8:8,scale=1, every node/.style={scale=1}]
-  
-  % Block 
-  \draw[fill=white] (-2,0) -- (1,0) -- (1,4) -- (-2,4) node[above,midway] {{}} -- (-2,0);
-  
-    % header
-    \draw[dashed, fill=highlight!15] (-1.8,1.1) -- (0.8,1.1) -- (0.8,3.8) -- (-1.8,3.8) -- (-1.8,1.1);    
-    %\draw[color=black, ->, dashed] (0.8,2.45) -- (2.35,2.8);
-    \draw[color=black] plot (-0.5,3.3)    node[above] {\small{Block Header}};
-    \draw[densely dotted] (-1.7,1.2) -- (0.7,1.2) -- (0.7,1.6) -- (-1.7,1.6) -- (-1.7,1.2);   
-    
-    % Transactions
-    \draw[dashed, fill=highlight!15] (-1.8,0.8) -- (0.8,0.8) -- (0.8,0.2) -- (-1.8,0.2) node[above,midway, color=focus] {\small{Transactions}} -- (-1.8,0.8);
-    \draw[color=black, ->, densely dashed,thick] (-0.5,0.7) -- (-0.5,1.3);
-    
-    %\node[right] at (-1.75,3.15) {\tiny{$\bullet$ Version}} ;
-    %\node[right] at (-1.75,2.8) {\tiny{$\bullet$ Reference}} ;
-    %\node[right] at (-1.75,2.45) {\tiny{$\bullet$ Timestamp}} ;
-    %\node[right] at (-1.75,2.1) {\tiny{$\bullet$ Treshold}} ;
-    %\node[right] at (-1.75,1.75) {\tiny{$\bullet$ Nonce}} ;
-    \node[right, color=focus] at (-1.75,1.4) {\tiny{$\bullet$ Merkle Root}} ;
-  
-\end{tikzpicture}
+	\input{../assets/figures/block_content_1}
 \end{figure}
 \end{columns}
 \end{frame}
@@ -102,29 +60,7 @@ Why do we need blocks?
 \end{itemize}
 \column{0.3\textwidth}
 \begin{figure}
-\begin{tikzpicture}[domain=-8:8,scale=1, every node/.style={scale=1}]
-  
-  % Block 
-  \draw[fill=white] (-2,0) -- (1,0) -- (1,4) -- (-2,4) node[above,midway] {{}} -- (-2,0);
-  
-    % header
-    \draw[dashed, fill=highlight!15] (-1.8,1.1) -- (0.8,1.1) -- (0.8,3.8) -- (-1.8,3.8) -- (-1.8,1.1);    
-    %\draw[color=black, ->, dashed] (0.8,2.45) -- (2.35,2.8);
-    \draw[color=black] plot (-0.5,3.3)    node[above] {\small{Block Header}};
-    \draw[densely dotted] (-1.7,1.2) -- (0.7,1.2) -- (0.7,1.6) -- (-1.7,1.6) -- (-1.7,1.2);   
-    
-    % Transactions
-    \draw[dashed, fill=highlight!15] (-1.8,0.8) -- (0.8,0.8) -- (0.8,0.2) -- (-1.8,0.2) node[above,midway] {\small{Transactions}} -- (-1.8,0.8);
-    \draw[color=black, ->, densely dashed,thick] (-0.5,0.7) -- (-0.5,1.3);
-    
-    \node[right, color=focus] at (-1.75,3.15) {\tiny{$\bullet$ Version}} ;
-    \node[right, color=focus] at (-1.75,2.8) {\tiny{$\bullet$ Reference}} ;
-    \node[right, color=focus] at (-1.75,2.45) {\tiny{$\bullet$ Timestamp}} ;
-    %\node[right] at (-1.75,2.1) {\tiny{$\bullet$ Treshold}} ;
-    %\node[right] at (-1.75,1.75) {\tiny{$\bullet$ Nonce}} ;
-    \node[right] at (-1.75,1.4) {\tiny{$\bullet$ Merkle Root}} ;
-  
-\end{tikzpicture}
+	\input{../assets/figures/block_content_2}
 \end{figure}
 \end{columns}
 \end{frame}
@@ -141,29 +77,7 @@ Why do we need blocks?
 \end{itemize}
 \column{0.3\textwidth}
 \begin{figure}
-\begin{tikzpicture}[domain=-8:8,scale=1, every node/.style={scale=1}]
-  
-  % Block 
-  \draw[fill=white] (-2,0) -- (1,0) -- (1,4) -- (-2,4) node[above,midway] {{}} -- (-2,0);
-  
-    % header
-    \draw[dashed, fill=highlight!15] (-1.8,1.1) -- (0.8,1.1) -- (0.8,3.8) -- (-1.8,3.8) -- (-1.8,1.1);    
-    %\draw[color=black, ->, dashed] (0.8,2.45) -- (2.35,2.8);
-    \draw[color=black] plot (-0.5,3.3)    node[above] {\small{Block Header}};
-    \draw[densely dotted] (-1.7,1.2) -- (0.7,1.2) -- (0.7,1.6) -- (-1.7,1.6) -- (-1.7,1.2);   
-    
-    % Transactions
-    \draw[dashed, fill=highlight!15] (-1.8,0.8) -- (0.8,0.8) -- (0.8,0.2) -- (-1.8,0.2) node[above,midway] {\small{Transactions}} -- (-1.8,0.8);
-    \draw[color=black, ->, densely dashed,thick] (-0.5,0.7) -- (-0.5,1.3);
-    
-    \node[right] at (-1.75,3.15) {\tiny{$\bullet$ Version}} ;
-    \node[right] at (-1.75,2.8) {\tiny{$\bullet$ Reference}} ;
-    \node[right] at (-1.75,2.45) {\tiny{$\bullet$ Timestamp}} ;
-    \node[right, color=focus] at (-1.75,2.1) {\tiny{$\bullet$ Treshold}} ;
-    \node[right, color=focus] at (-1.75,1.75) {\tiny{$\bullet$ Nonce}} ;
-    \node[right] at (-1.75,1.4) {\tiny{$\bullet$ Merkle Root}} ;
-  
-\end{tikzpicture}
+	\input{../assets/figures/block_content_3}
 \end{figure}
 \end{columns}
 \end{frame}
@@ -173,98 +87,14 @@ Why do we need blocks?
 %%%
 \begin{frame}{Block Height and -Depth}
 \begin{figure}
-\begin{tikzpicture}[domain=-8:8,scale=0.58, every node/.style={scale=0.58}]
-
-% Block 0
-  \draw[fill=white] (-6,0) -- (-3,0) -- (-3,4) -- (-6,4) node[above,midway] {{Block 0}} -- (-6,0);
-  
-    % header
-    \draw[dashed, fill=highlight!15] (-5.8,1.1) -- (-3.2,1.1) -- (-3.2,3.8) -- (-5.8,3.8) -- (-5.8,1.1);    
-    \draw[color=black] plot (-4.5,3.3)    node[above] {\small{Block Header}};
-    \draw[densely dotted] (-5.7,1.2) -- (-3.3,1.2) -- (-3.3,1.6) -- (-5.7,1.6) -- (-5.7,1.2);   
-    
-    % Transactions
-    \draw[dashed, fill=highlight!15] (-5.8,0.8) -- (-3.2,0.8) -- (-3.2,0.2) -- (-5.8,0.2) node[above,midway] {\small{Transactions}} -- (-5.8,0.8);
-    \draw[color=black, ->, densely dashed,thick] (-4.5,0.7) -- (-4.5,1.3);
-    
-    \node[right] at (-5.75,3.15) {\tiny{$\bullet$ Version}} ;
-    \node[right] at (-5.75,2.8) {\tiny{$\bullet$ Reference}} ;
-    \node[right] at (-5.75,2.45) {\tiny{$\bullet$ Timestamp}} ;
-    \node[right] at (-5.75,2.1) {\tiny{$\bullet$ Treshold}} ;
-    \node[right] at (-5.75,1.75) {\tiny{$\bullet$ Nonce}} ;
-    \node[right] at (-5.75,1.4) {\tiny{$\bullet$ Merkle Root}} ;
-  
-   % Block 1
-  \draw[fill=white] (-1,0) -- (2,0) -- (2,4) -- (-1,4) node[above,midway] {{Block 1}} -- (-1,0);
-  
-    % header
-    \draw[dashed, fill=highlight!15] (-0.8,1.1) -- (1.8,1.1) -- (1.8,3.8) -- (-0.8,3.8) -- (-0.8,1.1);    
-    \draw[color=black] plot (0.5,3.3)    node[above] {\small{Block Header}};
-    \draw[densely dotted] (-0.7,1.2) -- (1.7,1.2) -- (1.7,1.6) -- (-0.7,1.6) -- (-0.7,1.2);   
-    
-    % Transactions
-    \draw[dashed, fill=highlight!15] (-0.8,0.8) -- (1.8,0.8) -- (1.8,0.2) -- (-0.8,0.2) node[above,midway] {\small{Transactions}} -- (-0.8,0.8);
-    \draw[color=black, ->, densely dashed,thick] (0.5,0.7) -- (0.5,1.3);
-    
-    \node[right] at (-0.75,3.15) {\tiny{$\bullet$ Version}} ;
-    \node[right] at (-0.75,2.8) {\tiny{$\bullet$ Reference}} ;
-    \node[right] at (-0.75,2.45) {\tiny{$\bullet$ Timestamp}} ;
-    \node[right] at (-0.75,2.1) {\tiny{$\bullet$ Treshold}} ;
-    \node[right] at (-0.75,1.75) {\tiny{$\bullet$ Nonce}} ;
-    \node[right] at (-0.75,1.4) {\tiny{$\bullet$ Merkle Root}} ;
-  
-  
-  
-  % Block 2
- \draw[fill=white] (4,0) -- (7,0) -- (7,4) -- (4,4) node[above,midway] {{Block 2}} -- (4,0);
-  
-    % header
-    \draw[dashed, fill=highlight!15] (4.2,1.1) -- (6.8,1.1) -- (6.8,3.8) -- (4.2,3.8) -- (4.2,1.1);    
-    %\draw[color=black, ->, dashed] (4.8,2.45) -- (6.35,2.8);
-    \draw[color=black] plot (5.5,3.3)    node[above] {\small{Block Header}};
-    \draw[densely dotted] (4.3,1.2) -- (6.7,1.2) -- (6.7,1.6) -- (4.3,1.6) -- (4.3,1.2);   
-    
-    % Transactions
-    \draw[dashed, fill=highlight!15] (4.2,0.8) -- (6.8,0.8) -- (6.8,0.2) -- (4.2,0.2) node[above,midway] {\small{Transactions}} -- (4.2,0.8);
-    \draw[color=black, ->, densely dashed,thick] (5.5,0.7) -- (5.5,1.3);
-    
-    \node[right] at (4.25,3.15) {\tiny{$\bullet$ Version}} ;
-    \node[right] at (4.25,2.8) {\tiny{$\bullet$ Reference}} ;
-    \node[right] at (4.25,2.45) {\tiny{$\bullet$ Timestamp}} ;
-    \node[right] at (4.25,2.1) {\tiny{$\bullet$ Treshold}} ;
-    \node[right] at (4.25,1.75) {\tiny{$\bullet$ Nonce}} ;
-    \node[right] at (4.25,1.4) {\tiny{$\bullet$ Merkle Root}} ;  
-    
-  % Block 3
- \draw[fill=white] (9,0) -- (12,0) -- (12,4) -- (9,4) node[above,midway] {{Block 3}} -- (9,0);
-  
-    % header
-    \draw[dashed, fill=highlight!15] (9.2,1.1) -- (11.8,1.1) -- (11.8,3.8) -- (9.2,3.8) -- (9.2,1.1);    
-    %\draw[color=black, ->, dashed] (4.8,2.45) -- (6.35,2.8);
-    \draw[color=black] plot (10.5,3.3)    node[above] {\small{Block Header}};
-    \draw[densely dotted] (9.3,1.2) -- (11.7,1.2) -- (11.7,1.6) -- (9.3,1.6) -- (9.3,1.2);   
-    
-    % Transactions
-    \draw[dashed, fill=highlight!15] (9.2,0.8) -- (11.8,0.8) -- (11.8,0.2) -- (9.2,0.2) node[above,midway] {\small{Transactions}} -- (9.2,0.8);
-    \draw[color=black, ->, densely dashed,thick] (10.5,0.7) -- (10.5,1.3);
-    
-    \node[right] at (9.25,3.15) {\tiny{$\bullet$ Version}} ;
-    \node[right] at (9.25,2.8) {\tiny{$\bullet$ Reference}} ;
-    \node[right] at (9.25,2.45) {\tiny{$\bullet$ Timestamp}} ;
-    \node[right] at (9.25,2.1) {\tiny{$\bullet$ Treshold}} ;
-    \node[right] at (9.25,1.75) {\tiny{$\bullet$ Nonce}} ;
-    \node[right] at (9.25,1.4) {\tiny{$\bullet$ Merkle Root}} ;  
-
-
-\draw[color=black, ->, dashed] (-3.2,2.45) -- (-0.65,2.78) node[above,midway,rotate=7.5]{\tiny{Hash value}} ;%node[below,midway,rotate=7.5]{\tiny{\texttt{SHA256[SHA256()]}}};
-\draw[color=black, ->, dashed] (1.8,2.45) -- (4.35,2.78) node[above,midway,rotate=7.5]{\tiny{Hash value}} ;
-\draw[color=black, ->, dashed] (6.8,2.45) -- (9.35,2.78) node[above,midway,rotate=7.5]{\tiny{Hash value}} ;
-
-\draw[->,thick] (-6,5) -- (5.5,5) node[above,midway]{\Large{Blockheight = 2}};
-\draw[->,thick] (12,-1) -- (5.5,-1) node[below,midway]{\Large{Blockdepth = 1}};
-
-\end{tikzpicture}
+	\input{../assets/figures/block_id}
 \end{figure}
+\textbf{Block Identification:}
+\begin{itemize}
+ \item Block Height (static, not unique in case of fork)
+ \item Block Depth (dynamic)
+ \item Block Header Hashvalue / Block ID (static)
+\end{itemize}
 \end{frame}
 %%%
 
@@ -273,82 +103,34 @@ Why do we need blocks?
 \begin{frame}{Chain Structure}
 
 \begin{figure}
-\begin{tikzpicture}[domain=-8:8,scale=0.8, every node/.style={scale=0.8}]
-
-% Block 0
-  \draw[fill=white] (-6,0) -- (-3,0) -- (-3,4) -- (-6,4) node[above=0.5cm,midway]{\scriptsize{\texttt{SHA256d}(\text{Block Header})}} node[above=0.29cm,midway]{\small{=}} node[above=0cm,midway,color=focus]{\scriptsize{\texttt{ae21f25523ae1d4e\dots}}} -- (-6,0);
-  
-    % header
-    \draw[dashed, fill=highlight!15] (-5.8,1.1) -- (-3.2,1.1) -- (-3.2,3.8) -- (-5.8,3.8) -- (-5.8,1.1);    
-    \draw[color=black] plot (-4.5,3.3)    node[above] {\small{Block Header}};
-    \draw[densely dotted] (-5.7,1.2) -- (-3.3,1.2) -- (-3.3,1.6) -- (-5.7,1.6) -- (-5.7,1.2);   
-    
-    % Transactions
-    \draw[dashed, fill=highlight!15] (-5.8,0.8) -- (-3.2,0.8) -- (-3.2,0.2) -- (-5.8,0.2) node[above,midway] {\small{\color{focus}Transactions\color{black}}} -- (-5.8,0.8);
-    \draw[color=black, ->, densely dashed,thick] (-4.5,0.7) -- (-4.5,1.3);
-    
-    \node[right] at (-5.75,3.15) {\tiny{$\bullet$ Version}} ;
-    \node[right] at (-5.75,2.8) {\tiny{$\bullet$ Reference}} ;
-    \node[right] at (-5.75,2.45) {\tiny{$\bullet$ Timestamp}} ;
-    \node[right] at (-5.75,2.1) {\tiny{$\bullet$ Treshold}} ;
-    \node[right] at (-5.75,1.75) {\tiny{$\bullet$ Nonce}} ;
-    \node[right] at (-5.75,1.4) {\tiny{$\bullet$ \color{focus}Merkle Root\color{black}}} ;
-  
-   % Block 1
-  \draw[fill=white] (-1,0) -- (2,0) -- (2,4) -- (-1,4) node[above=0.5cm,midway]{\scriptsize{\texttt{SHA256d}(\text{Block Header})}} node[above=0.29cm,midway]{\small{=}} node[above=0cm,midway]{\scriptsize{\texttt{000000a72f1ca041\dots}}} -- (-1,0);
-  
-    % header
-    \draw[dashed, fill=highlight!15] (-0.8,1.1) -- (1.8,1.1) -- (1.8,3.8) -- (-0.8,3.8) -- (-0.8,1.1);    
-    \draw[color=black] plot (0.5,3.3)    node[above] {\small{Block Header}};
-    \draw[densely dotted] (-0.7,1.2) -- (1.7,1.2) -- (1.7,1.6) -- (-0.7,1.6) -- (-0.7,1.2);   
-    
-    % Transactions
-    \draw[dashed, fill=highlight!15] (-0.8,0.8) -- (1.8,0.8) -- (1.8,0.2) -- (-0.8,0.2) node[above,midway] {\small{Transactions}} -- (-0.8,0.8);
-    \draw[color=black, ->, densely dashed,thick] (0.5,0.7) -- (0.5,1.3);
-    
-    \node[right] at (-0.75,3.15) {\tiny{$\bullet$ Version}} ;
-    \node[right] at (-0.75,2.8) {\tiny{$\bullet$ \texttt{000000342bb08fa1\dots}}} ;
-    \node[right] at (-0.75,2.45) {\tiny{$\bullet$ Timestamp}} ;
-    \node[right] at (-0.75,2.1) {\tiny{$\bullet$ Treshold}} ;
-    \node[right] at (-0.75,1.75) {\tiny{$\bullet$ Nonce}} ;
-    \node[right] at (-0.75,1.4) {\tiny{$\bullet$ \textit{Merkle Root}}} ;
-    
-  % Block 2
- \draw[fill=white] (4,0) -- (7,0) -- (7,4) -- (4,4) node[above=0.5cm,midway]{\scriptsize{\texttt{SHA256d}(\text{Block Header})}} node[above=0.29cm,midway]{\small{=}} node[above=0cm,midway]{\scriptsize{\texttt{0000004d250db91f\dots}}} -- (4,0);
-  
-    % header
-    \draw[dashed, fill=highlight!15] (4.2,1.1) -- (6.8,1.1) -- (6.8,3.8) -- (4.2,3.8) -- (4.2,1.1);    
-    %\draw[color=black, ->, dashed] (4.8,2.45) -- (6.35,2.8);
-    \draw[color=black] plot (5.5,3.3)    node[above] {\small{Block Header}};
-    \draw[densely dotted] (4.3,1.2) -- (6.7,1.2) -- (6.7,1.6) -- (4.3,1.6) -- (4.3,1.2);   
-    
-    % Transactions
-    \draw[dashed, fill=highlight!15] (4.2,0.8) -- (6.8,0.8) -- (6.8,0.2) -- (4.2,0.2) node[above,midway] {\small{Transactions}} -- (4.2,0.8);
-    \draw[color=black, ->, densely dashed,thick] (5.5,0.7) -- (5.5,1.3);
-    
-    \node[right] at (4.25,3.15) {\tiny{$\bullet$ Version}} ;
-    \node[right] at (4.25,2.8) {\tiny{$\bullet$ \texttt{000000a72f1ca041\dots}}} ;
-    \node[right] at (4.25,2.45) {\tiny{$\bullet$ Timestamp}} ;
-    \node[right] at (4.25,2.1) {\tiny{$\bullet$ Treshold}} ;
-    \node[right] at (4.25,1.75) {\tiny{$\bullet$ Nonce}} ;
-    \node[right] at (4.25,1.4) {\tiny{$\bullet$ \textit{Merkle Root}}} ;  
-    
-
-
-%\draw[color=black, ->, dashed] (-3.2,2.45) -- (-0.65,2.78) node[above,midway,rotate=7.5]{\tiny{Hashwert}} ;%node[below,midway,rotate=7.5]{\tiny{\texttt{SHA256[SHA256()]}}};
-%\draw[color=black, ->, dashed] (1.8,2.45) -- (4.35,2.78) node[above,midway,rotate=7.5]{\tiny{Hashwert}} ;
-%\draw[color=black, ->, dashed] (6.8,2.45) -- (9.35,2.78) node[above,midway,rotate=7.5]{\tiny{Hashwert}} ;
-
-\draw[shorten >=0.28cm,shorten <=0.28cm,thick,<-,dotted,color=black] (-3.3,4.22) to[out = 0, in = 180, distance=50] (-0.35,2.79);
-\draw[color=white!0](-2,2.6)--(-2,2.6)node[rotate=0,color=focus]{\footnotesize{Invalid}}node[below=0.1cm,rotate=0,color=focus]{\footnotesize{Reference}};
-\draw[shorten >=0.28cm,shorten <=0.28cm,thick,<-] (1.7,4.22) to[out = 0, in = 180, distance=50] (4.65,2.79);
-\draw[color=white!0](3,2.6)--(3,2.6)node[rotate=0,color=black]{\footnotesize{Reference}};
-
-\draw[thick] (-2.2,3.25)--(-1.8,4.25);
-\draw[thick] (-2,3)--(-1.6,4);
-
-\end{tikzpicture}
+	\input{../assets/figures/chain_structure_1}
 \end{figure}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Chain Structure 2}
+
+\begin{figure}
+	\input{../assets/figures/chain_structure_2}
+\end{figure}
+\begin{itemize}
+\item Modification of Block 0 will change its Hash Value and invalidate the reference to Block 1.
+\end{itemize}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Chain Structure 3}
+
+\begin{figure}
+	\input{../assets/figures/chain_structure_3}
+\end{figure}
+\begin{itemize}
+\item Modification of Reference in Block 1 will change its Hash Value and invalidates the reference to Block 2.
+\end{itemize}
 \end{frame}
 %%%
 
@@ -357,71 +139,7 @@ Why do we need blocks?
 \begin{frame}{Extending the Chain}
 \begin{figure}[h!]
 \center
-\begin{tikzpicture}[domain=1:10,scale=1, every node/.style={scale=1}]
-\coordinate (o1) at (1,1);
-\coordinate (o2) at (2,1);
-\coordinate (o3) at (3,1);
-
-\coordinate (n1) at (4,2.5);
-\coordinate (n2) at (4,2);
-\coordinate (n3) at (4,1.5);
-\coordinate (n4) at (4,1);
-\coordinate (n5) at (4,0.5);
-\coordinate (n6) at (4,0);
-\coordinate (n7) at (4,-0.5);
-
-\coordinate (n11) at (5,2.5);
-\coordinate (n22) at (5,2);
-\coordinate (n33) at (5,1.5);
-\coordinate (n44) at (5,1);
-\coordinate (n55) at (5,0.5);
-\coordinate (n66) at (5,0);
-\coordinate (n77) at (5,-0.5);
-
-\coordinate (n111) at (6,2.5);
-\coordinate (n222) at (6,2);
-\coordinate (n333) at (6,1.5);
-\coordinate (n444) at (6,1);
-\coordinate (n555) at (6,0.5);
-\coordinate (n666) at (6,0);
-\coordinate (n777) at (6,-0.5);
-
-  \draw[color=black] (o1) to[] (o2) to[] (o3);
-  \draw[color=black] (o3) to[] (n1) to[] (n11);
-    \draw[color=black] (o3) to[] (n1) to[] (n11);
-    \draw[color=black] (o3) to[] (n2) to[] (n22);
-    \draw[color=black] (o3) to[] (n3) to[] (n33);
-    \draw[color=black] (o3) to[] (n4) to[] (n44);
-    \draw[color=black] (o3) to[] (n5) to[] (n55);
-    \draw[color=black] (o3) to[] (n6) to[] (n66);
-    \draw[color=black] (o3) to[] (n7) to[] (n77);
-    
-  \draw[color=black,thick, dotted, ->] (n11) to[] (n111) node[right]{\texttt{\footnotesize{Tonys Chain-Version}}};
-  \draw[color=black,thick, dotted, ->] (n22) to[] (n222) node[right]{\texttt{\footnotesize{Michèles Chain-Version}}};
-  \draw[color=black,thick, dotted, ->] (n33) to[] (n333) node[right]{\texttt{\footnotesize{Tamaras Chain-Version}}};
-  \draw[color=black,thick, dotted, ->] (n44) to[] (n444) node[right]{\texttt{\footnotesize{Marcias Chain-Version}}};
-  \draw[color=black,thick, dotted, ->] (n55) to[] (n555) node[right]{\texttt{\footnotesize{Brians Chain-Version}}};
-  \draw[color=black,thick, dotted, ->] (n66) to[] (n666) node[right]{\texttt{\footnotesize{Jakes Chain-Version}}};
-  \draw[color=black,thick, dotted, ->] (n77) to[] (n777) node[right]{\texttt{\footnotesize{Claudias Chain-Version}}};
-
-  \node (rect) at (o1) [fill=highlight,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (o2) [fill=highlight,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (o3) [fill=highlight,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n1) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n11) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n2) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n22) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n3) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n33) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n4) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n44) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n5) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n55) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n6) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n66) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n7) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-  \node (rect) at (n77) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
-\end{tikzpicture}    
+	\input{../assets/figures/chain_extension}
 \end{figure}
 \end{frame}
 
