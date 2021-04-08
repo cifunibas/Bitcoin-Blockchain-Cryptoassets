@@ -1,0 +1,114 @@
+\begin{tikzpicture}[scale=1, every node/.style={scale=1.4}]  %,domain=0:8
+
+%Stack
+\draw[very thick] (-0.1,0) -- (4.1,0);
+\draw[very thick] (-0.1,0) -- (-0.1,4);
+\draw[very thick] (4.1,0) -- (4.1,4);
+\draw (2,-0.5) node[below] {\texttt{Stack}};
+
+%Boxes
+\only<1-14>{
+\draw[color=black] plot (2,1)   node[minimum width=2.7cm,fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{<sig>}};
+  }
+  
+\only<1,2,5-14>{
+\draw[color=black] plot (2,2)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKey>}};
+}
+
+\only<5,6>{
+\draw[color=black] plot (2,3)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKey>}};
+}
+
+%OP Codes
+\only<2,3>{
+\draw[color=black] plot (6.3,5)   node[minimum width=3.1cm, minimum height= 0.55cm ,fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{OP\_DUP}};
+}
+
+\only<6,7>{
+\draw[color=black] plot (6.3,5)   node[minimum width=3.1cm, minimum height= 0.55cm ,fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{OP\_HASH160}};
+}
+
+\only<11,12>{
+\draw[color=black] plot (6.3,5)   node[minimum width=3.1cm, minimum height= 0.55cm , fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{OP\_EQUALVERIFY}};
+}
+
+\only<14,15>{
+\draw[color=black] plot (6.3,5)   node[minimum width=3.1cm, minimum height= 0.55cm , fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{OP\_CHECKSIG   }};
+}
+
+%Boxes 2
+\only<3,4,7>{
+\draw[color=black] plot (2,5)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKey>}};
+}
+
+\only<4>{
+\draw[color=black] plot (2,4)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKey>}};
+}
+
+\only<8,12>{
+\draw[color=black] plot (2,5)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKeyHash>}};
+}
+
+\only<9,10,11>{
+\draw[color=black] plot (2,3)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKeyHash>}};
+}
+
+\only<10,11>{
+\draw[color=black] plot (2,4)   node[minimum width=2.7cm,fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{<pubKeyHash>}};
+}
+
+\only<12>{
+\draw[color=black] plot (2,5)   node[minimum width=2.7cm,fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{<pubKeyHash>}};
+}
+
+\only<12>{
+\draw[color=black] plot (2,4)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKeyHash>}};
+}
+
+\only<15>{
+\draw[color=black] plot (2,5)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKey>}};
+}
+
+\only<15>{
+\draw[color=black] plot (2,4)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig>}};
+}
+
+\only<16>{
+\draw[color=black] plot (2,0.9)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{1}};
+}
+
+%Dummy
+\only<1,4,5,8,9,10,13,16>{
+\draw[color=white] plot (6.3,5)   node[minimum width=3.1cm,fill=white, thick,  draw=white,below, rotate = 0] {\texttt{OP\_HASH160}};
+}
+
+\end{tikzpicture}
+
+%%%%%%%%%%%%%%%% Stack %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\draw[very thick] (0,0) -- (4,0);
+%\draw[very thick] (0,0) -- (0,4);
+%\draw[very thick] (4,0) -- (4,4);
+%\draw (2,-0.5) node[below] {\texttt{Stack}};
+
+%%%%%%%%%%%%%%%% Nodes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  \draw[color=black] plot (0,-1)   node[minimum width=2.7cm,fill=highlight!15, thick, draw=highlight,below, rotate = 0] {\texttt{<sig>}};
+  
+%  \draw[color=black] plot (0,0)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKey>}};
+
+%	\draw[color=black] plot (2.1,2.55)   node[minimum width=2.7cm,fill=black!15, thick,  draw=black,right, rotate = 0] {\texttt{<OP\_DUB>}};  
+   
+%  \draw[color=black] plot (0,3)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKey>}};
+ 
+	
+%  \draw[color=black] plot (0,2)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKeyHash>}};
+
+%  \draw[color=black] plot (0,3)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<pubKeyH>}};
+  
+%%%%%%%%%%%%%% OP_Code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+%  \draw[color=black] plot (2.1,2.55)   node[minimum width={width("Magnetometer")+2pt},fill=black!15, thick,  draw=black,right, rotate = 0] {\texttt{<OP\_EQUALVERIFY>}};
+
+%  \draw[color=black] plot (2.1,2.55)   node[minimum width={width("Magnetometer")+2pt},fill=black!15, thick,  draw=black,right, rotate = 0] {\texttt{<OP\_HASH160>}};  
+
+%  \draw[color=black] plot (2.1,2.55)   node[minimum width={width("Magnetometer")+2pt},fill=black!15, thick,  draw=black,right, rotate = 0] {\texttt{<OP\_DUP>}};   
