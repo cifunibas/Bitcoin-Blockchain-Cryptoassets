@@ -21,15 +21,112 @@
 \end{frame}
 
 %%%
-\begin{frame}{Transactions $\rightarrow$ Blocks?}
-Graphic of loose Transactions
-How are they included in Blocks?
-Why do we need blocks?
+\begin{frame}{Transaction Distribution}
+\begin{figure}
+
+	\centering
+	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+		
+% Network
+\node (agenta) at (1,2.8) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3.png}};
+\node (agentb) at (0.5,1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4.png}};
+\node (agentc) at (3,2.1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5.png}};
+\node (agente) at (5,4.3) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand2.png}};
+\node (agentd) at (2.8,0) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand1.png}};
+\node (agentf) at (5.1,1.1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3.png}};
+\node (agentg) at (7.5,3.8) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4.png}};
+\node (agenth) at (6.7,0.4) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5.png}};
+
+
+% Network flow %node[above,midway, rotate=55]{\tiny{TRX}}
+\alert<1>{
+\draw[<->, thick, dashed]	(agenta.south) -- (agentb.north) ;
+\draw[<->, thick, dashed]	(agenta.south east) -- (agentc.west);
+\draw[<->, thick, dashed] 	(agenta.east) -- (agente.west) ;
+}
+\alert<2>{
+\draw[<->, thick, dashed]	(agente.south west) -- (agentc.northeast);
+\draw[<->, thick, dashed]	(agentc.south east) --  (agentf.west);
+\draw[<->, thick, dashed]	(agente.south) -- (agentf.north);
+\draw[<->, thick, dashed]	(agentc.south west) -- (agentb.east);
+\draw[<->, thick, dashed]	(agentb.south east) -- (agentd.west);
+\draw[<->, thick, dashed]	(agentc.south) -- (agentd.north);
+\draw[<->, thick, dashed]	(agente.east) -- (agentg.west);
+}
+\alert<3>{
+\draw[<->, thick, dashed]	(agentg.south) -- (agenth.north);
+\draw[<->, thick, dashed]	(agentg.south west) -- (agentf.north east);
+\draw[<->, thick, dashed]	(agentf.south east) -- (agenth.west);
+\draw[<->, thick, dashed]	(agenth.south west) -- (agentd.east);
+\draw[<->, thick, dashed]	(agentf.south west) -- (agentd.east);
+}
+
+
+% Extended Network
+\node (agent1) at (7.5, 5.5) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5_gray}};
+\node (agent2) at (9.2, 5) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4_gray}};
+\node (agent3) at (8.8, 2.5) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3_gray}};
+
+\node (key1) at (agentg.east) {\includegraphics[width = 0.3 cm]{../assets/images/key_gray}};
+\node[xshift=0.3 cm] (key2) at (agentg.east) {\includegraphics[width = 0.3 cm]{../assets/images/key_gray}};
+\node[xshift=0.6 cm] (key3) at (agentg.east) {\includegraphics[width = 0.3 cm]{../assets/images/key_gray}};
+
+\node (agent4) at (1, -1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5_gray}};
+\node (agent5) at (4.1, -1.7) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5_gray}};
+
+\node (key4) at (agent4.west) {\includegraphics[width = 0.3 cm]{../assets/images/key_gray}};
+\node (key5) at (agent5.west) {\includegraphics[width = 0.3 cm]{../assets/images/key_gray}};
+
+\color{lightgray}
+\draw[<->, thick, dashed]	(agentg.north) -- (agent1.south);
+\draw[<->, thick, dashed]	(agentg.north east) -- (agent2.south west);
+\draw[<->, thick, dashed]	(agentg.south east) -- (agent3.north west);
+
+\draw[<->, thick, dashed]	(agentd.south west) -- (agent4.east);
+\draw[<->, thick, dashed]	(agentd.south east) -- (agent5.north west);
+
+%TRX 
+\only<2->{
+\node (TRXc) at (agentc.north) {\tiny{TRX}};
+\node (TRXb) at (agentb.west) {\tiny{TRX}};
+\node (TRXe) at (agente.north) {\tiny{TRX}};
+}
+\only<3->{
+\node (TRXg) at (key3.east) {\tiny{TRX}};
+\node (TRXf) at (agentf.east) {\tiny{TRX}};
+\node (TRXd) at (agentd.south) {\tiny{TRX}};
+}
+\only<4->{
+\node (TRXh) at (agenth.east) {\tiny{TRX}};
+}
+
+\end{tikzpicture}
+\end{figure}
+
 \end{frame}
 %%%	
 
+
 %%%
-\begin{frame}{Transactions $\rightarrow$ Merkle Root}
+\begin{frame}{From Transactions to Blocks}
+	\begin{enumerate}
+		\item<1-> Node sends his transaction to the connected peers.
+		\item<2-> Each node verifies the received transactions
+			\begin{itemize}
+				\item<2-> Inputs/Output, Signatures
+			\end{itemize}			 
+		\item<3->  If the transaction is valid, it is \dots
+			\begin{itemize}
+				\item<3-> \dots forwarded to respective peers
+				\item<3-> \dots stored in own transaction mempool
+			\end{itemize}
+	\end{enumerate}	
+	\uncover<4->{Miners will take the transactions from their mempool and form a block, but how is this done?}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Merkle Root}
 \begin{columns}
 \column{0.7\textwidth}
 \begin{figure}
