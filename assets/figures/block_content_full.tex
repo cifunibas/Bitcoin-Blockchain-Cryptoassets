@@ -1,0 +1,29 @@
+  % Block 
+  \draw[fill=white] (-2,0.2) -- (1,0.2) -- (1,6) -- (-2,6) node[above,midway] {{}} -- (-2,0.2);
+  
+  % Magic No
+  \draw[dashed, fill=highlight!15] (-1.8,5.3) -- (0.8,5.3) node[above, midway] {\alert{\small{Magic Number}}}-- (0.8,5.9) -- (-1.8,5.9) -- (-1.8,5.3); 
+  
+  % Blocksize
+  \draw[dashed, fill=highlight!15] (-1.8,4.6) -- (0.8,4.6)  node[above, midway] {\alert{\small{Block Size}}} -- (0.8,5.2) -- (-1.8,5.2) --(-1.8,4.6); 
+  
+  % Header
+    \draw[dashed, fill=highlight!15] (-1.8,1.8) -- (0.8,1.8) -- (0.8,4.5) -- (-1.8,4.5) -- (-1.8,1.8);    
+    %\draw[color=black, ->, dashed] (0.8,2.45) -- (2.35,2.8);
+    \draw[color=black] plot (-0.5,4)    node[above] {\small{Block Header}};
+    %\draw[densely dotted] (-1.7,1.9) -- (0.7,1.9) -- (0.7,2.3) -- (-1.7,2.3) -- (-1.7,1.9);
+    
+  % Transaction Counter
+     \draw[dashed, fill=highlight!15] (-1.8,1.1) -- (0.8,1.1) node[above, midway] {\alert{\small{TRX Counter}}} -- (0.8,1.7) -- (-1.8,1.7) -- (-1.8,1.1) ;
+     %\draw[color=black] plot (-0.5,1.4)    node[above] {\small{TRX Counter}}; 
+    
+  % Transactions
+    \draw[dashed, fill=highlight!15] (-1.8,1) -- (0.8,1) -- (0.8,0.4) -- (-1.8,0.4) node[above,midway] {\small{Transactions}} -- (-1.8,0.8);
+    %\draw[color=black, ->, densely dashed,thick] (-0.5,0.7) -- (-0.5,1.3);
+    
+    \node[right] at (-1.75,3.85) {\tiny{$\bullet$ Version}} ;
+    \node[right] at (-1.75,3.5) {\tiny{$\bullet$ Reference}} ;
+    \node[right] at (-1.75,3.15) {\tiny{$\bullet$ Timestamp}} ;
+    \node[right] at (-1.75,2.8) {\tiny{$\bullet$ Treshold}} ;
+    \node[right] at (-1.75,2.45) {\tiny{$\bullet$ Nonce}} ;
+    \node[right] at (-1.75,2.1) {\tiny{$\bullet$ Merkle Root}} ;
