@@ -23,86 +23,11 @@
 %%%
 \begin{frame}{Transaction Distribution}
 \begin{figure}
-
 	\centering
-	\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
-		
-% Network
-\node (agenta) at (1,2.8) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3.png}};
-\node (agentb) at (0.5,1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4.png}};
-\node (agentc) at (3,2.1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5.png}};
-\node (agente) at (5,4.3) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand2.png}};
-\node (agentd) at (2.8,0) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand1.png}};
-\node (agentf) at (5.1,1.1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3.png}};
-\node (agentg) at (7.5,3.8) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4.png}};
-\node (agenth) at (6.7,0.4) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5.png}};
-
-
-% Network flow %node[above,midway, rotate=55]{\tiny{TRX}}
-\alert<1>{
-\draw[<->, thick, dashed]	(agenta.south) -- (agentb.north) ;
-\draw[<->, thick, dashed]	(agenta.south east) -- (agentc.west);
-\draw[<->, thick, dashed] 	(agenta.east) -- (agente.west) ;
-}
-\alert<2>{
-\draw[<->, thick, dashed]	(agente.south west) -- (agentc.northeast);
-\draw[<->, thick, dashed]	(agentc.south east) --  (agentf.west);
-\draw[<->, thick, dashed]	(agente.south) -- (agentf.north);
-\draw[<->, thick, dashed]	(agentc.south west) -- (agentb.east);
-\draw[<->, thick, dashed]	(agentb.south east) -- (agentd.west);
-\draw[<->, thick, dashed]	(agentc.south) -- (agentd.north);
-\draw[<->, thick, dashed]	(agente.east) -- (agentg.west);
-}
-\alert<3>{
-\draw[<->, thick, dashed]	(agentg.south) -- (agenth.north);
-\draw[<->, thick, dashed]	(agentg.south west) -- (agentf.north east);
-\draw[<->, thick, dashed]	(agentf.south east) -- (agenth.west);
-\draw[<->, thick, dashed]	(agenth.south west) -- (agentd.east);
-\draw[<->, thick, dashed]	(agentf.south west) -- (agentd.east);
-}
-
-
-% Extended Network
-\node (agent1) at (7.5, 5.5) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5_gray}};
-\node (agent2) at (9.2, 5) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4_gray}};
-\node (agent3) at (8.8, 2.5) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3_gray}};
-
-\node (key1) at (agentg.east) {\includegraphics[width = 0.3 cm]{../assets/images/key_gray}};
-\node[xshift=0.3 cm] (key2) at (agentg.east) {\includegraphics[width = 0.3 cm]{../assets/images/key_gray}};
-\node[xshift=0.6 cm] (key3) at (agentg.east) {\includegraphics[width = 0.3 cm]{../assets/images/key_gray}};
-
-\node (agent4) at (1, -1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5_gray}};
-\node (agent5) at (4.1, -1.7) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5_gray}};
-
-\node (key4) at (agent4.west) {\includegraphics[width = 0.3 cm]{../assets/images/key_gray}};
-\node (key5) at (agent5.west) {\includegraphics[width = 0.3 cm]{../assets/images/key_gray}};
-
-\color{lightgray}
-\draw[<->, thick, dashed]	(agentg.north) -- (agent1.south);
-\draw[<->, thick, dashed]	(agentg.north east) -- (agent2.south west);
-\draw[<->, thick, dashed]	(agentg.south east) -- (agent3.north west);
-
-\draw[<->, thick, dashed]	(agentd.south west) -- (agent4.east);
-\draw[<->, thick, dashed]	(agentd.south east) -- (agent5.north west);
-
-%TRX 
-\only<2->{
-\node (TRXc) at (agentc.north) {\tiny{TRX}};
-\node (TRXb) at (agentb.west) {\tiny{TRX}};
-\node (TRXe) at (agente.north) {\tiny{TRX}};
-}
-\only<3->{
-\node (TRXg) at (key3.east) {\tiny{TRX}};
-\node (TRXf) at (agentf.east) {\tiny{TRX}};
-\node (TRXd) at (agentd.south) {\tiny{TRX}};
-}
-\only<4->{
-\node (TRXh) at (agenth.east) {\tiny{TRX}};
-}
-
-\end{tikzpicture}
+	\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+		\input{../assets/figures/transaction_distribution}
+	\end{tikzpicture}
 \end{figure}
-
 \end{frame}
 %%%	
 
@@ -111,133 +36,184 @@
 \begin{frame}{From Transactions to Blocks}
 	\begin{enumerate}
 		\item<1-> Node sends his transaction to the connected peers.
-		\item<2-> Each node verifies the received transactions
+		\item<1-> Each node verifies the received transaction
 			\begin{itemize}
-				\item<2-> Inputs/Output, Signatures
+				\item<1-> Input, Output, Signatures
 			\end{itemize}			 
-		\item<3->  If the transaction is valid, it is \dots
+		\item<1-> If the transaction is valid, it is \dots
 			\begin{itemize}
-				\item<3-> \dots forwarded to respective peers
-				\item<3-> \dots stored in own transaction mempool
+				\item<1-> \dots forwarded to respective peers.
+				\item<1-> \dots stored in own transaction mempool.
 			\end{itemize}
 	\end{enumerate}	
-	\uncover<4->{Miners will take the transactions from their mempool and form a block, but how is this done?}
+	\vspace{1em}
+	\uncover<1->{Miners will take the transactions from their mempool and form a block, but how is this done?}
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{Merkle Root}
-\begin{columns}
-\column{0.7\textwidth}
-\begin{figure}
-	\input{../assets/figures/merkle_tree}
-\end{figure}
-\begin{itemize}
-	\item Represents all transactions of the block in the form of a compact 256-bit entry.
-	\item Guarantees that the transaction data of a block cannot be modified unnoticed.
-\end{itemize}
-
-\column{0.3\textwidth}
-\begin{figure}
-	\input{../assets/figures/block_content_1}
-\end{figure}
-\end{columns}
+	\begin{columns}
+	\column{0.7\textwidth}
+		\begin{figure}
+			\input{../assets/figures/merkle_tree}
+		\end{figure}
+		\begin{itemize}
+			\item Represents all transactions of the block in the form of a compact 256-bit entry.
+			\item Guarantees that the transaction data of a block cannot be modified unnoticed.
+		\end{itemize}
+	\column{0.3\textwidth}
+		\begin{figure}
+			\input{../assets/figures/block_content_1}
+		\end{figure}
+	\end{columns}
 \end{frame}
 %%%
 
 
 %%%
 \begin{frame}{Version, Reference \& Timestamp}
-\begin{columns}
-\column{0.7\textwidth}
-\begin{itemize}
-	\item \textbf{Version:} Followed ruleset of block creation, implicates validation rules.
-	\item \textbf{Reference:} Hash value of predecessor block header $\rightarrow$ Basis for chain structure.
-	\item \textbf{Timestamp:} At least median timestamp of the previous eleven blocks, not more than two hours in the future at the time of inclusion in the blockchain. 
-\end{itemize}
-\column{0.3\textwidth}
-\begin{figure}
-	\input{../assets/figures/block_content_2}
-\end{figure}
-\end{columns}
+	\begin{columns}
+	\column{0.7\textwidth}
+		\begin{itemize}
+			\item \textbf{Version:} Followed ruleset of block creation, implicates validation rules.
+			\item \textbf{Reference:} Hash value of predecessor block header $\rightarrow$ Basis for chain structure.
+			\item \textbf{Timestamp:} At least median timestamp of the previous eleven blocks, not more than two hours in the future at the time of inclusion in the blockchain. 
+		\end{itemize}
+	\column{0.3\textwidth}
+		\begin{figure}
+			\input{../assets/figures/block_content_2}
+		\end{figure}
+	\end{columns}
 \end{frame}
 %%%
 
 
 %%%
 \begin{frame}{Treshold and Nonce}
-\begin{columns}
-\column{0.7\textwidth}
-\begin{itemize}
-	\item \textbf{Treshold:} Shows the maximum hash value a block header may have in order to be considered valid by the network and become part of the blockchain
-	\item \textbf{Nonce:} Primary source of variation in block creation. Ensures that blocks with otherwise equivalent content can nevertheless have different hash values.
-\end{itemize}
-\column{0.3\textwidth}
-\begin{figure}
-	\input{../assets/figures/block_content_3}
-\end{figure}
-\end{columns}
+	\begin{columns}
+	\column{0.7\textwidth}
+		\begin{itemize}
+			\item \textbf{Treshold:} Shows the maximum hash value a block header may have in order to be considered valid by the network and become part of the blockchain
+			\item \textbf{Nonce:} Primary source of variation in block creation. Ensures that blocks with otherwise equivalent content can nevertheless have different hash values.
+		\end{itemize}
+	\column{0.3\textwidth}
+		\begin{figure}
+			\input{../assets/figures/block_content_3}
+		\end{figure}
+	\end{columns}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Block Structure}
+	\begin{columns}
+	\column{0.5\textwidth}
+		\begin{itemize}
+			\item \textbf{Magic no:} Value always 0xD9B4BEF9
+			\item \textbf{Block Size:} Number of bytes following up to end of block
+			\item \textbf{TRX Counter:} xxx
+		\end{itemize}
+	\column{0.5\textwidth}
+		\begin{figure}
+		
+\begin{tikzpicture}[domain=-8:8,scale=1.2, every node/.style={scale=1.2}]
+  
+  % Block 
+  \draw[fill=white] (-2,0.2) -- (1,0.2) -- (1,6) -- (-2,6) node[above,midway] {{}} -- (-2,0.2);
+  
+  % Magic No
+  \draw[dashed, fill=highlight!15] (-1.8,5.3) -- (0.8,5.3) node[above, midway] {\alert{\small{Magic Number}}}-- (0.8,5.9) -- (-1.8,5.9) -- (-1.8,5.3); 
+  
+  % Blocksize
+  \draw[dashed, fill=highlight!15] (-1.8,4.6) -- (0.8,4.6)  node[above, midway] {\alert{\small{Block Size}}} -- (0.8,5.2) -- (-1.8,5.2) --(-1.8,4.6); 
+  
+  % Header
+    \draw[dashed, fill=highlight!15] (-1.8,1.8) -- (0.8,1.8) -- (0.8,4.5) -- (-1.8,4.5) -- (-1.8,1.8);    
+    %\draw[color=black, ->, dashed] (0.8,2.45) -- (2.35,2.8);
+    \draw[color=black] plot (-0.5,4)    node[above] {\small{Block Header}};
+    %\draw[densely dotted] (-1.7,1.9) -- (0.7,1.9) -- (0.7,2.3) -- (-1.7,2.3) -- (-1.7,1.9);
+    
+  % Transaction Counter
+     \draw[dashed, fill=highlight!15] (-1.8,1.1) -- (0.8,1.1) node[above, midway] {\alert{\small{TRX Counter}}} -- (0.8,1.7) -- (-1.8,1.7) -- (-1.8,1.1) ;
+     %\draw[color=black] plot (-0.5,1.4)    node[above] {\small{TRX Counter}}; 
+    
+  % Transactions
+    \draw[dashed, fill=highlight!15] (-1.8,1) -- (0.8,1) -- (0.8,0.4) -- (-1.8,0.4) node[above,midway] {\small{Transactions}} -- (-1.8,0.8);
+    %\draw[color=black, ->, densely dashed,thick] (-0.5,0.7) -- (-0.5,1.3);
+    
+    \node[right] at (-1.75,3.85) {\tiny{$\bullet$ Version}} ;
+    \node[right] at (-1.75,3.5) {\tiny{$\bullet$ Reference}} ;
+    \node[right] at (-1.75,3.15) {\tiny{$\bullet$ Timestamp}} ;
+    \node[right] at (-1.75,2.8) {\tiny{$\bullet$ Treshold}} ;
+    \node[right] at (-1.75,2.45) {\tiny{$\bullet$ Nonce}} ;
+    \node[right] at (-1.75,2.1) {\tiny{$\bullet$ Merkle Root}} ;
+  
+\end{tikzpicture}
+
+		\end{figure}
+	\end{columns}
 \end{frame}
 %%%
 
 
 %%%
 \begin{frame}{Block Height and -Depth}
-\begin{figure}
-	\input{../assets/figures/block_id}
-\end{figure}
+	\begin{figure}
+		\input{../assets/figures/block_id}
+	\end{figure}
 \textbf{Block Identification:}
-\begin{itemize}
- \item Block Height (static, not unique in case of fork)
- \item Block Depth (dynamic)
- \item Block Header Hashvalue / Block ID (static)
-\end{itemize}
+	\begin{itemize}
+ 		\item Block Height (static, not unique in case of fork)
+ 		\item Block Depth (dynamic)
+ 		\item Block Header hash value / Block ID (static)
+	\end{itemize}
 \end{frame}
 %%%
 
 
 %%%
-\begin{frame}{Chain Structure}
-
-\begin{figure}
-	\input{../assets/figures/chain_structure_1}
-\end{figure}
+\begin{frame}{The Domino Effect 1}
+	\begin{figure}
+		\input{../assets/figures/chain_structure_1}
+	\end{figure}
 \end{frame}
 %%%
 
 
 %%%
-\begin{frame}{Chain Structure 2}
-
-\begin{figure}
-	\input{../assets/figures/chain_structure_2}
-\end{figure}
-\begin{itemize}
-\item Modification of Block 0 will change its Hash Value and invalidate the reference to Block 1.
-\end{itemize}
+\begin{frame}{The Domino Effect 2}
+	\begin{figure}
+		\input{../assets/figures/chain_structure_2}
+	\end{figure}
+	\begin{itemize}
+		\item Modification of transactions in Block 0 will change its merkle root and therefore the block header hash, which invalidates the reference to Block 1.
+	\end{itemize}
 \end{frame}
 %%%
 
 
 %%%
-\begin{frame}{Chain Structure 3}
-
-\begin{figure}
-	\input{../assets/figures/chain_structure_3}
-\end{figure}
-\begin{itemize}
-\item Modification of Reference in Block 1 will change its Hash Value and invalidates the reference to Block 2.
-\end{itemize}
+\begin{frame}{The Domino Effect 3}
+	\begin{figure}
+		\input{../assets/figures/chain_structure_3}
+	\end{figure}
+	\begin{itemize}
+		\item Modification of the reference in Block 1 will change its block header hash and invalidate the reference to Block 2.
+	\end{itemize}
 \end{frame}
 %%%
 
 
 %%%
 \begin{frame}{Extending the Chain}
-\begin{figure}[h!]
-\center
-	\input{../assets/figures/chain_extension}
-\end{figure}
+	\begin{figure}[h!]
+	\center
+		\input{../assets/figures/chain_extension}
+	\end{figure}
+\vspace{1em}
+%Each of these nodes believes that its own block candidate should be added to the blockchain and will ignore those of other network participants. This is why we need consensus...
 \end{frame}
 
 %%%
