@@ -94,7 +94,7 @@
 	\begin{columns}
 	\column{0.7\textwidth}
 		\begin{itemize}
-			\item \textbf{Threshold:} Shows the maximum hash value a block header may have in order to be considered valid by the network and become part of the blockchain
+			\item \textbf{Threshold:} Shows the maximum hash value a block header may have in order to be considered valid by the network and become part of the blockchain.
 			\item \textbf{Nonce:} Primary source of variation in block creation. Ensures that blocks with otherwise equivalent content can nevertheless have different hash values.
 		\end{itemize}
 	\column{0.3\textwidth}
@@ -109,14 +109,16 @@
 %%%
 \begin{frame}{Meta Data}
 	\begin{columns}
-	\column{0.5\textwidth}
-		\begin{itemize}
-			\item \textbf{Time, Mediantime:} Timestamped data
-			\item \textbf{Difficulty:} Proof of work
-			\item \textbf{Chainwork:} Total number of hashes that are expected to have been necessary to produce the current chain
-			\item \textbf{Number of transactions, Size:} Scalability
-		\end{itemize}
-	\column{0.5\textwidth}
+	\column{0.6\textwidth}
+		\begin{tabular}{l|l}
+			Type & Use \\
+			\hline
+			Time, Mediantime & Timestamped data \\
+			Difficulty & Proof of Work \\
+			Chainwork & Consensus \\
+			Size, \# of TRX & Scalability
+		\end{tabular}
+	\column{0.4\textwidth}
 		\begin{figure}
 			\begin{tikzpicture}[domain=-8:8,scale=1.2, every node/.style={scale=1.2}]
   				\input{../assets/figures/block_content_full}
@@ -156,9 +158,6 @@
 	\begin{figure}
 		\input{../assets/figures/chain_structure_2}
 	\end{figure}
-
-		%\item Modification of transactions in Block 0 will change its merkle root and therefore the block header hash, which invalidates the reference to Block 1.
-	
 \end{frame}
 %%%
 
@@ -168,9 +167,6 @@
 	\begin{figure}
 		\input{../assets/figures/chain_structure_3}
 	\end{figure}
-	
-		%\item Modification of the reference in Block 1 will change its block header hash and invalidate the reference to Block 2.
-
 \end{frame}
 %%%
 
@@ -181,8 +177,7 @@
 	\center
 		\input{../assets/figures/chain_extension}
 	\end{figure}
-\vspace{1em}
-Each of these nodes believes that its own block candidate should be added to the blockchain and will ignore those of other network participants.
+%Each of these nodes believes that its own block candidate should be added to the blockchain and will ignore those of other network participants.
 \end{frame}
 
 %%%
