@@ -1,0 +1,114 @@
+% Choose one to switch between slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{History of Digital Money}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{Before Bitcoin}
+
+\begin{figure}
+	\begin{tikzpicture}
+	
+			\draw 	
+	
+	\end{tikzpicture}
+\end{figure}
+
+This is how lists can be used in the template. \\ \vspace{1em}
+
+Some of the main features of this template:
+	
+	\begin{itemize}
+		\item<1-> stay focused
+		\item<2-> save ink
+		\item<3-> do not get distracted
+	\end{itemize}
+
+	\vspace{1em}	
+	\uncover<4->{The same works for Enumerate environments:}
+
+	\begin{enumerate}
+		\item<5-> This is the first point
+		\item<6-> and the second one
+		\item<7-> Last but not least, the third one
+	\end{enumerate}
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Tables}
+	\begin{table}
+		\begin{tabular}{ll}
+			A & B\\
+			C & D
+		\end{tabular}
+		\caption{This is a table}
+		\label{tbl:simpletable}
+	\end{table}
+\end{frame}
+
+%%%
+\begin{frame}{Equations}
+
+Some in-line math can be used like this $y=x^2+2x-5$. \\ \vspace{1em}
+
+However, in many cases it makes sense to use numbered equations. The $\&$-sign can be used to set anchor points, e.g. around the ``$=$'' for multiple equations. This is shown below in Equation \eqref{eq:firststep} and Equation \eqref{eq:secondstep}.
+	\begin{align}
+		y + 2x &= x^2+2x-5 \label{eq:firststep}\\
+		y &= x^2-5 \label{eq:secondstep}
+	\end{align}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Figures}
+	\begin{figure}
+		\center
+		\includegraphics[width=0.8\textwidth]{../config/logo_cif}	
+		\caption{Center for Innovative Finance Logo}
+		\label{fig:logo}
+	\end{figure}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Labels and (Non-Bib) References}
+	In some cases in can make sense to reference to a figure, table or equation on a different slide. Use \texttt{$\backslash$pageref\{$<$label$>$\}} if you want to highlight, that there is a related resource on slide \pageref{fig:logo}.\\ \vspace{1em}
+	
+	Do - under no circumstances - hardcode references.	
+\end{frame}
+%%%
+
+
+\begin{frame}{Bib-References}
+		Read the Bitcoin Whitepaper, \cite{nakamotoBitcoin2008}.
+\end{frame}
+
+
+\begin{frame}%[allowframebreaks]
+\frametitle{References and Recommended Reading}
+	\bibliographystyle{amsplain}
+	\bibliography{../assets/bib/refs}
+\end{frame}
+
+
+\end{document}
