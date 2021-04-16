@@ -1,0 +1,40 @@
+\begin{tikzpicture}[scale = 0.7]
+	\begin{axis}[xmin=-2.8,
+            	xmax=2.8,
+            	ymin=-2.8,
+           		ymax=2.8,
+            	xlabel={$x$},
+            	ylabel={$y$},
+            	scale only axis,
+           		axis lines=middle,
+         		domain=-1.76929235423863:3, % manually add min value to domain
+            	samples=500,
+            	smooth,
+            	axis equal image=true
+        		]
+        		
+        % function: sqrt(x^3 + -2*x + 2)
+       	\addplot[focus]{sqrt(x^3 + -2*x + 2)};
+		\addplot[focus]{-sqrt(x^3 + -2*x + 2)};
+		
+        % x coordinate: -0.5 -> y coordinate: 1.6956
+        % slope at x = -0.5: -0.368605
+        % y intercept: 1.69558 + 0.5*(-0.368605) = 1.5113
+        % line: 1.5112775 - 0.368605*x
+        \only<2->{
+        	\fill (axis cs: -0.5, 1.6956) circle (2pt) node[below left] {$P$};
+			\addplot[black]{1.5113 - 0.3686*x};
+		}
+
+        % intersection:
+        \only<3->{
+        	\fill (axis cs: 1.1359, 1.0926) circle (2pt) node[right] {$-2P$};
+        }
+        
+        \only<4->{
+        	\fill (axis cs: 1.1359, -1.0926) circle (2pt) node[right] {$2P$};
+        	\draw[dotted] (axis cs: 1.1359, 1.0926) -- (axis cs: 1.1359, -1.0926);
+        }
+        
+	\end{axis}
+\end{tikzpicture}
