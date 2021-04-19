@@ -1,0 +1,228 @@
+% Choose one to switch between slides and handout
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{CBDC and Stablecoins}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+
+%%%
+\begin{frame}{CBDC Background}
+
+Established model of central banks as issuer of physical cash and bank for banks is under pressure.
+\vspace{1.5em}	
+
+\textbf{Drivers}
+\begin{itemize}
+	\item \textbf{Drop in physical cash use} and growing importance of digital payment systems as essential infrastructure.
+	\item \textbf{Emergence of new payment solutions} from private sector, with large actors outside the banking industry.
+	\item \textbf{Debate on authority and mandate} of central banks around money issuance and payment infrastructure provision.
+\end{itemize}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{CBDC Overview}
+
+\begin{figure}[htbp]
+	\begin{minipage}{0.5\textwidth} 
+		\textbf{Mining Markt \small{(Gleichgewicht)}}\small
+  		\begin{itemize}
+    		\item gilt als äussert kompetitiv
+      		\begin{itemize}
+        		\item geringe Eintrittsbarrieren 
+        		\item Sehr viele Individuen, welche Rechenleistung beisteuern
+      		\end{itemize}
+    		\item Gewinne nur möglich, wenn eine Gruppe deutlich effizienter arbeiten kann als Rest.
+  		\end{itemize}
+Unter Homogenitätsannahme, wird solange Rechenleistung in den Markt fliessen, bis erwartete Grenzerlöse, also die Erlöse aus einer weiteren Einheit Rechenleistung, den Grenzkosten dieser Einheit entsprechen.
+        \end{minipage}
+	    \hfill
+	     \begin{minipage}{0.45\textwidth} 
+  \center
+
+    	    \end{minipage}
+    \end{figure}
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Process-based Forks}
+
+\textbf{Probabilistic block race:} Unintentionally coexisting consensus versions, caused by network propagation delays. 
+\vspace{1.5em}	
+
+\uncover<2->{
+\textbf{Forced block race:} Deliberate mining of own chain with the goal to overtake consensus version.
+\vspace{1.5em}	
+
+
+\textbf{Block withholding:} Purposeful delay of propagation of own valid block candidate to gain head start on next block.
+\vspace{1.5em}	
+}
+
+\uncover<3->{
+$\Rightarrow$ All temporary and resolved through accumulated difficulty.
+}
+	
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Protocol-based forks}
+
+\textbf{Client incompatibility:} Delta in consensus rule implementations by different network client software, causing some nodes to accept certain blocks rejected by others. Root causes:
+\begin{itemize}
+	\item Loosely defined consensus rules
+	\item Software bugs
+\end{itemize}
+\vspace{0.5em}
+Example: Upgrade to Bitcoin client 0.8 in 2013
+\vspace{1em}	
+
+\uncover<2->{
+\textbf{Rule change:} Part of the network decides to alter the consensus rule set $S$ and proceed with adapted protocol.
+\vspace{0.5em}
+
+Example: Split of Bitcoin ABC over Blocksize increase.
+\vspace{2em}	
+	
+}
+
+\uncover<3->{
+$\Rightarrow$ Not resolved automatically and may cause permanent splits.
+}
+	
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Types of Protocol-based Forks}
+
+
+\begin{columns}[T]
+	\begin{column}{0.3\textwidth}
+		\center		
+		\textbf{Soft Fork}\\
+		\vspace{0.5em}
+		\begin{figure}[h]
+  			\resizebox{0.9\textwidth}{!}{
+			\input{../assets/figures/soft-fork.tex}
+			}
+		\end{figure}
+		\vspace{1em}
+		$S_{new}\subset S_{old}$
+	\end{column}
+	\begin{column}{0.3\textwidth}
+		\center
+ 		\textbf{Hard Fork}\\
+ 		\vspace{1em}
+ 		\begin{figure}[h]
+  			\center
+  			\resizebox{0.9\textwidth}{!}{
+			\input{../assets/figures/hard-fork.tex}
+			}
+		\end{figure}
+ 		\vspace{1.5em}
+ 		$S_{new}\supset S_{old}$
+	\end{column}
+		\begin{column}{0.3\textwidth}
+		\center
+ 		\textbf{Forced Fork}\\
+ 		\vspace{0.5em}
+ 		\begin{figure}[h]
+  			\center
+  			\resizebox{0.9\textwidth}{!}{
+			\input{../assets/figures/forced-fork.tex}
+			}
+		\end{figure}
+		\vspace{0.8em}
+ 		$(S_{new}\setminus S_{old} \neq \emptyset)$\\$\wedge$\\ $(S_{old}\setminus S_{new} \neq \emptyset)$
+	\end{column}
+\end{columns}
+
+\vspace{0.5em}
+
+\begin{center}
+	Figure: Types of protocol-based forks \cite{schar2020blockchain}
+\end{center}
+
+	
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Fork Persistency by Type and Dominance Scenario}
+
+\center \footnotesize
+$P(\,b \in S_{new} \wedge b \in S_{old})\, = \dfrac{r_{old}}{R} \left( 1-\frac{|S_{new} \cap S_{old}|}{|S_{old}|}\right) + \dfrac{r_{new}}{R} \left( 1-\frac{|S_{new} \cap S_{old}|}{|S_{new}|}\right)$ 
+\label{eq:forkprobability}
+
+\vspace{1.5em}
+
+
+	\begin{table}
+		\input{../assets/figures/fork-types.tex}
+		\caption{Persistency by fork type and scenario \cite{schar2020blockchain}}
+		\label{tbl:forkpersistencies}
+	\end{table}
+
+	
+
+
+	
+\end{frame}
+%%%
+
+
+
+%%%
+\begin{frame}{Why Care about Forks?}
+
+\textbf{Uncertainty:} Confirmation status of transactions.
+\vspace{1.5em}
+
+\textbf{Confusion:} Which one is the "main" version.
+\vspace{1.5em}
+
+\textbf{Undermining trust:} Case of digital assets.
+\vspace{1.5em}
+
+\textbf{Cost driver:} Tax / legal questions, maintaining compatibility.
+\vspace{1.5em}
+
+\color{focus} \textbf{But:} \color{black} Pillar for political freedom and resilience against arbitrary changes.
+
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}%[allowframebreaks]
+\frametitle{References and Recommended Reading}
+
+	\bibliographystyle{amsplain}
+	\bibliography{../assets/bib/refs}
+
+\end{frame}
+
+
+\end{document}
