@@ -63,20 +63,121 @@ Selected CBDC design dimensions:
 %%%
 
 %%%
-\begin{frame}
-\frametitle{Title}
+\begin{frame}{CBDC Status and Arguments}
+
+\begin{itemize}
+	\item Research in the area of e-money/e-cash since the 1990s.
+	\item Various pilots since 2014.\\
+			\textit{E.g., Dinero Electronico, eKrona, project Jasper, digital yuan.}
+	\item Increased priority on central bank agendas worldwide.\\
+	\link \href{https://www.cbdctracker.org}{Infopage: cbdctracker.org}
+\end{itemize}
+
+\vspace{1.0em}
+
+\uncover<2->{
+\begin{columns}[T]
+	\begin{column}{0.2\textwidth}
+		\textbf{Proponents}
+	\end{column}
+	\begin{column}{0.1\textwidth}
+		\includegraphics[height = 0.9cm]{../assets/images/agents/proponent}
+	\end{column} %\hfill
+	\begin{column}{0.2\textwidth}
+		\textbf{Critics}
+	\end{column}
+	\begin{column}{0.1\textwidth}
+		\includegraphics[height = 1cm]{../assets/images/agents/opponent}
+	\end{column} %\hfill
+\end{columns}
+
+\vspace{0.5em}
+
+\begin{columns}[T]
+	\begin{column}{0.45\textwidth}
+	\footnotesize{
+		\begin{itemize}
+			\item Enhanced transmission of monetary policy
+			\item Mitigation of incentivisation issues in the banking sector
+			\item Potential in counteracting money-laundering
+		\end{itemize}
+		}
+	\end{column}
+	\begin{column}{0.45\textwidth}
+	\footnotesize{
+		\begin{itemize}
+			\item Undesired structural disintermediation of banks 
+			\item Unknown effects on financial stability
+			\item Extension of central bank balance sheets
+		\end{itemize}
+		}
+	\end{column}
+\end{columns}
+}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Stablecoins Overview}
+The idea of a crypto-asset representing \color{focus} a FIAT unit of currency \color{black} that has the advantages of a decentralized currency without its \color{focus}price volatility\color{black}.
+
+\vspace{1.5em}
+
+\uncover<2->{
+\textbf{Three main categories:}
+	\begin{itemize}
+		\item Off-chain collateralized, centrally issued\\
+		\textit{E.g., USDT, TUSD, BUSD.}
+		\item On-chain collateralized, FIAT pegged.\\
+		\textit{E.g., DAI, sUSD.}
+		\item Algorithmic stable coin.\\\
+		\textit{no functioning example at this point}
+	\end{itemize}
+}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Stablecoin Risks}
+
+\textbf{Off-chain collateralized, centrally issued}
+\begin{itemize}
+	\item Issuer risk (fraud, default)
+	\item Regulatory risk
+\end{itemize}
+\vspace{2em}
+
+
+\textbf{On-chain collateralized, FIAT pegged}
+\begin{itemize}
+	\item Crypto exposure through collateral
+	\item Oracle dependencies
+\end{itemize}
+
+\vspace{2em}
+\uncover<2->{
+$\Rightarrow$ A decentralized stablecoin without some crypto asset exposure does not (yet) exist.
+}
 
 \end{frame}
 %%%
 
 
 %%%
-\begin{frame}%[allowframebreaks]
-\frametitle{References and Recommended Reading}
-
-	\bibliographystyle{amsplain}
-	\bibliography{../assets/bib/refs}
-
+\begin{frame}{References and Recommended Reading}
+		\begin{columns}[T]
+			\begin{column}{0.1\textwidth}
+					\includegraphics[width = 1.7cm, frame]{../assets/images/berentsen_schaer}
+			\end{column} %\hfill
+			\begin{column}{0.8\textwidth}
+				\textbf{The Case for Central Bank Electronic Money and the Non-case for Central Bank Cryptocurrencies} \\ 
+				Aleksander Berentsen and Fabian Schär \\
+				\link \href{https://https://research.stlouisfed.org/publications/review/2018/02/13/the-case-for-central-bank-electronic-money-and-the-non-case-for-central-bank-cryptocurrencies}{Online version}
+			\end{column}
+		\end{columns}
+	
 \end{frame}
 %%%
 
