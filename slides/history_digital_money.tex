@@ -24,91 +24,253 @@
 \begin{frame}{Before Bitcoin}
 
 \begin{figure}
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=1]
 	
-			\draw 	
+	%draw horizontal line
+	\draw [thick,->] (0,0) -- (10,0);
+	
+	%draw vertical lines
+	\foreach \x in {0.5,2.5,5.5,6.5,8.5}
+	\draw (\x cm, 3pt) -- (\x cm, -3pt);
+	
+	%years
+	\draw[ultra thick] (0.5,0) node[below=3pt] {1982} ;
+	\draw[ultra thick] (2.5,0) node[below=3pt] {1988} ;
+	\draw[ultra thick] (5.5,0) node[below=3pt] {1997} ;
+	\draw[ultra thick] (6.5,0) node[below=3pt] {1998} ;
+	\draw[ultra thick] (8.5,0) node[below=3pt] {2005} ;	
+	
+	%Text
+	\node[align=center] at (0.5,-1.2) {{\scriptsize David Chaum} \\{\scriptsize Digicash}};
+	
+	\node[align=center] at (2.5,-1.2) {{\scriptsize Tim May} \\{\scriptsize Crypto Manifesto}};
+	
+	\node[align=center] at (5.5,-1.2) {{\scriptsize Adam Back} \\{\scriptsize Hashcash}};
+	
+	\node[align=center] at (6.5,0.7) {{\scriptsize Wei Dai} \\{\scriptsize B-money}};
+	
+	\node[align=center] at (8.5,-1.2) {{\scriptsize Hal Finney} \\{\scriptsize Reusable Proofs of Work}};
+	
+	\node[align=center] at (8.5,0.7) {{\scriptsize Nick Szabo} \\{\scriptsize Bit Gold}};
 	
 	\end{tikzpicture}
 \end{figure}
+\end{frame}
+%%%
 
-This is how lists can be used in the template. \\ \vspace{1em}
 
-Some of the main features of this template:
-	
+%%%
+\begin{frame}{Digicash (1982) - David Chaum}
 	\begin{itemize}
-		\item<1-> stay focused
-		\item<2-> save ink
-		\item<3-> do not get distracted
+		\item Electronic means of payment would significantly limit privacy and traceable payment flows would generate sensitive data.
+		\item Wanted to develop a virtual money unit that imitated the anonymity of cash.
+		\item Monopolized money creation and centralized settlement.
+		\item Central bank blindly signs money units.
 	\end{itemize}
-
-	\vspace{1em}	
-	\uncover<4->{The same works for Enumerate environments:}
-
-	\begin{enumerate}
-		\item<5-> This is the first point
-		\item<6-> and the second one
-		\item<7-> Last but not least, the third one
-	\end{enumerate}
-	
 \end{frame}
 %%%	
 
-%%%
-\begin{frame}{Tables}
-	\begin{table}
-		\begin{tabular}{ll}
-			A & B\\
-			C & D
-		\end{tabular}
-		\caption{This is a table}
-		\label{tbl:simpletable}
-	\end{table}
-\end{frame}
 
 %%%
-\begin{frame}{Equations}
-
-Some in-line math can be used like this $y=x^2+2x-5$. \\ \vspace{1em}
-
-However, in many cases it makes sense to use numbered equations. The $\&$-sign can be used to set anchor points, e.g. around the ``$=$'' for multiple equations. This is shown below in Equation \eqref{eq:firststep} and Equation \eqref{eq:secondstep}.
-	\begin{align}
-		y + 2x &= x^2+2x-5 \label{eq:firststep}\\
-		y &= x^2-5 \label{eq:secondstep}
-	\end{align}
-\end{frame}
-%%%
-
-%%%
-\begin{frame}{Figures}
-	\begin{figure}
-		\center
-		\includegraphics[width=0.8\textwidth]{../config/logo_cif}	
-		\caption{Center for Innovative Finance Logo}
-		\label{fig:logo}
-	\end{figure}
+\begin{frame}{Hashcash (1997) - Adam Back}
+	\begin{itemize}
+		\item originally proposed as a mechanism for email anti-DoS.
+		\item "I've been talking about a partial hash collision based postage scheme on the crypto lists for the last few days. The idea of using partial hashes is that they can be made arbitrarily expensive to compute (by choosing the desired number of bits of collision), and yet can be verified instantly."
+	\end{itemize}
 \end{frame}
 %%%
 
 
 %%%
-\begin{frame}{Labels and (Non-Bib) References}
-	In some cases in can make sense to reference to a figure, table or equation on a different slide. Use \texttt{$\backslash$pageref\{$<$label$>$\}} if you want to highlight, that there is a related resource on slide \pageref{fig:logo}.\\ \vspace{1em}
+\begin{frame}{B-money (1998) - Wei Dai}
+	\begin{itemize}
+		\item Thought experiment
+		\item "I am fascinated by Tim May's crypto-anarchy."
+		\item "\dots I will assume the existence of an untraceable network, where senders and receivers are identified only by digital pseudonyms (i.e. public keys) and every message is signed by its sender and encrypted to its receiver."
+		\item " \dots every participant maintains a (separate) database of how much money belongs to each pseudonym. These accounts collectively define the ownership of money, and how these accounts are updated is the subject of this protocol."
+	\end{itemize}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Reusable Proofs of Work (2005) - Hal Finney}
+	\begin{itemize}
+		\item Combines ideas of Wei Dai and Adam Back
+		\item "A PoW token is something that takes a relatively long time to compute but which can be checked quickly. RPoW uses hashcash, which are values whose SHA-1 hashes have many high bits of zeros."
+	\end{itemize}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Bit Gold (2005) - Nick Szabo}
+	\begin{itemize}
+		\item Describes the combination of the proof-of-work algorithm for competitive money creation.
+		\item "Thus, it would be very nice if there were a protocol whereby unforgeably costly bits could be created online with minimal dependence on trusted third parties, and then securely stored, transferred, and assayed with similar minimal trust. Bit gold."
+	\end{itemize}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{After Bitcoin: Forks and Altcoins}
+
+\begin{figure}
+	\begin{tikzpicture}[scale=1]
 	
-	Do - under no circumstances - hardcode references.	
+	%draw horizontal line
+	\draw [thick,->] (0,0) -- (10,0);
+	
+	%draw vertical lines
+	\foreach \x in {0,2.5,6.5,8.5}
+	\draw (\x cm, 3pt) -- (\x cm, -3pt);
+	
+	%years
+	\draw[ultra thick] (0,0) node[below=3pt] {2009} ;
+	\draw[ultra thick] (2.5,0) node[below=3pt] {2011} ;
+	\draw[ultra thick] (6.5,0) node[below=3pt] {2015} ;
+	\draw[ultra thick] (8.5,0) node[below=3pt] {2017} ;
+	
+	
+	
+	%Text
+	\node[align=center] at (0,-1.2) {{\scriptsize Bitcoin}};
+	\node[align=center] at (2.5,-1.2) {{\scriptsize Litecoin,} \\{\scriptsize Namecoin}};
+	\node[align=center] at (6.5,-1.2) {{\scriptsize Ethereum}};
+	\node[align=center] at (8.5,-1.2) {{\scriptsize Block Size Wars}}; %\\{\scriptsize (Bitcoin Cash, SegWit,}\\{\scriptsize Bitcoin Gold, Bitcoin SV)}};
+	
+
+	
+	\end{tikzpicture}
+\end{figure}
 \end{frame}
 %%%
 
 
-\begin{frame}{Bib-References}
-		Read the Bitcoin Whitepaper, \cite{nakamotoBitcoin2008}.
+%%%%
+\begin{frame}{Bitcoin Fork Timeline}
+\begin{figure}[h!]
+\center
+\begin{tikzpicture}[scale=0.65, every node/.style={scale=0.65}]
+
+\coordinate (o1) at (1,1);
+\coordinate (o2) at (2,1);
+\coordinate (o3) at (3,1);
+\coordinate (o4) at (4,1);
+\coordinate (o5) at (5,3);
+\coordinate (o6) at (6,3);
+\coordinate (o7) at (7,3);
+\coordinate (o8) at (8,3);
+\coordinate (o9) at (9,3);
+\coordinate (o10) at (10,3);
+\coordinate (o11) at (11,3);
+\coordinate (o12) at (12,3);
+\coordinate (o13) at (13,3);
+\coordinate (o14) at (14,3);
+\coordinate (o15) at (15,3);
+\coordinate (o16) at (16,3);
+\coordinate (o17) at (17,3);
+\coordinate (n1) at (3,-2);
+\coordinate (n2) at (4,-2);
+\coordinate (n3) at (5,-2);
+\coordinate (n4) at (6,-2);
+\coordinate (n5) at (7,-2);
+\coordinate (n6) at (8,-2);
+\coordinate (n7) at (9,-2);
+\coordinate (n8) at (10,-2);
+\coordinate (n9) at (11,-2);
+\coordinate (n10) at (12,-2);
+\coordinate (n11) at (13,-2);
+\coordinate (n12) at (14,-2);
+\coordinate (s2) at (12,-4);
+\coordinate (s3) at (13,-4);
+\coordinate (x5) at (5,1);
+\coordinate (z1) at (8,0.5);
+\coordinate (z2) at (9,0.5);
+\coordinate (z3) at (10,0.5);
+\coordinate (z4) at (11,0.5);
+\coordinate (z5) at (12,0.5);
+\coordinate (z6) at (13,0.5);
+
+  \node at (o1) [above=1em]{Bitcoin};
+  \node at (n1) [below=1em]{B-Cash};
+  \node at (o5) [above=1em]{Bitcoin (SegWit Update)};
+  \node at (z1) [below=1em]{Bitcoin Gold};
+  \node at (s2) [below=1em]{Bitcoin SV};
+
+  \draw[] (o1) to[] (o2) to[] (o3) to[] (o4) to[] node[below, rotate=60]{\small{24.08.2017}}node[above, rotate=60]{\small{Softfork}}  (o5) to[] (o6) to[] (o7) to[] (o8) to[] (o9) to[] (o10) to[] (o11) to[] (o12) to[] (o13) to[] (o14) to[] (o15) to[] (o16) ;
+  \draw[] (o2) to[] node [above, rotate=-75]{\small Forced Fork} node[below, rotate=-75]{\small{01.08.2017}} (n1)  to[] (n2) to[] (n3) to[] (n4) to[] (n5) to[] (n6) to[] (n7) to[] (n8) to[] (n9) to[] (n10) to[] (n11);
+  \draw[] (n9) to[] node [above, rotate=-65]{\small Forced Fork} node[below, rotate=-65]{\small{15.11.2018}} (s2) ;
+  \draw[] (o4) to[] (x5) ;
+  \draw[] (o7) to[] node [above, rotate=-67]{\small Forced Fork} node[below, rotate=-67]{\small{24.10.2017}} (z1) ;
+  \draw[] (z1) to[] (z2) to[] (z3) to[] (z4) to[] (z5);
+  %\draw[color=black] (n6) to[] (o7);
+  %\draw[color=black,densely dashed] (o4) to[] (o5);
+  %\draw[color=black,densely dashed] (o7) to[] (o8);
+  \draw[color=black,thick, dotted, ->] (o16) to[] (o17);
+  \draw[color=black,thick, dotted, ->] (n11) to[] (n12);
+  \draw[color=black,thick, dotted, ->] (s2) to[] (s3);  
+  \draw[color=black,thick, dotted, ->] (z5) to[] (z6);  
+
+  %\filldraw[draw=black,fill=white] (o1) circle (5pt);
+  %\filldraw[draw=black,fill=white] (o2) circle (5pt);
+  %\filldraw[draw=black,fill=white] (o3) circle (5pt);
+  %\filldraw[draw=black,fill=white] (o4) circle (5pt);
+  %\filldraw[draw=black,fill=white] (o5) circle (5pt);
+  %\filldraw[draw=black,fill=white] (o6) circle (5pt);
+  %\filldraw[draw=black,fill=white] (o7) circle (5pt);
+  %\filldraw[draw=black,fill=white] (o8) circle (5pt);
+  %\filldraw[draw=black,fill=white] (o9) circle (5pt);
+  \node (rect) at (o1) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o2) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o3) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o4) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o5) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o6) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o7) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o8) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o9) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o10) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o11) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o12) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o13) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o14) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o15) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o16) [fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  %\filldraw[draw=black,fill=highlight] (n4) circle (5pt);
+  %\filldraw[draw=black,fill=highlight] (n5) circle (5pt);
+  %\filldraw[draw=black,fill=highlight] (n6) circle (5pt);
+  %\filldraw[draw=black,fill=highlight] (n7) circle (5pt);
+  %\filldraw[draw=black,fill=highlight] (n8) circle (5pt);
+  %\filldraw[draw=black,fill=highlight] (n9) circle (5pt);
+  \node (rect) at (n1) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n2) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n3) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n4) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n5) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n6) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n7) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n8) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n9) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n10) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n11) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  %\node (rect) at (s1) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (s2) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (x5) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (z1) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (z2) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (z3) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (z4) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (z5) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+  
+\end{tikzpicture}
+\caption{Bitcoin fork timeline.}
+\label{fig:forkhistory}
+\end{figure}
+
 \end{frame}
 
-
-\begin{frame}%[allowframebreaks]
-\frametitle{References and Recommended Reading}
-	\bibliographystyle{amsplain}
-	\bibliography{../assets/bib/refs}
-\end{frame}
 
 
 \end{document}
