@@ -1,0 +1,109 @@
+% Choose one to switch between slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Introduction to Consensus}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{Why Consensus Matters}
+
+Distributed ledger as \color{focus} chain of transactions and states \color{black} whose \color{focus} compliance with an explicit rule set \color{black} is  attested by a reliable network of record keeping nodes.
+
+\uncover<2->{
+\vspace{1.5 em}
+\textbf{Account statement example:}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7, every node/.style ={scale=0.8}]
+		\input{../assets/figures/account_statement_example}
+\end{tikzpicture}
+\end{center}
+
+\vspace{1 em}
+
+$\Rightarrow$ Value of the ledger content relies on the network attesting it.
+}
+
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Challenges for Reaching Consensus}
+
+Two main challenges for consensus in a decentralized network:
+	
+	\begin{itemize}
+		\item<1-> Each participant can adapt the ledger at its own discretion.
+		\item<2-> No central authority to decide among two legitimate versions.
+	\end{itemize}
+
+\vspace{1 em}
+\begin{center}
+\begin{tikzpicture}[scale=0.8, every node/.style ={scale=0.8}]
+		\input{../assets/figures/consensus_challenges}
+\end{tikzpicture}
+\end{center}
+
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Measures Supporting Consensus}
+
+\textbf{Explicit and unambiguous rule set} for legitimate changes to the ledger and block sequence.
+\vspace{0.25 em}
+
+$\Rightarrow$ Invalid blocks are detected easily and unambiguously.
+\vspace{1.5 em}
+
+\textbf{Decision mechanism} for consensus over different, legitimate extensions of the ledger. 
+\vspace{0.25 em}
+
+$\Rightarrow$ Swiftly resolving situations of uncertainty.
+\vspace{1.5 em}
+
+\textbf{Incentive system} that rewards compliant behaviour and / or penalizes manipulation attempts.
+\vspace{0.25 em}
+
+$\Rightarrow$ Typically in native protocol asset, tying the participant's interest to the sustainable value of the network.
+
+	
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{What Makes a Good Consensus Mechanism?}
+
+Suitability of a consensus mechanism \color{focus} depends on the purpose and user base \color {black} of a decentralized ledger.
+\vspace{1 em}
+
+\textbf{The Trilemma:}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6, every node/.style ={scale=0.8}]
+		\input{../assets/figures/trilemma}
+\end{tikzpicture}
+\end{center}
+
+\textbf{Generalized Rule:} Subject to tadeoffs, i.e., not possible to achieve all three goals. 	
+\end{frame}
+%%%	
+
+
+\end{document}
