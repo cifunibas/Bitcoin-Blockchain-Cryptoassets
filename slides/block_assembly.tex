@@ -4,7 +4,7 @@
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
-\subtitle{Block Assembly \& Chain Structure}
+\subtitle{Block Assembly and Chain Structure}
 \author{Prof. Dr. Fabian Schär}
 \institute{University of Basel}
 
@@ -35,19 +35,20 @@
 %%%
 \begin{frame}{From Transactions to Blocks}
 	\begin{enumerate}
-		\item<1-> Node sends his transaction to the connected peers.
-		\item<1-> Each node verifies the received transaction
+		\item<1-> Nodes send their transactions to their peers.
+		\item<2-> Each node verifies the received transaction
 			\begin{itemize}
-				\item<1-> Inputs, Outputs, Signatures
+				\item<2-> Inputs, Outputs, \texttt{ScriptSig}
 			\end{itemize}			 
-		\item<1-> If the transaction is valid, it is \dots
+		\item<3-> If the transaction is valid, it is \dots
 			\begin{itemize}
-				\item<1-> \dots forwarded to respective peers.
-				\item<1-> \dots stored in own transaction mempool
+				\item<3-> \dots forwarded to respective peers.
+				\item<3-> \dots stored in own transaction mempool
 			\end{itemize}
 	\end{enumerate}	
 	\vspace{1em}
-	\uncover<1->{Miners will take the transactions (with the highest fees) from their mempool and form a block, but how is this done?}
+	\uncover<4->{Miners will pick a subset of the transactions in their queue (mempool). They usually prefer the transactions with the highest fees/byte.\\ \vspace{1em}
+	$\rightarrow$ Let us look at how this works.}
 \end{frame}
 %%%
 
@@ -77,8 +78,8 @@
 	\column{0.7\textwidth}
 		\begin{itemize}
 			\item \textbf{Version:} Followed ruleset of block creation, implicates validation rules.
-			\item \textbf{Reference:} Hash value of predecessor block header $\rightarrow$ Basis for chain structure.
-			\item \textbf{Timestamp:} At least median timestamp of the previous eleven blocks, not more than two hours in the future at the time of inclusion in the blockchain. 
+			\item \textbf{Reference:} Hash value of predecessor block header $\rightarrow$ Foundation of chain structure.
+			\item \textbf{Timestamp:} At least median timestamp of the previous eleven blocks; No more than two hours in the future at the time of confirmation. 
 		\end{itemize}
 	\column{0.3\textwidth}
 		\begin{figure}
@@ -94,8 +95,8 @@
 	\begin{columns}
 	\column{0.7\textwidth}
 		\begin{itemize}
-			\item \textbf{Threshold:} Shows the maximum hash value a block header may have in order to be considered valid by the network and become part of the blockchain.
-			\item \textbf{Nonce:} Primary source of variation in block creation. Ensures that blocks with otherwise equivalent content can nevertheless have different hash values.
+			\item \textbf{Threshold:} Specifies the maximum hash value a block header may have to be considered valid.
+			\item \textbf{Nonce:} Primary source of variation in block creation. Ensures that blocks with otherwise equivalent contents may have different hash values.
 		\end{itemize}
 	\column{0.3\textwidth}
 		\begin{figure}
@@ -130,14 +131,14 @@
 
 
 %%%
-\begin{frame}{Block Height and -Depth}
+\begin{frame}{Chain Structure, Block Height and Block Depth}
 	\begin{figure}
 		\input{../assets/figures/block_id}
 	\end{figure}
 \textbf{Block Identification:}
 	\begin{itemize}
  		\item Block Height (static, not unique in case of fork)
- 		\item Block Depth (dynamic)
+ 		\item Block Depth (dynamic, not unique in case of fork)
  		\item Block Header hash value / Block ID (static)
 	\end{itemize}
 \end{frame}
