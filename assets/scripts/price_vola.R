@@ -29,10 +29,9 @@ p_graph
 ggsave("assets/figures/log_price_graph.pdf", width = 8, height = 4.5)
 
 # graph: log-price incl. halvings
-halving_dates <- as.Date(c("2012-11-29", "2016-07-10", "2020-05-11"))
-halving_p <- p[halving_dates]
-halvings <- data.frame(dates = halving_dates, p = halving_p, row.names = NULL)
-p_graph_halvings <- p_graph + geom_area(halvings, mapping = aes(x = ifelse(x >= dates & x < dates + 366, x, 0), y = p), colour = "grey")
+halvings <- data.frame(start = as.Date(c("2012-11-29", "2016-07-10", "2020-05-11")),
+                       end = as.Date(c("2013-11-28", "2017-07-09", "2021-05-10")))
+p_graph_halvings <- p_graph + geom_rect(data = halvings, aes(NULL, NULL, xmin=start, xmax=end), ymin=-Inf, ymax=Inf, fill="grey", alpha=0.3)
 p_graph_halvings
 ggsave("assets/figures/log_price_halvings_graph.pdf", width = 8, height = 4.5)
 
