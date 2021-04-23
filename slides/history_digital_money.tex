@@ -27,31 +27,35 @@
 	\begin{tikzpicture}[scale=1]
 	
 	%draw horizontal line
-	\draw [thick,->] (0,0) -- (10,0);
-	
+	\draw [thick] (0,0) -- (3,0);
+	\draw [thick,dotted] (3.1,0) -- (3.7,0);
+	\draw [thick, ->] (3.7,0) -- (10,0);
 	%draw vertical lines
-	\foreach \x in {0.5,2.5,5.5,6.5,8.5}
+	\foreach \x in {0.66,2.66,4.11,5,7.33,9.33}
 	\draw (\x cm, 3pt) -- (\x cm, -3pt);
 	
 	%years
-	\draw[ultra thick] (0.5,0) node[below=3pt] {1982} ;
-	\draw[ultra thick] (2.5,0) node[below=3pt] {1988} ;
-	\draw[ultra thick] (5.5,0) node[below=3pt] {1997} ;
-	\draw[ultra thick] (6.5,0) node[below=3pt] {1998} ;
-	\draw[ultra thick] (8.5,0) node[below=3pt] {2005} ;	
+	\draw[ultra thick] (0.66,0) node[below=3pt] {{\scriptsize 1982}} ;
+	\draw[ultra thick] (2.66,0) node[above=3pt] {{\scriptsize 1988}} ;
+	\draw[ultra thick] (4.11,0) node[below=3pt] {{\scriptsize 1997}} ;
+	\draw[ultra thick] (5,0) node[above=3pt] {{\scriptsize 1998}} ;
+	\draw[ultra thick] (7.33,0) node[below=3pt] {{\scriptsize 2005}} ;
+	\draw[ultra thick] (9.33,0) node[above=3pt] {{\scriptsize 2008}} ;	
 	
 	%Text
 	\node[align=center] at (0.5,-1.2) {{\scriptsize David Chaum} \\{\scriptsize Digicash}};
 	
-	\node[align=center] at (2.5,-1.2) {{\scriptsize Tim May} \\{\scriptsize Crypto Manifesto}};
+	\node[align=center] at (2.66,1) {{\scriptsize Tim May} \\{\scriptsize Crypto Manifesto}};
 	
-	\node[align=center] at (5.5,-1.2) {{\scriptsize Adam Back} \\{\scriptsize Hashcash}};
+	\node[align=center] at (4.11,-1.2) {{\scriptsize Adam Back} \\{\scriptsize Hashcash}};
 	
-	\node[align=center] at (6.5,0.7) {{\scriptsize Wei Dai} \\{\scriptsize B-money}};
+	\node[align=center] at (5,1) {{\scriptsize Wei Dai} \\{\scriptsize B-money}};
 	
-	\node[align=center] at (8.5,-1.2) {{\scriptsize Hal Finney} \\{\scriptsize Reusable Proofs of Work}};
+	\node[align=center] at (7.33,-1.2) {{\scriptsize Hal Finney} \\{\scriptsize Reusable Proofs of Work}};
 	
-	\node[align=center] at (8.5,0.7) {{\scriptsize Nick Szabo} \\{\scriptsize Bit Gold}};
+	\node[align=center] at (7.33,0.7) {{\scriptsize Nick Szabo} \\{\scriptsize Bit Gold}};
+	
+	\node[align=center] at (9.33,0.7) {{\scriptsize Bitcoin}};
 	
 	\end{tikzpicture}
 \end{figure}
@@ -62,8 +66,8 @@
 %%%
 \begin{frame}{Digicash (1982) - David Chaum}
 	\begin{itemize}
-		\item Electronic means of payment would significantly limit privacy and traceable payment flows would generate sensitive data.
-		\item Wanted to develop a virtual money unit that imitated the anonymity of cash.
+		\item Electronic means of payment significantly limit privacy and traceable payment flows generate sensitive data.
+		\item Goal: Virtual money unit that imitates the anonymity of cash.
 		\item Monopolized money creation and centralized settlement.
 		\item Central bank blindly signs money units.
 	\end{itemize}
@@ -74,7 +78,7 @@
 %%%
 \begin{frame}{Hashcash (1997) - Adam Back}
 	\begin{itemize}
-		\item originally proposed as a mechanism for email anti-DoS.
+		\item Originally proposed as a mechanism for email anti-DoS.
 		\item "I've been talking about a partial hash collision based postage scheme on the crypto lists for the last few days. The idea of using partial hashes is that they can be made arbitrarily expensive to compute (by choosing the desired number of bits of collision), and yet can be verified instantly."
 	\end{itemize}
 \end{frame}
@@ -83,11 +87,13 @@
 
 %%%
 \begin{frame}{B-money (1998) - Wei Dai}
+Thought experiment:
 	\begin{itemize}
-		\item Thought experiment
-		\item "I am fascinated by Tim May's crypto-anarchy."
-		\item "\dots I will assume the existence of an untraceable network, where senders and receivers are identified only by digital pseudonyms (i.e. public keys) and every message is signed by its sender and encrypted to its receiver."
-		\item " \dots every participant maintains a (separate) database of how much money belongs to each pseudonym. These accounts collectively define the ownership of money, and how these accounts are updated is the subject of this protocol."
+		\item Assumes the existence of an untraceable network.
+		\item Senders and receivers are identified only by digital pseudonyms. (i.e. public keys) 
+		\item Signature with associated private key guarantees transaction legitimacy.
+		\item Participants keep separate registers with the current balances of all pseudonyms.
+		\item Competitive money creation via solving numerical puzzles, that are hard to compute but easy to verify
 	\end{itemize}
 \end{frame}
 %%%
@@ -97,7 +103,7 @@
 \begin{frame}{Reusable Proofs of Work (2005) - Hal Finney}
 	\begin{itemize}
 		\item Combines ideas of Wei Dai and Adam Back
-		\item "A PoW token is something that takes a relatively long time to compute but which can be checked quickly. RPoW uses hashcash, which are values whose SHA-1 hashes have many high bits of zeros."
+		\item "A PoW token is something that takes a relatively long time to compute but which can be checked quickly. RPoW uses hashcash, which are values whose SHA-1 hashes have many high bits of zeros." 
 	\end{itemize}
 \end{frame}
 %%%
@@ -107,6 +113,7 @@
 \begin{frame}{Bit Gold (2005) - Nick Szabo}
 	\begin{itemize}
 		\item Describes the combination of the proof-of-work algorithm for competitive money creation.
+		\item Computing power is used to collateralise a public ledger, which grows into a chain of blocks through a reflexive reference.
 		\item "Thus, it would be very nice if there were a protocol whereby unforgeably costly bits could be created online with minimal dependence on trusted third parties, and then securely stored, transferred, and assayed with similar minimal trust. Bit gold."
 	\end{itemize}
 \end{frame}
@@ -271,6 +278,8 @@
 
 \end{frame}
 
+\begin{frame}{Ethereum (2015)}
 
+\end{frame}
 
 \end{document}
