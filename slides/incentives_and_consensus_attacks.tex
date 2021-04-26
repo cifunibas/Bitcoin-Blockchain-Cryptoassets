@@ -1,6 +1,6 @@
 % Choose one to switch between slides and handout
-%\documentclass[]{beamer}
-\documentclass[handout]{beamer}
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
@@ -23,7 +23,7 @@
 %%%
 \begin{frame}{Introduction}
 
-By now, we know about the central role of consensus and the dangers of difficulties:
+By now, we know about the fundamental role of consensus and the dangers of difficulties:
 	\begin{itemize}
 		\item Danger of permanent network splits.
 		\item Uncertainty in case of temporary forks.
@@ -60,8 +60,8 @@ To get participants to serve as compliant CRN and bear the corresponding cost, a
   \begin{tabular}[]{p{0.43\textwidth} | p{0.47\textwidth}}
 		\textbf{Cost} & \textbf{Revenues}      \\
 		\hline
-		Computation & Block based (e.g., Coinbase tx)\\
-		\textit{(electricity, hardware, etc.)} & Transaction based (e.g.,fees)\\
+		Computation & Block-based (e.g., Coinbase tx)\\
+		\textit{(electricity, hardware, etc.)} & Transaction-based (e.g.,fees)\\
 		Cost of stake* & Attestation rewards*\\
 		Cost of maintaining Authority* & Other Miner Extracted Value (MEV)
   \end{tabular}}
@@ -112,12 +112,14 @@ $\Rightarrow$ With revenues in network currency and cost often in FIAT, CRNs hav
 %%%
 \begin{frame}{Bitcoin Mining: Probabilistic Reward Distribution}
 
-Under proof-of-work, probability of mining a block and earning the corresponding reward $R$ is defined by a miner i's computing power relative to the network, i.e., $\overline{r_{i}} = R  \cdot \frac{c_{i}}{C}$.
+Under proof-of-work, probability of mining a block and earning the corresponding reward $P$ is defined by a miner $i$'s computing power relative to the network, i.e., $E(p_{i}) = P  \cdot \frac{c_{i}}{C}$.
+
+%ToDo: Expected value / Pi instead of overline R
 
 \vspace{1.5 em}
 
 \uncover<2->{
-\textbf{Illustrative example} with R = 6.25 Bitcoin:
+\textbf{Illustrative example} with P = 6.25 Bitcoin:
 
 \begin{center}
 	\begin{tikzpicture}[scale=0.9, every node/.style ={scale=1.0}]
@@ -150,10 +152,10 @@ To address this, Jake, Brian and Claudia can form a \textbf{Mining Pool}:
 	\end{tikzpicture}
 \end{center}
 
-$ \Rightarrow \overline{r}$ per block: $6.25 \cdot \frac{1}{16}$ vs. $\frac{6.25}{3} \cdot \frac{3}{16}$.
+$ \Rightarrow E(p)$ per block: $6.25 \cdot \frac{1}{16}$ vs. $\frac{6.25}{3} \cdot \frac{3}{16}$.
 
 \vspace{0.5 em}
-$\Rightarrow \sigma_{r}$ per block:  $1.523$ vs. \color{focus} \textbf{$0.813$}
+$\Rightarrow \sigma_{p}$ per block:  $1.523$ vs. \color{focus} \textbf{$0.813$}
 }	
 
 \end{frame}
@@ -195,8 +197,8 @@ $\Rightarrow \sigma_{r}$ per block:  $1.523$ vs. \color{focus} \textbf{$0.813$}
 \uncover<2->{
 \begin{itemize}
 	\item	Consensus compliant CRN's mine on top of Michèle's block.
-	\item	To become the longest chain, the Pool must mine two blocks before current consensus chain is extended..
-	\item	In case of success, the Pool owns two block rewards.
+	\item	To become the longest chain, the Pool must mine two blocks before current consensus chain is extended.
+	\item	In case of success, the Pool receives two block rewards.
 \end{itemize}
 
 \vspace{0.5 em}
@@ -257,7 +259,7 @@ $\Rightarrow \frac{39}{256} \cdot 6.25 + \frac{39}{256} \cdot 6.25 + \frac{9}{25
 
 \vspace{1.0 em}
 
-$\Rightarrow$ Bitcoin incentives effectively protect consensus in absence of mining power concentration. Probabilistic finality remains though.
+$\Rightarrow$ Bitcoin incentives effectively protect consensus in absence of mining power concentration.
 
 \end{frame}
 %%%	
@@ -296,7 +298,7 @@ $\Rightarrow$ Situative other MEV may skew incentives for CRNs.
 \begin{itemize}
 	\item	Raphael buys take-away coffee, paying in Bitcoin.
 	\item	He receives the coffee against the - yet unconfirmed - trx.
-	\item<2-> To another node, he sends a tx to himself with the same UTXO.
+	\item<2-> To another node, he sends a trx to himself with the same UTXO.
 \end{itemize}
 
 \uncover<3->{
