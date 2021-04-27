@@ -131,7 +131,6 @@ In the Bitcoin protocol, Proof of Work is implemented in the context of \color{f
 \end{frame}
 %%%	
 
-
 %%%
 \begin{frame}{Mining Process Model}
 	\begin{tikzpicture}[scale=0.8, every node/.style={scale=0.8}]
@@ -199,12 +198,30 @@ In the Bitcoin protocol, Proof of Work is implemented in the context of \color{f
 	
 	
 	
-	The Difficulty $D$ shows the change of the threshold parameter over time. It is equal to the maximum threshold $\delta(B_0)$ over the current threshold $\delta(B_i)$.
+	The Difficulty $D$ shows the change of the threshold parameter over time. It is equal to the maximum threshold $\delta(B_0)$ divided by the current threshold $\delta(B_i)$.
 	\begin{center}
 		$D_i \coloneqq \frac{\delta(B_0)}{\delta(B_i)}$
 	\end{center}
 \end{frame}
 %%%	
+
+%%%
+\begin{frame}{Incentives}
+Miners face costs. They must be incentivized:
+
+\begin{enumerate}
+	\item Newly minted Bitcoin units (UTXO with no inputs)
+	\item Transaction fees (Difference between inputs and outputs of all trx in block)
+\end{enumerate} \vspace{1em}
+
+\uncover<2->{
+Every 210,000 blocks (approx. 4 yrs), the reward rate is halved. Initially, it was at 50 Bitcoin per block.
+\vspace{-2em}
+\center
+	\includegraphics[width=9cm]{../assets/images/bitcoin_growth.png}
+	}
+\end{frame}
+%%%
 
 \begin{frame}%[allowframebreaks]
 	\frametitle{References}
