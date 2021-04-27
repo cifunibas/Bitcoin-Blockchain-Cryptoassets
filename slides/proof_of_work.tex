@@ -1,0 +1,211 @@
+% Choose one to switch between slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Proof of Work}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{Competition via Resource Allocation}
+
+Basic Idea: An activity that can be executed too quickly is \color{focus}combined with a probabilistic trial and error task\color{black}. The activity can only be executed if the task is solved correctly.
+
+\uncover<2->{
+	\vspace{1.5 em}
+
+	$\Rightarrow$ On average only a percentage of tries will lead to the desired result.
+}
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Origins of Proof of Work}
+	
+	The concept of Proof of Work was proposed in 1993 \cite{dwork_pricing_1993} to help deter spam and denial of service attacks. 
+	
+	\vspace{1.5em}
+	
+	Other mechanisms have been popularized in the meantime, but Proof of Work remains the best known mechanism for sybil deterence and still sees widespread usage due to its simplicity.
+
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{In the Context of Bitcoin}
+
+Proof of Work in the context of Bitcoin solves the following problems:
+
+\begin{itemize}
+	\item Blocks need to be created within certain time intervals
+	\item The chain needs to be protected from simple replication
+	\item Malicious behavior when creating blocks should to be discouraged 
+\end{itemize}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Implementation in the Bitcoin Protocol}
+
+In the Bitcoin protocol, Proof of Work is implemented in the context of \color{focus}block header hash values\color{black}. The properties of the \texttt{dSHA256} hash function make it impossible to create a block header hash with a desired value.
+
+\uncover<2->{
+	\vspace{1.5em}
+	\textbf{Trial and Error:}
+	\begin{itemize}
+		\item Require certain properties from valid block header hashes
+		\item Specifically: Below a certain threshold value
+		\item Each newly created block candidate has a random chance to satisfy the criteria
+	\end{itemize}
+}
+
+\uncover<3->{
+	\vspace{0.5em}
+	$\Rightarrow$ Create new block candidates until the block header hash value is sufficiently low
+}
+ 	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{A Simple Example}
+	Assume the current threshold values is
+	\seqsplit{0x1000000000000000000000000000000000000000000000000000000000000000}.
+	
+	\begin{itemize}
+		\item To be lower than this value, a hash must contain a 0 in the first position
+		\item When randomly generating a hash, each digit has a 1 in 16 chance to be of a certain value
+	\end{itemize}
+
+	\uncover<2->{
+		\vspace{0.5em}
+		$\Rightarrow$ The network would need to generate an average of 16 block candidates before being able to extend the chain.
+	}
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Mining Bitcoin}
+	The iterative process of creating block candidates and checking their block header hash values against the threshold is called \color{focus}mining\color{black}.
+	
+	
+	\uncover<2->{
+		\vspace{1.5em}
+		Block header hash value $\geq$ threshold
+		\begin{itemize}
+			\item Discard the block candidate
+			\item Change the contents of the block header
+			\item Calculate the new block header hash value
+		\end{itemize}	
+	}
+
+	\uncover<3->{
+		\vspace{.5em}
+		Block header hash value $<$ threshold
+		\begin{itemize}
+			\item The block candidate is broadcast to the network
+			\item The block can be appended to the chain
+		\end{itemize}	
+	}
+	
+\end{frame}
+%%%	
+
+
+%%%
+\begin{frame}{Mining Process Model}
+	\begin{tikzpicture}[scale=0.8, every node/.style={scale=0.8}]
+		\input{../assets/figures/mining_process_model}
+	\end{tikzpicture}
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Dynamic Threshold}
+	The threshold parameter $\delta$ is dynamically adjusted so that the network will produce a valid block on average every ten minutes.
+	
+	\uncover<2->{
+		\vspace{1.5em}
+		\begin{itemize}
+			\item The adjustment happens every 2'016 valid blocks
+			\item Assuming 10 minute blocks, this is every 14 days
+			\item The new threshold value $\delta$ is calculated based on the expected value $E(t)$ and the actual duration $t$
+		\end{itemize}
+	}
+
+	\uncover<3->{
+		\begin{center}
+		\begin{align*}
+			\delta_{new} &= \delta_{old} \cdot \frac{t}{E(t)} \\
+			             &= \delta_{old} \cdot \frac{t}{2016 \cdot 10}
+		\end{align*}
+		\end{center}
+
+	}
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Dynamic Threshold}
+	Blocks are generated faster than expected $t < E(t)$:
+	\begin{itemize}
+		\item $\frac{t}{E(t)}$ will be between 0 and 1 $\Rightarrow \delta_{new} < \delta_{old}$
+		\item A lower threshold value will lead to fewer accepted block candidates in the following period
+	\end{itemize}
+
+	\uncover<2->{
+		\vspace{1.5em}
+		Blocks are generated slower than expected $t > E(t)$:
+		\begin{itemize}
+			\item $\frac{t}{E(t)}$ will be above 1 $\Rightarrow \delta_{new} > \delta_{old}$
+			\item A higher threshold value will lead to more accepted block candidates in the following period
+		\end{itemize}
+	}
+
+	\uncover<3->{
+		\vspace{1.5em}
+		In both cases the average block creation time is moved closer to 10 minutes again.
+	}
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Difficulty}
+	\begin{figure}[t]
+		\includegraphics[height=\textheight/2]{../assets/images/difficulty}
+		
+		\tiny Source: \link \url{https://www.blockchain.com/charts/difficulty}, April 2021
+	\end{figure}
+	
+	
+	
+	The Difficulty $D$ shows the change of the threshold parameter over time. It is equal to the maximum threshold $\delta(B_0)$ over the current threshold $\delta(B_i)$.
+	\begin{center}
+		$D_i \coloneqq \frac{\delta(B_0)}{\delta(B_i)}$
+	\end{center}
+\end{frame}
+%%%	
+
+\begin{frame}%[allowframebreaks]
+	\frametitle{References}
+	\bibliographystyle{amsplain}
+	\bibliography{../assets/bib/refs}
+\end{frame}
+
+\end{document}
