@@ -25,7 +25,7 @@
 %%%
 \begin{frame}{What is a Fork?}
 
-\color{focus} Disagreement on the current state \color{black} of the ledger that, if persisting, leads to a \color{focus} split of the network \color{black}  into two or more competing database instances
+\color{focus} Disagreement on the current state \color{black} of the ledger that, if persisting, leads to a \color{focus} split of the network \color{black}  into two or more competing database instances.
 
 \begin{columns}[T]
 	\begin{column}{0.45\textwidth}
@@ -59,11 +59,6 @@
 \begin{center}
 Figure: Illustration Blockchain Fork \cite{schar2020blockchain}
 \end{center}
-
-\uncover<2->{
-\vspace{1em}	
-$\Rightarrow$ Unique characteristic of Blockchains, not conclusively defined.
-}
 
 \end{frame}
 %%%
@@ -104,7 +99,7 @@ $\Rightarrow$ Unique characteristic of Blockchains, not conclusively defined.
 \vspace{1.5em}	
 
 
-\textbf{Block withholding:} Purposeful delay of propagation of own valid block candidate to gain head start on next block.
+\textbf{Block withholding:} Purposeful delay of propagation of own valid candidate block to gain head start on next block.
 \vspace{1.5em}	
 }
 
@@ -202,7 +197,7 @@ $\Rightarrow$ Not resolved automatically and may cause permanent splits.
 \begin{frame}{Fork Persistency by Type and Dominance Scenario}
 
 \center \footnotesize
-$P(\,b \in S_{new} \wedge b \in S_{old})\, = \dfrac{r_{old}}{R} \left( 1-\frac{|S_{new} \cap S_{old}|}{|S_{old}|}\right) + \dfrac{r_{new}}{R} \left( 1-\frac{|S_{new} \cap S_{old}|}{|S_{new}|}\right)$ 
+$P(\,b \in S_{new} \oplus b \in S_{old})\, = \dfrac{r_{old}}{R} \left( 1-\frac{|S_{new} \cap S_{old}|}{|S_{old}|}\right) + \dfrac{r_{new}}{R} \left( 1-\frac{|S_{new} \cap S_{old}|}{|S_{new}|}\right)$ 
 \label{eq:forkprobability}
 
 \vspace{1.5em}
@@ -224,7 +219,7 @@ $P(\,b \in S_{new} \wedge b \in S_{old})\, = \dfrac{r_{old}}{R} \left( 1-\frac{|
 
 
 %%%
-\begin{frame}{Why Care about Forks?}
+\begin{frame}{Why Should We Care about Forks?}
 
 \textbf{Uncertainty:} Confirmation status of transactions.
 \vspace{1.5em}
@@ -233,6 +228,9 @@ $P(\,b \in S_{new} \wedge b \in S_{old})\, = \dfrac{r_{old}}{R} \left( 1-\frac{|
 \vspace{1.5em}
 
 \textbf{Undermining trust:} Case of digital assets.
+\vspace{1.5em}
+
+\textbf{Security Tokens:} Multiple promises for the delivery of one good.
 \vspace{1.5em}
 
 \textbf{Cost driver:} Tax / legal questions, maintaining compatibility.
