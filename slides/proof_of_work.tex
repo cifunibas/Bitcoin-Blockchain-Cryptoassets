@@ -1,6 +1,6 @@
 % Choose one to switch between slides and handout
-\documentclass[]{beamer}
-%\documentclass[handout]{beamer}
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
@@ -46,41 +46,23 @@ Basic Idea: An activity that can be executed too quickly is \color{focus}combine
 %%%	
 
 %%%
-\begin{frame}{In the Context of Bitcoin}
-
-Proof of Work in the context of Bitcoin solves the following problems:
-
-\begin{itemize}
-	\item Blocks need to be created within certain time intervals
-	\begin{itemize}
-		\item Not too fast (Propagation delay)
-		\item Not too slow (Transaction throughput)
-	\end{itemize}
-	\item The chain must be protected from simple replication
-	\item Malicious behavior when creating blocks should be discouraged 
-\end{itemize}
-
-\end{frame}
-%%%
-
-%%%
 \begin{frame}{Implementation in the Bitcoin Protocol}
 
-In the Bitcoin protocol, Proof of Work is implemented in the context of \color{focus}block header hash values\color{black}. The properties of the \texttt{dSHA256} hash function make it impossible to create a block header hash with a desired value.
+In the Bitcoin protocol, Proof of Work is implemented through the use of \color{focus}block header hash values\color{black}. The properties of the \texttt{dSHA256} hash function make it impossible to create a block header hash with a desired value.
 
 \uncover<2->{
 	\vspace{1.5em}
 	\textbf{Trial and Error:}
 	\begin{itemize}
-		\item Require certain properties from valid block header hashes
-		\item Specifically: Below a certain threshold value
-		\item Each newly created block candidate has a random chance to satisfy the criteria
+		\item Require certain properties from valid block header hash values
+		\item Specifically: Hash value must be below a certain threshold value
+		\item Each newly created candidate block has a given probability to satisfy the criteria
 	\end{itemize}
 }
 
 \uncover<3->{
 	\vspace{0.5em}
-	$\Rightarrow$ Create new block candidates until the block header hash value is sufficiently low
+	$\Rightarrow$ Trial and error: Assemble new candidate blocks and compute block header hash value until it is sufficiently low
 }
  	
 \end{frame}
@@ -106,7 +88,7 @@ In the Bitcoin protocol, Proof of Work is implemented in the context of \color{f
 
 %%%
 \begin{frame}{Mining Bitcoin}
-	The iterative process of creating block candidates and checking their block header hash values against the threshold is called \color{focus}mining\color{black}.
+	The iterative process of creating candidate blocks and checking their block header hash values against the threshold is called \color{focus}mining\color{black}.
 	
 	
 	\uncover<2->{
@@ -146,7 +128,7 @@ In the Bitcoin protocol, Proof of Work is implemented in the context of \color{f
 	\uncover<2->{
 		\vspace{1.5em}
 		\begin{itemize}
-			\item The adjustment happens every 2'016 valid blocks
+			\item The adjustment happens every 2,016 valid blocks
 			\item Assuming 10 minute blocks, this is every 14 days
 			\item The new threshold value $\delta$ is calculated based on the expected value $E(t)$ and the actual duration $t$
 		\end{itemize}
@@ -169,7 +151,7 @@ In the Bitcoin protocol, Proof of Work is implemented in the context of \color{f
 	Blocks are generated faster than expected $t < E(t)$:
 	\begin{itemize}
 		\item $\frac{t}{E(t)}$ will be between 0 and 1 $\Rightarrow \delta_{new} < \delta_{old}$
-		\item A lower threshold value will lead to fewer accepted block candidates in the following period
+		\item A lower threshold value will lead to fewer accepted candidate blocks in the following period
 	\end{itemize}
 
 	\uncover<2->{
@@ -177,7 +159,7 @@ In the Bitcoin protocol, Proof of Work is implemented in the context of \color{f
 		Blocks are generated slower than expected $t > E(t)$:
 		\begin{itemize}
 			\item $\frac{t}{E(t)}$ will be above 1 $\Rightarrow \delta_{new} > \delta_{old}$
-			\item A higher threshold value will lead to more accepted block candidates in the following period
+			\item A higher threshold value will lead to more accepted candidate blocks in the following period
 		\end{itemize}
 	}
 
@@ -204,6 +186,25 @@ In the Bitcoin protocol, Proof of Work is implemented in the context of \color{f
 	\end{center}
 \end{frame}
 %%%	
+
+%%%
+\begin{frame}{In the Context of Bitcoin}
+
+Proof of Work in the context of Bitcoin solves the following problems:
+
+\begin{itemize}
+	\item Blocks need to be created within certain time intervals
+	\begin{itemize}
+		\item Not too fast (Propagation delay)
+		\item Not too slow (Transaction throughput)
+	\end{itemize}
+	\item The chain must be protected from simple replication
+	\item Malicious behavior when creating blocks should be discouraged 
+\end{itemize}
+
+\end{frame}
+%%%
+
 
 %%%
 \begin{frame}{Incentives}
