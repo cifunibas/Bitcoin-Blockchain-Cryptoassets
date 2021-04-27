@@ -4,7 +4,10 @@
 		%\draw [thick] (0,1.7) -- (0,0.3);
 		%\draw [thick,dotted] (0,0.3) -- (0,-0.3);
 		%\draw [thick, ->] (0,-0.3) -- (0,-2);
-		\draw [thick, ->] (0,4) -- (0,-2);
+		\draw [thick,dotted] (0,4) -- (0,3.7);
+		\draw [thick] (0,3.7) -- (0,-1.8);
+		\draw [thick,dotted, ->] (0,-1.8) -- (0,-2.1);
+		
 		%draw bullet points
 		\foreach \x in {3.5,2.5,1.5,0.5,-0.5,-1.5}
 		\filldraw[draw=black, fill = white, thick] (0, \x cm) circle (2pt);
