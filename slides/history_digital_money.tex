@@ -28,7 +28,8 @@
 	\column{0.4\textwidth}
 		\begin{figure}
 			\begin{tikzpicture}[scale=1]
-				\input{../assets/figures/before_bitcoin}	
+				\input{../assets/figures/before_bitcoin}
+				\filldraw[draw=black, fill = focus, thick] (0, 3.5 cm) circle (2pt);
 			\end{tikzpicture}
 		\end{figure}
 	\column{0.7\textwidth}
@@ -39,13 +40,33 @@
 			\item Electronic means of payment significantly limit privacy and traceable payment flows generate sensitive data.
 			\item Goal: Virtual money unit that imitates the anonymity of cash.
 			\item Monopolized money creation and centralized settlement.
-			\item Central bank blindly signs money units.
+			\item Central bank blindly signs monetary units.
 		\end{itemize}
 		\end{small}	
 \end{columns}
 \end{frame}
 %%%
 
+
+%%%
+\begin{frame}{Before Bitcoin}
+\begin{columns}
+	\column{0.4\textwidth}
+		\begin{figure}
+			\begin{tikzpicture}[scale=1]
+				\input{../assets/figures/before_bitcoin}
+				\filldraw[draw=black, fill = focus, thick] (0, 2.5 cm) circle (2pt);	
+			\end{tikzpicture}
+		\end{figure}
+	\column{0.7\textwidth}
+		\textbf{Crypto Anarchist Manifesto - Tim May} \\
+		\vspace{0.5em}
+		\link \href{https://groups.csail.mit.edu/mac/classes/6.805/articles/crypto/cypherpunks/may-crypto-manifesto.html}{Link} \\
+		\vspace{0.5em}
+		\includegraphics[scale=0.2]{../assets/images/crypto_manifesto}
+\end{columns}
+\end{frame}
+%%%
 
 
 %%%
@@ -54,7 +75,8 @@
 \column{0.4\textwidth}
 \begin{figure}
 	\begin{tikzpicture}[scale=1]
-		\input{../assets/figures/before_bitcoin}	
+		\input{../assets/figures/before_bitcoin}
+		\filldraw[draw=black, fill = focus, thick] (0, 1.5 cm) circle (2pt);	
 	\end{tikzpicture}
 \end{figure}
 \column{0.7\textwidth}
@@ -64,7 +86,7 @@
 	\begin{itemize}
 		\item Originally proposed as a mechanism for anti-DoS and spam email.
 		\item Introduced concept of artificial costs.
-		\item "The idea of using partial hashes is that they can be made arbitrarily expensive to compute (by choosing the desired number of bits of collision), and yet can be verified instantly."
+		\item "The idea of using partial hashes is that they can be made arbitrarily expensive to compute (by choosing the desired number of bits of collision), and yet can be verified instantly." \cite{back2002}
 	\end{itemize}
 	\end{small}
 \end{columns}
@@ -78,7 +100,8 @@
 \column{0.4\textwidth}
 \begin{figure}
 	\begin{tikzpicture}[scale=1]
-		\input{../assets/figures/before_bitcoin}	
+		\input{../assets/figures/before_bitcoin}
+		\filldraw[draw=black, fill = focus, thick] (0, 0.5 cm) circle (2pt);	
 	\end{tikzpicture}
 \end{figure}
 \column{0.7\textwidth}
@@ -105,7 +128,8 @@
 \column{0.4\textwidth}
 \begin{figure}
 	\begin{tikzpicture}[scale=1]
-		\input{../assets/figures/before_bitcoin}	
+		\input{../assets/figures/before_bitcoin}
+		\filldraw[draw=black, fill = focus, thick] (0, -0.5 cm) circle (2pt);
 	\end{tikzpicture}
 \end{figure}
 \column{0.7\textwidth}
@@ -115,7 +139,7 @@
 	\begin{itemize}
 		\item Describes the combination of the proof-of-work algorithm for competitive money creation.
 		\item Computing power is used to collateralise a public ledger, which grows into a chain of blocks through a reflexive reference.
-		\item "Thus, it would be very nice if there were a protocol whereby unforgeably costly bits could be created online with minimal dependence on trusted third parties, and then securely stored, transferred, and assayed with similar minimal trust. Bit gold."
+		\item "Thus, it would be very nice if there were a protocol whereby unforgeably costly bits could be created online with minimal dependence on trusted third parties, and then securely stored, transferred, and assayed with similar minimal trust. Bit gold." \cite{szabo2005}
 	\end{itemize}
 	\end{small}
 \end{columns}
@@ -129,18 +153,19 @@
 \column{0.4\textwidth}
 \begin{figure}
 	\begin{tikzpicture}[scale=1]
-		\input{../assets/figures/before_bitcoin}	
+		\input{../assets/figures/before_bitcoin}
+		\filldraw[draw=black, fill = focus, thick] (0, -0.5 cm) circle (2pt);	
 	\end{tikzpicture}
 \end{figure}
 \column{0.7\textwidth}
-	\textbf{Reusable Proofs of Work - Hal Finney}
+	\textbf{Reusable Proofs of Work - Hal Finney} \cite{finney2005}
 	\vspace{0.5em}
 	\begin{small}
 	\begin{itemize}
 		\item Combines ideas of Wei Dai and Adam Back.
 		\item A RPoW client can create a RPoW token by providing a proof-of-work string and signing with his private key.
 		\item Server can map that token to the signing key.
-		\item Client can give the token to another key by signing a transaction (transfer order) to a public key.
+		\item Client can give the token to another key by signing a transfer order to a public key.
 		\item Server registers the token as belonging to the corresponding private key.
 		%"An RPOW client creates an RPOW token by providing a proof-of-work string of a given difficulty, signed by his private key. The server then registers that token as belonging to the signing key. The client can then give the token to another key by signing a transfer order to a public key. The server then duly registers the token as belonging to the corresponding private key."
 	\end{itemize}
@@ -157,21 +182,34 @@
 		\begin{figure}
 			\begin{tikzpicture}[scale=1]
 				\input{../assets/figures/after_bitcoin}
+				\filldraw[draw=black, fill = focus, thick] (0, 3.5 cm) circle (2pt);
+				\filldraw[draw=black, fill = focus, thick] (0, 1.5 cm) circle (2pt);
 			\end{tikzpicture}
 		\end{figure}
 		\column{0.6\linewidth}
-		\textbf{Litecoin}
+			\begin{tikzpicture}
+				\node (Dogecoin) {\includegraphics[scale=0.13]{../assets/images/doge}};
+				\node[right =1mm of Dogecoin] {\textbf{Dogecoin}};
+			\end{tikzpicture}
+		\begin{small}
+			\begin{itemize}
+			\item Creatad as a fun cryptocurrency based on the popular "doge" internet meme.
+			\item Block time of 1 min and uncapped supply.
+			\item Can be mined on Windows, Mac, Linux or with a GPU.
+			\end{itemize}
+		\end{small}
 		\vspace{0.5em}
-		\begin{itemize}
-			\item Based on Bitcoin Protocol
-			\item Different hashing algorithm, Block time (2,5 min) and Hard Cap (84 million)
-		\end{itemize}
-		\vspace{0.5em}
-		\textbf{Namecoin}
-		\vspace{0.5em}
-		\begin{itemize}
-			\item Key/Value pair registration and transfer system based on the Bitcoin technology.
-		\end{itemize}
+			\begin{tikzpicture}
+				\node (Zcash) {\includegraphics[scale=0.08]{../assets/images/zcash}};
+				\node[right =1mm of Zcash] {\textbf{Zcash}};
+			\end{tikzpicture}
+		\begin{small}
+			\begin{itemize}
+				\item Focused on privacy and anonymity.
+				\item Uses zk-SNARK zero-knowlede proof technology.
+				\item Sending and receiving addresses or the amount are not revealed.
+			\end{itemize}
+		\end{small}
 	\end{columns}	
 \end{frame}
 %%%
@@ -181,19 +219,26 @@
 \begin{frame}{After Bitcoin: Forks and Altcoins}
 	\begin{columns}
 		\column{0.4\linewidth}
-		\begin{figure}
-			\begin{tikzpicture}[scale=1]
-				\input{../assets/figures/after_bitcoin}
-			\end{tikzpicture}
-		\end{figure}
+			\begin{figure}
+				\begin{tikzpicture}[scale=1]
+					\input{../assets/figures/after_bitcoin}
+					\filldraw[draw=black, fill = focus, thick] (0, 2.5 cm) circle (2pt);
+				\end{tikzpicture}
+			\end{figure}
 		\column{0.6\linewidth}
-		\textbf{Ethereum - Vitalik Buterin}
+			\begin{tikzpicture}
+				\node (Ethereum) at (1.8,2.5) {\includegraphics[scale=0.011]{../assets/images/ethereum}};
+				\node[right =1mm of Ethereum] {\textbf{Ethereum}};
+			\end{tikzpicture}
 		\vspace{0.5em}
-		\begin{itemize}
-			\item Protocol for building decentralized applications (dApps).
-			\item Touring-complete scripting language $\rightarrow$ Smart Contracts
-			\item Account based- instead of UTXO based model.
-		\end{itemize}
+		\begin{small}
+			\begin{itemize}
+				\item Protocol for building decentralized applications (dApps).
+				\item Turing-complete scripting language $\rightarrow$ Smart Contracts
+				\item Account based- instead of UTXO based model.
+				\item Allows for creation of Tokens (e.g. Stablecoins) via standardized Smart Contracts such as ERC20.
+			\end{itemize}
+		\end{small}
 	\end{columns}	
 \end{frame}
 %%%
@@ -214,36 +259,38 @@
 
 
 %%%
-\begin{frame}{Bitcoin as Money?}
-	\begin{figure}
-		\begin{tikzpicture}
-		\begin{footnotesize}
-	
-		\draw[dotted, above] (0,0) rectangle (9.6, 1.3) node[above = 3pt, midway] (Unit) {\textbf{Monetary unit}};
+
+%\begin{frame}{Bitcoin as Money?}
+%	\begin{figure}
+%		\begin{tikzpicture}
+%		\begin{footnotesize}
+%	
+%		\draw[dotted, above] (0,0) rectangle (9.6, 1.3) node[above = 3pt, midway] (Unit) {\textbf{Monetary unit}};
 		
-		\alert<1>{
-		\uncover<1->{\filldraw[fill = highlight, draw = highlight!20!black] (0.2, 0.1) rectangle (3.2, 0.8) node[midway] {Medium of exchange};}
-		}
-		\alert<2>{
-		\uncover<2->{\filldraw[fill = highlight, draw = highlight!20!black] (3.3, 0.1) rectangle (6.3, 0.8) node[midway] {Unit of account};}
-		}
-		\alert<3>{
-		\uncover<3->{\filldraw[fill = highlight, draw = highlight!20!black] (6.4, 0.1) rectangle (9.4, 0.8) node[midway] {Store of value};}
-		}
-		\end{footnotesize}
-		\end{tikzpicture}
-	\end{figure}
-	\begin{itemize}
-			\item<1-> Comparatively low adoption rates and technical limitations. Falls short of becoming the dominant medium of exchange at the moment.
-			\item<2-> People have certain difficulties in grasping decimal numbers and interpreting their information content correctly.
-			\item<3-> Relatively high volatility. Should lower itself with more confidence in the system, but will probably settle at a high level compared to other monetary units (capped supply).
-	\end{itemize}
-\end{frame}
+%		\alert<1>{
+%		\uncover<1->{\filldraw[fill = highlight, draw = highlight!20!black] (0.2, 0.1) rectangle (3.2, 0.8) node[midway] {Medium of exchange};}
+%		}
+%		\alert<2>{
+%		\uncover<2->{\filldraw[fill = highlight, draw = highlight!20!black] (3.3, 0.1) rectangle (6.3, 0.8) node[midway] {Unit of account};}
+%		}
+%		\alert<3>{
+%		\uncover<3->{\filldraw[fill = highlight, draw = highlight!20!black] (6.4, 0.1) rectangle (9.4, 0.8) node[midway] {Store of value};}
+%		}
+%		\end{footnotesize}
+%		\end{tikzpicture}
+%	\end{figure}
+%	\begin{itemize}
+%			\item<1-> Comparatively low adoption rates and technical limitations. Falls short of becoming the dominant medium of exchange at the moment.
+%			\item<2-> People have certain difficulties in grasping decimal numbers and interpreting their information content correctly.
+%			\item<3-> Relatively high volatility. Should lower itself with more confidence in the system, but will probably settle at a high level compared to other monetary units (capped supply).
+%	\end{itemize}
+%\end{frame}
 %%%
 
 
 %%%
 \begin{frame}%[allowframebreaks]
+
 \frametitle{References and Recommended Reading}
 	\bibliographystyle{amsplain}
 	\bibliography{../assets/bib/refs}
