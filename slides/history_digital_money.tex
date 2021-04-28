@@ -109,18 +109,18 @@
 	\end{tikzpicture}
 \end{figure}
 \column{0.7\textwidth}
-	\textbf{Reusable Proofs of Work - Hal Finney}
+	\textbf{Bit Gold - Nick Szabo}
 	\vspace{0.5em}
 	\begin{small}
 	\begin{itemize}
-		\item Combines ideas of Wei Dai and Adam Back.
-		\item "A PoW token is something that takes a relatively long time to compute but which can be checked quickly. RPoW uses hashcash, which are values whose SHA-1 hashes have many high bits of zeros."
+		\item Describes the combination of the proof-of-work algorithm for competitive money creation.
+		\item Computing power is used to collateralise a public ledger, which grows into a chain of blocks through a reflexive reference.
+		\item "Thus, it would be very nice if there were a protocol whereby unforgeably costly bits could be created online with minimal dependence on trusted third parties, and then securely stored, transferred, and assayed with similar minimal trust. Bit gold."
 	\end{itemize}
 	\end{small}
 \end{columns}
 \end{frame}
 %%%	
-
 
 
 %%%
@@ -133,13 +133,16 @@
 	\end{tikzpicture}
 \end{figure}
 \column{0.7\textwidth}
-	\textbf{Bit Gold - Nick Szabo}
+	\textbf{Reusable Proofs of Work - Hal Finney}
 	\vspace{0.5em}
 	\begin{small}
 	\begin{itemize}
-		\item Describes the combination of the proof-of-work algorithm for competitive money creation.
-		\item Computing power is used to collateralise a public ledger, which grows into a chain of blocks through a reflexive reference.
-		\item "Thus, it would be very nice if there were a protocol whereby unforgeably costly bits could be created online with minimal dependence on trusted third parties, and then securely stored, transferred, and assayed with similar minimal trust. Bit gold."
+		\item Combines ideas of Wei Dai and Adam Back.
+		\item A RPoW client can create a RPoW token by providing a proof-of-work string and signing with his private key.
+		\item Server can map that token to the signing key.
+		\item Client can give the token to another key by signing a transaction (transfer order) to a public key.
+		\item Server registers the token as belonging to the corresponding private key.
+		%"An RPOW client creates an RPOW token by providing a proof-of-work string of a given difficulty, signed by his private key. The server then registers that token as belonging to the signing key. The client can then give the token to another key by signing a transfer order to a public key. The server then duly registers the token as belonging to the corresponding private key."
 	\end{itemize}
 	\end{small}
 \end{columns}
@@ -231,9 +234,9 @@
 		\end{tikzpicture}
 	\end{figure}
 	\begin{itemize}
-			\item<1-> Due to comparatively low adoption rates and technical limitations, Bitcoin falls short of becoming the dominant medium of exchange at the moment.
+			\item<1-> Comparatively low adoption rates and technical limitations. Falls short of becoming the dominant medium of exchange at the moment.
 			\item<2-> People have certain difficulties in grasping decimal numbers and interpreting their information content correctly.
-			\item<3-> Relatively high volatility (speculation, capped supply). More confidence should lower volatility, but will probably settle at a high level compared to other monetary units.
+			\item<3-> Relatively high volatility. Should lower itself with more confidence in the system, but will probably settle at a high level compared to other monetary units (capped supply).
 	\end{itemize}
 \end{frame}
 %%%
