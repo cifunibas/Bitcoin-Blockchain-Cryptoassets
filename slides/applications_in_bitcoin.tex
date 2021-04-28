@@ -1,0 +1,485 @@
+% Choose one to switch betweeen slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Applications in Bitcoin}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+\input{../config/solidity.tex}
+
+% Define Settings for JSON 
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+	basicstyle=\normalfont\ttfamily\footnotesize,
+	numbers=none,
+	numberstyle=\scriptsize,
+	stepnumber=1,
+	numbersep=8pt,
+	showstringspaces=false,
+	breaklines=true,
+	frame=none,
+	backgroundcolor=\color{background},
+	literate=
+	*{0}{{{\color{numb}0}}}{1}
+	{1}{{{\color{numb}1}}}{1}
+	{2}{{{\color{numb}2}}}{1}
+	{3}{{{\color{numb}3}}}{1}
+	{4}{{{\color{numb}4}}}{1}
+	{5}{{{\color{numb}5}}}{1}
+	{6}{{{\color{numb}6}}}{1}
+	{7}{{{\color{numb}7}}}{1}
+	{8}{{{\color{numb}8}}}{1}
+	{9}{{{\color{numb}9}}}{1}
+	{:}{{{\color{punct}{:}}}}{1}
+	{,}{{{\color{punct}{,}}}}{1}
+	{\{}{{{\color{delim}{\{}}}}{1}
+	{\}}{{{\color{delim}{\}}}}}{1}
+	{[}{{{\color{delim}{[}}}}{1}
+	{]}{{{\color{delim}{]}}}}{1},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+
+%Proof-of-existence, commit-and-reveal (auf Bitcoin), Oracles, Offchain Data, Tokenization (colored coins → outlook to smart contract based), Merkle Proofs, Zero knowledge proof
+
+%%%
+
+\begin{frame}{Public vs. Private}
+	Optional
+\end{frame}
+
+%%%
+
+\begin{frame}{External Data}	
+	\begin{itemize}
+		\item<1 ->Native On-Chain Data
+		\begin{itemize}
+			\item<1 ->Data that is stored on-chain and fully secured by the consensus protocol (e.g. Bitcoin trx)\\
+			\vspace{0.25em}$\rightarrow$ Automated evaluation and verification
+		\end{itemize}
+		\vspace{1em}
+		\item<2 ->Added Off-Chain Data
+		\begin{itemize}
+			\item<2 -> Data that is stored on-chain but not secured by the consensus protocol (e.g. course certificates)\\
+			\vspace{0.25em}$\rightarrow$ Automated evaluation, subject to data quality
+		\end{itemize}
+		\vspace{1em}
+		\item<3 -> Off-Chain Data
+		\begin{itemize}
+			\item<3 -> Data that is NOT directly stored on the Blockchain (e.g. weather, results of a football game)\\
+			\vspace{0.25em}$\rightarrow$ Requires trustworthy data providers (oracles)
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%%%
+
+\begin{frame}{External Data and the Oracle Poblem}
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			\begin{itemize}[<+->]
+				\item Example: Tracking ownership of a parcel
+				\item On-Chain representation of parcel with unique token
+				\item Reproducible crypto-anker (e.g. QR-code) is problematic
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\includegraphics[width=4cm]{../assets/images/parcel.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%%%
+
+\begin{frame}{Oracles on Bitcoin}
+	\textbf{Example:} Alice and Bob want to bet on some event.\\
+	\vspace{0.25cm}
+	\uncover<2 ->{\textbf{Three possibilities:}}
+	\begin{itemize}
+		\vspace{0.1cm}
+		\item<2->[1] Both parties transfer their stake to the address of the oracle. The oracle then sends the prize to the winning party after the event has taken place.
+		\begin{itemize}
+			\item<2-> Problem: Control over funds lies solely with the oracle.
+		\end{itemize}
+		\vspace{0.2cm}
+		\item<3->[2] They create a 2-of-3 multisig transaction. Alice, Bob and the oracle each hold a key.
+		\begin{itemize}
+			\item<3-> Control distributed and Alice and Bob can overrule the oracle.
+		\end{itemize}
+		\vspace{0.2cm}
+		\item<4->[3] More than one oracle and use m-of-n multisig transaction. 
+		\begin{itemize}
+			\item<4-> Betting parties hold $\frac{m}{2}$ keys and \small{$m-1$} oracles hold one key.
+			\item<4-> Any $m-of-2m-1$ multisig implementation possible ($m$ has to be an even integer).
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%%%
+
+\begin{frame}{Proof of Existence}
+	\centering
+	\begin{tikzpicture} 
+		\uncover<+->{\node (img2) {\includegraphics[width = 10cm, frame]{../assets/images/google1.PNG}};}
+		\uncover<+->{\node (img3) at (img2) {\includegraphics[width = 10cm, frame]{../assets/images/google2.PNG}};}
+		\uncover<+->{\node (img4) at (img2) {\includegraphics[width = 10cm, frame]{../assets/images/google3.PNG}};}
+		\uncover<+->{\node (img5) {\includegraphics[width = 10cm, frame]{../assets/images/google4.PNG}};}
+		\uncover<+->{\node (img6) at (img2) {\includegraphics[width = 10cm, frame]{../assets/images/google5.PNG}};}
+		\uncover<+->{\node (img7) at (img2) {\includegraphics[width = 10cm, frame]{../assets/images/google6.PNG}};}
+	\end{tikzpicture}
+\end{frame}
+
+%%%
+\begin{frame}{Diplomas on the Blockchain}
+	\begin{minipage}{\linewidth}
+		\textbf{\large{Issuance:}}
+			\begin{columns}
+			\begin{column}{0.3\textwidth}
+				\centering
+				\includegraphics[width=1.5cm]{../assets/images/diploma.png}\\
+				University issues\\
+				diploma
+				\end{column}
+			\begin{column}{0.05\textwidth}
+				\includegraphics[width=0.75cm]{../assets/images/big_arrow.png}
+			\end{column}
+			\begin{column}{0.3\textwidth}
+				\centering
+				\includegraphics[width=1.5cm]{../assets/images/fingerprint.png}\\
+				Computes hash value of diploma
+			\end{column}
+			\begin{column}{0.05\textwidth}
+				\includegraphics[width=0.75cm]{../assets/images/big_arrow.png}
+			\end{column}
+			\begin{column}{0.3\textwidth}
+				\centering
+				\includegraphics[width=1.5cm]{../assets/images/write_onchain.png}\\
+				Saves hash value\\ on blockchain
+			\end{column}
+		\end{columns}
+	\end{minipage}\vfill
+	\vspace{0.5cm}
+	\begin{minipage}{\linewidth}
+	\textbf{\large{Verification:}}
+	\begin{columns}
+		\begin{column}{0.3\textwidth}
+			\centering
+			\includegraphics[width=1.5cm]{../assets/images/receive_diploma.png}\\
+			Potential employer receives diploma
+		\end{column}
+		\begin{column}{0.05\textwidth}
+			\includegraphics[width=0.75cm]{../assets/images/big_arrow.png}
+		\end{column}
+		\begin{column}{0.3\textwidth}
+			\centering
+			\includegraphics[width=1.5cm]{../assets/images/fingerprint.png}\\
+			Computes hash value of diploma
+		\end{column}
+		\begin{column}{0.05\textwidth}
+			\includegraphics[width=0.75cm]{../assets/images/big_arrow.png}
+		\end{column}
+		\begin{column}{0.3\textwidth}
+			\centering
+			\includegraphics[width=1.5cm]{../assets/images/verify_onchain.png}\\
+			Compares with on-chain hash value
+		\end{column}
+	\end{columns}
+\end{minipage}
+\end{frame}
+
+%%%
+
+\begin{frame}{Proof of Existence}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=3.5cm, frame]{../assets/images/Diploma_unibas.PNG}
+				\scriptsize{\href{https://cif.unibas.ch/en/events-projects/certificates/}{cif.unibas.ch/en/}}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item<2 -> Certificate for Blockchain-related courses since 2018 
+				\item<3 -> Roll-out for entire University of Basel coming soon
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%%%
+
+\begin{frame}{Commit-and-reveal}
+	All information on a public blockchain is, well, public.\\
+	Two individuals\\
+	Show this on blocks. Rock paper scissor
+\end{frame}
+
+%%%
+
+\begin{frame}{Commit-and-reveal}
+ Second page needed?
+\end{frame}
+
+%%%
+
+\begin{frame}[fragile]{Merkle Proofs}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=4cm]{../assets/images/id.PNG}
+			\end{figure}
+			\begin{itemize}
+				\item<1 ->Alice has to proof a certain age
+				\item<2 ->But Alice does not want to disclose other private information
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+%			backgroundcolor = \color{lightgray}
+			\begin{lstlisting}[language=json,firstnumber=1]
+{
+ "Name": "Alice",
+ "SaltName": 103982023492,
+ "DateOfBirth": "1/1/2000",
+ "SaltDate": 787793837929,
+ "PlaceOfBirth": "Basel",
+ "SaltPlace": 989229104925
+}
+			\end{lstlisting}
+			\centering
+			\scriptsize{Passport as a JSON object}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%%%
+
+\begin{frame}{Merkle Proofs}
+	\begin{figure}
+		\centering
+		\resizebox{9cm}{!}{%
+		\begin{tikzpicture}[
+			basicnode/.style={rectangle, draw=black!60, fill=white!5, very thick, minimum size=5mm},
+			bluenode/.style={rectangle, draw=black!60, fill=blue!7, very thick, minimum size=5mm},
+			greennode/.style={rectangle, draw=black!60, fill=green!6, very thick, minimum size=5mm},
+			basicdotted/.style={rectangle, draw=blue!60, fill=black!5, very thick, dashed, minimum size=5mm},
+			]
+			%Nodes
+			\node[bluenode, align=center] (startpoint) 	at (6,1) {D:\\ 787793\\837929};
+			\node[basicnode, align=center] (PlaceOfBirth)	[right=0.75cm of startpoint] {E:\\ Place of Birth:\\ Basel};
+			\node[basicnode, align=center] (F)	[right= 0.25cm of PlaceOfBirth] {F:\\ 989229\\ 104925};
+			\node[greennode, align=center] (DateOfBirth)	[left= 0.25cm of startpoint] {C:\\ Date of Birth:\\ 1/1/2000};
+			\node[basicnode, align=center] (B)	[left= 0.75cmof DateOfBirth] {B:\\ 103982\\ 023492};
+			\node[basicnode, align=center] (Name)	[left= 0.25cm of B] {A:\\ Name:\\ Alice};
+			
+			\node[bluenode, align=center] (HAB) at (0.2,3) {$H_{AB}$};
+			\node[basicdotted, align=center] (HCD) at (4.6,3) {$H_{CD}$};
+			\node[bluenode, align=center] (HEF)	at (9.7,3) {$H_{EF}$};
+			
+			\node[basicdotted, align=center] (HABCD) at (2.5,5) {$H_{ABCD}$};
+			\node[basicdotted, align=center] (HABCDEF)	at (5.5,7) {Root\\ $H_{ABCDEF}$};	
+			
+			%Lines
+			\draw[-stealth,thick,shorten >=0.05cm,shorten <=0.05cm] (Name.north) -- (HAB.south);
+			\draw[-stealth,thick, shorten >=0.05cm,shorten <=0.05cm] (B.north) -- (HAB.south);
+			\draw[-stealth,thick, shorten >=0.05cm,shorten <=0.05cm] (DateOfBirth.north) -- (HCD.south);
+			\draw[-stealth,thick, shorten >=0.05cm,shorten <=0.05cm] (startpoint.north) -- (HCD.south);
+			\draw[-stealth,thick, shorten >=0.05cm,shorten <=0.05cm] (PlaceOfBirth.north) -- (HEF.south);
+			\draw[-stealth,thick, shorten >=0.05cm,shorten <=0.05cm] (F.north) -- (HEF.south);
+			
+			\draw[-stealth,thick, shorten >=0.05cm,shorten <=0.05cm] (HAB.north) -- (HABCD.south);
+			\draw[-stealth,thick, shorten >=0.05cm,shorten <=0.05cm] (HCD.north) -- (HABCD.south);
+			\draw[-stealth,thick, shorten >=0.05cm,shorten <=0.05cm] (HABCD.north) -- (HABCDEF.south);
+			\draw[-stealth,thick, shorten >=0.05cm,shorten <=0.05cm] (HEF.north) -- (HABCDEF.south);
+		\end{tikzpicture}}
+	\end{figure}
+	\begin{itemize}
+		\item<2 -> Alice provides C, D, $H_{AB}$ and $H_{EF}$
+		\item<3 -> Authenticity can be verified with Merkle Root ($H_{ABCDEF}$) 
+%		\item<2 ->Salt soll Brute-Force-Angriffe erschweren
+%		\item<3 ->Speicherung der Merkle Root durch eine vertrauenswurdige Institution (z.B. Staat)
+	\end{itemize}
+\end{frame}
+
+%%%
+
+\begin{frame}{Tokenization}
+	\center
+	\begin{block}{\textbf{Definition}}
+		Tokens are rivalrous digital units which entitle its current owner to (the delivery of) an asset or service.
+	\end{block}
+	\vspace{1cm}
+	\uncover<2 ->{\begin{figure}
+		\begin{minipage}[t]{0.45\linewidth}
+			\center
+			\includegraphics[width=2cm]{../assets/images/house_1.png}
+		\end{minipage}
+		\hfill
+		\begin{tikzpicture}[remember picture, overlay]
+			\node[above] at (-0.3, 1.6){\scriptsize{Counterparty Risk}};
+			\fill[highlight] (-1.3, 0.6) -- (0, 0.6) -- (0, 0.1) -- (0.5, 0.85) -- (0, 1.6) -- (0, 1.2) -- (-1.3, 1.2) -- (-1.3, 0.6);
+		\end{tikzpicture}
+		\begin{minipage}[t]{0.45\linewidth}
+			\center
+			\includegraphics[width=2.3cm]{../assets/images/token_house.png}
+		\end{minipage}
+	\end{figure}}
+	\vspace{0.5cm}
+	\begin{itemize}
+		\item<3 ->Basically, every asset or promise can be tokenized
+		\item<4 ->Distinguish fungible and non-fungible tokens
+	\end{itemize}
+\end{frame}
+
+%%%
+
+\begin{frame}{Tokenization}
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			\textbf{Colored Coins}
+			\begin{itemize}
+				\item<2 -> External promise is attached to a Bitcoin UTXO
+				\item<3 -> Additional output with meta data
+				\item<4 -> Analogy: 
+				\begin{itemize}
+					\item<4 -> 5$\,$\$ bill
+					\item<4 -> Promise is written on bill
+					\item<4 -> Can freely circulate, including the promise
+				\end{itemize}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{figure}
+				\centering
+				Show transaction output and meta data
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%%%
+
+\begin{frame}{Tokenization}
+	\begin{columns}
+		\begin{column}{0.65\textwidth}
+			\textbf{Layer-based Tokens}
+			\begin{itemize}
+				\item<1 -> \texttt{OP\_RETURN} is used to save arbitrary data on-chain 
+				\item<2 -> Transaction graph on a second layer is needed for interpretation
+				\item<3 -> Analogy:
+				\begin{itemize}
+					\item<4 -> Transaction system based on newspapers
+					\item<4 -> Promise (Token) is published in a encoded advertisement
+					\item<4 -> External transaction graph interprets and registers transfer
+				\end{itemize}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width = 3.5cm]{../assets/images/newspaper.jpg}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%%%
+
+\begin{frame}{Smart Contracts}
+	\begin{block}{\textbf{\textcolor{black}{Definition}}}
+		Ein Smart Contract ist ein semi-automatisierter Prozess, der durch ein verteiltes Konsensprotokoll besichert wird.
+	\end{block}
+	\begin{itemize}
+		\item<2-> Breitere Definition des Begriffs als gebr"auchliche Verwendung
+		\item<3-> Nicht an eine bestimmte Blockchain (wie z.B. Ethereum) gebunden
+		\item<4-> not smart, not automated
+	\end{itemize}
+\end{frame}
+
+%%%
+
+\begin{frame}[fragile]{Smart Contracts}
+	\begin{columns}
+		\begin{column}{0.3\textwidth}
+			\includegraphics[width=1\textwidth]{../assets/images/vending-machine.png}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+			\begin{block}{\textcolor{black}{\textbf{Simple Vending Machine}}}
+				\begin{lstlisting}[firstnumber=1,  xleftmargin=0pt, columns=fullflexible,language=Solidity] 
+if(coin >= price){
+	dispenseBeverage();
+	returnChange(coin - price);
+}else{
+	print("insufficient funds");
+}
+				\end{lstlisting}
+			\end{block}
+		\end{column}
+	\end{columns}
+	\vspace{0.5cm}
+	\uncover<2 ->{
+		Trust Based Execution:
+		\begin{itemize}
+			\item Code ist nicht open source
+			\item Execution Environment kann nicht beobachtet werden
+	\end{itemize}}
+\end{frame}
+
+%%%
+
+\begin{frame}{Smart Contracts}
+	UTXO vs Account based
+\end{frame}
+
+%%%
+
+\begin{frame}{Tokenization revisited}
+	Explain smart contract tokenization here?
+\end{frame}
+
+%%%
+
+\begin{frame}{Tokenization revisited}
+	\begin{table}
+		\center
+		\resizebox{!}{2.9cm}{%
+			\begin{tabular}{ p{0.25\linewidth} p{0.4\linewidth} p{0.02\linewidth} p{0.4\linewidth}} \hline \hline
+				\textbf{Category}     & \textbf{Description} && \textbf{Examples}\\\hline
+				UTXO-based            & Uses a fragment of a native Blockchain asset as a container to which additional assets can be attached.            && Colored Coins        \\ \hline
+				Layer-based           & Uses metadata transactions and a separate transaction graph to create and track tokens.            && Omni (Master Coin), Counterparty        \\ \hline
+				Smart contract-based  & A dedicated smart contract creates and tracks states that represent token ownership. It maps tokens to current owner addresses.       && ERC-20, ERC-223, ERC-721, ERC-1155, NEP5, NEP11, QRC-20\\\hline\hline
+		\end{tabular}}
+		\caption{\scriptsize{Summary of the three categories of token standards \href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3443382}{(Roth et al., 2019).}}}
+		\label{tbl:2}
+	\end{table}
+\end{frame}
+
+%%%
+
+\begin{frame}%[allowframebreaks]
+	\frametitle{References}
+	\bibliographystyle{amsplain}
+	\bibliography{../assets/bib/refs}
+\end{frame}
+%%%
+\end{document}
