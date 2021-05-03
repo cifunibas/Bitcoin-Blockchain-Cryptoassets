@@ -10,7 +10,6 @@
 
 % Config File
 \input{../config/config.tex}
-\usetikzlibrary{calc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,8 +23,7 @@
 	
 	%%%
 	\begin{frame}{Why Consensus Matters}
-		
-		Distributed ledger as \color{focus} chain of transactions and states \color{black} whose \color{focus} compliance with an explicit rule set \color{black} is  attested by a reliable network of record keeping nodes.
+		Blockchain as \color{focus} chain of transactions and states \color{black} whose \color{focus} compliance with an explicit rule set \color{black} is  attested by a reliable network of record keeping nodes.
 		
 		\uncover<2->{
 			\vspace{1.5 em}
@@ -39,7 +37,7 @@
 			
 			\vspace{1 em}
 			
-			$\Rightarrow$ Value of the ledger content relies on the network attesting it.
+			$\Rightarrow$ Value of the chain content relies on the network attesting it.
 		}
 		
 	\end{frame}
@@ -71,7 +69,7 @@
 	%%%
 	\begin{frame}{What Makes a Good Consensus Mechanism?}
 		
-		Suitability of a consensus mechanism \color{focus} depends on the purpose and user base \color {black} of a decentralized ledger.
+		Suitability of a consensus mechanism \color{focus} depends on the purpose and user base \color {black} of a blockchain.
 		\vspace{1 em}
 		
 		\textbf{The Trilemma:}
@@ -96,6 +94,24 @@
 		\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
 			\input{../assets/figures/consensus_mechanisms}
 		\end{tikzpicture}
+		
+		\pause
+		\vspace{1.5em}	
+		Openness of the set of consensus-relevant nodes and resources:
+		\begin{table}[h]
+			\begin{center}
+				\begin{tabular}{lccc}
+					\hline \hline 
+					& Nodes & Resources \\
+					\hline
+					Proof of Work  &   Open  & Open  \\
+					\uncover<3->{Proof of Stake &  Open  & Closed} \\
+					\uncover<4->{Proof of Authority  & Closed & Closed}  \\ 
+					\hline \hline 
+				\end{tabular}
+			\end{center}
+		\end{table}
+	
 	\end{frame}
 	%%%
 	
@@ -104,14 +120,12 @@
 		\begin{center}
 			\begin{tikzpicture}[scale=0.6, every node/.style ={scale=0.8}]
 				\input{../assets/figures/trilemma}
-				\coordinate (AC) at ($(A)!0.4!(C)$);
-				\node (pow) at ($(AC)!0.2!(B)$) [circle, fill = black, minimum width=0.2cm,minimum height=0.2cm]{};
-				\node at (pow) [below = 0.2] {\texttt{PoW}};
 			\end{tikzpicture}
 		\end{center}
-	
+		
+		% Menge an resoures open vs closed (resourcen die angreifer braucht)
 		\begin{description}[labelwidth=10em]
-			\item[\textbf{Scalability}] Every node needs to process every transaction. Block creation is very resource intensive.
+			\item[\textbf{Scalability}] Every full node needs to process every transaction. Block creation is very resource intensive.
 			\item[\textbf{Decentralization}] Open network with many participants. Mining pools compromise decentralization.
 			\item[\textbf{Security}] Secured by ressource allocation. Simplicity increases security.
 		\end{description}
@@ -120,20 +134,44 @@
 	
 	%%%
 	\begin{frame}{Proof of Stake}
-		To participate in the consensus network, each node - called a validator - needs to deposit and lock protocol base assets. This is called staking.
+		\small
+		To participate in the consensus network, each node - called a validator - needs to \color{focus} deposit and lock native protocol assets\color{black}. This is called staking.
 		
+		\pause
 		\vspace{1.5 em}
-		\textbf{Block creation and transaction validation:}
-		Block creators are selected at random in proportion to their stake. A set of other validators will then attest to the validity of the created blocks.
-		
+		\begin{minipage}{0.2\textwidth}
+			\begin{center}
+				\includegraphics[height=4em]{../assets/images/blocks}
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.7\textwidth}
+			\textbf{Block creation and transaction validation} \\
+			Block creators are selected at random in proportion to their stake. A subset of other validators will then attest to the validity of the created blocks.
+		\end{minipage}
+	
+		\pause
 		\vspace{1.5 em}
-		\textbf{Malicious and unresponsive validators:}
-		Malicious behaviour is punished by slashing (destroying a significant part) of the staked assets of the offenders. Failure to participate forfeits any rewards and might be punished furhter.
-		
+		\begin{minipage}{0.2\textwidth}
+			\begin{center}
+				\includegraphics[height=4em]{../assets/images/mask}
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.7\textwidth}
+			\textbf{Malicious and unresponsive validators} \\
+			Malicious behavior is punished by slashing the staked assets of the offenders. Failure to participate forfeits any rewards and might be punished further.
+		\end{minipage}
+	
+		\pause
 		\vspace{1.5 em}
-		\textbf{Incentive system:}
-		Validators receive returns on their stake by performing their duties. These rewards are funded by transaction costs and/or newly generated assets (inflation).
-		
+		\begin{minipage}{0.2\textwidth}
+			\begin{center}
+				\includegraphics[height=4em]{../assets/images/coin-stack}
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.7\textwidth}
+			\textbf{Rewards and incentive system} \\
+			Validators receive returns on their stake by performing their duties. These rewards are funded by transaction costs and/or newly generated assets.
+		\end{minipage}
 	\end{frame}
 	%%%
 	
@@ -142,36 +180,57 @@
 		\begin{center}
 			\begin{tikzpicture}[scale=0.6, every node/.style ={scale=0.8}]
 				\input{../assets/figures/trilemma}
-				\coordinate (AC) at ($(A)!0.5!(C)$);
-				\node (pos) at ($(AC)!0.5!(B)$) [circle, fill = black, minimum width=0.2cm,minimum height=0.2cm]{};
-				\node at (pos) [below = 0.2] {\texttt{PoS}};
 			\end{tikzpicture}
 		\end{center}
 		
 		\begin{description}[labelwidth=10em]
-			\item[\textbf{Scalability}] Only a set of validators need to process each transaction. Proposers are randomly selected.
+			\item[\textbf{Scalability}] Only a subset of validators need to process each transaction. Proposers are randomly selected.
 			\item[\textbf{Decentralization}] Open network with many participants. Potential crowding out over time.
-			\item[\textbf{Security}] Secured by staked capital. High complexity of the mechanism reduces security.
+			\item[\textbf{Security}] Secured by staked capital. High complexity of the mechanism may introduce new attack vectors.
 		\end{description}
 	\end{frame}
 	%%%
 	
 	%%%
 	\begin{frame}{Proof of Authority}
-		The consensus network consists of a \color{focus}small set of approved nodes\color{black} - called validators. These are often identified and have a reputation attached.
+		\small
+		The consensus network consists of a \color{focus}small set of approved nodes \color{black} - called validators. These are often identified and have a reputation attached.
 		
+		\pause
 		\vspace{1.5 em}
-		\textbf{Block creation and transaction validation:}
-		Validators create and validate blocks. Other validators will attest to the validity of the created blocks.
+		\begin{minipage}{0.2\textwidth}
+			\begin{center}
+				\includegraphics[height=4em]{../assets/images/blocks}
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.7\textwidth}
+			\textbf{Block creation and transaction validation} \\
+			Validators, usually chosen at random, create and validate blocks. Other validators will attest to the validity of the created blocks.
+		\end{minipage}
 		
+		\pause
 		\vspace{1.5 em}
-		\textbf{Malicious and unresponsive validators:}
-		Malicious or unsresponsive behaviour is punished by excluding a validator and negatively impacting their reputation.
+		\begin{minipage}{0.2\textwidth}
+			\begin{center}
+				\includegraphics[height=4em]{../assets/images/mask}
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.7\textwidth}
+			\textbf{Malicious and unresponsive validators} \\
+			Malicious or unresponsive behavior is punished by excluding a validator and impacting their reputation. Additionally, legal actions are often possible.
+		\end{minipage}
 		
+		\pause
 		\vspace{1.5 em}
-		\textbf{Incentive system:}
-		Block rewards are usually only the transaction costs.
-		
+		\begin{minipage}{0.2\textwidth}
+			\begin{center}
+				\includegraphics[height=4em]{../assets/images/coin-stack}
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.7\textwidth}
+			\textbf{Rewards and incentive system} \\
+			Block rewards are usually limited to the transaction costs. Validators often have external incentives to run their nodes.
+		\end{minipage}
 	\end{frame}
 	%%%
 	
@@ -180,49 +239,31 @@
 		\begin{center}
 			\begin{tikzpicture}[scale=0.6, every node/.style ={scale=0.8}]
 				\input{../assets/figures/trilemma}
-				\coordinate (AC) at ($(A)!0.05!(C)$);
-				\node (poa) at ($(AC)!0.95!(B)$) [circle, fill = black, minimum width=0.2cm,minimum height=0.2cm]{};
-				\node at (poa) [below = 0.2] {\texttt{PoA}};
 			\end{tikzpicture}
 		\end{center}
 		
 		\begin{description}[labelwidth=10em]
-			\item[\textbf{Scalability}] Very small set of validators and simple mechanism.
-			\item[\textbf{Decentralization}] Closed network, validators can easily collude. Almost fully centralized.
-			\item[\textbf{Security}] Simple mechanism and only approved validators provide a high security.
+			\item[\textbf{Scalability}] Very small set of validators and simple mechanism. Higher ceiling for validator performance (hardware).
+			\item[\textbf{Decentralization}] Closed network with risk of collusion. In many cases: heavily centralized. 
+			\item[\textbf{Security}] Pro: Immutability not given, Con: Immutability not given.
 		\end{description}
 	\end{frame}
 	%%%
 	
 	%%%
-	\begin{frame}{Consensus Trilemma}
-		\begin{center}
-			\begin{tikzpicture}[scale=0.6, every node/.style ={scale=0.8}]
-				\input{../assets/figures/trilemma}
-				
-				\coordinate (AC) at ($(A)!0.4!(C)$);
-				\node (pow) at ($(AC)!0.2!(B)$) [circle, fill = black, minimum width=0.2cm,minimum height=0.2cm]{};
-				\node at (pow) [below = 0.2] {\texttt{PoW}};
-				
-				\coordinate (AC) at ($(A)!0.5!(C)$);
-				\node (pos) at ($(AC)!0.5!(B)$) [circle, fill = black, minimum width=0.2cm,minimum height=0.2cm]{};
-				\node at (pos) [below = 0.2] {\texttt{PoS}};
-				
-				\coordinate (AC) at ($(A)!0.05!(C)$);
-				\node (poa) at ($(AC)!0.95!(B)$) [circle, fill = black, minimum width=0.2cm,minimum height=0.2cm]{};
-				\node at (poa) [below = 0.2] {\texttt{PoA}};
-			\end{tikzpicture}
-		\end{center}
+	\begin{frame}{Key Takeaways}
+		The implementation of a consensus mechanism is highly specific to the project. Parameters and functionality can differ greatly even for the same type of mechanism. \\
 		
-		\textbf{Conclusion:} All mechanisms have tradeoffs and might be suited for different use cases.
+		\pause
+		\vspace{1.5em}
+		There exist more consensus mechanisms and research on new mechanisms is ongoing. The consensus mechanism is a key differentiating feature of any blockchain project.
+		
+		\pause
+		\vspace{1.5em}
+		It is possible for a blockchain to change its consensus mechanism via a hard fork.		
 	\end{frame}
 	%%%
 	
 	
-%	\begin{frame}%[allowframebreaks]
-%		\frametitle{References}
-%		\bibliographystyle{amsplain}
-%		\bibliography{../assets/bib/refs}
-%	\end{frame}
 	
 \end{document}
