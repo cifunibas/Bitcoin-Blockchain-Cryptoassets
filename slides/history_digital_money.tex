@@ -129,17 +129,19 @@
 \begin{figure}
 	\begin{tikzpicture}[scale=1]
 		\input{../assets/figures/before_bitcoin}
-		\filldraw[draw=black, fill = focus, thick] (0, -0.5 cm) circle (2pt);
+		\filldraw[draw=black, fill = focus, thick] (0, -0.5 cm) circle (2pt);	
 	\end{tikzpicture}
 \end{figure}
 \column{0.7\textwidth}
-	\textbf{Bit Gold - Nick Szabo}
+	\textbf{Reusable Proofs of Work - Hal Finney} \cite{finney2005}
 	\vspace{0.5em}
 	\begin{small}
 	\begin{itemize}
-		\item Describes the combination of the proof-of-work algorithm for competitive money creation.
-		\item Computing power is used to collateralise a public ledger, which grows into a chain of blocks through a reflexive reference.
-		\item "Thus, it would be very nice if there were a protocol whereby unforgeably costly bits could be created online with minimal dependence on trusted third parties, and then securely stored, transferred, and assayed with similar minimal trust. Bit gold." \cite{szabo2005}
+		\item Combines ideas of Wei Dai and Adam Back.
+		\item A RPoW client can create a RPoW token by providing a proof-of-work string and signing with his private key.
+		\item Server can map that token to the signing key.
+		\item Client can give the token to another key by signing a transfer order to a public key.
+		\item Server registers the token as belonging to the corresponding private key.
 	\end{itemize}
 	\end{small}
 \end{columns}
@@ -154,20 +156,17 @@
 \begin{figure}
 	\begin{tikzpicture}[scale=1]
 		\input{../assets/figures/before_bitcoin}
-		\filldraw[draw=black, fill = focus, thick] (0, -0.5 cm) circle (2pt);	
+		\filldraw[draw=black, fill = focus, thick] (0, -0.5 cm) circle (2pt);
 	\end{tikzpicture}
 \end{figure}
 \column{0.7\textwidth}
-	\textbf{Reusable Proofs of Work - Hal Finney} \cite{finney2005}
+	\textbf{Bit Gold - Nick Szabo}
 	\vspace{0.5em}
 	\begin{small}
 	\begin{itemize}
-		\item Combines ideas of Wei Dai and Adam Back.
-		\item A RPoW client can create a RPoW token by providing a proof-of-work string and signing with his private key.
-		\item Server can map that token to the signing key.
-		\item Client can give the token to another key by signing a transfer order to a public key.
-		\item Server registers the token as belonging to the corresponding private key.
-		%"An RPOW client creates an RPOW token by providing a proof-of-work string of a given difficulty, signed by his private key. The server then registers that token as belonging to the signing key. The client can then give the token to another key by signing a transfer order to a public key. The server then duly registers the token as belonging to the corresponding private key."
+		\item Describes the combination of the proof-of-work algorithm for competitive money creation.
+		\item Computing power is used to collateralise a public ledger, which grows into a chain of blocks through a reflexive reference.
+		\item "Thus, it would be very nice if there were a protocol whereby unforgeably costly bits could be created online with minimal dependence on trusted third parties, and then securely stored, transferred, and assayed with similar minimal trust. Bit gold." \cite{szabo2005}
 	\end{itemize}
 	\end{small}
 \end{columns}
