@@ -1,52 +1,21 @@
 % Choose one to switch betweeen slides and handout
-\documentclass[]{beamer}
-%\documentclass[handout]{beamer}
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
-\subtitle{Applications in Bitcoin}
+\subtitle{Bitcoin Applications}
 \author{Prof. Dr. Fabian Schär}
 \institute{University of Basel}
 
 % Config File
 \input{../config/config.tex}
 
-\input{../config/solidity.tex}
+% Adiitional Files
+\input{../config/solidity.tex} % specification of solidity color coding
+\input{../config/json.tex} % specification of JSON color coding
+\input{../config/bitcoin_symbol.tex} % definition of bitcoin symbol
 
-% Define Settings for JSON 
-\colorlet{punct}{red!60!black}
-\definecolor{background}{HTML}{EEEEEE}
-\definecolor{delim}{RGB}{20,105,176}
-\colorlet{numb}{magenta!60!black}
-
-\lstdefinelanguage{json}{
-	basicstyle=\normalfont\ttfamily\footnotesize,
-	numbers=none,
-	numberstyle=\scriptsize,
-	stepnumber=1,
-	numbersep=8pt,
-	showstringspaces=false,
-	breaklines=true,
-	frame=none,
-	backgroundcolor=\color{background},
-	literate=
-	*{0}{{{\color{numb}0}}}{1}
-	{1}{{{\color{numb}1}}}{1}
-	{2}{{{\color{numb}2}}}{1}
-	{3}{{{\color{numb}3}}}{1}
-	{4}{{{\color{numb}4}}}{1}
-	{5}{{{\color{numb}5}}}{1}
-	{6}{{{\color{numb}6}}}{1}
-	{7}{{{\color{numb}7}}}{1}
-	{8}{{{\color{numb}8}}}{1}
-	{9}{{{\color{numb}9}}}{1}
-	{:}{{{\color{punct}{:}}}}{1}
-	{,}{{{\color{punct}{,}}}}{1}
-	{\{}{{{\color{delim}{\{}}}}{1}
-	{\}}{{{\color{delim}{\}}}}}{1}
-	{[}{{{\color{delim}{[}}}}{1}
-	{]}{{{\color{delim}{]}}}}{1},
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -59,31 +28,21 @@
 
 %%%
 
-%Proof-of-existence, commit-and-reveal (auf Bitcoin), Oracles, Offchain Data, Tokenization (colored coins → outlook to smart contract based), Merkle Proofs, Zero knowledge proof
-
-%%%
-
-\begin{frame}{Public vs. Private}
-	Optional
-\end{frame}
-
-%%%
-
 \begin{frame}{External Data}	
 	\begin{itemize}
-		\item<1 ->Native On-Chain Data
+		\item<1 ->\textbf{Native On-Chain Data}
 		\begin{itemize}
 			\item<1 ->Data that is stored on-chain and fully secured by the consensus protocol (e.g. Bitcoin trx)\\
 			\vspace{0.25em}$\rightarrow$ Automated evaluation and verification
 		\end{itemize}
 		\vspace{1em}
-		\item<2 ->Added Off-Chain Data
+		\item<2 ->\textbf{Added Off-Chain Data}
 		\begin{itemize}
 			\item<2 -> Data that is stored on-chain but not secured by the consensus protocol (e.g. course certificates)\\
 			\vspace{0.25em}$\rightarrow$ Automated evaluation, subject to data quality
 		\end{itemize}
 		\vspace{1em}
-		\item<3 -> Off-Chain Data
+		\item<3 -> \textbf{Off-Chain Data}
 		\begin{itemize}
 			\item<3 -> Data that is NOT directly stored on the Blockchain (e.g. weather, results of a football game)\\
 			\vspace{0.25em}$\rightarrow$ Requires trustworthy data providers (oracles)
@@ -116,17 +75,17 @@
 	\uncover<2 ->{\textbf{Three possibilities:}}
 	\begin{itemize}
 		\vspace{0.1cm}
-		\item<2->[1] Both parties transfer their stake to the address of the oracle. The oracle then sends the prize to the winning party after the event has taken place.
+		\item<2->[1.] Both parties transfer their stake to the address of the oracle. The oracle then sends the prize to the winning party after the event has taken place.
 		\begin{itemize}
 			\item<2-> Problem: Control over funds lies solely with the oracle.
 		\end{itemize}
 		\vspace{0.2cm}
-		\item<3->[2] They create a 2-of-3 multisig transaction. Alice, Bob and the oracle each hold a key.
+		\item<3->[2.] They create a 2-of-3 multisig transaction. Alice, Bob and the oracle each hold a key.
 		\begin{itemize}
 			\item<3-> Control distributed and Alice and Bob can overrule the oracle.
 		\end{itemize}
 		\vspace{0.2cm}
-		\item<4->[3] More than one oracle and use m-of-n multisig transaction. 
+		\item<4->[3.] More than one oracle and use m-of-n multisig transaction. 
 		\begin{itemize}
 			\item<4-> Betting parties hold $\frac{m}{2}$ keys and \small{$m-1$} oracles hold one key.
 			\item<4-> Any $m-of-2m-1$ multisig implementation possible ($m$ has to be an even integer).
@@ -210,14 +169,14 @@
 
 \begin{frame}{Proof of Existence}
 	\begin{columns}
-		\begin{column}{0.5\textwidth}
+		\begin{column}{0.4\textwidth}
 			\begin{figure}
 				\centering
-				\includegraphics[width=3.5cm, frame]{../assets/images/Diploma_unibas.PNG}
+				\includegraphics[width=4cm, frame]{../assets/images/Diploma_unibas.PNG}
 				\scriptsize{\href{https://cif.unibas.ch/en/events-projects/certificates/}{cif.unibas.ch/en/}}
 			\end{figure}
 		\end{column}
-		\begin{column}{0.5\textwidth}
+		\begin{column}{0.6\textwidth}
 			\begin{itemize}
 				\item<2 -> Certificate for Blockchain-related courses since 2018 
 				\item<3 -> Roll-out for entire University of Basel coming soon
@@ -243,33 +202,44 @@
 %%%
 
 \begin{frame}[fragile]{Merkle Proofs}
-	\begin{columns}
-		\begin{column}{0.4\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=4cm]{../assets/images/id.PNG}
-			\end{figure}
+	\begin{figure}
+		\begin{minipage}[h]{0.55\linewidth}
+			\centering
+			\includegraphics[width=4cm]{../assets/images/id.PNG}
+		\end{minipage}%
+		\hfill
+		\begin{minipage}[h]{0.45\linewidth}
 			\begin{itemize}
 				\item<1 ->Alice has to proof a certain age
-				\item<2 ->But Alice does not want to disclose other private information
+				\item<1 ->But Alice does not want to disclose other private information
 			\end{itemize}
-		\end{column}
-		\begin{column}{0.6\textwidth}
-%			backgroundcolor = \color{lightgray}
+		\end{minipage}
+	\end{figure}
+	\vspace{-0.5cm}
+	\begin{figure}
+		\begin{minipage}[h]{0.55\linewidth}
 			\begin{lstlisting}[language=json,firstnumber=1]
-{
- "Name": "Alice",
- "SaltName": 103982023492,
- "DateOfBirth": "1/1/2000",
- "SaltDate": 787793837929,
- "PlaceOfBirth": "Basel",
- "SaltPlace": 989229104925
-}
+				{
+					"Name": "Alice",
+					"SaltName": 103982023492,
+					"DateOfBirth": "1/1/2000",
+					"SaltDate": 787793837929,
+					"PlaceOfBirth": "Basel",
+					"SaltPlace": 989229104925
+				}
 			\end{lstlisting}
 			\centering
 			\scriptsize{Passport as a JSON object}
-		\end{column}
-	\end{columns}
+		\end{minipage}%
+		\hfill
+		\begin{minipage}[h]{0.45\linewidth}
+			\begin{itemize}
+				\item<2 ->Information is included in a merkle tree
+				\item<2 ->Merkle root is saved on-chain by a trusted party (e.g. government)
+			\end{itemize}
+		\end{minipage}
+	\end{figure}
+
 \end{frame}
 
 %%%
@@ -315,9 +285,7 @@
 	\end{figure}
 	\begin{itemize}
 		\item<2 -> Alice provides C, D, $H_{AB}$ and $H_{EF}$
-		\item<3 -> Authenticity can be verified with Merkle Root ($H_{ABCDEF}$) 
-%		\item<2 ->Salt soll Brute-Force-Angriffe erschweren
-%		\item<3 ->Speicherung der Merkle Root durch eine vertrauenswurdige Institution (z.B. Staat)
+		\item<3 -> Authenticity can be verified with Merkle root ($H_{ABCDEF}$) 
 	\end{itemize}
 \end{frame}
 
@@ -326,7 +294,7 @@
 \begin{frame}{Tokenization}
 	\center
 	\begin{block}{\textbf{Definition}}
-		Tokens are rivalrous digital units which entitle its current owner to (the delivery of) an asset or service.
+		Non-native tokens are rivalrous digital units which entitle its current owner to (the delivery of) an asset or service.
 	\end{block}
 	\vspace{1cm}
 	\uncover<2 ->{\begin{figure}
@@ -347,7 +315,7 @@
 	\vspace{0.5cm}
 	\begin{itemize}
 		\item<3 ->Basically, every asset or promise can be tokenized
-		\item<4 ->Distinguish fungible and non-fungible tokens
+		\item<4 ->Differentiation between fungible and non-fungible tokens
 	\end{itemize}
 \end{frame}
 
@@ -369,9 +337,20 @@
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.4\textwidth}
+			\vspace{-0.5cm}
 			\begin{figure}
 				\centering
-				Show transaction output and meta data
+				\begin{tikzpicture}[coloredCoin/.style={circle,  very thick, minimum size=5mm}]
+					\node[coloredCoin, draw=green!60, fill=green!5] (green) at (1,1) {$\btc$};
+					\node[coloredCoin, draw=magenta!60, fill=magenta!5] (magenta) at (3,0.9) {$\btc$};
+					\node[coloredCoin, draw=teal!60, fill=teal!5] (teal) [above=0.7cm of green] {$\btc$};
+					\node[coloredCoin, draw=darkgray!60, fill=darkgray!5] (darkgrey) at (0.3,1.7) {$\btc$};
+					\node[coloredCoin, draw=orange!60, fill=orange!5] (orange) [below=1.2cm of darkgrey] {$\btc$};
+					\node[coloredCoin, draw=olive!60, fill=olive!5] (olive) at (1.5,1.5) {$\btc$};
+					\node[coloredCoin, draw=cyan!60, fill=cyan!5] (cyan) at (1.5,0.3) {$\btc$};
+					\node[coloredCoin, draw=purple!60, fill=purple!5] [below=0.1cm of cyan] {$\btc$};
+					\node[coloredCoin, draw=violet!60, fill=violet!5] at (2.3,2.8) {$\btc$};
+				\end{tikzpicture}
 			\end{figure}
 		\end{column}
 	\end{columns}
@@ -405,14 +384,35 @@
 
 %%%
 
+\begin{frame}{Tokenization}	
+	\begin{itemize}
+		\item<1 ->\textbf{Colored Coins}
+		\begin{itemize}
+			\item<1 ->Use a fragment of a native Blockchain asset (UTXO) as a container
+		\end{itemize}
+		\vspace{1em}
+		\item<2 ->\textbf{Layer-based Tokens}
+		\begin{itemize}
+			\item<2 -> Use metadata transactions (\texttt{OP\_RETURN}) and a separate transaction graph to create and track tokens
+		\end{itemize}
+		\vspace{1em}
+		\item<3 ->\textbf{Smart Contract-based Token}
+		\begin{itemize}
+			\item<3 -> A dedicated smart contract creates and tracks states that represent token ownership. It maps tokens to current owner addresses.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%%%
+
 \begin{frame}{Smart Contracts}
 	\begin{block}{\textbf{\textcolor{black}{Definition}}}
-		Ein Smart Contract ist ein semi-automatisierter Prozess, der durch ein verteiltes Konsensprotokoll besichert wird.
+		A smart contract is a semi-automated process which is secured by a distributed consensus protocol.
 	\end{block}
 	\begin{itemize}
-		\item<2-> Breitere Definition des Begriffs als gebr"auchliche Verwendung
-		\item<3-> Nicht an eine bestimmte Blockchain (wie z.B. Ethereum) gebunden
-		\item<4-> not smart, not automated
+		\item<2-> Definition not tied to a specific Blockchain
+		\item<3-> Not smart, not a contract, not automated
+		\item<4-> a
 	\end{itemize}
 \end{frame}
 
@@ -423,7 +423,7 @@
 		\begin{column}{0.3\textwidth}
 			\includegraphics[width=1\textwidth]{../assets/images/vending-machine.png}
 		\end{column}
-		\begin{column}{0.6\textwidth}
+		\begin{column}{0.5\textwidth}
 			\begin{block}{\textcolor{black}{\textbf{Simple Vending Machine}}}
 				\begin{lstlisting}[firstnumber=1,  xleftmargin=0pt, columns=fullflexible,language=Solidity] 
 if(coin >= price){
@@ -438,10 +438,10 @@ if(coin >= price){
 	\end{columns}
 	\vspace{0.5cm}
 	\uncover<2 ->{
-		Trust Based Execution:
+		Smart Contracts:
 		\begin{itemize}
-			\item Code ist nicht open source
-			\item Execution Environment kann nicht beobachtet werden
+			\item Plain code is not open source
+			\item Execution environment is not visible
 	\end{itemize}}
 \end{frame}
 
@@ -453,33 +453,11 @@ if(coin >= price){
 
 %%%
 
-\begin{frame}{Tokenization revisited}
-	Explain smart contract tokenization here?
-\end{frame}
+%\begin{frame}%[allowframebreaks]
+%	\frametitle{References}
+%	\bibliographystyle{amsplain}
+%	\bibliography{../assets/bib/refs}
+%\end{frame}
 
-%%%
-
-\begin{frame}{Tokenization revisited}
-	\begin{table}
-		\center
-		\resizebox{!}{2.9cm}{%
-			\begin{tabular}{ p{0.25\linewidth} p{0.4\linewidth} p{0.02\linewidth} p{0.4\linewidth}} \hline \hline
-				\textbf{Category}     & \textbf{Description} && \textbf{Examples}\\\hline
-				UTXO-based            & Uses a fragment of a native Blockchain asset as a container to which additional assets can be attached.            && Colored Coins        \\ \hline
-				Layer-based           & Uses metadata transactions and a separate transaction graph to create and track tokens.            && Omni (Master Coin), Counterparty        \\ \hline
-				Smart contract-based  & A dedicated smart contract creates and tracks states that represent token ownership. It maps tokens to current owner addresses.       && ERC-20, ERC-223, ERC-721, ERC-1155, NEP5, NEP11, QRC-20\\\hline\hline
-		\end{tabular}}
-		\caption{\scriptsize{Summary of the three categories of token standards \href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3443382}{(Roth et al., 2019).}}}
-		\label{tbl:2}
-	\end{table}
-\end{frame}
-
-%%%
-
-\begin{frame}%[allowframebreaks]
-	\frametitle{References}
-	\bibliographystyle{amsplain}
-	\bibliography{../assets/bib/refs}
-\end{frame}
 %%%
 \end{document}
