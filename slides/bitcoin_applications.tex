@@ -58,7 +58,7 @@
 			\begin{itemize}[<+->]
 				\item Example: Tracking ownership of a parcel
 				\item On-Chain representation of parcel with unique token
-				\item Reproducible crypto-anker (e.g. QR-code) is problematic
+				\item Reproducible crypto-anker (e.g.~QR-code) is problematic
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.4\textwidth}
@@ -187,16 +187,48 @@
 
 %%%
 
-\begin{frame}{Commit-and-reveal}
-	All information on a public blockchain is, well, public.\\
-	Two individuals\\
-	Show this on blocks. Rock paper scissor
+\begin{frame}{Commit-Reveal}
+	\begin{itemize}
+		\item<1 -> Long known cryptographic primitive
+		\item<2 -> First, one commits to a choice, without revealing it.
+		\item<3 -> In second phase, choice is revealed.
+		\item<4 -> Important: Committment are secret and binding.\vspace{0.5cm}
+		\item<5 -> Example:
+		\begin{itemize}
+			\item<5 -> Alice and Bob want to play rock-paper-scissors on-chain
+			\item<6 -> Playing at the same time is difficult on blockchains
+			\item<7 -> Solution: To commit to their choices, they hash them (salted) and save the hash value on-chain
+			\item<8 -> Revealing their choices and the salts they can determine the winner
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 
 %%%
 
-\begin{frame}{Commit-and-reveal}
- Second page needed?
+\begin{frame}{Commit-Reveal}
+	\begin{itemize}
+		\item<1 -> Long known cryptographic primitive
+		\item<2 -> First, one commits to a choice, without revealing it.
+		\item<3 -> In second phase, choice is revealed.
+		\item<4 -> Important: Committment are secret and binding.
+	\end{itemize}
+	\vspace{0.5cm}
+	\begin{figure}
+		\begin{minipage}[h]{0.2\linewidth}
+			\centering
+			\uncover<5->{\includegraphics[width=\linewidth]{../assets/images/id.PNG}}
+		\end{minipage}%
+		\hfill
+		\begin{minipage}[h]{0.8\linewidth}
+			\textbf{Example:}
+			\begin{itemize}
+				\item<5 -> Alice and Bob want to play rock-paper-scissors on-chain
+				\item<6 -> Playing at the same time is difficult on blockchains
+				\item<7 -> Solution: They both hash their choices (salted) and commit them on-chain
+				\item<8 -> Revealing their choice and the salt proofs 
+			\end{itemize}
+		\end{minipage}
+		\end{figure}
 \end{frame}
 
 %%%
@@ -239,7 +271,6 @@
 			\end{itemize}
 		\end{minipage}
 	\end{figure}
-
 \end{frame}
 
 %%%
