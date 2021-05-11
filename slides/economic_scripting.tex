@@ -1,6 +1,6 @@
 % Choose one to switch betweeen slides and handout
-\documentclass[]{beamer}
-%\documentclass[handout]{beamer}
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
@@ -10,7 +10,6 @@
 
 % Config File
 \input{../config/config.tex}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -23,55 +22,67 @@
 
 %%%
 
-\begin{frame}{title}
+\begin{frame}{Transactions Review}
+	What was covered so far:
+	\begin{itemize}
+		\item<1 -> Transaction types
+		\begin{itemize}
+			\item<1 -> Pay-to-Address, Pay-to-Multisig, Pay-to-Script-Hash, etc.
+		\end{itemize}
+		\item<2 -> Signature hash types
+		\begin{itemize}
+			\item<2 -> \texttt{SIGHASH\_ALL}, \texttt{SIGHASH\_NONE|SIGHASH\_ANYONECANPAY}, etc.
+		\end{itemize}
+		\item<3 -> Using these components and clever transaction design Blockchain contracts are possible on the Bitcoin Blockchain
+	\end{itemize}
+\end{frame}
+
+%%%
+
+\begin{frame}{Example: Conditional Purchase Agreement}
 	
 \end{frame}
 
 %%%
 
-\begin{frame}{title}
+\begin{frame}{Example: Conditional Purchase Agreement}
 	
 \end{frame}
 
 %%%
 
-\begin{frame}{title}
+\begin{frame}{Time Locks}
+	\begin{itemize}
+		\item<1-> UTXOs can be locked for a specified time
+		\begin{itemize}
+			\item<2-> Absolute time locks use a specific point in time or block height (analogy: "at 12 o'clock")
+			\item<2-> Relative time locks specify a number of blocks after confirmation (analogy: "in five hours")
+		\end{itemize}
+		\item<3 -> Four alternatives for implementation
+	\end{itemize}
+	\vspace{0.25cm}
+	\uncover<4->{\begin{table}
+		\center
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{lll} \hline \hline
+				& Transaction level     & Output level\\
+				\cline{2-3}
+				& Consensus             & Scripting Language\\ \hline
+				Absolute time lock  & \texttt{nLockTime}    & CHECKLOCKTIMEVERIFY (CLTV)\\ 
+				Relative time lock  & \texttt{nSequence}    & CHECKSEQUENCEVERIFY (CSV)\\\hline \hline
+		\end{tabular}}
+	\end{table}}
+\end{frame}
+
+%%%
+
+\begin{frame}{Simple Payment Channel}
 	
 \end{frame}
 
 %%%
 
-\begin{frame}{title}
-	
-\end{frame}
-
-%%%
-
-\begin{frame}{title}
-	
-\end{frame}
-
-%%%
-
-\begin{frame}{title}
-	
-\end{frame}
-
-%%%
-
-\begin{frame}{title}
-	
-\end{frame}
-
-%%%
-
-\begin{frame}{title}
-	
-\end{frame}
-
-%%%
-
-\begin{frame}{title}
+\begin{frame}{Simple Payment Channel}
 	
 \end{frame}
 
