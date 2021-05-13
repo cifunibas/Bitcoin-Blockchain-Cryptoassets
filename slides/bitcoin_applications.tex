@@ -1,6 +1,6 @@
 % Choose one to switch betweeen slides and handout
-%\documentclass[]{beamer}
-\documentclass[handout]{beamer}
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
@@ -44,7 +44,7 @@
 		\vspace{1em}
 		\item<3 -> \textbf{Off-Chain Data}
 		\begin{itemize}
-			\item<3 -> Data that is NOT directly stored on the Blockchain (e.g. weather, results of a football game)\\
+			\item<3 -> Data that is NOT directly stored on the Blockchain (e.g.~weather, results of a football game)\\
 			\vspace{0.25em}$\rightarrow$ Requires trustworthy data providers (oracles)
 		\end{itemize}
 	\end{itemize}
@@ -87,8 +87,8 @@
 		\vspace{0.2cm}
 		\item<4->[3.] More than one oracle and use m-of-n multisig transaction. 
 		\begin{itemize}
-			\item<4-> Betting parties hold $\frac{m}{2}$ keys and \small{$m-1$} oracles hold one key.
-			\item<4-> Any $m-of-2m-1$ multisig implementation possible ($m$ has to be an even integer).
+			\item<4-> Agents hold $\frac{m}{2}$ keys and m-1 oracles hold one key each.
+			\item<4-> Any m-of-(2m-1) multisig implementation possible ($m$~has~to~be an even integer).
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -101,8 +101,7 @@
 		\uncover<+->{\node (img2) {\includegraphics[width = 10cm, frame]{../assets/images/google1.PNG}};}
 		\uncover<+->{\node (img3) at (img2) {\includegraphics[width = 10cm, frame]{../assets/images/google2.PNG}};}
 		\uncover<+->{\node (img4) at (img2) {\includegraphics[width = 10cm, frame]{../assets/images/google3.PNG}};}
-		\uncover<+->{\node (img5) {\includegraphics[width = 10cm, frame]{../assets/images/google4.PNG}};}
-		\uncover<+->{\node (img6) at (img2) {\includegraphics[width = 10cm, frame]{../assets/images/google5.PNG}};}
+		\uncover<+->{\node (img5) at (img2) {\includegraphics[width = 10cm, frame]{../assets/images/google4.PNG}};}
 		\uncover<+->{\node (img7) at (img2) {\includegraphics[width = 10cm, frame]{../assets/images/google6.PNG}};}
 	\end{tikzpicture}
 \end{frame}
@@ -178,8 +177,8 @@
 		\end{column}
 		\begin{column}{0.6\textwidth}
 			\begin{itemize}
-				\item<2 -> Certificate for Blockchain-related courses since 2018 
-				\item<3 -> Roll-out for entire University of Basel coming soon
+				\item<1 -> Certificate for Blockchain-related courses since 2018 
+				\item<2 -> Roll-out for entire University of Basel coming soon
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -190,45 +189,17 @@
 \begin{frame}{Commit-Reveal}
 	\begin{itemize}
 		\item<1 -> Long known cryptographic primitive
-		\item<2 -> First, one commits to a choice, without revealing it.
+		\item<2 -> First, commitment to a choice, without revealing it.
 		\item<3 -> In second phase, choice is revealed.
-		\item<4 -> Important: Committment are secret and binding.\vspace{0.5cm}
+		\item<4 -> Important: Commitment is secret and binding.\vspace{0.5cm}
 		\item<5 -> Example:
 		\begin{itemize}
-			\item<5 -> Alice and Bob want to play rock-paper-scissors on-chain
-			\item<6 -> Playing at the same time is difficult on blockchains
+			\item<5 -> Alice and Bob want to play rock-paper-scissors
+			\item<6 -> Playing at the exact same time is difficult on blockchains
 			\item<7 -> Solution: To commit to their choices, they hash them (salted) and save the hash value on-chain
-			\item<8 -> Revealing their choices and the salts they can determine the winner
+			\item<8 -> Revealing their choices and the salts they can then determine the winner in a second step
 		\end{itemize}
 	\end{itemize}
-\end{frame}
-
-%%%
-
-\begin{frame}{Commit-Reveal}
-	\begin{itemize}
-		\item<1 -> Long known cryptographic primitive
-		\item<2 -> First, one commits to a choice, without revealing it.
-		\item<3 -> In second phase, choice is revealed.
-		\item<4 -> Important: Committment are secret and binding.
-	\end{itemize}
-	\vspace{0.5cm}
-	\begin{figure}
-		\begin{minipage}[h]{0.2\linewidth}
-			\centering
-			\uncover<5->{\includegraphics[width=\linewidth]{../assets/images/id.PNG}}
-		\end{minipage}%
-		\hfill
-		\begin{minipage}[h]{0.8\linewidth}
-			\textbf{Example:}
-			\begin{itemize}
-				\item<5 -> Alice and Bob want to play rock-paper-scissors on-chain
-				\item<6 -> Playing at the same time is difficult on blockchains
-				\item<7 -> Solution: They both hash their choices (salted) and commit them on-chain
-				\item<8 -> Revealing their choice and the salt proofs 
-			\end{itemize}
-		\end{minipage}
-		\end{figure}
 \end{frame}
 
 %%%
@@ -250,6 +221,8 @@
 	\vspace{-0.5cm}
 	\begin{figure}
 		\begin{minipage}[h]{0.55\linewidth}
+			\hspace{-0.5cm}
+			\begin{adjustbox}{width = 0.8\linewidth}
 			\begin{lstlisting}[language=json,firstnumber=1]
 				{
 					"Name": "Alice",
@@ -260,8 +233,9 @@
 					"SaltPlace": 989229104925
 				}
 			\end{lstlisting}
+			\end{adjustbox}
 			\centering
-			\scriptsize{Passport as a JSON object}
+			\\[0.1cm] \scriptsize{Passport as a JSON object}
 		\end{minipage}%
 		\hfill
 		\begin{minipage}[h]{0.45\linewidth}
@@ -294,8 +268,8 @@
 			\node[basicnode, align=center] (Name)	[left= 0.25cm of B] {A:\\ Name:\\ Alice};
 			
 			\node[bluenode, align=center] (HAB) at (0.2,3) {$H_{AB}$};
-			\node[basicdotted, align=center] (HCD) at (4.6,3) {$H_{CD}$};
-			\node[bluenode, align=center] (HEF)	at (9.7,3) {$H_{EF}$};
+			\node[basicdotted, align=center] (HCD) at (4.8,3) {$H_{CD}$};
+			\node[bluenode, align=center] (HEF)	at (9.7,4) {$H_{EF}$};
 			
 			\node[basicdotted, align=center] (HABCD) at (2.5,5) {$H_{ABCD}$};
 			\node[basicdotted, align=center] (HABCDEF)	at (5.5,7) {Root\\ $H_{ABCDEF}$};	
@@ -388,7 +362,7 @@
 \end{frame}
 
 %%%
-
+\iffalse
 \begin{frame}{Tokenization}
 	\begin{columns}
 		\begin{column}{0.65\textwidth}
@@ -412,7 +386,7 @@
 		\end{column}
 	\end{columns}
 \end{frame}
-
+\fi
 %%%
 
 \begin{frame}{Tokenization}	
@@ -438,12 +412,13 @@
 
 \begin{frame}{Smart Contracts}
 	\begin{block}{\textbf{\textcolor{black}{Definition}}}
-		A smart contract is a semi-automated process which is secured by a distributed consensus protocol.
+		"Smart contracts generally refer to small applications stored on a blockchain and executed in parallel by a large
+		set of validators."\cite{schar2021defi}
+		%ALTERNATIVE: A smart contract is a process which is secured by a distributed consensus protocol.
 	\end{block}
 	\begin{itemize}
-		\item<2-> Definition not tied to a specific Blockchain
+		\item<2-> Definition not tied to a specific type of Blockchain
 		\item<3-> Not smart, not a contract, not automated
-		\item<4-> a
 	\end{itemize}
 \end{frame}
 
@@ -469,7 +444,7 @@ if(coin >= price){
 	\end{columns}
 	\vspace{0.5cm}
 	\uncover<2 ->{
-		Smart Contracts:
+		Vending Maschine:
 		\begin{itemize}
 			\item Plain code is not open source
 			\item Execution environment is not visible
@@ -478,17 +453,39 @@ if(coin >= price){
 
 %%%
 
-\begin{frame}{Smart Contracts}
-	UTXO vs Account based
+\begin{frame}{Way too Short Intro to Ethereum}
+	\begin{itemize}
+		\item<1 ->Ethereum uses the account model instead of UTXO
+		\begin{itemize}
+			\item<1 ->One address per account
+			\item<2 ->Nonce counts through numbers of transactions
+		\end{itemize}
+		\item<3 ->Externally Owned Accounts (EOA) controlled by private keys
+		\item<4 ->Contract Accounts (CA) controlled by contract code
+		\item<5 ->CAs are created by a transaction with 0 as recipient address. Transaction carries contract code.
+		\item<6 ->More on smart contracts and Ethereum in next course at University of Basel (Autumn 2021)
+	\end{itemize}
 \end{frame}
 
 %%%
 
-%\begin{frame}%[allowframebreaks]
-%	\frametitle{References}
-%	\bibliographystyle{amsplain}
-%	\bibliography{../assets/bib/refs}
-%\end{frame}
+\begin{frame}{Smart Contracts}
+	\textbf{UTXOs as Smart Contracs:}
+	\begin{itemize}
+		\item<1-> By clever transaction design, one can create smart contracts on the Bitcoin Blockchain
+		\item<2-> We already covered many building blocks e.g. MultiSig, SIGHASH types
+		\item<3-> But, Bitcoin script is a limited scripting language (not Turing complete)
+		\item<4-> The next lecture will give some examples for UTXO based smart contracts
+	\end{itemize}
+\end{frame}
+
+%%%
+
+\begin{frame}%[allowframebreaks]
+	\frametitle{References}
+	\bibliographystyle{amsplain}
+	\bibliography{../assets/bib/refs}
+\end{frame}
 
 %%%
 \end{document}
