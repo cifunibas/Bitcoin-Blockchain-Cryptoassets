@@ -1,0 +1,60 @@
+\node (a) at (-3,1.25) {};
+\node (b) at (3,-8) {};
+\draw[dashed, thick] (a) rectangle (b);
+\node at (0,1.75) {\texttt{Miner}};
+
+\node (c) at (4.5,1.25) {};
+\node (d) at (10.5,-8) {};
+\draw[dashed, thick] (c) rectangle (d);
+\node at (7.5,1.75) {\texttt{Peers of this miner}};
+
+\node [draw, outer sep=0,inner sep=5,minimum width=130] (v1) at (0,-0.5) {Pick transactions};
+\node [draw,outer sep=0,inner sep=5,minimum width=130] (v2) at (0,-1.5) {All transactions valid?};
+\node [draw, shape=circle, minimum size=20] (v3) at (0,0.5) {};
+\node [draw, minimum size=16, rotate=45] (v4) at (0,-2.5) {};
+
+
+\draw [->] (v3) edge (v1);
+\draw [->] (v1) edge (v2);
+\draw [->] (v2) edge (v4);
+\draw [->](v4) -- (-2.5,-2.5) -- (-2.5,-0.5) -- (v1) ;
+\node [draw,outer sep=0,inner sep=5,minimum width=130] (v5) at (0,-3.5) {Adjust $nonce$};
+\node [draw,outer sep=0,inner sep=5,minimum width=130] (v6) at (0,-4.5) {Compute hash value};
+\node [draw,outer sep=0,inner sep=5,minimum width=130] (v7) at (0,-5.5) {Hash value $<$ threshold?};
+\draw [->] (v4) edge (v5);
+\draw [->] (v5) edge (v6);
+\draw [->] (v6) edge (v7);
+\node [draw, minimum size=16, rotate=45] (v8) at (0,-6.5) {};
+\draw [->] (v7) edge (v8);
+\draw [->](v8) -- (2.5,-6.5) -- (2.5,-3.5) -- (v5);
+\node [draw,outer sep=0,inner sep=5,minimum width=130] (v9) at (7.5,-0.5) {All transactions valid?};
+\node[rotate=90] (bp) at (3.75,-3.5) {\texttt{Block Propagation}};
+\draw [-](v8) -- (0,-7.5) -- (3.75,-7.5) -- (bp);
+\draw[->](bp) -- (3.75, 0.5) -- (7.5,0.5) -- (v9);
+
+\node[above] at (-0.75,-2.5) {\footnotesize\textbf{no}};
+\node at (0.4,-3) {\footnotesize\textbf{yes}};
+
+\node[above] at (0.75,-6.5) {\footnotesize\textbf{no}};
+\node at (0.4,-7.25) {\footnotesize\textbf{yes}};
+
+\node [draw, minimum size=16, rotate=45] (v10) at (7.5,-1.5) {};
+\node [draw,outer sep=0,inner sep=5,minimum width=130] (v14) at (7.5,-2.5) {Compute hash value};
+\node [draw,outer sep=0,inner sep=5,minimum width=130] (v15) at (7.5,-3.5) {Hash value $<$ threshold?};
+\node [draw, minimum size=16, rotate=45] (v11) at (7.5,-4.5) {};
+
+\node [draw, very thick, shape=circle, minimum size=20, label=below:\small\textbf{Accept!}] (v12) at (7.5,-6) {};
+\node [draw, very thick, shape=circle, minimum size=20, label=below:\small\textbf{Reject!}] (v13) at (9,-6) {};
+
+\draw [->] (v9) edge (v10);
+\draw [->] (v10) edge (v14);
+\draw [->] (v14) edge (v15);
+\draw [->] (v15) edge (v11);
+\draw [->] (v11) edge (v12);
+\draw [->](v11) -- (9,-4.5) -- (v13);
+\draw [->](v10) -- (10,-1.5) -- (10,-6) -- (v13);
+
+\node[above] at (8.25,-1.5) {\footnotesize\textbf{no}};
+\node at (7.9,-2) {\footnotesize\textbf{yes}};
+\node[above] at (8.25,-4.5) {\footnotesize\textbf{no}};
+\node at (7.1,-5.25) {\footnotesize\textbf{yes}};

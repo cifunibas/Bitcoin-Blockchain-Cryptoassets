@@ -1,0 +1,18 @@
+\begin{tikzpicture}[scale = 0.7]
+	\begin{axis}[xmin=-2.8,
+            	xmax=2.8,
+            	ymin=-2.8,
+           		ymax=2.8,
+            	xlabel={$x$},
+            	ylabel={$y$},
+            	scale only axis,
+           		axis lines=middle,
+         		domain=-1.76929235423863:3, % manually add min value to domain
+            	samples=500,
+            	smooth,
+            	axis equal image=true,
+        		]
+		\addplot[focus]{sqrt(x^3 + -2*x + 2)};
+		\addplot[focus]{-sqrt(x^3 + -2*x + 2)};		
+	\end{axis}
+\end{tikzpicture}	

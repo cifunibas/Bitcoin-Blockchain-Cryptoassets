@@ -1,0 +1,65 @@
+\begin{tikzpicture}[domain=1:10,scale=1, every node/.style={scale=1}]
+\coordinate (o1) at (1,1);
+\coordinate (o2) at (2,1);
+\coordinate (o3) at (3,1);
+
+\coordinate (n1) at (4,2.5);
+\coordinate (n2) at (4,2);
+\coordinate (n3) at (4,1.5);
+\coordinate (n4) at (4,1);
+\coordinate (n5) at (4,0.5);
+\coordinate (n6) at (4,0);
+\coordinate (n7) at (4,-0.5);
+
+\coordinate (n11) at (5,2.5);
+\coordinate (n22) at (5,2);
+\coordinate (n33) at (5,1.5);
+\coordinate (n44) at (5,1);
+\coordinate (n55) at (5,0.5);
+\coordinate (n66) at (5,0);
+\coordinate (n77) at (5,-0.5);
+
+\coordinate (n111) at (6,2.5);
+\coordinate (n222) at (6,2);
+\coordinate (n333) at (6,1.5);
+\coordinate (n444) at (6,1);
+\coordinate (n555) at (6,0.5);
+\coordinate (n666) at (6,0);
+\coordinate (n777) at (6,-0.5);
+
+  \draw[color=black] (o1) to[] (o2) to[] (o3);
+  \draw[color=black] (o3) to[] (n1) to[] (n11);
+    \draw[color=black] (o3) to[] (n1) to[] (n11);
+    \draw[color=black] (o3) to[] (n2) to[] (n22);
+    \draw[color=black] (o3) to[] (n3) to[] (n33);
+    \draw[color=black] (o3) to[] (n4) to[] (n44);
+    \draw[color=black] (o3) to[] (n5) to[] (n55);
+    \draw[color=black] (o3) to[] (n6) to[] (n66);
+    \draw[color=black] (o3) to[] (n7) to[] (n77);
+    
+  \draw[color=black,thick, dotted, ->] (n11) to[] (n111) node[right]{\texttt{\footnotesize{Tonys Chain-Version}}};
+  \draw[color=black,thick, dotted, ->] (n22) to[] (n222) node[right]{\texttt{\footnotesize{Michèles Chain-Version}}};
+  \draw[color=black,thick, dotted, ->] (n33) to[] (n333) node[right]{\texttt{\footnotesize{Tamaras Chain-Version}}};
+  \draw[color=black,thick, dotted, ->] (n44) to[] (n444) node[right]{\texttt{\footnotesize{Marcias Chain-Version}}};
+  \draw[color=black,thick, dotted, ->] (n55) to[] (n555) node[right]{\texttt{\footnotesize{Brians Chain-Version}}};
+  \draw[color=black,thick, dotted, ->] (n66) to[] (n666) node[right]{\texttt{\footnotesize{Jakes Chain-Version}}};
+  \draw[color=black,thick, dotted, ->] (n77) to[] (n777) node[right]{\texttt{\footnotesize{Claudias Chain-Version}}};
+
+  \node (rect) at (o1) [fill=highlight,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o2) [fill=highlight,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (o3) [fill=highlight,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n1) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n11) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n2) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n22) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n3) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n33) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n4) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n44) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n5) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n55) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n6) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n66) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n7) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+  \node (rect) at (n77) [fill=white,draw,thick,minimum width=0.3cm,minimum height=0.3cm] {};
+\end{tikzpicture}    

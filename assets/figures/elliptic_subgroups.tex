@@ -1,0 +1,134 @@
+\begin{tikzpicture}[scale = 0.8]
+	\begin{axis}[xmin=0, xmax=37,
+				ymin=0, ymax=37,
+            	xlabel={$x$},
+            	ylabel={$y$},
+         		domain=0:36,
+            	axis equal image=true,
+            	grid = both,
+            	minor tick num=9
+            	]
+           
+        % show slope for 3G and all points from finite field
+        \only<4-7>{
+        	\draw [highlight, ultra thick] (axis cs: 7, 0) -- (axis cs: 37, 30);
+        	
+        	\draw [fill] (axis cs: 0, 9) circle (1pt){};
+        	\draw [fill] (axis cs: 0, 28) circle (1pt){};
+        	\draw [fill] (axis cs: 3, 16) circle (1pt){};
+        	\draw [fill] (axis cs: 3, 21) circle (1pt){};
+        
+        	\draw [fill] (axis cs: 4, 16) circle (1pt){};
+        	\draw [fill] (axis cs: 4, 21) circle (1pt){};
+        	\draw [fill] (axis cs: 5, 13) circle (1pt){};
+        	\draw [fill] (axis cs: 5, 24) circle (1pt){};
+        	
+        	\draw [fill] (axis cs: 6, 1) circle (1pt){};
+       		\draw [fill] (axis cs: 6, 36) circle (1pt){};
+        	\draw [fill] (axis cs: 8, 1) circle (1pt){};
+        	\draw [fill] (axis cs: 8, 36) circle (1pt){};
+        
+        	\draw [fill] (axis cs: 9, 12) circle (1pt){};
+        	\draw [fill] (axis cs: 9, 25) circle (1pt){};
+        	\draw [fill] (axis cs: 12, 12) circle (1pt){};
+        	\draw [fill] (axis cs: 12, 25) circle (1pt){};
+        
+        	\draw [fill] (axis cs: 13, 13) circle (1pt){};
+        	\draw [fill] (axis cs: 13, 24) circle (1pt){};
+        	\draw [fill] (axis cs: 16, 12) circle (1pt){};
+        	\draw [fill] (axis cs: 16, 25) circle (1pt){};
+        
+        	\draw [fill] (axis cs: 17, 6) circle (1pt){};
+        	\draw [fill] (axis cs: 17, 31) circle (1pt){};
+        	\draw [fill] (axis cs: 18, 17) circle (1pt){};
+        	\draw [fill] (axis cs: 18, 20) circle (1pt){};
+        
+        	\draw [fill] (axis cs: 19, 13) circle (1pt){};
+        	\draw [fill] (axis cs: 19, 24) circle (1pt){};
+        	\draw [fill] (axis cs: 22, 6) circle (1pt){};
+        	\draw [fill] (axis cs: 22, 31) circle (1pt){};
+        
+       		\draw [fill] (axis cs: 23, 1) circle (1pt){};
+       		\draw [fill] (axis cs: 23, 36) circle (1pt){};
+       		\draw [fill] (axis cs: 24, 17) circle (1pt){};
+       		\draw [fill] (axis cs: 24, 20) circle (1pt){};
+       
+       		\draw [fill] (axis cs: 30, 16) circle (1pt){};
+       		\draw [fill] (axis cs: 30, 21) circle (1pt){};
+       		\draw [fill] (axis cs: 32, 17) circle (1pt){};
+       		\draw [fill] (axis cs: 32, 20) circle (1pt){};
+       
+       		\draw [fill] (axis cs: 35, 6) circle (1pt){};
+       		\draw [fill] (axis cs: 35, 31) circle (1pt){};
+        }
+        
+        % show second part of slope for 3G
+        \only<5-7>{
+        	\draw [highlight, ultra thick] (axis cs: 0, 30) -- (axis cs: 6, 36);
+        }
+        
+        % show point -3G and dotted line to 3G
+        \only<6-7>{
+        	\draw [dotted, highlight, ultra thick] (axis cs: 6, 36) -- (axis cs: 6, 1);
+        	\draw [fill = focus, draw = focus] (axis cs: 6, 36) circle (1pt) node[left, focus]{\scriptsize{$-3G$}};
+        }
+        
+        \draw [fill = focus, draw = focus] (axis cs: 8, 1) circle (1pt) node[above right, focus]{\scriptsize{$G$}};
+        
+        \only<3->{
+        	\draw [fill = focus, draw = focus] (axis cs: 24, 17) circle (1pt) node[right, focus]{\scriptsize{$2G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 8, 1) to[out=0,in=-110] (axis cs: 24, 17);
+        }
+        
+        \only<7->{
+        	\draw [fill = focus, draw = focus] (axis cs: 6, 1) circle (1pt) node[left, focus]{\scriptsize{$3G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 24, 17) to[out=-150,in=45] (axis cs: 6, 1);
+        }
+        
+        \only<8->{
+        	\draw [fill = focus, draw = focus] (axis cs: 23, 36) circle (1pt) node[below, focus]{\scriptsize{$4G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 6, 1) to[out=135,in=180] (axis cs: 23, 36);
+        }
+        
+        \only<9->{
+        	\draw [fill = focus, draw = focus] (axis cs: 32, 17) circle (1pt) node[below, focus]{\scriptsize{$5G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 23, 36) to[out=0,in=0] (axis cs: 32, 17);
+        }
+        
+        \only<10->{
+        	\draw [fill = focus, draw = focus] (axis cs: 18, 17) circle (1pt) node[below left, focus]{\scriptsize{$6G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 32, 17) to[out=155,in=15] (axis cs: 18, 17);
+        }
+        
+        \only<11->{
+        	\draw [fill = focus, draw = focus] (axis cs: 18, 20) circle (1pt) node[above left, focus]{\scriptsize{$7G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 18, 17) -- (axis cs: 18, 20);
+        }
+        
+        \only<12->{
+        	\draw [fill = focus, draw = focus] (axis cs: 32, 20) circle (1pt) node[above, focus]{\scriptsize{$8G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 18, 20) to[out=-15,in=-165] (axis cs: 32, 20);
+        }
+        
+        \only<13->{
+        	\draw [fill = focus, draw = focus] (axis cs: 23, 1) circle (1pt) node[above, focus]{\scriptsize{$9G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 32, 20) to[out=0,in=0] (axis cs: 23, 1);
+        }
+
+		\only<14->{
+			\draw [fill = focus, draw = focus] (axis cs: 6, 36) circle (1pt) node[left, focus]{\scriptsize{$10G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 23, 1) to[out=180,in=-135] (axis cs: 6, 36);
+        }
+
+		\only<15->{
+			\draw [fill = focus, draw = focus] (axis cs: 24, 20) circle (1pt) node[right, focus]{\scriptsize{$11G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 6, 36) to[out=-45,in=150] (axis cs: 24, 20);
+        }
+
+		\only<16->{
+			\draw [fill = focus, draw = focus] (axis cs: 8, 36) circle (1pt) node[below right, focus]{\scriptsize{$12G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 24, 20) to[out=110,in=0] (axis cs: 8, 36);
+		}
+        
+	\end{axis}
+\end{tikzpicture}

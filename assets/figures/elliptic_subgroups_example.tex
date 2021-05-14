@@ -1,0 +1,35 @@
+\begin{tikzpicture}[scale = 0.8]
+	\begin{axis}[xmin=0, xmax=37,
+				ymin=0, ymax=37,
+            	xlabel={$x$},
+            	ylabel={$y$},
+         		domain=0:36,
+            	axis equal image=true,
+            	grid = both,
+            	minor tick num=9
+            	]
+            	            	
+        \draw [fill = focus, draw = focus] (axis cs: 8, 1) circle (1pt) node[above right, focus]{\scriptsize{$G$}};
+        
+        \only<3->{
+        	\draw [fill = focus, draw = focus] (axis cs: 24, 17) circle (1pt) node[right, focus]{\scriptsize{$2G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 8, 1) to[out=0,in=-110] (axis cs: 24, 17);
+        }
+        
+        \only<4->{       
+        	\draw [fill = focus, draw = focus] (axis cs: 23, 36) circle (1pt) node[below, focus]{\scriptsize{$4G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 24, 17) to[out=135,in=180] (axis cs: 23, 36);
+        }
+                             
+        \only<5->{
+        \draw [fill = focus, draw = focus] (axis cs: 32, 20) circle (1pt) node[above, focus]{\scriptsize{$8G$}};
+        \draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 23, 36) to[out=0,in=180] (axis cs: 32, 20);
+       	}
+       	
+       	\only<6->{
+        	\draw [fill = focus, draw = focus] (axis cs: 23, 1) circle (1pt) node[above, focus]{\scriptsize{$9G$}};
+        	\draw [black, ->, shorten <= 0.1cm, shorten >= 0.1cm] (axis cs: 32, 20) to[out=0,in=0] (axis cs: 23, 1);
+        }
+        
+	\end{axis}
+\end{tikzpicture}

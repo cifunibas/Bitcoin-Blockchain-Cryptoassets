@@ -1,0 +1,294 @@
+% Choose one to switch between slides and handout
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Elliptic Curves and ECDSA}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{Example of an Elliptic Curve}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+			\input{../assets/figures/elliptic.tex}
+				\caption*{Elliptic curve with $a = -2$, $b = 2$}
+			\end{figure}	
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			Weierstrass equation:\\
+			\vspace{1em}
+			$y^2 = x^3 + ax + b$\\
+			\vspace{2em}
+			Non-singularity condition:\\
+			\vspace{1em}
+			$4a^3 + 27b^2 \neq 0$
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Addition of Two Points}
+	\begin{align*}
+		P_1 &= (-1.5, \sqrt{1.625})\\
+		P_2 &= (0, \sqrt{2})\\
+		P_3 &= P_1 + P_2
+	\end{align*}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\input{../assets/figures/elliptic_addition.tex}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{align*}
+				\uncover<5->{s &= \tfrac{y_{P_1} - y_{P_2}}{x_{P_1} - x_{P_2}} &= \hphantom{-} 0.0930\\[10pt]}
+				\uncover<6->{x_{P_3} &= s^2 - (x_{P_1} + x_{P_2}) &= \hphantom{-} 1.5086\\[10pt]}
+				\uncover<7->{y_{P_3} &= s(x_{P_1} - x_{P_3}) - y_{P_1} &= -1.5545}
+			\end{align*}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Point Doubling}
+	\begin{align*}
+		P &= (-0.5, \sqrt{2.875})\\
+		P + P &= 2P
+	\end{align*}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\input{../assets/figures/elliptic_doubling.tex}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{align*}
+				\uncover<5->{s &= \tfrac{3x_P^2 + a}{2y_P} &= -0.3686\\[10pt]}
+				\uncover<6->{x_{2P} &= s^2 - 2x_P &= \hphantom{-} 1.1359\\[10pt]}
+				\uncover<7->{y_{2P} &= s(x_P - x_{2P}) - y_P &= -1.0926}
+			\end{align*}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Elliptic Curves over Finite Fields}
+	Bitcoin uses \texttt{secp256k1}:\ $y^2 = x^3 + 7\ (mod\ p)$ over ${\rm I\!F}_p$ where $p = 2^{256} - 2^{32} - 2^9 - 2^6 - 2^4 - 1$.\\
+	\vspace{1em}
+	\uncover<2->{\textbf{Simplified example:} $y^2 = x^3 + 7\ (mod\ 37)$ in ${\rm I\!F}_{37}$ \uncover<3->{with \textcolor{highlight}{$x = 5$}}}
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\uncover<2->{\begin{figure}
+				\input{../assets/figures/elliptic_finite.tex}
+				\end{figure}
+			}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{align*}
+					\uncover<4->{\textcolor{focus}{y}^2\ (mod\ 37) &\equiv \textcolor{highlight}{x}^3 + 7\ (mod\ 37)\\
+					&\dots }\\
+					\uncover<5->{\textcolor{highlight}{5}^3 + 7\ (mod\ 37) &= 132\ (mod\ 37)\\
+					&= 21\\
+					&\dots }\\
+					\uncover<6->{\textcolor{focus}{y}^2\ (mod\ 37) &\equiv 21}\\
+					\uncover<7->{\textcolor{focus}{13}^2\ (mod\ 37) &\equiv 21\\			
+					\textcolor{focus}{24}^2\ (mod\ 37) &\equiv 21}
+				\end{align*}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Modular Multiplicative Inverse}
+	For our computations we often need the so-called modular multiplicative inverse.\\
+	\vspace{1.5em}
+
+	\uncover<2->{
+		Regular division:\\
+		$10 / 4 = 2.5$\\
+		\vspace{1.5em}
+	}
+	
+	\uncover<3->{
+		Multiplicative inverse:\\
+		$4/4 = 4 \cdot 4^{-1} = 1$\\
+		$10 \cdot 4^{-1} = 2.5$\\
+		\vspace{1.5em}
+	}
+	
+	\uncover<4->{
+		Modular multiplicative inverse:\\
+		$\{4 \cdot x\}\ (mod\ 3) = 1$\\
+		for $x = 1$\\
+		because $4\ (mod\ 3) = 1$\\
+	}
+	
+\end{frame}
+
+
+\begin{frame}{ECDSA}
+	\textbf{Simplified example:} Elliptic curve of order $N = 39$ with subgroups of the order $n = 13$:
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\uncover<2->{
+				\begin{figure}
+					\input{../assets/figures/elliptic_subgroups.tex}
+				\end{figure}
+			}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\vspace{1em}
+			\uncover<2->{\textbf{e.g.\ \textcolor{focus}{$G = (8, 1)$}:}\\
+			\uncover<3->{The cyclic subgroup consists of \textcolor{focus}{$\{0, G, 2G, ..., (n-1)G\}$}}}
+			\uncover<3->{
+				\alt<4-7>{
+					\begin{align*}
+						s &= \{(1 - 17) \cdot (8 - 24)^{-1}\}\ (mod\ 37)\\
+						&= \{(-16) \cdot (30)\}\ (mod\ 37) \\
+						&= 1\\
+						\textcolor{focus}{x_{3G}} &= \{1 - (8 + 24)\}\ (mod\ 37)\\
+						&= 6\\
+						\textcolor{focus}{y_{3G}} &= \{1 \cdot (8 - 6) - 1\}\ (mod\ 37)\\
+					 	&= 1
+					\end{align*}
+				}{
+					\begin{align*}
+						s &= \{3 \cdot 8^2 \cdot (2)^{-1}\}\ (mod\ 37)\\
+						&= \{3 \cdot 8^2 \cdot 19\}\ (mod\ 37)\\
+						&= 22\\
+						\textcolor{focus}{x_{2G}} &= \{22^2 - 2 \cdot 8\}\ (mod\ 37)\\
+						&= 24\\
+						\textcolor{focus}{y_{2G}} &= \{22 \cdot (8 - 24) - 1\}\ (mod\ 37)\\
+					 	&= 17
+					\end{align*}
+				}
+			}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Key Generation}
+	\textbf{Simplified example: \textcolor{focus}{$k_{prv} = 9$} and \textcolor{focus}{$G = (8,1)$}}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\uncover<2->{
+				\begin{figure}
+					\input{../assets/figures/elliptic_subgroups_example.tex}
+				\end{figure}
+			}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\uncover<2->{\textbf{From $k_{prv}$ to $K_{pub}$ using the double and add algorithm:}
+				\begin{enumerate}
+					\item<3-> Double: $2 \circ G = 2G$
+					\item<4-> Double: $2 \circ 2G = 4G$
+					\item<5-> Double: $2 \circ 4G = 8G$
+					\item<6-> Add: $8G + G = 9G$
+				\end{enumerate}
+				\uncover<7->{$\rightarrow$ Four steps only! Algorithm runtime: $\mathcal{O}(\log_{2}n)$}
+			}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Elliptic Curve Discrete Logarithm Problem}
+	\begin{figure}
+		\input{../assets/figures/ecdsa_big_o.tex}	
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Example: Signature}
+	\textbf{Simplified example:}\\
+	\begin{columns}[T]
+		\begin{column}{0.3\textwidth}
+			\begin{itemize}
+				\item $y^2 = x^3 + 7$
+				\item $G = (8, 1)$
+				\item $k_{prv} = 9$
+				\item $K_{pub} = (23, 1)$
+				\item $t = 4$
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.7\textwidth}
+			\begin{enumerate}
+				\item<2-> Choose random number, e.g.\ $i = 7$
+				\item<3-> Compute
+				\begin{enumerate}[a.]
+					\item<3-> $P = i \cdot G = 7G = (18,20)$\\
+						\vspace{0.5em}
+					\item<4-> $r = x_P\ (mod\ n) = 18\ (mod\ 13) = 5$\\
+						\vspace{0.5em}
+					\item<5-> $s = \{i^{-1} (t + r \cdot k_{prv})\}\ (mod\ n)$\\
+						$\hphantom{s } = \{2 \cdot (4 + 5 \cdot 9)\}\ (mod\ 13)$\\
+						$\hphantom{s } = 7$
+				\end{enumerate}
+				\item<6-> Send
+				\begin{enumerate}[a.]
+					\item<6-> $(r, s) = (5, 7)$\\
+					\vspace{0.5em}
+					\item<7-> $t = 4$\\
+					\vspace{0.5em}
+					\item<8-> $K_{pub} = (23, 1)$\\
+					\vspace{0.5em}
+				\end{enumerate}
+			\end{enumerate}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Example: Verification}
+	\textbf{Simplified example:}\\
+	\begin{columns}[T]
+		\begin{column}{0.3\textwidth}
+				\begin{itemize}
+					\item $y^2 = x^3 + 7$
+					\item $G = (8, 1)$
+					\item $K_{pub} = (23, 1)$
+					\item $t = 4$
+					\item $(r, s) = (5, 7)$
+				\end{itemize}
+		\end{column}
+		\begin{column}{0.7\textwidth}
+			\begin{enumerate}
+				\item<2-> Compute\\
+				\begin{enumerate}[a.]
+					\item<2-> $\{u_1 = (s^{-1}t)\}\ (mod\ n) = 8\ mod\ 13 = 8$\\
+					\vspace{0.5em}
+					\item<3-> $\{u_2 = (s^{-1}r)\}\ (mod\ n) = 10\ mod\ 13 = 10$\\
+					\vspace{0.5em}
+					\item<4-> $P = u_1 \circ G + u_2 \circ K_{pub}$\\
+					 $\hphantom{P }  = 8G + 10 \circ (23, 1)$\\
+					 $\hphantom{P } = (32, 20) + (8, 36)$\\
+					 $\hphantom{P } = (18, 20)$
+				\end{enumerate}
+				\item<5-> Check authenticity: $x_P\ mod\ n = r$\\
+				Here: $18\ (mod\ 13) = 5$
+			\end{enumerate}
+		\end{column}
+	\end{columns}
+	\vspace{1.5em}
+	\uncover<6->{$\rightarrow$ The private key is never revealed.}\\
+	\uncover<7->{$\rightarrow$ \href{https://github.com/cifunibas/Bitcoin-Blockchain-Cryptoassets/blob/main/assets/scripts/ecdsa_example.py}{\link Python script to signature and verification examples}}
+\end{frame}
+
+
+%%%
+%\begin{frame}%[allowframebreaks]
+%\frametitle{References and Recommended Reading}
+%	\bibliographystyle{amsplain}
+%	\bibliography{../assets/bib/refs}
+%\end{frame}
+
+
+\end{document}

@@ -1,0 +1,162 @@
+% Choose one to switch between slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Block Assembly and Chain Structure}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{Transaction Distribution}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+		\input{../assets/figures/transaction_distribution}
+	\end{tikzpicture}
+\end{figure}
+\end{frame}
+%%%	
+
+
+%%%
+\begin{frame}{From Transactions to Blocks}
+	\begin{enumerate}
+		\item<1-> Nodes send their transactions to their peers.
+		\item<2-> Each node verifies the received transaction
+			\begin{itemize}
+				\item<2-> Inputs, Outputs, \texttt{ScriptSig}
+			\end{itemize}			 
+		\item<3-> If the transaction is valid, it is \dots
+			\begin{itemize}
+				\item<3-> \dots forwarded to respective peers.
+				\item<3-> \dots stored in own transaction mempool
+			\end{itemize}
+	\end{enumerate}	
+	\vspace{1em}
+	\uncover<4->{Miners will pick a subset of the transactions in their queue (mempool). They usually prefer the transactions with the highest fees/byte.\\ \vspace{1em}
+	$\rightarrow$ Let us look at how this works.}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Merkle Root}
+	\begin{columns}
+	\column{0.7\textwidth}
+		\begin{figure}
+			\input{../assets/figures/merkle_tree}
+		\end{figure}
+		\begin{itemize}
+			\item Represents all transactions of the block in the form of a compact 256-bit entry.
+			\item Guarantees that the transaction data of a block cannot be modified unnoticed.
+		\end{itemize}
+	\column{0.3\textwidth}
+		\begin{figure}
+			\input{../assets/figures/block_content_1}
+		\end{figure}
+	\end{columns}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Version, Reference \& Timestamp}
+	\begin{columns}
+	\column{0.7\textwidth}
+		\begin{itemize}
+			\item \textbf{Version:} Followed ruleset of block creation, implicates validation rules.
+			\item \textbf{Reference:} Hash value of predecessor block header $\rightarrow$ Foundation of chain structure.
+			\item \textbf{Timestamp:} At least median timestamp of the previous eleven blocks; No more than two hours in the future at the time of confirmation. 
+		\end{itemize}
+	\column{0.3\textwidth}
+		\begin{figure}
+			\input{../assets/figures/block_content_2}
+		\end{figure}
+	\end{columns}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Threshold and Nonce}
+	\begin{columns}
+	\column{0.7\textwidth}
+		\begin{itemize}
+			\item \textbf{Threshold:} Specifies the maximum hash value a block header may have to be considered valid.
+			\item \textbf{Nonce:} Primary source of variation in block creation. Ensures that blocks with otherwise equivalent contents may have different hash values.
+		\end{itemize}
+	\column{0.3\textwidth}
+		\begin{figure}
+			\input{../assets/figures/block_content_3}
+		\end{figure}
+	\end{columns}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Chain Structure, Block Height and Block Depth}
+	\begin{figure}
+		\input{../assets/figures/block_id}
+	\end{figure}
+\textbf{Block Identification:}
+	\begin{itemize}
+ 		\item Block Height (static, not unique in case of fork)
+ 		\item Block Depth (dynamic, not unique in case of fork)
+ 		\item Block Header hash value / Block ID (static)
+	\end{itemize}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{The Domino Effect 1}
+	\begin{figure}
+		\input{../assets/figures/chain_structure_1}
+	\end{figure}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{The Domino Effect 2}
+	\begin{figure}
+		\input{../assets/figures/chain_structure_2}
+	\end{figure}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{The Domino Effect 3}
+	\begin{figure}
+		\input{../assets/figures/chain_structure_3}
+	\end{figure}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Extending the Chain}
+	\begin{figure}[h!]
+	\center
+		\input{../assets/figures/chain_extension}
+	\end{figure}
+%Each of these nodes believes that its own block candidate should be added to the blockchain and will ignore those of other network participants.
+\end{frame}
+
+%%%
+
+\end{document}
