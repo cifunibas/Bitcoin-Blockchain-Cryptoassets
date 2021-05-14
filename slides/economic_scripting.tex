@@ -11,6 +11,12 @@
 % Config File
 \input{../config/config.tex}
 
+% Other Inputs
+\input{../config/bitcoin_symbol.tex}
+\input{../config/green_checkmark.tex}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -23,7 +29,7 @@
 %%%
 
 \begin{frame}{Transactions Review}
-	What was covered so far:
+	What has been covered so far:
 	\begin{itemize}
 		\item<1 -> Transaction types
 		\begin{itemize}
@@ -33,20 +39,97 @@
 		\begin{itemize}
 			\item<2 -> \texttt{SIGHASH\_ALL}, \texttt{SIGHASH\_NONE|SIGHASH\_ANYONECANPAY}, etc.
 		\end{itemize}
-		\item<3 -> Using these components and clever transaction design Blockchain contracts are possible on the Bitcoin Blockchain
+		\item<3 -> Using these components and clever transaction design smart contracts can be implemented on the Bitcoin Blockchain
 	\end{itemize}
 \end{frame}
 
 %%%
 
 \begin{frame}{Example: Conditional Purchase Agreement}
-	
+	\begin{figure}[h]
+		\begin{minipage}{0.2\linewidth}
+			\centering
+			\includegraphics[width=1cm]{../assets/images/agents/handing_right}
+			\begin{tikzpicture}[overlay]
+				\node at (-0.05,0.18) {\includegraphics[width = 0.5cm]{../assets/images/bitcoin}};
+			\end{tikzpicture}
+		\end{minipage}%
+		\begin{minipage}{0.15\linewidth}
+			\centering
+			\vspace{-2cm}
+			\only<3>{\includegraphics[width=1cm]{../assets/images/agents/intermediary_devil}}
+		\end{minipage}%
+		\begin{minipage}{0.25\linewidth}
+			\centering
+			\includegraphics[width=1cm]{../assets/images/agents/handing_left}
+			\begin{tikzpicture}[overlay, coloredCoin/.style={circle,  very thick, minimum size=0.5mm}]
+				\node[coloredCoin, draw=orange!60, fill=orange!5] at (-1.5,0.9) {\footnotesize{$\btc$}};
+			\end{tikzpicture}
+		\end{minipage}
+	\end{figure}
+	\begin{itemize}
+		\item<1 ->Story: Alice wants to purchase a colored coin from Bob
+		\item<2 ->Issue: None of the two wants to transfer their asset first
+		\item<3 ->Traditionally, centralized service would be used 
+		\item<4 ->Using an elegant transaction design, they can do the transaction on-chain and trustless
+	\end{itemize}
 \end{frame}
 
 %%%
 
 \begin{frame}{Example: Conditional Purchase Agreement}
-	
+	\begin{figure}
+			\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, 	draw=black, dashed] (-3,-5.9) rectangle ++(8cm,5cm);
+				
+				\draw[color=black] plot (1,-0.2) node [below]
+				{\large{{Transaction}}};
+				
+				% Inputs
+				\draw[color=black] plot (-1,-1.65) node[above] {\texttt{inputs:}};
+				
+				% top left
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(3.3cm,1.8cm);
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(0.9cm,0.7cm);
+				\draw[color=black] plot (-2.5,-2.25) node[right] {Alice:};
+				\draw[color=black] plot (-0.6,-2.21)   node[right] {3 BTC};
+				\draw[color=black] plot (-2.5,-3.1)   node[right] {\small{$Sig_A$}};
+			
+				\uncover<2 ->{\draw plot (-2,-3.1) node {\checkmarkgreen};}
+						
+				% bottom left
+				\uncover<3->{
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (-2.6,-5.6) rectangle ++(3.3cm,1.8cm);
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick,draw=highlight] (-2.6,-5.6) rectangle ++(0.9cm,0.7cm);
+				\draw[color=black] plot (-2.5,-4.45)   node[right] {Bob:};
+				\draw[color=black] plot (-1.35,-4.45)   node[right] {\small{Colored Coin}};
+				\draw[color=black] plot (-2.5,-5.3)   node[right] {\small{$Sig_B$}};}
+				
+				\uncover<4->{\draw plot (-2,-5.3) node {\checkmarkgreen};}
+				
+				% Outputs
+				\draw[color=black] plot (3,-1.65)   node[above] {\texttt{outputs:}};
+				
+				% top right
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.3,-3.4) rectangle ++(3.3cm,1.8cm);
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (1.3,-3.4) rectangle ++(0.9cm,0.7cm);
+				\draw[color=black] plot (1.4,-2.25)   node[right] {Alice:};
+				\draw[color=black] plot (2.5,-2.25)   node[right] {\small{Colored Coin}};
+				\draw[color=black] plot (1.4,-3.1)   node[right] {\small{$Sig_A$}};
+				
+				% bottom right
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.3,-5.6) rectangle ++(3.3cm,1.8cm);
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick,draw=highlight] (1.3,-5.6) rectangle ++(0.9cm,0.7cm);
+				\draw[color=black] plot (1.4,-4.45)   node[right] {Bob:};
+				\draw[color=black] plot (3.3,-4.45)   node[right] {3 BTC};
+				\draw[color=black] plot (1.4,-5.3)   node[right] {\small{$Sig_B$}};
+		\end{tikzpicture}
+	\end{figure}
+	\begin{itemize}
+		\item<1 ->Alice creates "wrapper" transaction (SIGHASH\_ALL) and signes her input
+		\item<3 ->Bob signes his input
+		\item<4 ->Transfers executed simultaneously. No counterparty risk.
+	\end{itemize}
 \end{frame}
 
 %%%
@@ -55,13 +138,13 @@
 	\begin{itemize}
 		\item<1-> UTXOs can be locked for a specified time
 		\begin{itemize}
-			\item<2-> Absolute time locks use a specific point in time or block height (analogy: "at 12 o'clock")
-			\item<2-> Relative time locks specify a number of blocks after confirmation (analogy: "in five hours")
+			\item<1-> Absolute time locks use a specific point in time or block height (analogy: "at 12 o'clock")
+			\item<1-> Relative time locks specify a number of blocks after confirmation (analogy: "in five hours")
 		\end{itemize}
-		\item<3 -> Four alternatives for implementation
+		\item<2 -> Four alternatives for implementation
 	\end{itemize}
 	\vspace{0.25cm}
-	\uncover<4->{\begin{table}
+	\uncover<2->{\begin{table}
 		\center
 		\resizebox{\textwidth}{!}{%
 			\begin{tabular}{lll} \hline \hline
@@ -75,23 +158,221 @@
 \end{frame}
 
 %%%
+\iffalse
+\begin{frame}{Example: Simple Payment Channel}
+	\begin{itemize}
+		\item<1 ->Alice wants to pay Bob many small transaction without paying to much in transaction fees or spaming the network
+		\item<2 ->She opens a unidirectional payment channel
+		\begin{itemize}
+			\item<2 ->Payment channels allow parties to exchange transactions off-chain, while still benefiting from the security of the Bitcoin Blockchain
+		\end{itemize}\vspace{0.2cm}
+		\item<3 ->Off-chain preparation:
+		\begin{itemize}
+			\item<3 ->Alice opens a 2-of-2 multisig address
+			\item<4 ->Alice creates a \textit{funding transaction} to the multisig address
+			\item<5 ->Next, she creates a \textit{refund transaction} from the multisig address back to her address and lets Bob sign and return this transaction
+			\item<6 ->The \textit{refund transaction} contains a \texttt{nLockTime} time lock and guarantees that all remaining funds on the multisig are returned to Alice after specified period of time
+		\end{itemize}\vspace{0.2cm}
+		\item<7 ->On-chain transaction:
+		\begin{itemize}
+			\item<7 ->Alice propagates the \textit{funding transaction}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+\fi
+%%%
 
-\begin{frame}{Simple Payment Channel}
-	
+\begin{frame}{Example: Simple Payment Channel}
+	\begin{minipage}{0.1\linewidth}
+		\vspace{-0.5cm}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_right}
+		\\ \hspace{-0.35cm} \textbf{Alice}
+	\end{minipage}%
+	\begin{minipage}{0.8\linewidth}
+		\begin{figure}
+		\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+			\input{../assets/figures/funding_transaction.tex}
+		\end{tikzpicture}
+		\vspace{0.5cm}
+		\uncover<2 ->{
+		\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+			\input{../assets/figures/refund_transaction.tex}
+		\end{tikzpicture}
+		}
+		\end{figure}
+	\end{minipage}%
+	\begin{minipage}{0.1\linewidth}
+		\vspace{-0.5cm}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_left}
+		\\ \hspace{0.3cm}\textbf{Bob}
+	\end{minipage}
 \end{frame}
 
 %%%
 
-\begin{frame}{Simple Payment Channel}
-	
+\begin{frame}{Example: Simple Payment Channel}
+	\begin{minipage}{0.1\linewidth}
+		\vspace{-2.1cm}
+		\begin{figure}[t]
+			\resizebox{2.5cm}{!}{
+			\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+					\input{../assets/figures/refund_transaction.tex}
+			\end{tikzpicture}}
+		\end{figure}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_right}
+		\\ \hspace{-0.35cm} \textbf{Alice}
+	\end{minipage}%
+	\begin{minipage}{0.8\linewidth}
+		\uncover<3->{
+		\vspace{1cm}
+		\begin{figure}
+				\resizebox{5cm}{!}{
+					\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+						\input{../assets/figures/commitment_transaction.tex}
+				\end{tikzpicture}}
+		\end{figure}}
+		\begin{figure}
+			\centering
+			\resizebox{4cm}{!}{
+			\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+					\input{../assets/figures/p2p}
+			\end{tikzpicture}}
+		\end{figure}
+		\uncover<2>{
+			\vspace{-2.6cm}
+			\begin{figure}
+				\resizebox{2.5cm}{!}{
+				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+						\input{../assets/figures/funding_transaction.tex}
+				\end{tikzpicture}}
+			\end{figure}
+		}		
+	\end{minipage}%
+	\begin{minipage}{0.1\linewidth}
+		\vspace{-0.5cm}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_left}
+		\\ \hspace{0.3cm}\textbf{Bob}
+	\end{minipage}
 \end{frame}
 
 %%%
 
-\begin{frame}%[allowframebreaks]
-	\frametitle{References}
-	\bibliographystyle{amsplain}
-	\bibliography{../assets/bib/refs}
+\begin{frame}{Example: Simple Payment Channel}
+	\begin{minipage}{0.1\linewidth}
+		\vspace{-2.27cm}
+		\begin{figure}[t]
+			\resizebox{2.5cm}{!}{
+			\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+				\input{../assets/figures/refund_transaction.tex}
+			\end{tikzpicture}}
+		\end{figure}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_right}
+		\\ \hspace{-0.35cm} \textbf{Alice}
+	\end{minipage}%
+	\begin{minipage}{0.8\linewidth}
+		\vspace{1.34cm}
+		\only<1>{
+			\begin{figure}
+				\resizebox{5cm}{!}{
+					\begin{tikzpicture}
+						\filldraw[yshift=-0.05cm, xshift=0.1cm,color = white!15, thick, draw=white] (-3,-5.9) rectangle ++(8cm,5.7cm);
+				\end{tikzpicture}}
+		\end{figure}}
+		\only<2-3>{
+			\begin{figure}
+				\resizebox{5cm}{!}{
+				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+					\input{../assets/figures/commitment_transaction_2.tex}
+				\end{tikzpicture}}
+		\end{figure}}
+		\only<4>{
+			\begin{figure}
+				\resizebox{5cm}{!}{
+				\begin{tikzpicture}
+						\filldraw[yshift=-0.05cm, xshift=0.1cm,color = white!15, thick, draw=white] (-3,-5.9) rectangle ++(8cm,5.7cm);
+				\end{tikzpicture}}
+		\end{figure}}
+		\begin{figure}
+			\centering
+			\resizebox{4cm}{!}{
+				\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+					\input{../assets/figures/p2p}
+			\end{tikzpicture}}
+		\end{figure}
+		\vspace{-2.9cm}
+		\uncover<4 ->{
+		\begin{figure}
+			\resizebox{2.5cm}{!}{
+				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+					\input{../assets/figures/commitment_transaction_2.tex}
+			\end{tikzpicture}}
+		\end{figure}}		
+	\end{minipage}%
+	\begin{minipage}{0.1\linewidth}
+		\vspace{1.44cm}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_left}
+		\\ \hspace{0.3cm}\textbf{Bob}
+		\vspace{-0.5cm}
+		\begin{figure}
+		\hspace{-1.7cm}
+		\resizebox{2.5cm}{!}{
+				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+					\input{../assets/figures/commitment_transaction.tex}
+				\end{tikzpicture}}
+		\end{figure}
+	\end{minipage}
 \end{frame}
+
 %%%
+
+\begin{frame}{Example: Simple Payment Channel}
+	\begin{table}
+		\begin{tabular}{c c c c c}
+			\hline
+			State & Alice & Bob & Open Conditions & \texttt{nLockTime}\\
+			\hline
+			State 0 & 1.0 & 0.0 & $Sig_A$ & $T$\\
+			State 1 & 0.9 & 0.1 & $Sig_B$ & \\
+			State 2 & 0.8 & 0.2 & $Sig_B$ & \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\vspace{0.2cm}
+	\uncover<2 ->{
+	\begin{figure}
+		\begin{tikzpicture}
+			\draw[color=black] plot (-1.1,1) node[left] {Time};
+			\draw[-stealth,thick,shorten >=0.05cm,shorten <=0.05cm] (-1,1) -- (5,1);
+			\draw[thick] (3.5,1.15) -- (3.5,0.85);
+			\draw[color=black] plot (3.5,0.5) node {\large{$T$}};
+			
+			\draw[color=black] plot (1.8,1.5) node {\scriptsize{State 1 - 2 Propagation Period}};
+			\draw[color=black] plot (4.25,2.1) node {\scriptsize{State 0 Propagation Period}};
+			
+			\draw [decoration={brace}, decorate] (-1,1.2) -- (5,1.2);
+			\draw [decoration={brace}, decorate] (3.5,1.8) -- (5,1.8);
+		\end{tikzpicture}
+	\end{figure}}
+	\vspace{0.2cm}
+	\begin{itemize}
+		\item<3 -> Incentive compatible: Bob will pick latest state and propagate it before $T$
+	\end{itemize}
+\end{frame}
+
+%%%
+
+%\begin{frame}%[allowframebreaks]
+%	\frametitle{References}
+%	\bibliographystyle{amsplain}
+%	\bibliography{../assets/bib/refs}
+%\end{frame}
+
+%%%
+
 \end{document}
