@@ -1,0 +1,48 @@
+\begin{tikzpicture}[scale = 0.5]
+
+	% define coordinates
+			\coordinate (0) at (0,0);
+			\coordinate (1x) at (6,0);
+			\coordinate (1y) at (0,6);
+			\coordinate (mid) at (3,3);
+		
+		% draw axes
+			\draw[->] (0) -- ([xshift = 8pt] 1x) node[below] {$Q$};
+			\draw[->] (0) -- ([yshift = 8pt] 1y) node[left] {$P$};
+			
+		% Supply
+			\draw[focus] (5.5,5.5) node[right]{\scriptsize{$S$}} -- (0.5,0.5);
+			
+		% Demand
+			\draw[focus] (0.5,5.5) -- (5.5,0.5) node[right]{\scriptsize{$D$}};
+			
+		% Equilibrium
+			\fill[circle] (mid) circle[radius = 2pt];
+			\draw[dotted] (mid) -- (3,0) node[below]{\scriptsize{$q^*$}};
+			\draw[dotted] (mid) -- (0,3) node[left]{\scriptsize{$p^*$}};
+			
+		\uncover<2>{
+		% Demand'
+
+			\draw[focus] (1.5,6.5) -- (6.5,1.5) node[right]{\scriptsize{$D'$}};
+			\draw[->, dotted] (1.1,5) -- (2.9,5);
+			\fill[circle] (4,4) circle[radius = 2pt];
+			\draw[dotted] (4,4) -- (0,4) node[left]{\scriptsize{$p'$}};
+			\draw[dotted] (4,4) -- (4,0) node[below]{\scriptsize{$q'$}};
+
+		}
+		
+		\uncover<3>{
+		
+		% Supply'
+		
+			\draw[focus] (0.5, 1.5) -- (5.5, 6.5) node[right]{\scriptsize{$S'$}};
+			\draw[->, dotted] (5.4, 5.5) -- (4.6, 5.5);
+			\fill[circle] (2.5, 3.5) circle[radius = 2pt];
+			\draw[dotted] (2.5, 3.5) -- (0, 3.5) node[left]{\scriptsize{$p'$}};
+			\draw[dotted] (2.5, 3.5) -- (2.5, 0) node[below]{\scriptsize{$q'$}};
+
+		}
+					
+								
+\end{tikzpicture}

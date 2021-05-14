@@ -1,0 +1,194 @@
+% Choose one to switch between slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Bitcoin Volatility and Pricing Models}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+\begin{frame}<4-5>{Recap: Bitcoin as Money}
+	\begin{figure}
+		\input{../assets/figures/functions.tex}
+	\end{figure}
+	\uncover<5->{$\rightarrow$ Bitcoin is not fit to act as a means of payment.}
+\end{frame}
+
+\begin{frame}{Bitcoin Price History}
+	\begin{figure}
+		\includegraphics[width = 0.9\textwidth]{../assets/figures/price_graph}	
+		\caption*{\textit{Price data sources:} blockchain.info and coinmarketcap.com}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Volatility}
+	\begin{figure}
+		\includegraphics[width = 0.9\textwidth]{../assets/figures/volatility.pdf}
+		\caption*{\textit{Price data sources:} blockchain.info and coinmarketcap.com}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Recap: Monetary Value}
+	\begin{table}[h]
+		\begin{center}
+			\begin{tabular}{rl}
+				\hline \hline
+  					& \text{Intrinsic value}\\
+				\text{+} & \text{Promise of payment}\\
+				\text{+} & \text{Liquidity premium}\\
+				\hline
+				\text{=} & \text{Market value of monetary unit}\\
+				\hline \hline
+			\end{tabular}
+		\end{center}
+	\end{table}
+	\vspace{1.5em}
+	\uncover<2->{$\rightarrow$ Bitcoin's value is solely determined by its liquidity premium.}
+\end{frame}
+
+\begin{frame}{Discounted Cash Flow (DCF)}
+	\begin{equation}
+		DCF = \frac{CF_1}{(1 + r)^1} + \frac{CF_2}{(1 + r)^2} + \dots + \frac{CF_n}{(1 + r)^n}	\end{equation}
+	
+	\vspace{1.5em}
+	
+	\begin{columns}
+		\uncover<2->{
+			\begin{column}{0.5\textwidth}
+				\begin{figure}
+					\includegraphics[width = 0.3\textwidth]{../assets/images/firm.png}
+					\caption*{Cash flows}
+				\end{figure}
+			\end{column}
+			}
+		\uncover<3->{	
+			\begin{column}{0.5\textwidth}
+				\begin{figure}
+					\includegraphics[width = 0.3\textwidth]{../assets/images/bitcoin.png}	
+					\caption*{Cash flows?}
+				\end{figure}
+			\end{column}
+		}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Stock-to-Flow}
+	\begin{figure}
+		\input{../assets/figures/stock_to_flow.tex}	
+	\end{figure}
+	\vspace{1em}
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\uncover<2->{
+				\begin{equation}
+					SF_{t+1} = \frac{M_t}{M_{t+1} -  M_t}	
+				\end{equation}
+			}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\uncover<3->{
+				\begin{equation}
+					m_{t+1} = \frac{M_{t+1} - M_t}{M_t}
+				\end{equation}
+			}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Bitcoin Supply}
+	\begin{figure}
+		\includegraphics[width = 0.9\textwidth]{../assets/figures/mined_theoretical_btc}
+	\caption*{\textit{Data source:} blockchain.info}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Growth Rate of the Monetary Supply}
+	\begin{figure}
+		\includegraphics[width = 0.9\textwidth]{../assets/figures/btc_usd_growth.pdf}
+	\caption*{\textit{Data sources:} blockchain.info and FRED}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Growth Rate of the Monetary Supply}
+	\begin{figure}
+		\includegraphics[width = 0.9\textwidth]{../assets/figures/log_price_halvings_graph.pdf}
+	\caption*{\textit{Price data sources:} blockchain.info and coinmarketcap.com}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Price Expectations}
+	\textbf{Is Bitcoin deflationary?}\\
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\input{../assets/figures/btc_supply_demand.tex}	
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item<2-> Ever-increasing demand?
+				\item<3-> Limited (even decreasing?) total supply
+			\end{itemize}
+		\end{column}
+	\end{columns}
+	\vspace{0.5em}
+	\uncover<4->{
+		\textbf{Will the value increase forever?}\\
+		\begin{columns}
+			\begin{column}{0.5\textwidth}
+				\uncover<5->{
+					\begin{figure}
+						\input{../assets/figures/expectations.tex}	
+					\end{figure}
+				}
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\uncover<5->{
+					Two equilibria:\\
+					\begin{itemize}
+						\item $p = 0$
+						\item $p > 0$
+					\end{itemize}
+				}
+			\end{column}
+		\end{columns}
+	}
+\end{frame}
+
+\begin{frame}[fragile]{Bitcoin as a Store of Value}
+	\begin{quote}{''As a thought experiment, imagine there was a base metal as scarce as gold but with the following properties:\\
+	- boring grey in colour\\
+	- not a good conductor of electricity\\
+	- not particularly strong, but not ductile or easily malleable either\\
+	- not useful for any practical or ornamental purpose\\
+\hfill \\
+	and one special, magical property:\\
+	- can be transported over a communications channel"
+		}
+	\end{quote}
+
+	\textit{Source:} \href{https://bitcointalk.org/index.php?topic=583.msg11405#msg11405}{\link satoshi on bitcointalk.org}
+\end{frame}
+
+
+\begin{frame}{Bitcoin as a Store of Value}
+	\begin{figure}
+		\input{../assets/figures/digital_gold.tex}
+	\end{figure}
+
+\end{frame}
+
+\end{document}

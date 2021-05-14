@@ -314,3 +314,4 @@ Temporary Items
 
 # IDE hidden directories
 .idea/
+.Rhistory
