@@ -1,0 +1,29 @@
+	\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, 	draw=black, dashed] (-3,-3.9) rectangle ++(8cm,2.9cm);
+	
+	\draw[color=black] plot (1,-0.4) node [below]
+	{\large{{Refund Transaction}}};
+	
+	% Inputs
+	\draw[color=black] plot (-1,-1.65) node[above] {\texttt{inputs:}};
+	
+	% top left
+	\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(3.3cm,1.8cm);
+	\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle 	++(0.9cm,0.7cm);
+	\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-1.7,-3.4) rectangle 	++(0.9cm,0.7cm);
+	\draw[color=black] plot (-2.5,-2.25) node[right] {Multisig:};
+	\draw[color=black] plot (-0.6,-2.21)   node[right] {1 BTC};
+	\draw[color=black] plot (-2.5,-3.1)   node[right] {\small{$Sig_A$}};
+	\draw[color=black] plot (-1.6,-3.1)   node[right] {\small{$Sig_B$}};
+	
+	% Outputs
+	\draw[color=black] plot (3,-1.65)   node[above] {\texttt{outputs:}};
+	
+	% top right
+	\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.3,-3.4) rectangle ++(3.3cm,1.8cm);
+	\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (1.3,-3.4) rectangle ++(0.9cm,0.7cm);
+	\draw[color=black] plot (1.4,-2.25)   node[right] {Alice:};
+	\draw[color=black] plot (3.3,-2.25)   node[right] {1 BTC};
+	\draw[color=black] plot (1.4,-3.1)   node[right] {\small{$Sig_A$}};
+	
+	% Time lock
+	\draw[color=black] plot (1,-3.97)   node[above] {\texttt{nLockTime} = $T$};
