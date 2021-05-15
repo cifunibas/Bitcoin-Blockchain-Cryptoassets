@@ -37,8 +37,8 @@
 		\vspace{0.5em}
 		\begin{small}
 		\begin{itemize}
-			\item Electronic means of payment significantly limit privacy and traceable payment flows generate sensitive data.
-			\item Goal: Virtual money unit that imitates the anonymity of cash.
+			\item Concern: Electronic means of payment significantly limit privacy and traceable payment flows may generate sensitive data.
+			\item Goal: Virtual monetary unit that imitates the anonymity of cash.
 			\item Monopolized money creation and centralized settlement.
 			\item Central bank blindly signs monetary units.
 		\end{itemize}
@@ -63,7 +63,7 @@
 		\vspace{0.5em}
 		\link \href{https://groups.csail.mit.edu/mac/classes/6.805/articles/crypto/cypherpunks/may-crypto-manifesto.html}{Link} \\
 		\vspace{0.5em}
-		\includegraphics[scale=0.2]{../assets/images/crypto_manifesto}
+		\includegraphics[scale=0.23]{../assets/images/crypto_manifesto}
 \end{columns}
 \end{frame}
 %%%
@@ -232,16 +232,16 @@
 		\begin{small}
 			\begin{itemize}
 				\item Protocol for building decentralized applications (dApps).
-				\item Turing-complete scripting language $\rightarrow$ Smart Contracts
+				\item Turing-complete instruction set and state variables $\rightarrow$ Smart Contracts
 				\item Account based- instead of UTXO based model.
-				\item Allows for creation of Tokens (e.g. Stablecoins) via standardized Smart Contracts such as ERC-20.
+				\item Allows for creation of additional tokens via standardized smart contracts such as ERC-20.
 			\end{itemize}
 		\end{small}
 	\end{columns}	
 \end{frame}
 %%%
 
-
+\iffalse
 %%%
 \begin{frame}{Bitcoin Fork Timeline}
 	\begin{figure}[h!]
@@ -254,37 +254,7 @@
 	\end{figure}
 \end{frame}
 %%%
-
-
-%%%
-
-%\begin{frame}{Bitcoin as Money?}
-%	\begin{figure}
-%		\begin{tikzpicture}
-%		\begin{footnotesize}
-%	
-%		\draw[dotted, above] (0,0) rectangle (9.6, 1.3) node[above = 3pt, midway] (Unit) {\textbf{Monetary unit}};
-		
-%		\alert<1>{
-%		\uncover<1->{\filldraw[fill = highlight, draw = highlight!20!black] (0.2, 0.1) rectangle (3.2, 0.8) node[midway] {Medium of exchange};}
-%		}
-%		\alert<2>{
-%		\uncover<2->{\filldraw[fill = highlight, draw = highlight!20!black] (3.3, 0.1) rectangle (6.3, 0.8) node[midway] {Unit of account};}
-%		}
-%		\alert<3>{
-%		\uncover<3->{\filldraw[fill = highlight, draw = highlight!20!black] (6.4, 0.1) rectangle (9.4, 0.8) node[midway] {Store of value};}
-%		}
-%		\end{footnotesize}
-%		\end{tikzpicture}
-%	\end{figure}
-%	\begin{itemize}
-%			\item<1-> Comparatively low adoption rates and technical limitations. Falls short of becoming the dominant medium of exchange at the moment.
-%			\item<2-> People have certain difficulties in grasping decimal numbers and interpreting their information content correctly.
-%			\item<3-> Relatively high volatility. Should lower itself with more confidence in the system, but will probably settle at a high level compared to other monetary units (capped supply).
-%	\end{itemize}
-%\end{frame}
-%%%
-
+\fi
 
 %%%
 \begin{frame}%[allowframebreaks]
@@ -293,6 +263,7 @@
 	\bibliographystyle{amsplain}
 	\bibliography{../assets/bib/refs}
 \end{frame}
+%%%
 
 \end{document}
 
