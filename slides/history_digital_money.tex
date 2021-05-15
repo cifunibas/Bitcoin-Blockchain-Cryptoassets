@@ -1,0 +1,269 @@
+% Choose one to switch between slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{History of Digital Money}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+
+
+%%%
+\begin{frame}{Before Bitcoin}
+\begin{columns}
+	\column{0.4\textwidth}
+		\begin{figure}
+			\begin{tikzpicture}[scale=1]
+				\input{../assets/figures/before_bitcoin}
+				\filldraw[draw=black, fill = focus, thick] (0, 3.5 cm) circle (2pt);
+			\end{tikzpicture}
+		\end{figure}
+	\column{0.7\textwidth}
+		\textbf{Digicash - David Chaum}
+		\vspace{0.5em}
+		\begin{small}
+		\begin{itemize}
+			\item Concern: Electronic means of payment significantly limit privacy and traceable payment flows may generate sensitive data.
+			\item Goal: Virtual monetary unit that imitates the anonymity of cash.
+			\item Monopolized money creation and centralized settlement.
+			\item Central bank blindly signs monetary units.
+		\end{itemize}
+		\end{small}	
+\end{columns}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Before Bitcoin}
+\begin{columns}
+	\column{0.4\textwidth}
+		\begin{figure}
+			\begin{tikzpicture}[scale=1]
+				\input{../assets/figures/before_bitcoin}
+				\filldraw[draw=black, fill = focus, thick] (0, 2.5 cm) circle (2pt);	
+			\end{tikzpicture}
+		\end{figure}
+	\column{0.7\textwidth}
+		\textbf{Crypto Anarchist Manifesto - Tim May} \\
+		\vspace{0.5em}
+		\link \href{https://groups.csail.mit.edu/mac/classes/6.805/articles/crypto/cypherpunks/may-crypto-manifesto.html}{Link} \\
+		\vspace{0.5em}
+		\includegraphics[scale=0.23]{../assets/images/crypto_manifesto}
+\end{columns}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Before Bitcoin}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{figure}
+	\begin{tikzpicture}[scale=1]
+		\input{../assets/figures/before_bitcoin}
+		\filldraw[draw=black, fill = focus, thick] (0, 1.5 cm) circle (2pt);	
+	\end{tikzpicture}
+\end{figure}
+\column{0.7\textwidth}
+	\textbf{Hashcash - Adam Back}
+	\vspace{0.5em}
+	\begin{small}
+	\begin{itemize}
+		\item Originally proposed as a mechanism for anti-DoS and spam email.
+		\item Introduced concept of artificial costs.
+		\item "The idea of using partial hashes is that they can be made arbitrarily expensive to compute (by choosing the desired number of bits of collision), and yet can be verified instantly." \cite{back2002}
+	\end{itemize}
+	\end{small}
+\end{columns}
+\end{frame}
+%%%	
+
+
+%%%
+\begin{frame}{Before Bitcoin}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{figure}
+	\begin{tikzpicture}[scale=1]
+		\input{../assets/figures/before_bitcoin}
+		\filldraw[draw=black, fill = focus, thick] (0, 0.5 cm) circle (2pt);	
+	\end{tikzpicture}
+\end{figure}
+\column{0.7\textwidth}
+	\textbf{B-money - Wei Dai} \\
+	\vspace{0.5em}
+	\begin{small}
+	\begin{itemize}
+		\item Thought experiment
+		\item Assumption: Existence of an untraceable network.
+		\item Senders and receivers are identified only by digital pseudonyms. (i.e. public keys) 
+		\item Transaction legitimacy guaranteed by signature with associated private key.
+		\item Participants keep separate registers with the current balances of all pseudonyms.
+		\item Competitive money creation by solving numerical puzzles that are hard to compute but easy to verify.
+	\end{itemize}
+	\end{small}
+\end{columns}
+\end{frame}
+%%%	
+
+
+%%%
+\begin{frame}{Before Bitcoin}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{figure}
+	\begin{tikzpicture}[scale=1]
+		\input{../assets/figures/before_bitcoin}
+		\filldraw[draw=black, fill = focus, thick] (0, -0.5 cm) circle (2pt);	
+	\end{tikzpicture}
+\end{figure}
+\column{0.7\textwidth}
+	\textbf{Reusable Proofs of Work - Hal Finney} \cite{finney2005}
+	\vspace{0.5em}
+	\begin{small}
+	\begin{itemize}
+		\item Combines ideas of Wei Dai and Adam Back.
+		\item A RPoW client can create a RPoW token by providing a proof-of-work string and signing with his private key.
+		\item Server can map that token to the signing key.
+		\item Client can give the token to another key by signing a transfer order to a public key.
+		\item Server registers the token as belonging to the corresponding private key.
+	\end{itemize}
+	\end{small}
+\end{columns}
+\end{frame}
+%%%	
+
+
+%%%
+\begin{frame}{Before Bitcoin}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{figure}
+	\begin{tikzpicture}[scale=1]
+		\input{../assets/figures/before_bitcoin}
+		\filldraw[draw=black, fill = focus, thick] (0, -0.5 cm) circle (2pt);
+	\end{tikzpicture}
+\end{figure}
+\column{0.7\textwidth}
+	\textbf{Bit Gold - Nick Szabo}
+	\vspace{0.5em}
+	\begin{small}
+	\begin{itemize}
+		\item Describes the combination of the proof-of-work algorithm for competitive money creation.
+		\item Computing power is used to collateralise a public ledger, which grows into a chain of blocks through a reflexive reference.
+		\item "Thus, it would be very nice if there were a protocol whereby unforgeably costly bits could be created online with minimal dependence on trusted third parties, and then securely stored, transferred, and assayed with similar minimal trust. Bit gold." \cite{szabo2005}
+	\end{itemize}
+	\end{small}
+\end{columns}
+\end{frame}
+%%%	
+
+
+%%%
+\begin{frame}{After Bitcoin: Forks and Altcoins}
+	\begin{columns}
+		\column{0.4\linewidth}
+		\begin{figure}
+			\begin{tikzpicture}[scale=1]
+				\input{../assets/figures/after_bitcoin}
+				\filldraw[draw=black, fill = focus, thick] (0, 3.5 cm) circle (2pt);
+				\filldraw[draw=black, fill = focus, thick] (0, 1.5 cm) circle (2pt);
+			\end{tikzpicture}
+		\end{figure}
+		\column{0.6\linewidth}
+			\begin{tikzpicture}
+				\node (Dogecoin) {\includegraphics[scale=0.04]{../assets/images/dogecoin}};
+				\node[right =1mm of Dogecoin] {\textbf{Dogecoin}};
+			\end{tikzpicture}
+		\begin{small}
+			\begin{itemize}
+			\item Created as a fun cryptocurrency based on the popular "doge" internet meme.
+			\item Block time of 1 min and uncapped supply.
+			\end{itemize}
+		\end{small}
+		\vspace{0.5em}
+			\begin{tikzpicture}
+				\node (Zcash) {\includegraphics[scale=0.04]{../assets/images/zcash}};
+				\node[right =1mm of Zcash] {\textbf{Zcash}};
+			\end{tikzpicture}
+		\begin{small}
+			\begin{itemize}
+				\item Focused on privacy and anonymity.
+				\item Uses zk-SNARK
+				\item Sending and receiving addresses or the amount are not revealed.
+			\end{itemize}
+		\end{small}
+	\end{columns}	
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{After Bitcoin: Forks and Altcoins}
+	\begin{columns}
+		\column{0.4\linewidth}
+			\begin{figure}
+				\begin{tikzpicture}[scale=1]
+					\input{../assets/figures/after_bitcoin}
+					\filldraw[draw=black, fill = focus, thick] (0, 2.5 cm) circle (2pt);
+				\end{tikzpicture}
+			\end{figure}
+		\column{0.6\linewidth}
+			\begin{tikzpicture}
+				\node (Ethereum) at (1.8,2.5) {\includegraphics[scale=0.04]{../assets/images/ethereum}};
+				\node[right =1mm of Ethereum] {\textbf{Ethereum}};
+			\end{tikzpicture}
+		\vspace{0.5em}
+		\begin{small}
+			\begin{itemize}
+				\item Protocol for building decentralized applications (dApps).
+				\item Turing-complete instruction set and state variables $\rightarrow$ Smart Contracts
+				\item Account based- instead of UTXO based model.
+				\item Allows for creation of additional tokens via standardized smart contracts such as ERC-20.
+			\end{itemize}
+		\end{small}
+	\end{columns}	
+\end{frame}
+%%%
+
+\iffalse
+%%%
+\begin{frame}{Bitcoin Fork Timeline}
+	\begin{figure}[h!]
+	\center
+		\begin{tikzpicture}[scale=0.65, every node/.style={scale=0.65}]
+			\input{../assets/figures/bitcoin_fork_timeline}
+  		\end{tikzpicture}
+		%\caption{Bitcoin fork timeline.}
+		\label{fig:forkhistory}
+	\end{figure}
+\end{frame}
+%%%
+\fi
+
+%%%
+\begin{frame}%[allowframebreaks]
+
+\frametitle{References and Recommended Reading}
+	\bibliographystyle{amsplain}
+	\bibliography{../assets/bib/refs}
+\end{frame}
+%%%
+
+\end{document}
+
