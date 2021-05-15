@@ -37,7 +37,7 @@
 			
 			\vspace{1 em}
 			
-			$\Rightarrow$ Value of the chain content relies on the network attesting it.
+			$\Rightarrow$ Value of the chain content depends on the network attesting it.
 		}
 		
 	\end{frame}
@@ -69,7 +69,7 @@
 	%%%
 	\begin{frame}{What Makes a Good Consensus Mechanism?}
 		
-		Suitability of a consensus mechanism \color{focus} depends on the purpose and user base \color {black} of a blockchain.
+		Suitability of a consensus mechanism \color{focus} depends on the purpose and usecase \color {black} of a blockchain.
 		\vspace{1 em}
 		
 		\textbf{The Trilemma:}
@@ -80,13 +80,13 @@
 			\end{tikzpicture}
 		\end{center}
 		
-		\textbf{Generalized Rule:} Subject to tadeoffs, i.e., not possible to achieve all three goals. 	
+		\textbf{Generalized Rule:} Subject to tade-offs, i.e., not possible to achieve all three goals. 	
 	\end{frame}
 	%%%	
 	
 	%%%
 	\begin{frame}{Popular Consensus Mechanisms}
-		We will look at and compare the following consensus mechanisms:
+		We will briefly compare the following consensus mechanisms:
 		
 		\vspace{2.5em}
 		
@@ -158,7 +158,7 @@
 		\end{minipage}
 		\begin{minipage}{0.7\textwidth}
 			\textbf{Malicious and unresponsive validators} \\
-			Malicious behavior is punished by slashing the staked assets of the offenders. Failure to participate forfeits any rewards and might be punished further.
+			Malicious behavior is punished by slashing the staked assets of the offenders. Failure to participate forfeits any rewards and might lead to further punishments.
 		\end{minipage}
 	
 		\pause
@@ -186,7 +186,7 @@
 		\begin{description}[labelwidth=10em]
 			\item[\textbf{Scalability}] Only a subset of validators need to process each transaction. Proposers are randomly selected.
 			\item[\textbf{Decentralization}] Open network with many participants. Potential crowding out over time.
-			\item[\textbf{Security}] Secured by staked capital. High complexity of the mechanism may introduce new attack vectors.
+			\item[\textbf{Security}] Pro: Attacker must acquire protocol asset.\\ Con: Complex design may introduce new attack vectors.
 		\end{description}
 	\end{frame}
 	%%%
@@ -194,7 +194,7 @@
 	%%%
 	\begin{frame}{Proof of Authority}
 		\small
-		The consensus network consists of a \color{focus}small set of approved nodes \color{black} - called validators. These are often identified and have a reputation attached.
+		The consensus network consists of a \color{focus}small set of approved nodes \color{black} - called validators. They are identified and therefore have their reputation at stake.
 		
 		\pause
 		\vspace{1.5 em}
@@ -205,7 +205,7 @@
 		\end{minipage}
 		\begin{minipage}{0.7\textwidth}
 			\textbf{Block creation and transaction validation} \\
-			Validators, usually chosen at random, create and validate blocks. Other validators will attest to the validity of the created blocks.
+			Validators (alternating or random selection) create and validate blocks. Other validators will attest to the validity of the created blocks.
 		\end{minipage}
 		
 		\pause
@@ -217,7 +217,7 @@
 		\end{minipage}
 		\begin{minipage}{0.7\textwidth}
 			\textbf{Malicious and unresponsive validators} \\
-			Malicious or unresponsive behavior is punished by excluding a validator and impacting their reputation. Additionally, legal actions are often possible.
+			Malicious or unresponsive behavior is punished by exclusion, tarnished reputation and potential legal actions.
 		\end{minipage}
 		
 		\pause
@@ -245,25 +245,20 @@
 		\begin{description}[labelwidth=10em]
 			\item[\textbf{Scalability}] Very small set of validators and simple mechanism. Higher ceiling for validator performance (hardware).
 			\item[\textbf{Decentralization}] Closed network with risk of collusion. In many cases: heavily centralized. 
-			\item[\textbf{Security}] Pro: Immutability not given, Con: Immutability not given.
+			\item[\textbf{Security}] Not immutable (with all pros and cons).\\ In many cases: Just your average database.
 		\end{description}
 	\end{frame}
 	%%%
 	
 	%%%
 	\begin{frame}{Key Takeaways}
-		The implementation of a consensus mechanism is highly specific to the project. Parameters and functionality can differ greatly even for the same type of mechanism. \\
-		
-		\pause
-		\vspace{1.5em}
-		There exist more consensus mechanisms and research on new mechanisms is ongoing. The consensus mechanism is a key differentiating feature of any blockchain project.
-		
-		\pause
-		\vspace{1.5em}
-		It is possible for a blockchain to change its consensus mechanism via a hard fork.		
+		\begin{enumerate}
+			\item All consensus algorithms have their pros and cons. 
+			\item<2-> Immutability and transparency is not just given, because you call your project ``Blockchain'' -- it depends on the architecture, and in particular, on the choice of the consensus mechanism.
+			\item<3-> It is possible for a blockchain to change its consensus mechanism via a hard fork.	
+			\item<4-> These are just a few high level examples to give you an overview. There are hundreds of variations and other consensus mechanisms.
+		\end{enumerate}
 	\end{frame}
 	%%%
-	
-	
 	
 \end{document}
