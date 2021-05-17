@@ -162,11 +162,22 @@ Each output has a clearly distinguishable origin.
 	\begin{itemize}
 		\item Worlds largest bitcoin exchange in 2013.
 		\item Transaction malleability as reason for stopping Bitcoin withdrawals in February 2014.
-		\item Around 850,000 BTC were stolen from customers in a hacking incident.
-		\item Authorities later discovered 200,000 BTC in an old format Bitcoin wallet.
 	\end{itemize}
-	\includegraphics[scale=0.1]{../assets/images/mt_gox}\\
-	\footnotesize{Picture source: \url{https://de.wikipedia.org/wiki/Mt.Gox}}
+	\begin{tikzpicture}[squarednode/.style = {rectangle, draw=black!60, fill=black!5}]
+		\node (AvatarUser)				{\includegraphics[scale=0.05]{../assets/images/agents/agent_right}};
+		\node (User)	[below= 0.05cm of AvatarUser]			{User};
+	
+		\node (CEX)		[right =4cm of AvatarUser]		{\includegraphics[scale=0.05]{../assets/images/agents/handing_money_left}};
+		\node (Mt.Gox)	[below= 0.05cm of CEX]			{Mt. Gox};
+	
+		\draw[->, thick, dotted] (AvatarUser) edge [out=-30, in=-150] node[midway,below] {{\footnotesize Withdrawal Request}} (CEX);
+		
+		\draw[->, thick, dotted] (CEX) edge [out=-210, in=30] node[midway,above] {{\footnotesize Signed TRX}} (AvatarUser);
+		
+		\node (Step3)	[below= 1cm of User]	{{\footnotesize Create malicious TRX}};
+	\end{tikzpicture}
+	%\includegraphics[scale=0.1]{../assets/images/mt_gox}\\
+	%\footnotesize{Picture source: \url{https://de.wikipedia.org/wiki/Mt.Gox}}
 \end{frame}
 %%%
 
@@ -183,6 +194,20 @@ Each output has a clearly distinguishable origin.
 	\texttt{115p7UMMngoj1pMvkpHijcRdfJNXj6LrLn} \link \href{https://blockstream.info/address/115p7UMMngoj1pMvkpHijcRdfJNXj6LrLn} {} \\
 	\end{small}
 	\end{center}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Botnet Miner}
+
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Bitcoin Tumbler}
+
 \end{frame}
 %%%
 
