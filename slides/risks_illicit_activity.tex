@@ -25,14 +25,14 @@
 
 Illicit activities with cryptocurrencies pose a certain problem but are hard to quantify. \\
 	\vspace{1em}
-	Possible sources for inflated numbers and users and transactions:
+	Possible sources for inflated numbers for illicit users and transactions:
 		\begin{itemize}
 			\item Users can have multiple addresses
 			\item Wash trades
 		\end{itemize}
 	\vspace{1em} 
 	
-	Different Studies use different assumptions in order to carry out estimates, which can have a big influence on the results.	
+	Studies use different assumptions in order to carry out estimates, which can have a big influence on the results.	
 \end{frame}
 %%%	
 
@@ -132,30 +132,74 @@ Each output has a clearly distinguishable origin.
 
 %%%
 \begin{frame}{Silk Road}
-
-
+	\begin{itemize}
+		\item First modern large-scale darknet market
+		\item Trading of illegal drugs and digital goods
+		\item Bitcoin as dominant medium of exchange
+	\end{itemize}
+	\vspace{1em}
+	\centering
+	\begin{tikzpicture}[squarednode/.style = {rectangle, draw=black!60, fill=black!5}]
+		\node (AgentSeller)				{\includegraphics[scale=0.05]{../assets/images/agents/handing_right}};
+		\node (Seller)	[below= 0.05cm of AgentSeller]			{Seller};
+	
+		\node (Darknet)          [right = 2cm of AgentSeller]          {\includegraphics[scale=0.1]{../assets/images/darknet}}; 
+		\node (Silkroad)	[below= 0.05cm of Darknet]			{Silkroad};
+	
+		\node (AgentBuyer)		[right =2cm of Darknet]		{\includegraphics[scale=0.05]{../assets/images/agents/handing_money_left}};
+		\node (Buyer)	[below= 0.05cm of AgentBuyer]			{Buyer};
+	
+		\draw[->, thick] (AgentBuyer) edge [out=-230, in=50] node[midway,above] {\texttt{BTC}} (Darknet);
+		\draw[->, thick, dotted] (Darknet) edge [out=-230, in=50] node[midway,above] {\texttt{BTC}} (AgentSeller);
+		\draw[->, thick] (AgentSeller) edge [out=-45, in=-140] node[midway,below] {\texttt{Good}} (AgentBuyer);
+	\end{tikzpicture}
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{Mt. Gox}
-
-
+	\centering
+	\begin{itemize}
+		\item Worlds largest bitcoin exchange in 2013.
+		\item Transaction malleability as reason for stopping Bitcoin withdrawals in February 2014.
+		\item Around 850,000 BTC were stolen from customers in a hacking incident.
+		\item Authorities later discovered 200,000 BTC in an old format Bitcoin wallet.
+	\end{itemize}
+	\includegraphics[scale=0.1]{../assets/images/mt_gox}\\
+	\footnotesize{Picture source: \url{https://de.wikipedia.org/wiki/Mt.Gox}}
 \end{frame}
 %%%
 
 
 %%%
 \begin{frame}{Wannacry}
-
-
+	\begin{center}
+		\includegraphics[scale=0.28]{../assets/images/wannacry} \\
+		\footnotesize{Picture source: OneSpan Blog}\\
+		\vspace{1em}
+	\begin{small}
+	\texttt{13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94} \link \href{https://blockstream.info/address/13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94}{} \\
+	\texttt{12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw} \link \href{https://blockstream.info/address/12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw}{} \\
+	\texttt{115p7UMMngoj1pMvkpHijcRdfJNXj6LrLn} \link \href{https://blockstream.info/address/115p7UMMngoj1pMvkpHijcRdfJNXj6LrLn} {} \\
+	\end{small}
+	\end{center}
 \end{frame}
 %%%
 
 
 %%%
 \begin{frame}{Regulation}
-
+\begin{itemize}
+	\item Bitcoin still exists in a regulatory grey area.
+	\item Different governing bodies have knit together a patchwork of cryptocurrency rules over the past 10 years. 
+	\item Very important topic for regulators. Further laws in the making.
+\end{itemize}
+\vspace{1em}
+\textbf{Example: Switzerland}
+\begin{itemize}
+	\item Subject to cantonally regulated wealth tax.
+	\item To be valued at the market value at the end of the tax period.
+\end{itemize}
 
 \end{frame}
 %%%
