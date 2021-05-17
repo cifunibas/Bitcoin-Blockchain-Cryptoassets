@@ -162,24 +162,53 @@ Each output has a clearly distinguishable origin.
 	\begin{itemize}
 		\item Worlds largest bitcoin exchange in 2013.
 		\item Transaction malleability as reason for stopping Bitcoin withdrawals in February 2014.
+		\item Mistake: Relied solely on the transaction hash to track and verify its account balance.
 	\end{itemize}
-	\begin{tikzpicture}[squarednode/.style = {rectangle, draw=black!60, fill=black!5}]
-		\node (AvatarUser)				{\includegraphics[scale=0.05]{../assets/images/agents/agent_right}};
-		\node (User)	[below= 0.05cm of AvatarUser]			{User};
-	
-		\node (CEX)		[right =4cm of AvatarUser]		{\includegraphics[scale=0.05]{../assets/images/agents/handing_money_left}};
-		\node (Mt.Gox)	[below= 0.05cm of CEX]			{Mt. Gox};
-	
-		\draw[->, thick, dotted] (AvatarUser) edge [out=-30, in=-150] node[midway,below] {{\footnotesize Withdrawal Request}} (CEX);
-		
-		\draw[->, thick, dotted] (CEX) edge [out=-210, in=30] node[midway,above] {{\footnotesize Signed TRX}} (AvatarUser);
-		
-		\node (Step3)	[below= 1cm of User]	{{\footnotesize Create malicious TRX}};
-	\end{tikzpicture}
 	%\includegraphics[scale=0.1]{../assets/images/mt_gox}\\
 	%\footnotesize{Picture source: \url{https://de.wikipedia.org/wiki/Mt.Gox}}
 \end{frame}
 %%%
+
+\begin{frame}{Malleability Attack}
+\begin{enumerate}
+ \item User requests withdrawal
+ \item Mt. Gox sends corresponding TRX to user and connected peers
+ \item User creates modified version without invalidating signature but altering its ID. Broadcasts TRX to his peers. This version races with original transaction for confirmation
+ \item Should modified TRX be confirmed: User still receives BTC, Mt. Gox realizes that original TRX would not confirm as it only checks for TRX ID.
+\end{enumerate}
+\centering
+\begin{tikzpicture}[squarednode/.style = {rectangle, draw=black!60, fill=black!5}]
+	
+	%User
+		\node (AvatarUser) at (0,0)				{\includegraphics[scale=0.05]{../assets/images/agents/agent_right}};
+		\node (User)	[below= 0.05cm of AvatarUser]			{User};
+	%Mt.Gox
+		\node (CEX)		[right =3cm of AvatarUser]		{\includegraphics[scale=0.05]{../assets/images/agents/handing_money_left}};
+		\node (Mt.Gox)	[below= 0.05cm of CEX]			{Mt.Gox};
+	%Connection
+		\draw[->, thick, dotted] (AvatarUser) edge [out=-30, in=-150] node[midway,below] {{\footnotesize 1}} (CEX);
+		
+		\draw[->, thick, dotted] (CEX) edge [out=-210, in=30] node[midway,above] {{\footnotesize 2}} (AvatarUser);
+		
+	%Network nodes	
+		\node (agenta) at (-1.5,1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3.png}};
+\node (agentb) at (-1.5,0) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4.png}};
+\node (agentc) at (-1.5,-1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5.png}};
+\node (agentd) at (5.8,0.5) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand1.png}};
+\node (agente) at (5.8,-0.5) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand2.png}};	
+
+	%Network nodes
+\draw[->, thick, dotted]	(AvatarUser.north west) -- (agenta.east) node[midway, above] {\footnotesize 3};
+\draw[->, thick, dotted] 	(AvatarUser.west) -- (agentb.east);
+\draw[->, thick, dotted]	(AvatarUser.south west) -- (agentc.east);
+
+\draw[->, thick, dotted]	(CEX.east) -- (agentd.west)  node[midway, above] {\footnotesize 2};
+\draw[->, thick, dotted] 	(CEX.east) -- (agente.west)  ;
+
+\end{tikzpicture}
+\end{frame}
+
+
 
 
 %%%
@@ -200,7 +229,10 @@ Each output has a clearly distinguishable origin.
 
 %%%
 \begin{frame}{Botnet Miner}
-
+\begin{itemize}
+\item Use a machine’s processing power, electricity, and the Internet bandwidth, to mine a particular cryptocurrency.
+\item Usually released on a private network of interconnected computers so that the cumulative power of the various devices can result in more computational power for mining cryptocurrency, thereby boosting mining output and the corresponding rewards for the botnet creators.
+\end{itemize}
 \end{frame}
 %%%
 
@@ -213,19 +245,17 @@ Each output has a clearly distinguishable origin.
 
 
 %%%
-\begin{frame}{Regulation}
+\begin{frame}{Regulation \& Countermeasures}
 \begin{itemize}
-	\item Bitcoin still exists in a regulatory grey area.
-	\item Different governing bodies have knit together a patchwork of cryptocurrency rules over the past 10 years. 
-	\item Very important topic for regulators. Further laws in the making.
+	\item Bitcoin Network because of decentralized nature hard to regulate
+	\item Solution: Regulate on- and off-ramps
 \end{itemize}
 \vspace{1em}
-\textbf{Example: Switzerland}
+\textbf{OpenVASP} (Virtual asset service providers)
 \begin{itemize}
-	\item Subject to cantonally regulated wealth tax.
-	\item To be valued at the market value at the end of the tax period.
+\item Travel Rule Compliance: Shared communication protocol for VASPs to exchange VA transfer information
+\
 \end{itemize}
-
 \end{frame}
 %%%
 
