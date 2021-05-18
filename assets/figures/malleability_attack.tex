@@ -1,0 +1,34 @@
+%User
+		\node (AvatarUser) at (0,0)	{\includegraphics[scale=0.05]{../assets/images/agents/agent_right}};
+		\node (User)[below= 0.05cm of AvatarUser]{{\footnotesize User}};
+		
+%Mt.Gox
+		\node (CEX)	[right =3cm of AvatarUser]{\includegraphics[scale=0.05]{../assets/images/agents/handing_money_left}};
+		\node (Mt.Gox)[below= 0.05cm of CEX]{{\footnotesize Mt.Gox}};
+		
+%Connection
+	\only<1->{
+		\draw[->, thick, dotted](AvatarUser) edge [out=-30, in=-150] node[midway,below] {{\scriptsize Withdrawal Request}} (CEX);
+		}
+	\only<2->{	
+		\draw[->, thick, dotted] (CEX) edge [out=-210, in=30] node[midway,above] {{\scriptsize $TXID_{a}$}} (AvatarUser);
+		}
+		
+%Network nodes	
+	\node (agenta) at (-1.5,1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand3.png}};
+	\node (agentb) at (-1.5,0) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand4.png}};
+	\node (agentc) at (-1.5,-1) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand5.png}};
+	\node (agentd) at (5.8,0.5) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand1.png}};
+	\node (agente) at (5.8,-0.5) {\includegraphics[width = 0.6 cm]{../assets/images/agents/avatar_rand2.png}};	
+
+%Peer connections
+	\only<4->{
+	\draw[->, thick, dotted]	(AvatarUser.north west) -- (agenta.east) node[midway, above] {\scriptsize $TXID_{b}$};
+	\draw[->, thick, dotted] 	(AvatarUser.west) -- (agentb.east);
+	\draw[->, thick, dotted]	(AvatarUser.south west) -- (agentc.east);
+		}
+		
+\only<2->{
+	\draw[->, thick, dotted]	(CEX.east) -- (agentd.west)  node[midway, above= 3mm] {\scriptsize $TXID_{a}$};
+	\draw[->, thick, dotted] 	(CEX.east) -- (agente.west)  ;
+		}
