@@ -25,7 +25,7 @@
 %%%
 \begin{frame}{CBDC Background}
 
-Established model of central banks as issuer of physical cash and bank for banks is under pressure.
+Established model of central banks as issuer of physical cash and lender of last resort.
 \vspace{1.5em}	
 
 \textbf{Drivers}
@@ -69,8 +69,7 @@ Selected CBDC design dimensions:
 	\item Research in the area of e-money/e-cash since the 1990s.
 	\item Various pilots since 2014.\\
 			\textit{E.g., Dinero Electronico, eKrona, project Jasper, digital yuan.}
-	\item Increased priority on central bank agendas worldwide.\\
-	\link \href{https://www.cbdctracker.org}{Infopage: cbdctracker.org}
+	\item Becoming increasingly more important with a large variety of pilots all around the world: \link{\href{https://cbdctracker.org}{Infopage: cbdctracker.org}}
 \end{itemize}
 
 \vspace{1.0em}
@@ -108,7 +107,7 @@ Selected CBDC design dimensions:
 		\begin{itemize}
 			\item Undesired structural disintermediation of banks 
 			\item Unknown effects on financial stability
-			\item Extension of central bank balance sheets
+			\item Privacy concerns and severe centralization risks
 		\end{itemize}
 		}
 	\end{column}
@@ -127,43 +126,26 @@ The idea of a crypto-asset representing \color{focus} a FIAT unit of currency \c
 \uncover<2->{
 \textbf{Three main categories:}
 	\begin{itemize}
-		\item Off-chain collateralized, centrally issued.\\
-		\textit{E.g., USDT, TUSD, BUSD.}
-		\item On-chain collateralized, FIAT pegged.\\
-		\textit{E.g., DAI, sUSD.}
-		\item Algorithmic stable coin.\\\
-		\textit{no functioning example at this point}
+		\item<2-> Off-chain collateralized
+		\begin{itemize}
+			\item<2-> Examples: \textit{USDT, TUSD, USDC}
+			\item<2-> Risks: counterparty risk, regulatory risk.
+		\end{itemize}
+		\item<3-> On-chain collateralized\\
+		\begin{itemize}
+			\item<3-> Examples: \textit{DAI, sUSD}
+			\item<3-> Risks: liquidation risk, smart contract risk, oracle risk.
+		\end{itemize}
+		\item<4-> Algorithmic stablecoin\\
+		\begin{itemize}
+			\item<4-> Examples: \textit{...}
+			\item<4-> Risks: Flawed economics.
+		\end{itemize}
 	\end{itemize}
 }
 
 \end{frame}
 %%%
-
-%%%
-\begin{frame}{Stablecoin Risks}
-
-\textbf{Off-chain collateralized, centrally issued}
-\begin{itemize}
-	\item Issuer risk (fraud, default)
-	\item Regulatory risk
-\end{itemize}
-\vspace{2em}
-
-
-\textbf{On-chain collateralized, FIAT pegged}
-\begin{itemize}
-	\item Crypto exposure through collateral
-	\item Oracle dependencies
-\end{itemize}
-
-\vspace{2em}
-\uncover<2->{
-$\Rightarrow$ A decentralized stablecoin without some crypto asset exposure does not (yet) exist.
-}
-
-\end{frame}
-%%%
-
 
 %%%
 \begin{frame}{References and Recommended Reading}
