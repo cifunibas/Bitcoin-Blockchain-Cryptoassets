@@ -79,7 +79,7 @@
 			\item Worlds largest bitcoin exchange in 2013.
 			\item Transaction malleability as reason for stopping Bitcoin withdrawals in February 2014.
 			\item Mistake: Relied solely on the transaction hash to track and verify its account balance.
-			\item Claim that transaction malleability as the reason for the loss of around 850'000 is controversial. See \cite{Decker2014}
+			\item Claim that transaction malleability as the reason for the loss of around 850,000 BTC is controversial. See \cite{Decker2014}
 		\end{itemize}
 	\includegraphics[scale=0.12]{../assets/images/mt_gox}\\
 	\footnotesize{Picture source: Wikipedia}	
@@ -93,16 +93,15 @@
 	\begin{tikzpicture}[squarednode/.style = {rectangle, draw=black!60, fill=black!5}]
 		\input{../assets/figures/malleability_attack}
 	\end{tikzpicture}
-	\begin{enumerate}
-	\setcounter{enumi}{2}
-		\item<3-> User modifies $TRX_{a}$ by altering the scriptSig without invalidating it. Modification results in a different transaction ID ($TXID_{b}$).
-		\item<4-> Modified $TRX_{b}$ races with original $TXR_{a}$ for confirmation.
-		\item<5-> If modified version gets included in the blockchain:
+	\begin{itemize}	
+		\item<3->[1.] The user sends a request for withdrawal. The exchange initiates $TRX_a$ with $TXID_a$.
+		\item<4->[2.] The user modifies $TRX_a$'s \texttt{scriptSig} in a way that the transaction is still valid, but its ID changes to $TXID_b$. Both transactions $TRX_a$ and $TRX_b$ are valid and race for confirmation.
+		\item<5->[3.] If the modified version $TRX_b$ gets included in the blockchain:
 		\begin{itemize}
-			\item User still receives BTC units.
-			\item Mt. Gox thinks $TRX_{a}$ failed, as they only check for $TXID_{a}$. User still credited with funds in their system.
+			\item The user receives the expected BTC units through $TRX_b$.
+			\item $TRX_a$ fails and the user is still credited with funds in Mt. Gox's system.
 		\end{itemize}
-	\end{enumerate}
+	\end{itemize}
 \end{frame}
 %%%
 
@@ -114,9 +113,9 @@
 		\footnotesize{Picture source: OneSpan Blog}\\
 		\vspace{1em}
 		\begin{small}
-			\texttt{13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94} \link \href{https://blockstream.info/address/13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94}{} \\
-			\texttt{12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw} \link \href{https://blockstream.info/address/12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw}{} \\
-			\texttt{115p7UMMngoj1pMvkpHijcRdfJNXj6LrLn} \link \href{https://blockstream.info/address/115p7UMMngoj1pMvkpHijcRdfJNXj6LrLn} {} \\
+			\href{https://blockstream.info/address/13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94}{\texttt{13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94} \link} \\
+			\href{https://blockstream.info/address/12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw}{\texttt{12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw} \link} \\
+			\href{https://blockstream.info/address/115p7UMMngoj1pMvkpHijcRdfJNXj6LrLn} {\texttt{115p7UMMngoj1pMvkpHijcRdfJNXj6LrLn} \link} \\
 		\end{small}
 \end{frame}
 %%%
