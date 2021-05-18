@@ -48,11 +48,47 @@ ggsave("assets/figures/log_returns.pdf", width = 8, height = 4.5)
 # graph: 1-year rolling volatility
 rolling_interval <- 365
 year <- 365
-rolling_vola <- rollapply(data$R, rolling_interval, align = "right", function(x) sd(x))
+rolling_vola <- na.omit(rollapply(data$R, rolling_interval, align = "right", function(x) sd(x)))
 ann_rolling_vola <- sqrt(year) * rolling_vola
 volatility_graph <- autoplot(ann_rolling_vola) + theme_bw() + labs(x = "Time", y = "Annualized volatility of daily returns (over the last 365 days)") + scale_y_continuous(breaks = c(0, 1, 2, 3), labels = c("0", "100%", "200%", "300%"))
 volatility_graph
 ggsave("assets/figures/volatility.pdf", width = 8, height = 4.5)
+
+# graph: 1-year rolling volatility in comparison to gold, S&P 500
+gold <- read.csv("assets/data/gold.csv") # yahoo finance data
+gold <- gold[-which(gold$Close == "null"), ]
+gold_inds <- as.Date(gold$Date)
+gold_P <- zoo(as.numeric(gsub(",", "", gold$Close)), gold_inds)
+gold_p <- log(gold_P)
+gold_r <- diff(gold_p)
+gold_R <- exp(gold_r) - 1
+gold_data <- merge(gold_P, gold_p, gold_R, gold_r)
+colnames(gold_data) <- c("P", "p", "R", "r")
+gold_rolling_vola <- na.omit(rollapply(gold_data$R, rolling_interval, align = "right", function(x) sd(x)))
+gold_ann_rolling_vola <- sqrt(year) * gold_rolling_vola
+
+sp500 <- read.csv("assets/data/sp500.csv") # yahoo finance data
+sp500_inds <- as.Date(sp500$Date)
+sp500_P <- zoo(as.numeric(gsub(",", "", sp500$`Close.`)), sp500_inds)
+sp500_p <- log(sp500_P)
+sp500_r <- diff(sp500_p)
+sp500_R <- exp(sp500_r) - 1
+sp500_data <- merge(sp500_P, sp500_p, sp500_R, sp500_r)
+colnames(sp500_data) <- c("P", "p", "R", "r")
+sp500_rolling_vola <- na.omit(rollapply(sp500_data$R, rolling_interval, align = "right", function(x) sd(x)))
+sp500_ann_rolling_vola <- sqrt(year) * sp500_rolling_vola
+
+all_ann_rolling_vola <- merge(ann_rolling_vola, gold_ann_rolling_vola, sp500_ann_rolling_vola)
+all_volatility_graph <- autoplot(all_ann_rolling_vola, facets = NULL) + theme_bw() + labs(x = "Time", y = "Annualized volatility of daily returns (over the last 365 days)") + scale_y_continuous(breaks = c(0, 1, 2, 3), labels = c("0", "100%", "200%", "300%")) +
+  scale_colour_manual(breaks = c("ann_rolling_vola", "gold_ann_rolling_vola", "sp500_ann_rolling_vola"), 
+                      labels = c("Bitcoin", "Gold", "S&P 500"),
+                      values = c("black", "grey40", "grey80")) +
+  theme(legend.justification = c(0, 1),
+        legend.position = c(0, 1),
+        legend.title = element_blank(),
+        legend.box.background = element_rect(colour = "black"))
+all_volatility_graph
+ggsave("assets/figures/volatility_all.pdf", width = 8, height = 4.5)
 
 # load data and create ts of actual Bitcoin supply and actual growth rate of Bitcoin units
 actual_bitcoins <- read.csv("assets/data/total_bitcoins.csv")
