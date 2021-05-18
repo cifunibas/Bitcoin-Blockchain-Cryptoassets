@@ -1,0 +1,362 @@
+% Choose one to switch between slides and handout
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Incentives and Potential Consensus Attacks}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+\begin{frame}{Introduction}
+
+By now, we know about the fundamental role of consensus and the dangers of difficulties:
+	\begin{itemize}
+		\item Danger of permanent network splits.
+		\item Uncertainty in case of temporary forks.
+	\end{itemize}
+	
+\vspace{0.5 em}
+$\Rightarrow$ Both cases impact value of network to the users.
+
+\vspace{1.5 em}
+\uncover<2->{
+\textbf{Focus of this lecture:}
+	\begin{itemize}
+		\item General incentives for consensus relevant nodes (CRNs)
+		\item Bitcoin specifics and incentives driving consensus.
+		\item Consensus attacks in this context.
+	\end{itemize}
+}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Economic Considerations of a CRN}
+
+To get participants to serve as compliant CRN and bear the corresponding cost, a Blockchain network typically offers revenues.
+
+\vspace{1 em}
+
+\footnotesize
+\textbf{General CRN P\&L categories}
+\begin{table}
+	{\renewcommand{\arraystretch}{1.3}%
+  \center
+  \begin{tabular}[]{p{0.43\textwidth} | p{0.47\textwidth}}
+		\textbf{Cost} & \textbf{Revenues}      \\
+		\hline
+		Computation & Block-based (e.g., Coinbase tx)\\
+		\textit{(electricity, hardware, etc.)} & Transaction-based (e.g., fees)\\
+		Cost of stake* & Attestation rewards*\\
+		Cost of maintaining Authority* & Miner Extracted Value (MEV)
+  \end{tabular}}
+\end{table}
+
+\scriptsize *not applicable in Bitcoin context
+
+\vspace{1 em}
+\normalsize
+$\Rightarrow$ With revenues in network currency and cost often in FIAT, CRNs have an incentive to keep network value - and consequently demand - high.
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Computing Power Allocation}
+
+\begin{columns}[T]
+	\begin{column}{0.45\textwidth}
+		\textbf{Mining Market:} \\
+		\begin{itemize}
+			\item Competitive due to low entry barriers.
+			\item Profits only through above average efficiency.
+		\end{itemize}		
+		
+		
+		\vspace{1 em}
+		\uncover<2->{
+			\textbf{Underallocation:} Miners add power to realize more profits.\\}
+		
+		\vspace{1 em}
+		\uncover<3->{
+		\textbf{Overallocation:} Miners remove power to avoid losses.}
+	\end{column} %\hfill
+	\begin{column}{0.55\textwidth}
+		\begin{center}
+		\begin{tikzpicture}[scale=1.0, every node/.style ={scale=1.0}]
+			\input{../assets/figures/mining_market}
+		\end{tikzpicture}
+		\end{center}
+	\end{column}
+\end{columns}
+
+	
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Bitcoin Mining: Probabilistic Reward Distribution}
+
+Under proof-of-work, probability of mining a block and earning the corresponding reward $P$ is defined by a miner $i$'s computing power relative to the network, i.e., $E(p_{i}) = P  \cdot \frac{c_{i}}{C}$.
+
+%ToDo: Expected value / Pi instead of overline R
+
+\vspace{1.5 em}
+
+\uncover<2->{
+\textbf{Illustrative example} with P = 6.25 Bitcoin:
+
+\begin{center}
+	\begin{tikzpicture}[scale=0.9, every node/.style ={scale=1.0}]
+		\input{../assets/figures/network_with_computing_power}
+	\end{tikzpicture}
+\end{center}
+
+Jake's expected payout per block: $6.25 \cdot \frac{1}{16} = 0.391$ Bitcoin.
+}
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{The Case for Mining Pools}
+
+	\begin{enumerate}
+		\item Successful mining of a block follows a Poisson distribution.
+		\item Short- to mid-term actual payouts may deviate significantly.
+		\item Relatively small miners are disproportionally affected.
+	\end{enumerate}
+
+\vspace{1 em}
+
+\uncover<2->{
+To address this, Jake, Brian and Claudia can form a \textbf{Mining Pool}:
+
+\begin{center}
+	\begin{tikzpicture}[scale=0.9, every node/.style ={scale=1.0}]
+		\input{../assets/figures/network_with_computing_power_mining_pool}
+	\end{tikzpicture}
+\end{center}
+
+$ \Rightarrow E(p)$ per block: $6.25 \cdot \frac{1}{16}$ vs. $\frac{6.25}{3} \cdot \frac{3}{16}$.
+
+\vspace{0.5 em}
+$\Rightarrow \sigma_{p}$ per block:  $1.523$ vs. \color{focus} \textbf{$0.813$}
+}	
+
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Bitcoin Consensus Incentives: Basic Assumptions}
+
+\textbf{CRN operators are:}
+\begin{itemize}
+	\item	Rational agents\\$\Rightarrow$ Effort is dedicated to chain with highest probability weighted payout.
+	\item	Independent (otherwise considered Mining Pools)
+\end{itemize}
+
+\vspace{1.5 em}
+
+\uncover<2->{
+\textbf{Value of payout is tied to network value}:
+\begin{itemize}
+	\item	Consensus deviations impair trust in network and thus demand.
+	\item	Reduced demand is reflected in lower fees and devaluation of reward currency.
+\end{itemize}
+}
+
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Bitcoin: Attraction of the Longest Chain}
+
+\textbf{Situation:} Michèle has successfully mined Block 4. Our Mining Pool is considering to continue mining it's own Block 4.
+
+\begin{center}
+	\begin{tikzpicture}[scale=1.3, every node/.style ={scale=1.3}]
+		\input{../assets/figures/block_acceptance}
+	\end{tikzpicture}
+\end{center}
+
+\uncover<2->{
+\begin{itemize}
+	\item	Consensus compliant CRN's mine on top of Michèle's block.
+	\item	To become the longest chain, the Pool must mine two blocks before current consensus chain is extended.
+	\item	In case of success, the Pool receives two block rewards.
+\end{itemize}
+
+\vspace{0.5 em}
+\textbf{Expected Payout:} $\frac{3}{16} \cdot \frac{3}{16} \cdot (6.25 \cdot 2) = 0.439$
+}
+
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Bitcoin: Attraction of the Longest Chain (cont.)}
+
+Expected payout over two blocks on top of Michèle's Block 4:
+
+\begin{center}
+	\begin{tikzpicture}[scale=1.2, every node/.style ={scale=1.2}]
+		\input{../assets/figures/block_acceptance_alternative}
+	\end{tikzpicture}
+\end{center}
+\uncover<2->{
+$\Rightarrow \frac{39}{256} \cdot 6.25 + \frac{39}{256} \cdot 6.25 + \frac{9}{256} \cdot 12.5 = \textbf{2.344}$
+
+\vspace{1 em}
+\textbf{Conclusion:}
+\begin{itemize}
+	\item	Expected payouts strongly support compliance with consensus.
+	\item	Relative computing power thresholds for rational deviations are $\ge \frac{2}{3}$ over two blocks and  $\ge \frac{1}{2}$ over long-term.
+\end{itemize}
+}
+
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Longest Chain Incentives and Process-based Forks}
+
+\textbf{Probabilistic Block Race}
+\begin{itemize}
+	\item	Expected payout drives fast resolution along "winning" chain. 
+	\item	Only miner of abandoned block has skewed incentives.
+\end{itemize}
+
+\vspace{0.5 em}
+
+\textbf{Block Withholding / Selfish Mining}
+\begin{itemize}
+	\item	Risk of loosing block reward $t$ vs. increased chances on $t+1$.
+	\item	Only rational for high relative computing power.
+\end{itemize}
+
+\vspace{0.5 em}
+
+\textbf{Forced Block Race}
+\begin{itemize}
+	\item	Longest chain incentives do not discriminate "attack" chains.
+	\item	Only rational in case of computing power $\ge 51\%$.
+\end{itemize}
+
+\vspace{1.0 em}
+
+$\Rightarrow$ Bitcoin incentives effectively protect consensus in absence of mining power concentration.
+
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Other MEV: Double Spend Attack}
+
+Miners can choose which transactions to include in a block and thus can influence the consensus chain and, for example :
+\begin{itemize}
+	\item	Deliberately delay a transaction (blocking).
+	\item	Attack a block with conflicting transactions (double spend).
+\end{itemize}
+
+\vspace{0.5 em}
+$\Rightarrow$ Situative other MEV may skew incentives for CRNs.
+
+\uncover<2->{
+\vspace{1.0 em}
+\textbf{Example:} Raphael pays 10 Bitcoin to Lucas and receives a car. \uncover<3->{Driving away, he attacks Block 4 spending the UTXO on himself.}
+
+\begin{center}
+	\begin{tikzpicture}[scale=1.2, every node/.style ={scale=1.2}]
+		\input{../assets/figures/miner_double_spend_attack}
+	\end{tikzpicture}
+\end{center}
+
+}
+
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Double Spend Attack without Mining}
+
+\textbf{Scenario}
+\begin{itemize}
+	\item	Raphael buys take-away coffee, paying in Bitcoin.
+	\item	He receives the coffee against the - yet unconfirmed - trx.
+	\item<2-> To another node, he sends a trx to himself with the same UTXO.
+\end{itemize}
+
+\uncover<3->{
+\vspace{0.5 em}
+The faster the trxs are propagated through the network, the higher their relative chances to be included in a valid block first:
+}
+
+\begin{center}
+	\begin{tikzpicture}[scale=0.9, every node/.style ={scale=0.9}]
+		\input{../assets/figures/double_spend_attack}
+	\end{tikzpicture}
+\end{center}
+
+\uncover<4->{
+$\Rightarrow$ Relayed to a better connected node, the attack trx is probably getting confirmed first, leaving Raphael with coffee AND Bitcoin.}
+
+\end{frame}
+%%%	
+
+%%%
+\begin{frame}{Double Spend Attack without Mining (cont.)}
+
+Double spend attacks \color{focus} do not require own mining power.\color{black} The chances of success are not negligible, given enough time pressure in the exchange payment vs. goods.
+\vspace{1.5 em}
+
+\uncover<2->{
+The payee can take \textbf{cautionary measures} to minimize success probability of such attacks:
+
+\vspace{0.5 em}
+\begin{itemize}
+	\item	If not waiting for confirmation, at least a minimal waiting time between relaying transaction and handing out goods.
+	\item	Maintaining a broad network connection to foster propagation of own transaction and increase chances of becoming aware of conflicting transactions.
+\end{itemize}
+}
+
+
+\end{frame}
+%%%	
+
+
+%%%
+\begin{frame}%[allowframebreaks]
+\frametitle{References and Recommended Reading}
+
+		\begin{columns}[T]
+			\begin{column}{0.1\textwidth}
+					\includegraphics[width = 1.7cm, frame]{../assets/images/Mining_cover}
+			\end{column} %\hfill
+			\begin{column}{0.8\textwidth}
+				\textbf{Majority is not Enough: Bitcoin Mining is Vulnerable} \\ 
+				Ittay Eyal and Emin Gün Sirer \\
+				\link \href{https://www.cs.cornell.edu/~ie53/publications/btcProcFC.pdf}{Online version}
+			\end{column}
+		\end{columns}
+	%
+	
+
+\end{frame}
+%%%
+
+\end{document}

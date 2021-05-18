@@ -1,0 +1,79 @@
+% Double spend attack w/o mining power
+
+% Colors
+
+\definecolor{lgrey}{rgb}{0.83,0.83,0.83}
+
+
+% Outline
+\coordinate (c1) at (0,0);
+\coordinate (c2) at (1,0);
+\coordinate (c3) at (2.8,0.8);
+\coordinate (c4) at (2.5,-0.5);
+\coordinate (c5) at (4.5,0.2);
+\coordinate (c6) at (5,0.8);
+\coordinate (c7) at (5,0.2);
+\coordinate (c8) at (0.5,1);
+
+\coordinate (L1) at (-4.5,1.1);
+\coordinate (L2) at (-4.8,0.6);
+\coordinate (L3) at (-4.5,-0.2);
+\coordinate (L4) at (-4.5,-0.7);
+
+% Nodes
+\uncover<-2>{
+\filldraw[color=lgrey] (c1) circle (6pt) node[color=black]{\texttt{0}} node[below=0.15cm,color=black]{\footnotesize{Edith}};
+}
+\uncover<3->{
+\filldraw[color=highlight, fill = highlight!20, thick] (c1) circle (6pt) node[color=black]{\texttt{0}} node[below=0.15cm,color=black]{\footnotesize{Edith}};
+}
+
+\uncover<-2>{
+\filldraw[color=lgrey] (c2) circle (6pt) node[color=black]{\texttt{3}} node[below=0.15cm,color=black]{\footnotesize{Tony}};
+}
+\uncover<3->{
+\filldraw[color=focus, fill = focus!20, thick] (c2) circle (6pt) node[color=black]{\texttt{3}} node[below=0.15cm,color=black]{\footnotesize{Tony}};
+}
+
+\uncover<-3>{
+\filldraw[color=lgrey] (c3) circle (6pt) node[color=black]{\texttt{3}} node[above=0.15cm,color=black]{\footnotesize{Marcia}};
+}
+\uncover<4->{	
+	\filldraw[color=focus, fill = focus!20, thick] (c3) circle (6pt) node[color=black]{\texttt{3}} node[above=0.15cm,color=black]{\footnotesize{Marcia}};
+}
+
+\uncover<-1>{
+\filldraw[color=lgrey] (c4) circle (6pt) node[color=black]{\texttt{4}} node[below=0.15cm,color=black]{\footnotesize{Michèle}};
+}
+\uncover<2->{	
+	\filldraw[color=focus, fill = focus!20, thick] (c4) circle (6pt) node[color=black]{\texttt{4}} node[below=0.15cm,color=black]{\footnotesize{Michèle}};
+}
+
+\uncover<-2>{
+\filldraw[color=lgrey] (c5) circle (6pt) node[color=black]{\texttt{3}} node[above=0.15cm,color=black]{\footnotesize{Mining Pool}};
+}
+\uncover<3->{
+\filldraw[color=focus, fill = focus!20, thick] (c5) circle (6pt) node[color=black]{\texttt{3}} node[above=0.15cm,color=black]{\footnotesize{Mining Pool}};
+}
+
+\filldraw[color=highlight, fill = highlight!20, thick] (c8) circle (6pt) node[color=black]{\texttt{3}} node[above=0.15cm,color=black]{\footnotesize{Tamara}};
+
+% Connections
+\draw[shorten >=0.28cm,shorten <=0.28cm] (c1) to[] (c2);
+\draw[shorten >=0.28cm,shorten <=0.28cm] (c2) to[] (c3);
+\draw[shorten >=0.28cm,shorten <=0.28cm] (c2) to[] (c4);
+\draw[shorten >=0.28cm,shorten <=0.28cm] (c3) to[] (c5);
+\draw[shorten >=0.28cm,shorten <=0.28cm] (c4) to[] (c5);
+\draw[shorten >=0.28cm,shorten <=0.28cm] (c8) to[] (c1);
+\draw[shorten >=0.28cm,shorten <=0.28cm] (c8) to[out = 200, in = 190, distance=110] (c4);
+
+
+% Legend
+\filldraw[color=lgrey] (L1) circle (6pt) node[color=black]{\texttt{$c_{i}$}};
+\node	at (L2)[right, text = black]{\footnotesize $C = 16$};
+
+\filldraw[color=highlight, fill = highlight!20, thick] (L3) circle (6pt) node[right = 0.2cm, color=black]{\footnotesize{knows first trx}};
+
+\uncover<2->{
+\filldraw[color=focus, fill = focus!20, thick] (L4) circle (6pt) node[right = 0.2cm, color=black]{\footnotesize{knows attack trx}};
+}

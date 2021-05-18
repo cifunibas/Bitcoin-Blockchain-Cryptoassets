@@ -1,0 +1,84 @@
+% Title: Scenario of not accepting blocks
+
+
+% Arrangement
+
+\coordinate (ot45) at (4.5,1.375);
+\coordinate (t5) at (5,1.75);
+\coordinate (t6) at (6,1.75);
+
+\coordinate	(o0) at	(0,1);
+\coordinate (o1) at (1,1);
+\coordinate (o2) at (2,1);
+\coordinate (o3) at (3,1);
+\coordinate (o34) at (3.5,1);
+\coordinate (o4) at (4,1);
+\coordinate (o45) at (4.5,1);
+\coordinate (o5) at (5,1);
+\coordinate (o6) at (6,1);
+
+
+\coordinate	(on34) at (3.5,0.625);
+\coordinate (n4) at (4,0.25);
+\coordinate (n45) at (4.5,0.25);
+\coordinate (n5) at (5,0.25);
+\coordinate (n6) at (6,0.25);
+
+\coordinate (nb45) at (4.5,-0.125);
+\coordinate (b5) at (5,-0.5);
+\coordinate (b6) at (6,-0.5);
+
+
+
+% Chain Lines
+\draw[] (o0) -- (o1) -- (o2) -- (o3);
+
+\draw[dotted, thick] (o4) -- (t5);
+\draw[dotted, thick] (o3) -- (o4) -- (o5);
+\draw[dotted, thick] (o3) -- (n4) -- (n5);
+\draw[dotted, thick] (n4) -- (b5);
+
+\draw[color=black,thick, dotted, ->] (t5) to[] (t6);
+\draw[color=black,thick, dotted, ->] (o5) to[] (o6);
+\draw[color=black,thick, dotted, ->] (n5) to[] (n6);
+\draw[color=black,thick, dotted, ->] (b5) to[] (b6);
+
+
+% Blocks
+\node (rect) at (o0) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+\node (rect) at (o1) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+\node (rect) at (o2) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+\node (rect) at (o3) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+
+\node (rect) at (o4) [thick,fill=white,draw,minimum width=0.3cm,minimum height=0.3cm,densely dotted]{};
+\node (rect) at (t5) [thick,fill=white,draw,minimum width=0.3cm,minimum height=0.3cm,densely dotted] {};
+\node (rect) at (n5) [thick,fill=white,draw,minimum width=0.3cm,minimum height=0.3cm,densely dotted]{};
+
+\node (rect) at (o5) [thick,fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm,densely dotted] {};
+\node (rect) at (n4) [thick,fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm,densely dotted] {};
+\node (rect) at (b5) [thick,fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm,densely dotted] {};
+
+
+
+% Labels
+
+\uncover<-1>{
+\node at (o2) [above=0.1cm]{\tiny{\texttt{Block 3}}};
+\node at (o3) [above=0.1cm]{\tiny{\texttt{Block 4}}};
+\node at (o3) [above=0.35cm]{\tiny{\texttt{Michèle's}}};
+%\node at (n5) [above = 0.1cm]{\tiny{\texttt{Alternative chain}}};
+}
+
+\uncover<2->{
+\node at(ot45)[xshift= -0.15cm, yshift=0.15cm]{\color{black}\tiny{$\frac{13}{16}$}};
+\node at(o34)[yshift= 0.2cm]{\color{black}\tiny{$\frac{13}{16}$}};
+\node at(o45)[yshift=0.2cm] {\color{black}\tiny{$\frac{3}{16}$}};
+\node at(on34)[xshift= -0.15cm, yshift=-0.15cm]{\color{black}\tiny{$\frac{3}{16}$}};
+\node at(n45)[yshift=0.2cm] {\color{black}\tiny{$\frac{13}{16}$}};
+\node at(nb45)[xshift= -0.15cm, yshift=-0.15cm]{\color{black}\tiny{$\frac{3}{16}$}};
+}
+
+\node at(t6)[right]{\color{black}\tiny{$0$}};
+\node at(o6)[right]{\color{black}\tiny{$6.25$}};
+\node at(n6)[right]{\color{black}\tiny{$6.25$}};
+\node at(b6)[right]{\color{black}\tiny{$12.5$}};
