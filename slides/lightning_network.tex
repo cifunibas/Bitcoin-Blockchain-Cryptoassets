@@ -1,0 +1,286 @@
+% Choose one to switch between slides and handout
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Payment Channels and Lightning Network}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Basic Idea of State Channels}
+
+What we know already:
+\begin{itemize}
+	\item The Bitcoin network today is facing scalability challenges.\ \textit{Block cadence or size increase are cannot solve this.}
+	\item Economic scripting, i.e., the clever combination of transaction designs and conditions, allows to account for different incentive scenarios in the context of transactions.
+\end{itemize}
+
+\vspace{1.5 em}
+
+\uncover<2->{
+\textbf{State channels} present another scalability option, reducing the transaction load on the network between two agents that exchange payments frequently:
+
+\begin{itemize}
+	\item Establishment and funding of payment channel.
+	\item Off-chain transaction handling between the two participants.
+	\item Channel closure with net settling of transactions on-chain.
+\end{itemize}
+}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{A Naïve Implementation}
+
+
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Unidirectional Payment Channel (UPC): Setup}
+\begin{minipage}{0.1\linewidth}
+		\vspace{-0.5cm}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_right}
+		\\ \hspace{-0.35cm} \textbf{Alice}
+	\end{minipage}%
+	\begin{minipage}{0.8\linewidth}
+		\begin{figure}
+		\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+			\input{../assets/figures/funding_transaction.tex}
+		\end{tikzpicture}
+		\vspace{0.5cm}
+		\uncover<2 ->{
+		\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+			\input{../assets/figures/refund_transaction.tex}
+		\end{tikzpicture}
+		}
+		\end{figure}
+	\end{minipage}%
+	\begin{minipage}{0.1\linewidth}
+		\vspace{-0.5cm}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_left}
+		\\ \hspace{0.3cm}\textbf{Bob}
+	\end{minipage}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{UPC: Exchanging Payments}
+\begin{minipage}{0.1\linewidth}
+		\vspace{-2.1cm}
+		\begin{figure}[t]
+			\resizebox{2.5cm}{!}{
+			\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+					\input{../assets/figures/refund_transaction.tex}
+			\end{tikzpicture}}
+		\end{figure}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_right}
+		\\ \hspace{-0.35cm} \textbf{Alice}
+	\end{minipage}%
+	\begin{minipage}{0.8\linewidth}
+		\uncover<3->{
+		\vspace{1cm}
+		\begin{figure}
+				\resizebox{5cm}{!}{
+					\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+						\input{../assets/figures/commitment_transaction.tex}
+				\end{tikzpicture}}
+		\end{figure}}
+		\begin{figure}
+			\centering
+			\resizebox{4cm}{!}{
+			\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+					\input{../assets/figures/p2p}
+			\end{tikzpicture}}
+		\end{figure}
+		\uncover<2>{
+			\vspace{-2.6cm}
+			\begin{figure}
+				\resizebox{2.5cm}{!}{
+				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+						\input{../assets/figures/funding_transaction.tex}
+				\end{tikzpicture}}
+			\end{figure}
+		}		
+	\end{minipage}%
+	\begin{minipage}{0.1\linewidth}
+		\vspace{-0.5cm}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_left}
+		\\ \hspace{0.3cm}\textbf{Bob}
+	\end{minipage}
+
+\end{frame}
+%%%
+
+\begin{frame}{Let's see}
+	\begin{minipage}{0.1\linewidth}
+		\vspace{-2.27cm}
+		\begin{figure}[t]
+			\resizebox{2.5cm}{!}{
+			\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+				\input{../assets/figures/refund_transaction.tex}
+			\end{tikzpicture}}
+		\end{figure}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_right}
+		\\ \hspace{-0.35cm} \textbf{Alice}
+	\end{minipage}%
+	\begin{minipage}{0.8\linewidth}
+		\vspace{1.34cm}
+		\only<1>{
+			\begin{figure}
+				\resizebox{5cm}{!}{
+					\begin{tikzpicture}
+						\filldraw[yshift=-0.05cm, xshift=0.1cm,color = white!15, thick, draw=white] (-3,-5.9) rectangle ++(8cm,5.7cm);
+				\end{tikzpicture}}
+		\end{figure}}
+		\only<2-3>{
+			\begin{figure}
+				\resizebox{5cm}{!}{
+				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+					\input{../assets/figures/commitment_transaction_2.tex}
+				\end{tikzpicture}}
+		\end{figure}}
+		\only<4>{
+			\begin{figure}
+				\resizebox{5cm}{!}{
+				\begin{tikzpicture}
+						\filldraw[yshift=-0.05cm, xshift=0.1cm,color = white!15, thick, draw=white] (-3,-5.9) rectangle ++(8cm,5.7cm);
+				\end{tikzpicture}}
+		\end{figure}}
+		\begin{figure}
+			\centering
+			\resizebox{4cm}{!}{
+				\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+					\input{../assets/figures/p2p}
+			\end{tikzpicture}}
+		\end{figure}
+		\vspace{-2.9cm}
+		\uncover<4 ->{
+		\begin{figure}
+			\resizebox{2.5cm}{!}{
+				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+					\input{../assets/figures/commitment_transaction_2.tex}
+			\end{tikzpicture}}
+		\end{figure}}		
+	\end{minipage}%
+	\begin{minipage}{0.1\linewidth}
+		\vspace{1.44cm}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_left}
+		\\ \hspace{0.3cm}\textbf{Bob}
+		\vspace{-0.5cm}
+		\begin{figure}
+		\hspace{-1.7cm}
+		\resizebox{2.5cm}{!}{
+				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+					\input{../assets/figures/commitment_transaction.tex}
+				\end{tikzpicture}}
+		\end{figure}
+	\end{minipage}
+\end{frame}
+
+%%%
+\begin{frame}{UPC: Incentives & Role of Timelocks}
+
+
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Bidirectional Payment Channel (BPC): Setup}
+
+
+
+
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{BPC: Incentives & Role of Timelocks}
+
+
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Channels with Asymmetric Revocable Commitments (CwARC)}
+
+
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Challenges with Payment Channels}
+
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Lightning Network Approach (simplified)}
+
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Lightning Network Implications}
+
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{SUPC: Setup Transactions}
+	
+%%%
+\begin{frame}{SUPC: First Payment}
+	
+\end{frame}
+%%%
+
+
+
+
+%%%
+
+\begin{frame}{Bib-References}
+		Read the Bitcoin Whitepaper, \cite{nakamotoBitcoin2008}.
+\end{frame}
+
+
+\begin{frame}%[allowframebreaks]
+\frametitle{References and Recommended Reading}
+	\bibliographystyle{amsplain}
+	\bibliography{../assets/bib/refs}
+\end{frame}
+
+
+\end{document}
