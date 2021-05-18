@@ -1,6 +1,6 @@
 % Choose one to switch betweeen slides and handout
-%\documentclass[]{beamer}
-\documentclass[handout]{beamer}
+\documentclass[]{beamer}
+%\documentclass[handout]{beamer}
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
@@ -58,7 +58,7 @@
 			\begin{itemize}[<+->]
 				\item Example: Tracking ownership of a parcel
 				\item On-Chain representation of parcel with unique token
-				\item Reproducible crypto-anker (e.g.~QR-code) is problematic
+				\item Reproducible crypto-anchor (e.g.~QR-code) is problematic
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.4\textwidth}
@@ -87,7 +87,7 @@
 		\vspace{0.2cm}
 		\item<4->[3.] More than one oracle and use m-of-n multisig transaction. 
 		\begin{itemize}
-			\item<4-> Agents hold $\frac{m}{2}$ keys and m-1 oracles hold one key each.
+			\item<4-> Agents each hold $\frac{m}{2}$ keys and m-1 oracles hold one key each.
 			\item<4-> Any m-of-(2m-1) multisig implementation possible ($m$~has~to~be an even integer).
 		\end{itemize}
 	\end{itemize}
@@ -137,7 +137,7 @@
 	\end{minipage}\vfill
 	\vspace{0.5cm}
 	\begin{minipage}{\linewidth}
-	\textbf{\large{Verification:}}
+	\uncover<2 ->{\textbf{\large{Verification:}}
 	\begin{columns}
 		\begin{column}{0.3\textwidth}
 			\centering
@@ -160,7 +160,7 @@
 			\includegraphics[width=1.5cm]{../assets/images/verify_onchain.png}\\
 			Compares with on-chain hash value
 		\end{column}
-	\end{columns}
+	\end{columns}}
 \end{minipage}
 \end{frame}
 
@@ -444,7 +444,7 @@ if(coin >= price){
 	\end{columns}
 	\vspace{0.5cm}
 	\uncover<2 ->{
-		Vending Maschine:
+		Vending Machine:
 		\begin{itemize}
 			\item Plain code is not open source
 			\item Execution environment is not visible
