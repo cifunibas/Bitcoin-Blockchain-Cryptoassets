@@ -94,9 +94,9 @@
 		\input{../assets/figures/malleability_attack}
 	\end{tikzpicture}
 	\begin{itemize}	
-		\item<3->[1.] The user sends a request for withdrawal. The exchange initiates $TRX_a$ with $TXID_a$.
-		\item<4->[2.] The user modifies $TRX_a$'s \texttt{scriptSig} in a way that the transaction is still valid, but its ID changes to $TXID_b$. Both transactions $TRX_a$ and $TRX_b$ are valid and race for confirmation.
-		\item<5->[3.] If the modified version $TRX_b$ gets included in the blockchain:
+		\item<1->[1.] The user sends a request for withdrawal. The exchange initiates $TRX_a$ with $TXID_a$.
+		\item<3->[2.] The user modifies $TRX_a$'s \texttt{scriptSig} in a way that the transaction is still valid, but its ID changes to $TXID_b$. Both transactions $TRX_a$ and $TRX_b$ are valid and race for confirmation.
+		\item<4->[3.] If the modified version $TRX_b$ gets included in the blockchain:
 		\begin{itemize}
 			\item The user receives the expected BTC units through $TRX_b$.
 			\item $TRX_a$ fails and the user is still credited with funds in Mt. Gox's system.
