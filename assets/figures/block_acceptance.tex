@@ -1,0 +1,67 @@
+% Title: Scenario of not accepting blocks
+
+
+% Arrangement
+\coordinate	(o0) at	(0,1);
+\coordinate (o1) at (1,1);
+\coordinate (o2) at (2,1);
+\coordinate (o3) at (3,1);
+\coordinate (o4) at (4,1);
+\coordinate (o45) at (4.5,1);
+\coordinate (o5) at (5,1);
+\coordinate (o6) at (6,1);
+\coordinate (o7) at (7,1);
+\coordinate (o8) at (8,1);
+\coordinate (o9) at (9,1);
+\coordinate (o10) at (10,1);
+\coordinate (n1) at (1,0.25);
+\coordinate (n2) at (2,0.25);
+\coordinate (n3) at (3,0.25);
+\coordinate	(on34) at (3.5,0.625);
+\coordinate (n4) at (4,0.25);
+\coordinate (n45) at (4.5,0.25);
+\coordinate (n5) at (5,0.25);
+\coordinate (n6) at (6,0.25);
+\coordinate (n7) at (7,0.25);
+\coordinate (n8) at (8,0.25);
+\coordinate (n9) at (9,0.25);
+\coordinate (n10) at (10,0.25);
+
+% Chain Lines
+\draw[] (o1) -- (o2) -- (o3) -- (o4) ;
+\draw[dotted, thick] (o4) -- (o5);
+\draw[dotted, thick] (o3) -- (n4) -- (n5);
+%\draw[color=black] (n6) to[] (o7);
+%\draw[color=black,densely dashed] (o4) to[] (o5);
+%\draw[color=black,densely dashed] (o7) to[] (o8);
+\draw[color=black,thick, dotted, ->] (o5) to[] (o6);
+\draw[color=black,thick, dotted, ->] (n5) to[] (n6);
+
+% Blocks
+\node (rect) at (o1) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+\node (rect) at (o2) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+\node (rect) at (o3) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+\node (rect) at (o4) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+\node (rect) at (o5) [thick,fill=white,draw,minimum width=0.3cm,minimum height=0.3cm,densely dotted] {};
+
+\node (rect) at (n4) [thick,fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm,densely dotted] {};
+\node (rect) at (n5) [thick,fill=highlight,draw,minimum width=0.3cm,minimum height=0.3cm,densely dotted] {};
+
+
+
+% Labels
+\node at (o3) [above=0.1cm]{\tiny{\texttt{Block 3}}};
+\node at (o4) [above=0.1cm]{\tiny{\texttt{Block 4}}};
+
+\uncover<-1>{
+\node at (o4) [above=0.35cm]{\tiny{\texttt{Michèle's}}};
+\node at (n5) [above = 0.1cm]{\tiny{\texttt{Alternative chain}}};
+}
+
+\uncover<2->{
+<2->\node at(on34)[xshift= -0.15cm, yshift=-0.15cm]{\color{focus}\tiny{$\frac{3}{16}$}};
+<2->\node at(o45)[yshift=-0.2cm] {\color{black}\tiny{$\frac{247}{256}$}};
+<2-> \node at(n45)[yshift=-0.2cm]{\color{focus}\tiny{$\frac{3}{16}$}};
+<2-> \node at(n6)[right]{\color{black}\tiny{$12.5$}};
+<2-> \node at(o6)[right]{\color{black}\tiny{$0$}};
+}

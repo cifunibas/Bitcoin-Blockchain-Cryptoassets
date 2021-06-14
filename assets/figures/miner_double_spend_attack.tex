@@ -1,0 +1,58 @@
+% Title: Miner Double Spend Attack
+
+
+% Arrangement
+
+\coordinate (o1) at (1,1);
+\coordinate (o2) at (2,1);
+\coordinate (o3) at (3,1);
+\coordinate (o4) at (4,1);
+\coordinate (o5) at (5,1);
+\coordinate (o6) at (6,1);
+\coordinate (o7) at (7,1);
+
+\coordinate (n4) at (4,0.250);
+\coordinate (n5) at (5,0.250);
+\coordinate (n6) at (6,0.250);
+\coordinate (n7) at (7,0.250);
+
+\coordinate (a0) at (4,1.4);
+\coordinate (a1) at (3.8,1.7);
+
+
+\coordinate (b0) at (3.2,0.25);
+
+
+% Blocks and Connections
+
+\draw[] (o1) -- (o2) -- (o3) -- (o4) -- (o5) --(o6) ;
+\draw[color=black,thick, dotted, ->] (o6) to[] (o7);
+
+
+\uncover<3->{
+\draw[thick, dotted] (o3) -- (n4); 
+\draw[color=black,thick, dotted, ->] (n4) to[] (n7);
+\node (rect) at (n4) [thick, densely dotted,fill=highlight,draw,minimum width=0.3cm, minimum height=0.3cm] {};
+}
+
+\node (rect) at (o1) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+\node (rect) at (o2) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+\node (rect) at (o3) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+
+\node (rect) at (o4) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+\node (rect) at (o5) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+\node (rect) at (o6) [fill=white,draw,minimum width=0.3cm,minimum height=0.3cm] {};
+
+% Labeling
+
+\node at (o3) [above=0.2cm]{\tiny{\texttt{Block 3}}};
+
+\draw[->] 	(a0) -- (o4);
+
+\linespread{0.5}
+\node (rect) at (a1) [draw,right = -0.2cm,text width=2.4cm, minimum height=0.6cm,align = left] {\tiny {Raphael: "I transfer 10 units to Lucas"}};
+
+\uncover<3->{
+\draw[->, thick,dotted] 	(b0) -- (n4);
+\node (rect) at (b0) [draw,thick, dotted, left,text width=2.4cm, minimum height=0.6cm,align = left] {\tiny {Raphael: "I transfer 10 units to \color{focus} Raphael"}};
+}

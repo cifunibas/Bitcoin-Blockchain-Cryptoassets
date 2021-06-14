@@ -1,0 +1,168 @@
+% Choose one to switch between slides and handout
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{CBDC and Stablecoins}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+%%%
+
+%%%
+\begin{frame}{CBDC Background}
+
+Established model of central banks as issuer of physical cash and lender of last resort.\\ \vspace{1em}
+
+ But: General public can only hold legal tender in the form of cash. No access to Central Bank ledger. This may change.
+\vspace{1.5em}	
+
+\textbf{Important Factors:}
+\begin{itemize}
+	\item \textbf{Drop in physical cash use} and growing importance of digital payment systems as essential infrastructure.
+	\item \textbf{Emergence of new payment solutions} from private sector, with large actors outside the banking industry.
+	\item \textbf{Ongoing debate on mandate} of central banks around money issuance and payment infrastructure provision.
+\end{itemize}
+
+\end{frame}
+%%%
+
+%%%
+
+\begin{frame}{CBDC Overview}
+CBDC as any \color{focus} digital form of money issued by a central bank. \color{black} 
+
+\begin{center}
+	\begin{tikzpicture}[scale=0.4, every node/.style ={scale=0.8}]
+		\input{../assets/figures/cube_cbdc}
+	\end{tikzpicture}
+\end{center}
+
+
+\uncover<2->{
+Selected CBDC design dimensions:
+	\begin{itemize}
+		\item Centralized vs. decentralized
+		\item Retail vs. wholesale
+		\item Token-/Object- vs. Account-based
+	\end{itemize}
+}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{CBDC Status and Arguments}
+
+\begin{itemize}
+	\item Research in the area of e-money/e-cash since the 1990s.
+	\item Various pilots since 2014.\\
+			\textit{E.g., Dinero Electronico, eKrona, project Jasper, digital yuan.}
+	\item Becoming increasingly more important with a large variety of pilots all around the world: \link{\href{https://cbdctracker.org}{Infopage: cbdctracker.org}}
+\end{itemize}
+
+\vspace{1.0em}
+
+\uncover<2->{
+\begin{columns}[T]
+	\begin{column}{0.2\textwidth}
+		\textbf{Proponents}
+	\end{column}
+	\begin{column}{0.1\textwidth}
+		\includegraphics[height = 0.9cm]{../assets/images/agents/proponent}
+	\end{column} %\hfill
+	\begin{column}{0.2\textwidth}
+		\textbf{Critics}
+	\end{column}
+	\begin{column}{0.1\textwidth}
+		\includegraphics[height = 1cm]{../assets/images/agents/opponent}
+	\end{column} %\hfill
+\end{columns}
+
+\vspace{0.5em}
+
+\begin{columns}[T]
+	\begin{column}{0.45\textwidth}
+	\footnotesize{
+		\begin{itemize}
+			\item Enhanced transmission of monetary policy
+			\item Mitigation of incentivisation issues in the banking sector
+			\item Potential in counteracting money-laundering
+		\end{itemize}
+		}
+	\end{column}
+	\begin{column}{0.45\textwidth}
+	\footnotesize{
+		\begin{itemize}
+			\item Undesired structural disintermediation of banks 
+			\item Unknown effects on financial stability
+			\item Privacy concerns and severe centralization risks
+		\end{itemize}
+		}
+	\end{column}
+\end{columns}
+}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Stablecoins Overview}
+A privately issued cryptoasset that is \color{focus} pegged to another asset \color{black} (usually a FIAT currency) with the goal to decrease price volatility and create a Blockchain-based medium of exchange. 
+
+\vspace{1.5em}
+
+\uncover<2->{
+\textbf{Three main categories:}
+	\begin{itemize}
+		\item<2-> Off-chain collateralized
+		\begin{itemize}
+			\item<2-> Examples: \textit{USDT, TUSD, USDC}
+			\item<2-> Risks: counterparty risk, regulatory risk.
+		\end{itemize}
+		\item<3-> On-chain collateralized\\
+		\begin{itemize}
+			\item<3-> Examples: \textit{DAI, sUSD}
+			\item<3-> Risks: liquidation risk, smart contract risk, oracle risk.
+		\end{itemize}
+		\item<4-> Algorithmic stablecoin\\
+		\begin{itemize}
+			\item<4-> Examples: \textit{...}
+			\item<4-> Risks: Flawed economics.
+		\end{itemize}
+	\end{itemize}
+}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{References and Recommended Reading}
+		\begin{columns}[T]
+			\begin{column}{0.1\textwidth}
+					\includegraphics[width = 1.7cm, frame]{../assets/images/berentsen_schaer}
+			\end{column} %\hfill
+			\begin{column}{0.8\textwidth}
+				\textbf{The Case for Central Bank Electronic Money and the Non-case for Central Bank Cryptocurrencies} \\ 
+				Aleksander Berentsen and Fabian Schär \\
+				\link \href{https://research.stlouisfed.org/publications/review/2018/02/13/the-case-for-central-bank-electronic-money-and-the-non-case-for-central-bank-cryptocurrencies}{Online version}
+			\end{column}
+		\end{columns}
+	
+\end{frame}
+%%%
+
+\end{document}
