@@ -20,112 +20,332 @@
 	\titlepage
 \end{frame}
 
-%%%%
-%\begin{frame}{SegWit}
-%	% Fix transaction malleability
-%	% Short explanation
-%	% Bullet points
-%\end{frame}
-%%%%
+%%%
+\begin{frame}{Transaction Structure}
+
+\begin{figure}
+	\input{../assets/figures/transaction-structure.tex}	
+\end{figure}
+\vspace{1em}
+
+\uncover<2->{$\rightarrow$ The \texttt{scriptSig} is part of the transaction data and cannot be signed (self-referential).}
+
+\end{frame}
+%%%
 
 %%%
 \begin{frame}{Transaction Malleability}
-	\begin{itemize}
-		\item (Was) a known issue in the Bitcoin protocol
-		\item<2-> Modify \texttt{scriptSig} of an unconfirmed transaction
-		\item<3-> The transaction is still valid, 
-		\item<4-> but the transaction's hash value (transaction ID) is different	
-	\end{itemize}
-	\vspace{1.5em}
-	\uncover<5->{\textbf{Some potential problems:}}
-	\begin{columns}[T]
-		\uncover<5->{
-			\begin{column}{0.5\textwidth}
-				Figure:
-				Sender cannot find the transaction ID
-			\end{column}
-		}
-		\uncover<6->{
-			\begin{column}{0.5\textwidth}
-				Figure:
-				Exchange uses transaction hash values to check withdrawal requests
-				Customer issues another transaction on their behalf
-			\end{column}
-		}
-	\end{columns}
-	\vspace{1.5em}
-	\uncover <7->{Having a reliable transaction identifier is crucial for many second-layer solutions like the Lightning Network.}
+
+Typical transaction data:\\
+\begin{scriptsize}
+	\texttt{\textcolor{black!30}{0100000001c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704
+		00000000}{\alert{4847304402204e45e16932b8af514961a1d3a1a25fdf3f4f7732e9d624c6c61548
+		ab5fb8cd410220181522ec8eca07de4860a4acdd12909d831cc56cbbac4622082221a8768d
+		1d0901}}\textcolor{black!30}{ffffffff0200ca9a3b00000000434104ae1a62fe09c5f51b13905f07f06b99a2f715
+		9b2225f374cd378d71302fa28414e7aab37397f554a7df5f142c21c1b7303b8a0626f1bade
+		d5c72a704f7e6cd84cac00286bee0000000043410411db93e1dcdb8a016b49840f8c53bc1e
+		b68a382e97b1482ecad7b148a6909a5cb2e0eaddfb84ccf9744464f82e160bfa9b8b64f9d4
+		c03f999b8643f656b412a3ac00000000}}
+\end{scriptsize}
+	\vspace{1em}
+	
+	\uncover<2->{This transaction data hashes to the following TXID:\\
+		\begin{scriptsize}
+			\texttt{f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16}
+		\end{scriptsize}
+	\vspace{1em}
+	
+	\uncover<3->{$\rightarrow$ But anyone can change the \alert{\texttt{scriptSig}} without invalidating the transaction. The TXID is not a reliable transaction identifier.}
+	}
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{Signature-Based Malleability Sources}
-	Figure:\\
-	\texttt{scriptSig} cannot be signed: circular.\\
-	\texttt{scriptSig} is part of the transaction data that is used to compute the transaction's hash value or transaction ID.\\
-	\vspace{1.5em}
-	ECDSA computation with negative s (link to other lecture slides)\\
-	% OpenSSL encoding ambiguity
+
+	The cryptographic signature is part of the \texttt{scriptSig}:\\
+	
+	\begin{scriptsize}
+		\begin{figure}
+			\input{../assets/figures/scriptSig.tex}
+		\end{figure}
+	\end{scriptsize}
+	
+	Two signature-based malleability sources:
+	\begin{itemize}
+		\item[1.] OpenSSL allows for $r$ and $s$ to be encoded in a variety of ways.
+		\item<2-> [2.] Using the negative of $s$ does not invalidate the signature.
+	\end{itemize}
+	
+	\uncover<3->{
+		\begin{scriptsize}
+			From the \href{https://cryptolectures.teachable.com/courses/bitcoin-blockchain-and-cryptoassets/lectures/30728675}{\link ECDSA example}; assume an attacker changes $s$ from 7 to -7:\\
+			\vspace{-0.5em}
+			\begin{columns}[T]
+				\begin{column}{0.5\textwidth}
+					\begin{align*}
+						\uncover<3->{
+						(-s^{-1})\ mod\ n &= (-7^{-1})\ mod\ 13\\
+										&= 11 \\
+						\text{since:}\ (-7^{-1} \cdot 11)\ mod\ 13 &= 1\\
+						}
+						\vspace{0.5em}
+						\uncover<4->{
+							u_1 &= (-s^{-1}t)\ mod\ n\\
+								&= (11 \cdot 4)\ mod\ 13\\
+								&= 5\\
+						}
+						\vspace{0.5em}
+						\uncover<5->{
+							u_2 &= (-s^{-1}r)\ mod\ n\\
+								&= (11 \cdot 5)\ mod\ 13\\
+								&= 3\\
+						}
+					\end{align*}
+				\end{column}
+				\begin{column}{0.5\textwidth}
+					\begin{align*}
+						\uncover<6->{
+							P 	&= u_1 \circ G + u_2 \circ K_{pub}\\
+								&= 5 \circ (8,1) + 3 \circ (23,1)\\
+								&= (32,17) + (8,1)\\
+								&= (18,17)\\
+						}
+						\vspace{0.5em}
+						\uncover<7->{
+							x_P\ mod\ n &= 18\ mod\ 13\\
+										&= 5\\
+										&= r
+						}
+					\end{align*}
+				\end{column}
+			\end{columns}
+		\end{scriptsize}
+	}
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{Operation Code-Based Malleability Sources}
-	One example:\\
-	Figure: stack with \texttt{DATAPUSH} and \texttt{DROP}\\
+	\begin{scriptsize}
+		From the \href{https://cryptolectures.teachable.com/courses/bitcoin-blockchain-and-cryptoassets/lectures/30728695}{\link P2PK example}:
+	\end{scriptsize}
+	\begin{itemize}
+		\item<1->[1.] \texttt{OP\_PUSHDATA 47}
+		\item<2->[2.] \texttt{OP\_PUSHDATA 41}
+	\end{itemize}
+	\vspace{1em}
+
+	\begin{figure}
+		\input{../assets/figures/malleability1.tex}	
+	\end{figure}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Operation Code-Based Malleability Sources}
+	Changing the script in a way which does not affect the stack:
+	\begin{itemize}
+		\item<1->[1.] \texttt{\alert{OP\_PUSHDATA2 0047}}
+		\item<2->[2.] \texttt{OP\_PUSHDATA 41}
+	\end{itemize}
+	\vspace{1.5em}
+
+	\begin{figure}
+		\input{../assets/figures/malleability1.tex}	
+	\end{figure}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Operation Code-Based Malleability Sources}
+From the previous transaction data:\\
+\begin{scriptsize}
+	\texttt{\textcolor{focus}{47}304402204e45e16932b8af514961a1d3a1a25fdf3f4f77
+	32e9d624c6c61548ab5fb8cd410220181522ec8eca07de48
+	60a4acdd12909d831cc56cbbac4622082221a8768d1d0901}\\
+\end{scriptsize}
+\vspace{1em}
+To the alternative:\\
+\begin{scriptsize}
+	\texttt{\textcolor{focus}{4d4700}304402204e45e16932b8af514961a1d3a1a25fdf3f4f
+	7732e9d624c6c61548ab5fb8cd410220181522ec8eca07de48
+	60a4acdd12909d831cc56cbbac4622082221a8768d1d0901}\\
+\end{scriptsize}
+\vspace{1em}
+The entire transaction data \alert{no longer} hashes to:\\
+\begin{scriptsize}
+	\texttt{f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16}
+\end{scriptsize}
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Segregated Witness (SegWit) Transactions}
+	\begin{figure}
+		\input{../assets/figures/transaction-structure-segwit.tex}	
+	\end{figure}
+	\vspace{1em}
+	
+	\uncover<3->{$\rightarrow$ The \texttt{scriptSig} is always the same. The transaction's hash value is now an unambiguous transaction identifier.}
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{Sort Fork Implementation}
-	Figure:\\
-	Segregate redeem script from the transaction's \texttt{scriptSig}\\
-	New data field: witness\\
-	Empty scriptSig is used for the computation of the transaction's hash value\\
-	\uncover<2->{The transaction's hash value is an now an unambiguous transaction identifier}\\
-	\vspace{1.5em}
-	\textbf{SegWit has been implemented through a soft fork:}
-	Old nodes\\
-	New nodes\\
-	Majority of computation power\\
-	Figure of soft fork
+		From the \href{https://cryptolectures.teachable.com/courses/bitcoin-blockchain-and-cryptoassets/lectures/30728731}{\link Fork Theory lecture}:\\
+	\begin{figure}
+		\input{../assets/figures/soft-fork-segwit.tex}	
+	\end{figure}
+	\vspace{1em}
+	\begin{scriptsize}
+	\uncover<2->{
+		\textbf{If $r_{new} > r_{old}$:}\\
+		\begin{itemize}
+			\item \textbf{Nodes following $S_{old}$:} see SegWit transactions as \texttt{ANYONECANSPEND} and accept blocks with SegWit transactions
+			\item \textbf{Nodes following $S_{new}$:} if \texttt{scriptSig} is empty $\rightarrow$ check \texttt{witness} for valid signature.
+			\item The stricter rule set results in one dominant chain.
+		\end{itemize}
+	}
+	\vspace{1em}
+	\uncover<3->{
+		\textbf{If $r_{new} < r_{old}$:}\\
+		\begin{itemize}
+			\item \textbf{Nodes following $S_{old}$:} consensus relevant nodes (CRNs) create new blocks where they spend the \texttt{ANYONECANSPEND} outputs themselves.
+			\item \textbf{Nodes following $S_{new}$:} check \texttt{witness} for valid signature and reject blocks where CRNs spend SegWit transactions themselves.
+			\item Consensus conflict! Who can spend the output?
+		\end{itemize}
+	}
+	\end{scriptsize}
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{SegWit Transaction Types (P2WPKH)}
+	Pay-to-witness-public-key-hash (P2WPKH) is the SegWit equivalent to P2PKH.\\
+	\vspace{1.5em}
 	
+	\shadowbox{
+		\begin{minipage}[c]{4.1in}
+			\texttt{scriptSig:}\\
+			\texttt{scriptPubKey:\ 0 <pubKeyHash>}\\
+			\texttt{witness:\ <sig> <pubKey>}
+		\end{minipage}
+	}
+	\vspace{1.5em}
+
+	\textbf{Non-SegWit nodes:} output can be spent without the need for a signature.\\
+	\vspace{0.5em}
+	\textbf{SegWit nodes:} ''look for and verify the signature in the witness data."
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{SegWit Transaction Types (P2WSH)}
+	Pay-to-witness-script-has (P2WSH) is the SegWit equivalent to P2SH.\\
+	\vspace{1.5em}
+	
+	\shadowbox{
+		\begin{minipage}[c]{4.1in}
+			\texttt{scriptSig:}\\
+			\texttt{scriptPubKey:\ 0 <scriptHash256>}\\
+			\texttt{witness:\ Any valid script}
+		\end{minipage}
+	}
+	\vspace{1.5em}
 
+	\textbf{Non-SegWit nodes:} output can be spent by anyone.\\
+	\vspace{0.5em}
+	\textbf{SegWit nodes:} ''look for and verify the script in the witness data."
 \end{frame}
 %%%
 
 %%%
-\begin{frame}{Native SegWit Address (Bech32)}
+\begin{frame}{P2SH Embedded SegWit Transactions}
 
+	\begin{figure}
+		\input{../assets/figures/p2sh-segwit.tex}	
+	\end{figure}
+	\vspace{1.5em}
+	
+	\uncover<2->{
+		$\rightarrow$ The receiver creates a P2SH Bitcoin address embedding the SegWit script in the P2SH locking condition:
+	}
+	\vspace{1em}
+	
+	\uncover<3->{
+		\begin{itemize}
+			\item P2SH: \texttt{OP\_HASH160 <scriptHash> OP\_EQUALVERIFY}
+			\begin{itemize}
+				\item<4-> P2SH(P2WPKH): \texttt{<scriptHash> = 0 <pubKeyHash>}
+				\item<5-> P2SH(P2WSH): \texttt{<scriptHash> = 0 <scriptHash256>}
+			\end{itemize}
+		\end{itemize}
+	}
+	\end{frame}
+%%%
+
+%%%
+\begin{frame}{Native SegWit Address (Bech32)}
+	\begin{itemize}
+%		\item Native SegWit address format
+%		\item Always start with \texttt{bc1}
+%		\item Encode SegWit outputs in an efficient and secure way
+%		\item Case insensitivity
+%		\item Stronger checksums: Bose-Chaudhuri-Hocquenghem SOURCE
+		\item Consist of \texttt{bc1}, version number, witness script and six-character checksum	
+	\end{itemize}
+	
+	\vspace{1.5em}
+	
+	\begin{scriptsize}
+		\texttt{$\overline{BC}_{pkh}$ = bc1qryqazre3142dvj8jrg8ed9s6t56aql6puy8wk8}\\
+		\texttt{$BC_{sh}$ = bc1qrp33g0q5c5txsp9arysrx4k6zdkfs4nce4xj0gdcccefvpysxf3qccfmv3}
+	\end{scriptsize}
 \end{frame}
 %%%
 
 %%%
 \begin{frame}{Confirmation Capacity Increase}
-
+	\begin{scriptsize}
+	$S_{old}$: blocks can only be 1MB large.\\
+	$\rightarrow$ moving the redeem script to the witness field reduces the size of the transaction data.\\
+	\vspace{0.5em}
+	\uncover<2->{
+	$S_{new}$: blocks can only have a weight $W \leq 4$MB.\\}
+		\begin{columns}[T]
+			\begin{column}{0.5\textwidth}
+				\uncover<3->{
+					\begin{align*}
+						W &= 3 \cdot (1 - \beta) bs(\texttt{all})\\
+						&= bs(\texttt{all}) [3 \cdot (1 - \beta) + 1] \\
+					\end{align*}
+				}
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\uncover<4->{
+					\begin{align*}
+						bs(\texttt{all}) &\leq \frac{4}{3 \cdot (1 - \beta) + 1}	
+					\end{align*}
+				}
+			\end{column}
+		\end{columns}
+	\vspace{-3em}
+		\uncover<5->{
+			\begin{figure}
+				\includegraphics[width = 0.9\textwidth]{../assets/figures/confirmation-capacity-segwit.pdf}	
+			\end{figure}
+		}
+	\end{scriptsize}
 \end{frame}
 %%%
 
-%%%%
-%\begin{frame}{}
-%
+%%%
+%\begin{frame}%[allowframebreaks]
+%\frametitle{References and Recommended Reading}
+%	\bibliographystyle{amsplain}
+%	\bibliography{../assets/bib/refs}
 %\end{frame}
-%%%%
-
-\begin{frame}%[allowframebreaks]
-\frametitle{References and Recommended Reading}
-	\bibliographystyle{amsplain}
-	\bibliography{../assets/bib/refs}
-\end{frame}
+%%%
 
 \end{document}
