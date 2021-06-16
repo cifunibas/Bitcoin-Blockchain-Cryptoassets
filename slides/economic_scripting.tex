@@ -136,7 +136,7 @@
 
 \begin{frame}{Further Scripting Components}
 	\begin{itemize}
-		\item<1-> \textbf{Time Locks}
+		\item<1-> \textbf{Timelocks}
 		\begin{itemize}
 			\item<1-> Lock a transaction or output for a relative or absolute point in time.
 		\end{itemize}
@@ -146,16 +146,36 @@
 			\item<2-> Two competing options to use one single output.
 		\end{itemize}
 		\vspace{0.25cm}
-		\item<3-> \textbf{Hash Locks}
+		\item<3-> \textbf{Hashlocks}
 		\begin{itemize}
 			\item<3-> Require the knowledge of some secret input in order to spend an output.
 		\end{itemize}
-%		\vspace{0.25cm}
-%		\item<4-> Hash Time Locked Contracts
-%		\begin{itemize}
-%			\item<4-> Create asymmetrically revocable commitments
-%		\end{itemize}
 	\end{itemize}
+\end{frame}
+
+%%%
+
+\begin{frame}{Timelocks}
+	\begin{itemize}
+		\item<1-> UTXOs can be locked for a specified time
+		\begin{itemize}
+			\item<1-> Absolute timelocks use a specific point in time or block height (analogy: "at 12 o'clock").
+			\item<1-> Relative timelocks specify a number of blocks after confirmation (analogy: "in five hours").
+		\end{itemize}
+		\item<2 -> Four alternatives for implementation
+	\end{itemize}
+	\vspace{0.25cm}
+	\uncover<2->{\begin{table}
+			\center
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{lll} \hline \hline
+					& Transaction level     & Output level\\
+					\cline{2-3}
+					& Consensus             & Scripting Language\\ \hline
+					Absolute timelock  & \texttt{nLockTime}    & CHECKLOCKTIMEVERIFY (CLTV)\\ 
+					Relative timelock  & \texttt{nSequence}    & CHECKSEQUENCEVERIFY (CSV)\\\hline \hline
+			\end{tabular}}
+	\end{table}}
 \end{frame}
 
 %%%
@@ -197,8 +217,8 @@
 	\hfill
 	\begin{minipage}{0.6\textwidth}
 		\begin{itemize}
-			\item<1-> Only one of the two options needed to spend the output
-			\item<2-> Output can only be spent once. The two options are competitive
+			\item<1-> Only one of the two options needed to spend the output.
+			\item<2-> Output can only be spent once. The two options are competitive.
 			\vspace{0.25cm}
 			\item<3-> \textbf{Example:}
 			\begin{itemize}
@@ -211,33 +231,7 @@
 
 %%%
 
-\begin{frame}{Time Locks}
-	\begin{itemize}
-		\item<1-> UTXOs can be locked for a specified time
-		\begin{itemize}
-			\item<1-> Absolute time locks use a specific point in time or block height (analogy: "at 12 o'clock").
-			\item<1-> Relative time locks specify a number of blocks after confirmation (analogy: "in five hours").
-		\end{itemize}
-		\item<2 -> Four alternatives for implementation
-	\end{itemize}
-	\vspace{0.25cm}
-	\uncover<2->{\begin{table}
-		\center
-		\resizebox{\textwidth}{!}{%
-			\begin{tabular}{lll} \hline \hline
-				& Transaction level     & Output level\\
-				\cline{2-3}
-				& Consensus             & Scripting Language\\ \hline
-				Absolute time lock  & \texttt{nLockTime}    & CHECKLOCKTIMEVERIFY (CLTV)\\ 
-				Relative time lock  & \texttt{nSequence}    & CHECKSEQUENCEVERIFY (CSV)\\\hline \hline
-		\end{tabular}}
-	\end{table}}
-\end{frame}
-
-%%%
-
-\begin{frame}{Hash Locks}
-	% Show this with sketch agents. It should be made clear that Alice keeps $m$ at the beginning and that Bob can only spend the output when he learns $m$.
+\begin{frame}{Hashlocks}
 	\begin{itemize}
 		\item<1-> Outputs can be (additionally) tied to the disclosure of a specific piece of data (e.g. $m$).
 		\item<2-> Hash-value $\left(h = H(m)\right)$ of the secret input is recorded in the transaction.
@@ -247,7 +241,7 @@
 			\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, 	draw=black, dashed] (-3,-3.6) rectangle ++(8cm,2.6cm);
 			
 			\draw[color=black] plot (1,-0.4) node [below]
-			{\large{{Hash Lock Transaction}}};
+			{\large{{Hashlock Transaction}}};
 			
 			% Inputs
 			\draw[color=black] plot (-1,-1.65) node[above] {\texttt{inputs:}};
@@ -281,18 +275,201 @@
 
 %%%
 
-\begin{frame}{Hash Time Locked Contracts (HTLC)}
-	% Maybe move to Lightning network. So far this example is not correct (or at least does not show how a HTLC works)
+\begin{frame}{Hashlocks}
+	\begin{minipage}{0.1\linewidth}
+		\vspace{0.3cm}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_right}
+		\\ \hspace{-0.3cm} \textbf{Alice}\\
+		\vspace{0.3cm}
+		\uncover<1->{
+		\hspace{-0.2cm}	\includegraphics[width=1cm]{../assets/images/hashlock_symbol}
+		}
+	\end{minipage}%
+	\begin{minipage}{0.8\linewidth}
+	\uncover<2->{\begin{figure}[b]
+					\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+						\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, 	draw=black, dashed] (-3,-3.6) rectangle ++(8cm,2.6cm);
+						
+						\draw[color=black] plot (1,-0.4) node [below]
+						{\large{{Hashlock Transaction}}};
+						
+						% Inputs
+						\draw[color=black] plot (-1,-1.65) node[above] {\texttt{inputs:}};
+						
+						% top left
+						\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(3.3cm,1.8cm);
+						\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(0.825cm,0.7cm);
+						\draw[color=black] plot (-2.5,-2.25) node[right] {Alice:};
+						\draw[color=black] plot (-0.6,-2.25)   node[right] {1 BTC};
+						\draw[color=black] plot (-2.0875,-3.1)   node {\small{$Sig_A$}};
+						
+						\draw plot (-2.1,-3.1) node {\checkmarkgreen};
+						
+						% Outputs
+						\draw[color=black] plot (3,-1.65)   node[above] {\texttt{outputs:}};
+						
+						% top right
+						\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.3,-3.4) rectangle ++(3.3cm,1.8cm);
+						\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (1.3,-3.4) rectangle ++(0.825cm,0.7cm);
+						\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (2.125,-3.4) rectangle ++(0.825cm,0.7cm);
+						\draw[color=black] plot (1.4,-2.25)   node[right] {Bob:};
+						\draw[color=black] plot (3.3,-2.25)   node[right] {1 BTC};
+						\draw[color=black] plot (1.8125,-3.1)   node {\small{$Sig_B$}};
+						\draw[color=black] plot (2.6375,-3.1)   node {\includegraphics[width=0.5cm]{../assets/images/hashlock_symbol.png}};
+					\end{tikzpicture}
+		\end{figure}}
+	\end{minipage}%
+	\begin{minipage}{0.1\linewidth}
+		\vspace{0.82cm}
+		\centering
+		\hspace{-0.2cm}\includegraphics[width=1cm]{../assets/images/agents/handing_left}
+		\\ \textbf{Bob}\\
+		\vspace{0.3cm}
+		\uncover<3->{
+		\includegraphics[width=1cm]{../assets/images/hashlock_symbol}
+			}
+	\end{minipage}
 	\begin{itemize}
-		\item<1-> Combination of time locks and hash locks.
-		\item<2-> Unlocking condition requires signature ($sig_B$) and hash lock input ($m$) before a given point in time (CLTV time lock).
+		\item<4 -> Powerful in combination with other conditions or when secret unlocks outputs on more than one Blockchain.
 	\end{itemize}
-	\uncover<3->{\begin{figure}[b]
+\end{frame}
+
+%%%
+
+\begin{frame}{Hash Time Locked Contracts (HTLC)}
+	\textbf{Generally:}
+	\begin{itemize}
+		\item<1 -> HTLC consist of combinations of timelocks and hashlocks. They are usually used for cross chain swaps and payment channels.
+	\end{itemize}
+	\vspace{0.5cm}
+	\uncover<2->{\textbf{Example: Atomic Cross Chain Swaps}}
+	\begin{itemize}
+		\item<2 -> Two Blockchains, \textit{C-Chain} and \textit{T-Chain}, with native assets \texttt{Coin} and \texttt{Token}, respectively. 
+		\item<3 -> Alice wants to swap 2 \texttt{Token} for 1 \texttt{Coin} of Bob.
+		\item<4 -> Creation of one transaction on each Blockchain, both conditioning on the same secret ($m$) to the hash lock.
+		\item<5 -> Once secret is revealed, both transactions are spendable.
+	\end{itemize}
+\end{frame}
+
+%%%
+
+\begin{frame}{Atomic Cross Chain Swaps}
+	\begin{minipage}{0.1\linewidth}
+		\vspace{0.6cm}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_right}
+		\\ \hspace{-0.3cm} \textbf{Alice}\\
+		\vspace{0.3cm}
+		\tikz{\filldraw[color = white!1] (0,0) rectangle ++(1cm,1cm);}
+	\end{minipage}%
+	\begin{minipage}{0.8\linewidth}
+		\centering
+		\begin{figure}[t]
 			\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, 	draw=black, dashed] (-3,-3.6) rectangle ++(8cm,2.6cm);
+				\draw[color=black] plot (0,1.5) node {\large{{\textbf{C-Chain}}}};
+				\fill[highlight!40] (3,-0.4) -- (-2,-0.4) -- (-2,-.9) -- (-3,0) -- (-2,.9) -- 	(-2,0.4) -- (3, 0.4) -- (3,-0.4);
+				\draw[color=black] plot (0,0) node {\large{1 \texttt{Coin}}};
+			\end{tikzpicture}
+		\end{figure}%
+		\vspace{0.1cm}
+		\tikz{\draw[color=black, thick, dashed] (-3,0) -- (3,0);}%
+		\vspace{0.5cm}
+		\begin{figure}[t]
+			\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+				\draw[color=black] plot (0,1.5) node {\large{{\textbf{T-Chain}}}};
+				\fill[highlight!40] (-3,-0.4) -- (2,-0.4) -- (2,-.9) -- (3,0) -- (2,.9) -- 	(2,0.4) -- (-3, 0.4) -- (-3,-0.4);
+				\draw[color=black] plot (0,0) node {\large{2 \texttt{Token}}};
+			\end{tikzpicture}
+		\end{figure}
+	\end{minipage}%
+	\begin{minipage}{0.1\linewidth}
+		\vspace{0.55cm}
+		\centering
+		\hspace{-0.2cm}\includegraphics[width=1cm]{../assets/images/agents/handing_left}
+		\\ \textbf{Bob}\\
+		\vspace{0.3cm}
+		\tikz{\filldraw[color = white!1] (0,0) rectangle ++(1cm,0.9cm);}
+	\end{minipage}
+\end{frame}
+
+%%%
+
+\begin{frame}{Atomic Cross Chain Swaps}
+	\begin{minipage}{0.1\linewidth}
+		\vspace{0.3cm}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_right}
+		\\ \hspace{-0.3cm} \textbf{Alice}\\
+		\vspace{0.3cm}
+		\uncover<1->{
+			\hspace{-0.2cm}	\includegraphics[width=1cm]{../assets/images/hashlock_symbol}
+		}
+	\end{minipage}%
+	\begin{minipage}{0.8\linewidth}
+		\centering
+	\vspace{0.3cm}
+	\uncover<2->{
+	\begin{figure}[t]
+			\resizebox{0.6\linewidth}{!}{
+			\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, 	draw=black, dashed] (-3,-5.8) rectangle ++(8cm,4.9cm);
 				
-				\draw[color=black] plot (1,-0.4) node [below]
-				{\large{{HTLC Transaction}}};
+				\draw[color=black] plot (1,-0.2) node [below]
+				{\large{{\textbf{C-Chain}}}};
+				
+				% Inputs
+				\draw[color=black] plot (-1,-1.65) node[above] {\texttt{inputs:}};
+				
+				% top left
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(3.3cm,1.8cm);
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(0.825cm,0.7cm);
+				\draw[color=black] plot (-2.5,-2.25) node[right] {Bob:};
+				\draw[color=black] plot (-0.6,-2.21)   node[right] {1 \texttt{Coin}};
+				\draw[color=black] plot (-2.0875,-3.1)   node {\small{$Sig_B$}};
+				
+				\uncover<6->{\draw plot (-2.0875,-3.1) node {\checkmarkgreen};}
+				
+				% Outputs
+				\draw[color=black] plot (3,-1.65)   node[above] {\texttt{outputs:}};
+				
+				% top right
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.3,-5.4) rectangle ++(3.3cm,3.8cm);
+				\draw[color=black, thick, dashed] (1.6,-3.75) -- (4.4,-3.75);	
+				% top
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (1.3,-3.4) rectangle ++(0.825cm,0.7cm);
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (2.125,-3.4) rectangle ++(0.825cm,0.7cm);
+				
+				\draw[color=black] plot (1.4,-2.25)   node[right] {Alice:};
+				\draw[color=black] plot (3.3,-2.21)   node[right] {1 \texttt{Coin}};
+				\draw[color=black] plot (1.8125,-3.1)   node {\small{$Sig_A$}};
+				\draw[color=black] plot (2.6375,-3.1)   node {\includegraphics[width=0.5cm]{../assets/images/hashlock_symbol.png}};
+				
+				\uncover<7->{\draw plot (1.8125,-3.1) node {\checkmarkgreen};}
+				\uncover<7->{\draw plot (2.6375,-3.1) node {\checkmarkgreen};}
+				
+				% bottom
+				\uncover<3->{
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick,draw=highlight] (1.3,-5.4) rectangle ++(0.825cm,0.7cm);
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick,draw=highlight] (2.125,-5.4) rectangle ++(0.825cm,0.7cm);
+				
+				\draw[color=black] plot (1.4,-4.25)   node[right] {Bob:};
+				\draw[color=black] plot (3.3,-4.21)   node[right] {1 \texttt{Coin}};
+				\draw[color=black] plot (1.8125,-5.1)   node {\small{$Sig_B$}};
+				\draw[color=black] plot (2.6375,-5.1)   node {\includegraphics[width=0.5cm]{../assets/images/timelock_symbol.png}};}
+			\end{tikzpicture}}
+		\end{figure}
+		\vspace{-0.4cm}
+		\hspace{0.1cm}\tikz{\draw[color=black, thick, dashed] (-3,0) -- (3.5,0);}}
+		\uncover<4->{
+		\vspace{-0.2cm}
+		\begin{figure}[b]
+			\resizebox{0.6\linewidth}{!}{
+			\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, 	draw=black, dashed] (-3,-5.8) rectangle ++(8cm,4.9cm);
+				
+				\draw[color=black] plot (1,-0.2) node [below]
+				{\large{{\textbf{T-Chain}}}};
 				
 				% Inputs
 				\draw[color=black] plot (-1,-1.65) node[above] {\texttt{inputs:}};
@@ -301,144 +478,58 @@
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(3.3cm,1.8cm);
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(0.825cm,0.7cm);
 				\draw[color=black] plot (-2.5,-2.25) node[right] {Alice:};
-				\draw[color=black] plot (-0.6,-2.25)   node[right] {1 BTC};
+				\draw[color=black] plot (-0.85,-2.21)   node[right] {2 \texttt{Token}};
 				\draw[color=black] plot (-2.0875,-3.1)   node {\small{$Sig_A$}};
 				
-				\draw plot (-2.1,-3.1) node {\checkmarkgreen};
+				\uncover<5->{\draw plot (-2.0875,-3.1) node {\checkmarkgreen};}
 				
 				% Outputs
 				\draw[color=black] plot (3,-1.65)   node[above] {\texttt{outputs:}};
 				
 				% top right
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.3,-3.4) rectangle ++(3.3cm,1.8cm);
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.3,-5.4) rectangle ++(3.3cm,3.8cm);
+				\draw[color=black, thick, dashed] (1.6,-3.75) -- (4.4,-3.75);	
+				% top
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (1.3,-3.4) rectangle ++(0.825cm,0.7cm);
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (2.125,-3.4) rectangle ++(0.825cm,0.7cm);
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (2.975,-3.4) rectangle ++(0.825cm,0.7cm);
+				
 				\draw[color=black] plot (1.4,-2.25)   node[right] {Bob:};
-				\draw[color=black] plot (3.3,-2.25)   node[right] {1 BTC};
+				\draw[color=black] plot (3.05,-2.21)   node[right] {2 \texttt{Token}};
 				\draw[color=black] plot (1.8125,-3.1)   node {\small{$Sig_B$}};
 				\draw[color=black] plot (2.6375,-3.1)   node {\includegraphics[width=0.5cm]{../assets/images/hashlock_symbol.png}};
-				\draw[color=black] plot (3.4625,-3.1)   node {\includegraphics[width=0.52cm]{../assets/images/timelock_symbol.png}};
-			\end{tikzpicture}
+						
+				% bottom
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick,draw=highlight] (1.3,-5.4) rectangle ++(0.825cm,0.7cm);
+				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick,draw=highlight] (2.125,-5.4) rectangle ++(0.825cm,0.7cm);
+				
+				\draw[color=black] plot (1.4,-4.25)   node[right] {Alice:};
+				\draw[color=black] plot (3.05,-4.21)   node[right] {2 \texttt{Token}};
+				\draw[color=black] plot (1.8125,-5.1)   node {\small{$Sig_A$}};
+				\draw[color=black] plot (2.6375,-5.1)   node {\includegraphics[width=0.5cm]{../assets/images/timelock_symbol_48.png}};
+		\end{tikzpicture}}
 	\end{figure}}
-	\begin{itemize}
-		\item<4-> After the time lock ($T$), the transactions are expired.
-		\item<5-> Allows to create retractable transactions.
-	\end{itemize}
-\end{frame}
-
-%%%
-
-\begin{frame}{An Advanced Transaction Example}
-	% Todo: Adjust example according to decision with HTLC and make it correct.
-	\begin{itemize}
-		%\item<1-> Charlie wants to give Alice and Bob money for a common project.
-		\item<1-> Charlie wants to crowdfund for a project of Alice and Bob. 
-		\item<2-> As Alice and Bob often have crazy ideas, he wants to be able to veto their decision.
-		\item<3-> In addition to that, Charlie gives them two moths time to reach an agreement what to spend the money on.
-		\item<4-> If they cannot agree on a project by then, the money should alternatively be available to Thomas for one month, again needing Charlies final approvement.
-	\end{itemize}
-	\vspace{0.25cm}
-	\uncover<5 ->{$\rightarrow$ All this can be implemented by one single transaction.}
-\end{frame}
-
-%%%
-
-\begin{frame}{Advanced Transaction Example: Details}
-	% Todo: Adjust example according to decision with HTLC and make it correct.
-	\vspace{0.5cm}
-	\begin{minipage}{0.1\linewidth}
-		\vspace{-0.5cm}
-		\centering
-		\includegraphics[width=1cm]{../assets/images/agents/handing_right}
-		\\ \hspace{-0.35cm} \textbf{Charlie}
 	\end{minipage}%
-	\begin{minipage}{0.8\linewidth}
-		\begin{figure}
-			\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, 	draw=black, dashed] (-3,-5.9) rectangle ++(8cm,5cm);
-				
-				\draw[color=black] plot (1,-0.2) node [below]
-				{\large{{Advanced Transaction}}};
-				
-				% Inputs
-				\draw[color=black] plot (-1,-1.65) node[above] {\texttt{inputs:}};
-				
-				% top left
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(3.3cm,1.8cm);
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(0.825cm,0.7cm);
-				\draw[color=black] plot (-2.5,-2.25) node[right] {Charlie:};
-				\draw[color=black] plot (-0.6,-2.25)   node[right] {1 BTC};
-				\draw[color=black] plot (-2.5,-3.1)   node[right] {\small{$Sig_C$}};
-				\draw plot (-2,-3.1) node {\checkmarkgreen};
-				
-				% bottom left
-				\uncover<2->{
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (-2.6,-5.6) rectangle ++(3.3cm,1.8cm);
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-5.6) rectangle ++(0.825cm,0.7cm);
-				\draw[color=black] plot (-2.5,-4.45) node[right] {Anyone:};
-				\draw[color=black] plot (-0.6,-4.45)   node[right] {? BTC};
-				\draw[color=black] plot (-2.5,-5.3)   node[right] {\small{$Sig_{\,?}$}};}
-				
-				% Outputs
-				\draw[color=black] plot (3,-1.65)   node[above] {\texttt{outputs:}};
-				
-				% top right
-				\uncover<3->{
-					\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.3,-3.4) rectangle ++(3.3cm,1.8cm);
-					\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (1.3,-3.4) rectangle ++(0.825cm,0.7cm);
-					\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (2.125,-3.4) rectangle ++(0.825cm,0.7cm);}
-				\uncover<4->{
-					\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (2.95,-3.4) rectangle ++(0.825cm,0.7cm);}
-				\uncover<5->{
-					\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (3.775,-3.4) rectangle ++(0.825cm,0.7cm);}
-				\uncover<3->{
-					\draw[color=black] plot (1.4,-2.25)   node[right] {Multisig:};
-					\draw[color=black] plot (3.3,-2.25)   node[right] {2 BTC};
-					\draw[color=black] plot (1.8125,-3.1)   node {\small{$Sig_A$}};
-					\draw[color=black] plot (2.6375,-3.1)   node {\small{$Sig_B$}};}
-				\uncover<4->{
-					\draw[color=black] plot (3.4625,-3.1)   node {\includegraphics[width=0.5cm]{../assets/images/hashlock_symbol.png}};}
-				\uncover<5->{
-					\draw[color=black] plot (4.2875,-3.1)   node {\includegraphics[width=0.5cm]{../assets/images/timelock_symbol.png}};}
-				
-				% bottom right
-				\uncover<6->{
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.3,-5.6) rectangle ++(3.3cm,1.8cm);
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick,draw=highlight] (1.3,-5.6) rectangle ++(0.825cm,0.7cm);
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick,draw=highlight] (2.125,-5.6) rectangle ++(0.825cm,0.7cm);
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick,draw=highlight] (2.95,-5.6) rectangle ++(0.825cm,0.7cm);
-				\draw[color=black] plot (1.4,-4.45)   node[right] {Thomas:};
-				\draw[color=black] plot (3.3,-4.45)   node[right] {2 BTC};
-				\draw[color=black] plot (1.8125,-5.3)   node {\small{$Sig_T$}};
-				\draw[color=black] plot (2.6375,-5.3)   node {\includegraphics[width=0.5cm]{../assets/images/hashlock_symbol.png}};
-				\draw[color=black] plot (3.4625,-5.3)   node {\includegraphics[width=0.5cm]{../assets/images/timelock_symbol.png}};}
-			\end{tikzpicture}
-		\end{figure}
-	\end{minipage}%
-	\begin{minipage}{0.1\linewidth}
-		\vspace{0.2cm}
+		\begin{minipage}{0.1\linewidth}
+		\vspace{0.82cm}
 		\centering
-		\hspace*{-0.5cm}
-		\begin{tikzpicture}
-			\node at (-0.7,0) {\includegraphics[width = 1cm]{../assets/images/agents/handing_left}};
-			\node at (0.2,0) {\includegraphics[width = 0.74cm]{../assets/images/agents/agent_left}};
-		\end{tikzpicture}
-		\hspace*{0.2cm} \textbf{A\&B} \\
-		\vspace{0.4cm}
-		\uncover<6 ->{
-		\includegraphics[width=1cm]{../assets/images/agents/handing_left}
-		\hspace{-0.2cm} \textbf{Thomas}}
+		\hspace{-0.2cm}\includegraphics[width=1cm]{../assets/images/agents/handing_left}
+		\\ \textbf{Bob}\\
+		\vspace{0.3cm}
+		\uncover<7->{
+			\includegraphics[width=1cm]{../assets/images/hashlock_symbol}
+		}
 	\end{minipage}
-	\vspace{0.5cm}
-	
-	\textbf{Included components:}
+\end{frame}
+
+%%%
+
+\begin{frame}{Payment Channels}
 	\begin{itemize}
-		\item<2 ->\texttt{SIGHASH\_ALL|SIGHASH\_ANYONECANPAY}
-		\item<3 -> Multisig
-		\item<4 -> Hash lock \uncover<5->{and time lock (CLTV) $\rightarrow HTLC$}
+		\item<1 -> Combination of timelocks, hashlocks and competitive outputs is very powerful.
+		\item<2 -> Hash Time Locked Contracts are the basis of so-called payment channels.
+		\item<3 -> The Bitcoin network has a scaling problem. Payment channels tackle this, by allowing transaction to be exchanged off-chain, while still benefiting from Bitcoins security and being incentive compatible.
+		\item<4 -> The next video will cover this topic in depth.
 	\end{itemize}
-	
 \end{frame}
 
 %%%
