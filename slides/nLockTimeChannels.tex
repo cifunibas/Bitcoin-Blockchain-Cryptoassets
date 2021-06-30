@@ -1,0 +1,21 @@
+
+% Barrel in the middle
+		\filldraw[color = white, thick, rounded corners = 3pt, draw=black] (-3,-0.4) rectangle ++(6cm,0.8cm);
+		\draw[ultra thick, color = lightred] (-0.5,-0.4) -- (-0.5,0.4);
+		
+		
+
+% Avatars
+		\node (agenta) at (-4.5,0) {\includegraphics[height = 2 cm]{../assets/images/agents/handing_right.png}};
+		
+		\node (agentb) at (4.5,0) {\includegraphics[height = 2 cm]{../assets/images/agents/handing_left.png}};
+		
+
+
+% Braces and text
+		\draw[color=black] plot (1.25,1.0) node {Bob's Channel Balance};
+		\draw [decoration={brace, amplitude = 0.2cm}, decorate] (-0.5,0.5) -- (3,0.5);
+		
+		\draw[color=black] plot (-1.75,-1.0) node {Alice's Channel Balance};
+		\draw [decoration={brace, mirror, amplitude = 0.2cm}, decorate] (-3,-0.5) -- (-0.5,-0.5);
+						
