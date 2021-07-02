@@ -1,0 +1,162 @@
+
+%%% Multisig Credit Layer (top)
+	
+	% Left
+	\filldraw[color = highlight!25, thick, draw=highlight] (3,13) rectangle ++(4cm,2 cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (3,13) rectangle ++(1cm,1cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (4,13) rectangle ++(1cm,1cm);
+	\draw[color=black] plot (3.1,14.4)   node[right] {MS AB:};
+	\draw[color=black] plot (5.1,14.4)   node[right] {0.5 BTC};
+	\draw[color=black] plot (3.5,13.5)   node {\small{$Sig_A$}};
+	\draw[color=black] plot (4.5,13.5)   node {\small{$Sig_B$}};
+	\node at (5,15.2) {\includegraphics[height=1 cm]{../assets/images/locked-padlock.png}};
+	
+	\uncover<9->{
+	\filldraw[color = highlight!15, thick, 	draw=black, dashed] (8,12.75) rectangle ++(2cm,1.25cm);
+	\draw plot (9,13.38) node {\Large{Tx 1}};}
+	
+	
+
+	% Right
+	\filldraw[color = highlight!25, thick, draw=highlight] (11,13) rectangle ++(4cm,2 cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (11,13) rectangle ++(1cm,1cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (12,13) rectangle ++(1cm,1cm);
+	\draw[color=black] plot (11.1,14.4)   node[right] {MS BC:};
+	\draw[color=black] plot (13.1,14.4)   node[right] {0.6 BTC};
+	\draw[color=black] plot (11.5,13.5)   node {\small{$Sig_B$}};
+	\draw[color=black] plot (12.5,13.5)   node {\small{$Sig_C$}};
+	\node at (13,15.2) {\includegraphics[height=1 cm]{../assets/images/locked-padlock.png}};
+	
+	\uncover<11->{
+	\filldraw[color = highlight!15, thick, 	draw=black, dashed] (16,12.75) rectangle ++(2cm,1.25cm);
+	\draw plot (17,13.38) node {\Large{Tx 2}};}
+
+
+%% 2nd Level: Agents and Channels
+	
+	% Agents & Names
+	\node at (1,11.5) {\includegraphics[width=1.4 cm]{../assets/images/agents/avatar_rand2.png}};
+	\draw[color=black] plot (1,10)   node {\textbf{\Large Alice}};
+	
+	\node at (9,11.5) {\includegraphics[width=1.4 cm]{../assets/images/agents/avatar_rand3.png}};
+	\draw[color=black] plot (9,10)   node {\textbf{\Large Bob}};
+	
+	\node at (17,11.5) {\includegraphics[width=1.4 cm]{../assets/images/agents/avatar_rand4.png}};
+	\draw[color=black] plot (17,10)   node {\textbf{\Large Carl}};
+	
+	% Channels
+	
+	% Left
+	\filldraw[color = white, thick, rounded corners = 3pt,line width = 2pt, draw=black] (2.5,10.7) rectangle ++(5cm,0.8cm);
+	
+	\draw[line width = 3pt, color = lightred] (6.5,10.7) -- (6.5,11.5);
+	\draw[color=black] plot (7,11.1)   node {0.1};
+	\draw[color=black] plot (4.5,11.1)   node {0.4};
+	
+	\only<13->{
+	\draw[color=black] plot (4,11.1)   node {0.3};
+	\draw[line width = 3pt, color = lightred] (5.5,10.7) -- (5.5,11.5);
+	\draw [line width = 3pt, color = focus] [-to](6.45,11.1) -- (5.55,11.1);
+	\draw [decoration={brace, mirror, amplitude = 0.2cm}, decorate] (5.5,10.5) -- (6.5,10.5);
+	\draw[color=black] plot (6,10)   node {0.1};
+	}
+	
+	% Right
+	\filldraw[color = white, thick, rounded corners = 3pt,line width = 2pt, draw=black] (10.5,10.7) rectangle ++(5cm,0.8cm);
+	
+	\draw[line width = 3pt, color = lightred] (14.7,10.7) -- (14.7,11.5);
+	\draw[color=black] plot (15.1,11.1)   node {0.1};
+	
+	\only<-11>{\draw[color=black] plot (12.6,11.1)   node {0.5}};
+	
+	\only<12->{
+	\draw[color=black] plot (12.15,11.1)   node {0.4};
+	\draw[line width = 3pt, color = lightred] (13.83,10.7) -- (13.83,11.5);
+	\draw [line width = 3pt, color = focus] [-to](14.65,11.1) -- (13.88,11.1);
+	\draw [decoration={brace, mirror, amplitude = 0.2cm}, decorate] (13.83,10.5) -- (14.7,10.5);
+	\draw[color=black] plot (14.3,10)   node {0.1};
+	}
+
+	
+%% Arrows
+	
+	\only<2>{\draw [line width = 4pt, color = black!50] [-to](2.5,8.5) -- (15.5,8.5) node [midway, fill = white, text = black] {\Large 0.1 BTC}};
+	
+	\only<4-5>{\draw [line width = 4pt, color = black!50] [-to](2.5,9.5) -- (7.5,9.5) node [midway, fill = white, text = black] {\Large 0.1 BTC}};
+		
+	\only<5>{\draw [line width = 4pt, color = black!50] [-to](10.5,9.5) -- (15.5,9.5) node [midway, fill = white, text = black] {\Large 0.1 BTC}};
+	
+	
+%% Hashsecret
+	\uncover<7-11>{\node at (17,8.5) {\includegraphics[width=1.5 cm]{../assets/images/hashlock_symbol.png}};}
+	
+	\uncover<12>{\node at (9,8.5) {\includegraphics[width=1.5 cm]{../assets/images/hashlock_symbol.png}};}
+	
+	\uncover<13>{\node at (1,8.5) {\includegraphics[width=1.5 cm]{../assets/images/hashlock_symbol.png}};}
+
+
+% Transactions
+
+	% Left
+	\uncover<8>{
+	\draw plot (5,9.25) node {\Large{Transaction 1}};
+	\filldraw[color = highlight!15, thick, 	draw=black, dashed] (0.5,3.25) rectangle ++(9cm,5.6cm);
+	
+	\draw plot (2.75,8.4) node {\texttt{inputs:}};
+	\filldraw[color = highlight!25, thick, draw=highlight] (0.75,6) rectangle ++(4cm,2 cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (0.75,6) rectangle ++(1cm,1cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (1.75,6) rectangle ++(1cm,1cm);
+	\draw[color=black] plot (0.85,7.4)   node[right] {MS AB:};
+	\draw[color=black] plot (2.85,7.4)   node[right] {0.5 BTC};
+	\draw[color=black] plot (1.25,6.5)   node {\small{$Sig_A$}};
+	\draw[color=black] plot (2.25,6.5)   node {\small{$Sig_B$}};
+	\draw plot (1.25,6.5) node {\checkmarkgreen};
+	
+	
+	\draw plot (7.25,8.4) node {\texttt{outputs:}};
+	\filldraw[color = highlight!25, thick, draw=highlight] (5.25,6) rectangle ++(4cm,2 cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (5.25,6) rectangle ++(1cm,1cm);;
+	\draw[color=black] plot (5.35,7.4)   node[right] {Alice:};
+	\draw[color=black] plot (7.35,7.4)   node[right] {0.3 BTC};
+	\draw[color=black] plot (5.75,6.5)   node {\small{$Sig_A$}};
+	
+	\filldraw[color = highlight!25, thick, draw=highlight] (5.25,3.5) rectangle ++(4cm,2 cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (5.25,3.5) rectangle ++(1cm,1cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (6.25,3.5) rectangle ++(1cm,1cm);
+	\draw[color=black] plot (5.35,4.9)   node[right] {Bob:};
+	\draw[color=black] plot (7.35,4.9)   node[right] {0.2 BTC};
+	\draw[color=black] plot (5.75,4)   node {\small{$Sig_B$}};
+	\node at (6.75,4) {\includegraphics[width=0.8 cm]{../assets/images/hashlock_symbol.png}};
+	}
+
+	% Middle
+	\uncover<10>{
+	\draw plot (9,9.25) node {\Large{Transaction 2}};
+	\filldraw[color = highlight!15, thick, 	draw=black, dashed] (4.5,3.25) rectangle ++(9cm,5.6cm);
+	
+	\draw plot (6.75,8.4) node {\texttt{inputs:}};
+	\filldraw[color = highlight!25, thick, draw=highlight] (4.75,6) rectangle ++(4cm,2 cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (4.75,6) rectangle ++(1cm,1cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (5.75,6) rectangle ++(1cm,1cm);
+	\draw[color=black] plot (4.85,7.4)   node[right] {MS BC:};
+	\draw[color=black] plot (6.85,7.4)   node[right] {0.6 BTC};
+	\draw[color=black] plot (5.25,6.5)   node {\small{$Sig_B$}};
+	\draw[color=black] plot (6.25,6.5)   node {\small{$Sig_C$}};
+	\draw plot (5.25,6.5) node {\checkmarkgreen};
+	
+	
+	\draw plot (11.25,8.4) node {\texttt{outputs:}};
+	\filldraw[color = highlight!25, thick, draw=highlight] (9.25,6) rectangle ++(4cm,2 cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (9.25,6) rectangle ++(1cm,1cm);;
+	\draw[color=black] plot (9.35,7.4)   node[right] {Bob:};
+	\draw[color=black] plot (11.35,7.4)   node[right] {0.4 BTC};
+	\draw[color=black] plot (9.75,6.5)   node {\small{$Sig_A$}};
+	
+	\filldraw[color = highlight!25, thick, draw=highlight] (9.25,3.5) rectangle ++(4cm,2 cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (9.25,3.5) rectangle ++(1cm,1cm);
+	\filldraw[color = highlight!25, thick, 	draw=highlight] (10.25,3.5) rectangle ++(1cm,1cm);
+	\draw[color=black] plot (9.35,4.9)   node[right] {Carl:};
+	\draw[color=black] plot (11.35,4.9)   node[right] {0.2 BTC};
+	\draw[color=black] plot (9.75,4)   node {\small{$Sig_B$}};
+	\node at (10.75,4) {\includegraphics[width=0.8 cm]{../assets/images/hashlock_symbol.png}};
+	}

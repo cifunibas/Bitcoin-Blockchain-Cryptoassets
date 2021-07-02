@@ -22,90 +22,30 @@
 \end{frame}
 %%%
 
-
-
 %%%
 
-%%%
-\begin{frame}{The Capacity Problem with State Channels}
 
-To engage with n-1 peers, an agent needs n-1 channels.
+\begin{frame}{The Lightning Network (Simplified)}
 
-
-
-\uncover<2->{
 \begin{figure}
-	\begin{tikzpicture}% [scale=1.0, every node/.style={scale=1.0}]
-		%
-
-		% Barrels in the middle
-		\filldraw[color = white, thick, rounded corners = 2pt, draw=black] (1.2,3) rectangle ++(2.6cm,0.5cm);
-		\draw[ultra thick, color = lightred] (2.8,3) -- (2.8,3.5);
-		
-		
-
-% Avatars
-		\node (agenta) at (0.5,3.5) {\includegraphics[height = 1 cm]{../assets/images/agents/handing_right.png}};
-		
-		\node (agentb) at (0.5,2.25) {\includegraphics[height = 1 cm]{../assets/images/agents/handing_right.png}};
-		
-		\node (agentc) at (0.5,1) {\includegraphics[height = 1 cm]{../assets/images/agents/handing_right.png}};
-		
-		\node (agentd) at (4.5,3.5) {\includegraphics[height = 1 cm]{../assets/images/agents/handing_left.png}};
-		
-		\node (agente) at (4.5,2.25) {\includegraphics[height = 1 cm]{../assets/images/agents/handing_left.png}};
-		
-		\node (agentf) at (4.5,1) {\includegraphics[height = 1 cm]{../assets/images/agents/handing_left.png}};
-		
-
-
-% Names
-		\begin{footnotesize}
-		
-		\node (agenta.south) [center]{Alice}
-		
-		\node (agentd.south) [center]{Bob}
-		
-		
-		
-		\end{footnotesize}
-		
-
-% Arrows
-
-		\draw[ultra thick,] (5.2,4) -- (5.6,3.4) -- (5.2,2.8);
-		
-
-% Locks
-		\node (locka) at (6.9,3.5) {\includegraphics[height = 1 cm]{../assets/images/agents/locked-padlock.png}};
-	
-		%\input{../assets/figures/sc_capacity.tex}
-	\end{tikzpicture}
+\resizebox{10cm}{!}{
+	\begin{tikzpicture}%[scale=0.7, every node/.style={scale=0.7}]
+		\input{../assets/figures/ln_simplified.tex}
+	\end{tikzpicture}}
 \end{figure}
-}
 
-
-\uncover<3->{
-$\Rightarrow$ A network with n agents needs $n/(n-1)/2$ state channels.
-}
-
-
-\uncover<3->{
-Expiration Date $T$:
+\only<14->{
+\vspace{-3cm}
 \begin{itemize}
-	\item Tradeoff between lock-in and state channel lifespan.
-	\item Each transaction reduces lifespan.
+	\item<14-> Bob indifferent, Alice – 0.1, Carl +0.1.
+	\item<15-> Alice may use secret as proof of payment.
+	\item<16-> Simplified version (revocation and consolidation).
 \end{itemize}
-}
+\vspace{1.055cm}}
 
-\uncover<4->{
-\vspace{0.4cm}
-\textbf{Idea:} Look for an alternative way to invalidate old commitment transactions
-}
 
 \end{frame}
 %%%
-
 
 
 \end{document}

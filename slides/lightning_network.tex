@@ -77,7 +77,7 @@
 			\begin{figure}
 				\resizebox{5cm}{!}{
 				\begin{tikzpicture}
-						\filldraw[yshift=-0.05cm, xshift=0.1cm,color = white!15, thick, draw=white] (-3,-5.9) rectangle ++(8cm,5.7cm);
+						\filldraw[yshift=-0.05cm, xshift=0.1cm,color = white!15, thick, draw=white] (-3,-5.9) rectangle ++(8cm,5.74cm);
 				\end{tikzpicture}}
 		\end{figure}}
 		\only<2>{
@@ -108,7 +108,7 @@
 					\input{../assets/figures/naivesc_counter_tx.tex}
 				\end{tikzpicture}}
 			\end{figure}
-			\vspace{1.2cm}			
+			\vspace{1.23cm}			
 			}
 		\vspace{-0.2cm}
 		\begin{figure}
@@ -129,7 +129,7 @@
 		\end{figure}}		
 	\end{minipage}%
 \begin{minipage}{0.1\linewidth}
-	\vspace{1.2cm}
+	\vspace{1.4cm}
 	\centering
 		\includegraphics[width=1cm]{../assets/images/agents/handing_left}
 		\\ \hspace{0.3cm}\textbf{Bob}
@@ -144,17 +144,14 @@
 	
 \end{minipage}
 
-
 \end{frame}
 %%%
 
-
-%%%
 \begin{frame}{Unidirectional Payment Channel (UPC)}
 
 \begin{minipage}{0.1\linewidth}
-		\vspace{-2 cm}
-		\uncover<-1>{
+		\vspace{-1.68 cm}
+		\uncover<-2>{
 		\begin{figure}[t]
 			\resizebox{2.5cm}{!}{
 			\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
@@ -163,11 +160,11 @@
 		\end{figure}}
 		\centering
 		\includegraphics[width=1cm]{../assets/images/agents/handing_right}
-		\\ \hspace{-0.35cm} \textbf{Alice}
-		\uncover<9->{
-		\hspace{-0.7cm}
+		\\ \hspace{-1.1cm} \textbf{Alice}\
+		\vspace{-0.5cm}		
+		\uncover<10->{
+		\hspace{-1cm}
 		\begin{figure}
-		\vspace{-0.5cm}
 		\resizebox{2.5cm}{!}{
 				\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
 					\input{../assets/figures/upc_refund_small.tex}
@@ -175,8 +172,8 @@
 		\end{figure}}
 \end{minipage}%
 \begin{minipage}{0.8\linewidth}
-		\vspace{-1.4 cm}
-		\uncover<2->{
+		\vspace{-2.1 cm}
+		\uncover<1->{
 			\begin{figure}
 				\resizebox{2.5cm}{!}{
 				\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
@@ -185,15 +182,15 @@
 		\end{figure}
 		\vspace{-0.4 cm}
 		}
-		\only<1>{
+		\only<2>{
 			\begin{figure}
 				\resizebox{5cm}{!}{
 				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
 					\input{../assets/figures/funding_transaction.tex}
 				\end{tikzpicture}}
 			\end{figure}
-			\vspace{1 cm}}
-		\only<2,6-7,9>{
+			\vspace{1.53 cm}}
+		\only<1,3,7-8,10>{
 			\begin{figure}
 				\resizebox{5cm}{!}{
 				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
@@ -201,21 +198,21 @@
 				\end{tikzpicture}}
 			\end{figure}		
 			}
-		\only<3>{
+		\only<4>{
 			\begin{figure}
 				\resizebox{5cm}{!}{
 				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
 					\input{../assets/figures/upc_commitment_tx1.tex}
 				\end{tikzpicture}}
 			\end{figure}}
-		\only<4>{
+		\only<5>{
 			\begin{figure}
 				\resizebox{5cm}{!}{
 				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
 					\input{../assets/figures/upc_commitment_tx2.tex}
 				\end{tikzpicture}}
 			\end{figure}}
-		\only<5>{
+		\only<6>{
 			\begin{figure}
 				\resizebox{5cm}{!}{
 				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
@@ -223,34 +220,35 @@
 				\end{tikzpicture}}
 			\end{figure}		
 			}
-		\only<8>{
+		\only<9>{
 			\begin{figure}
 				\resizebox{5cm}{!}{
 				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
 					\input{../assets/figures/refund_transaction.tex}
 				\end{tikzpicture}}
 			\end{figure}
-			\vspace{1 cm}}
-		\vspace{-0.5cm}
+			\vspace{1.04 cm}}
+		\vspace{-0.53cm}
 		\begin{figure}
 			\centering
 			\resizebox{3cm}{!}{
 				\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
 					\input{../assets/figures/p2p}
 			\end{tikzpicture}}\\
-			\textbf{Bitcoin Network}
-		\end{figure}
-		\vspace{-2.9cm}
-		\only<2>{
+			\only<3>{
+			\vspace{-1.67cm}
 		\begin{figure}
 			\resizebox{2.5cm}{!}{
 				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
 					\input{../assets/figures/funding_transaction.tex}
 			\end{tikzpicture}}
-		\end{figure}}		
+		\end{figure}}	
+			\textbf{Bitcoin Network}
+		\end{figure}
+		\vspace{-2.9cm}	
 	\end{minipage}%
 \begin{minipage}{0.1\linewidth}
-	\vspace{1.2cm}
+	\vspace{1.46cm}
 	\centering
 		\includegraphics[width=1cm]{../assets/images/agents/handing_left}
 		\\ \hspace{0.3cm}\textbf{Bob}
@@ -266,7 +264,9 @@
 \end{minipage}
 
 \end{frame}
+
 %%%
+
 
 %%%
 \begin{frame}{UPC: Incentives and Role of Timelocks}
@@ -321,45 +321,15 @@
 \end{frame}
 %%%
 
-%%%
-\begin{frame}{nLockTime Based Channels}
-
-\begin{figure}
-	\begin{tikzpicture} [scale=1.0, every node/.style={scale=1.0}]
-		\input{../assets/figures/nLockTimeChannels.tex}
-	\end{tikzpicture}
-\end{figure}
-
-
-\uncover<2->{
-\vspace{0.4cm}
-Two on-chain transactions needed to open and close state channel.
-}
-
-\uncover<3->{
-Expiration Date $T$:
-\begin{itemize}
-	\item Tradeoff between lock-in and state channel lifespan.
-	\item Each transaction reduces lifespan.
-\end{itemize}
-}
-
-\uncover<4->{
-\vspace{0.4cm}
-\textbf{Idea:} Look for an alternative way to invalidate old commitment transactions
-}
-
-\end{frame}
-%%%
 
 %%%
 \begin{frame}{Bidirectional Payment Channel (BPC)}
 
 \begin{minipage}{0.1\linewidth}
-		\vspace{1.2 cm}
+		\vspace{0.9 cm}
 		\centering
 		\includegraphics[width=1cm]{../assets/images/agents/handing_right}
-		\\ \hspace{-0.35cm} \textbf{Alice}
+		\\ \hspace{-0.9cm} \textbf{Alice}
 		\hspace{-0.7cm}
 		\begin{figure}
 		\vspace{-0.5cm}
@@ -370,22 +340,21 @@ Expiration Date $T$:
 		\end{figure}
 \end{minipage}%
 \begin{minipage}{0.8\linewidth}
-		\vspace{-1.4 cm}
+		\vspace{-2.1 cm}
 			\begin{figure}
 				\resizebox{2.5cm}{!}{
 				\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
-				\input{../assets/figures/utxo_multisig.tex}
+				\input{../assets/figures/utxo_multisig_static.tex}
 				\end{tikzpicture}}
 		\end{figure}
 		\vspace{-0.4 cm}		
 		\only<1,3>{
 			\begin{figure}
 				\resizebox{5cm}{!}{
-				\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
-					\input{../assets/figures/upc_warning.tex}
+				\begin{tikzpicture}
+						\filldraw[yshift=-0.05cm, xshift=0.1cm,color = white!15, thick, draw=white] (-3,-5.9) rectangle ++(8cm,5.74cm);
 				\end{tikzpicture}}
-			\end{figure}		
-			}
+		\end{figure}}
 		\only<2>{
 			\begin{figure}
 				\resizebox{5cm}{!}{
@@ -405,7 +374,7 @@ Expiration Date $T$:
 		\vspace{-2.9cm}	
 	\end{minipage}%
 \begin{minipage}{0.1\linewidth}
-	\vspace{1.2cm}
+	\vspace{1.46cm}
 	\centering
 		\includegraphics[width=1cm]{../assets/images/agents/handing_left}
 		\\ \hspace{0.3cm}\textbf{Bob}
@@ -466,6 +435,7 @@ Expiration Date $T$:
 
 \only<2>{
 \textbf{$\Rightarrow$ Problematic design would lead to propagation race.}
+\vspace{-0.98 em}
 }
 
 \only<3>{
@@ -526,12 +496,77 @@ Expiration Date $T$:
 }
 
 
-\only<5>{
+\uncover<5>{
 \textbf{Incentive compatible:} Alice will propagate state 4 before $T-3$.
 }
 
-\only<1,3-4>{
-\vspace{1em}
+
+
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{nLockTime Based Channels}
+
+\begin{figure}
+	\begin{tikzpicture} [scale=1.0, every node/.style={scale=1.0}]
+		\input{../assets/figures/nLockTimeChannels.tex}
+	\end{tikzpicture}
+\end{figure}
+
+
+\uncover<2->{
+\vspace{0.4cm}
+Two on-chain transactions needed to open and close state channel.
+}
+
+\uncover<3->{
+Expiration Date $T$:
+\begin{itemize}
+	\item Tradeoff between lock-in and state channel lifespan.
+	\item Each transaction reduces lifespan.
+\end{itemize}
+}
+
+\uncover<4->{
+\vspace{0.4cm}
+\textbf{Idea:} Look for an alternative way to invalidate old commitment transactions
+}
+
+\end{frame}
+%%%
+
+%%%
+\begin{frame}{Asymmetric Revocable Commitments (ARC)}
+
+\vspace{1 em}
+\begin{minipage}{0.4\linewidth}
+	
+	\begin{figure}
+		\begin{tikzpicture}[scale=0.5, every node/.style={scale=0.5}]
+				\input{../assets/figures/arc_transaction.tex}		
+		\end{tikzpicture}
+	\end{figure}
+	\footnotesize{Based on implementation by Poon and Dryja \cite{poon2016bitcoin}.}
+\end{minipage}%
+\begin{minipage}{0.6\linewidth}
+	\begin{enumerate}
+		\item<1-> Bob creates a secret and sends the challenge to Alice.
+		\item<2-> Alice creates and signs a transaction.
+		\item<3-> Only Bob can complete the transaction.
+		\item<4-> Once the transaction gets confirmed, Alice will get 0.3 for sure (Output 1).
+		\item<5-> The second output is competitive:
+		\begin{itemize}
+			\item<5-> Bob can claim after 24 hrs.
+			\item<5-> Alice can claim as soon as she knows the hash-secret.
+		\end{itemize}
+	\end{enumerate}
+\end{minipage}
+
+\vspace{1.2 em}
+\uncover<6->{
+\textbf{Idea:} If Alice knows the secret, Bob will not have an incentive to propagate this transaction. He can therefore credibly revoke the commitment.
 }
 
 
@@ -539,58 +574,166 @@ Expiration Date $T$:
 %%%
 
 
-%%%
-\begin{frame}{Channels with Asymmetric Revocable Commitments (CwARC)}
-
-
-\end{frame}
-%%%
-
 
 %%%
-\begin{frame}{Challenges with Payment Channels}
+\begin{frame}{ARC Channels}
 
-
-\end{frame}
-%%%
-
-%%%
-\begin{frame}{Lightning Network Approach (simplified)}
-
-
-\end{frame}
-%%%
-
-%%%
-\begin{frame}{Lightning Network Implications}
-
-
-\end{frame}
-%%%
-
-%%%
-\begin{frame}{SUPC: Setup Transactions}
-
-
-\end{frame}
-%%%
-
+\begin{minipage}{0.1\linewidth}
+		\vspace{1.47 cm}
+		\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_right}
+		\\ \hspace{-0.9cm} \textbf{Alice}
+		\hspace{-0.7cm}
+		\uncover<3->{
+		\begin{figure}
+		\vspace{-0.5cm}
+		\resizebox{2.5cm}{!}{
+				\begin{tikzpicture}[scale=0.6, every node/.style={scale=0.6}]
+					\input{../assets/figures/arc_transaction_sigB.tex}
+				\end{tikzpicture}}
+		\end{figure}}
+\end{minipage}%
+\begin{minipage}{0.8\linewidth}
+		\vspace{-2.3 cm}
+			\begin{figure}
+				\resizebox{2.5cm}{!}{
+				\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
+				\input{../assets/figures/utxo_multisig_static.tex}
+				\end{tikzpicture}}
+		\end{figure}
+		\vspace{-0.4 cm}		
+		\only<3->{
+			\begin{figure}
+				\resizebox{5cm}{!}{
+				\begin{tikzpicture}		
+					\input{../assets/figures/flying_hashsecrets.tex}		
+				\end{tikzpicture}}
+		\end{figure}}
+		\only<1>{
+			\begin{figure}
+				\resizebox{5cm}{!}{
+				\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
+					\input{../assets/figures/arc_transaction_sigA.tex}
+				\end{tikzpicture}}
+			\end{figure}}
+		\only<2>{
+			\begin{figure}
+				\resizebox{5cm}{!}{
+				\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}]
+					\input{../assets/figures/arc_transaction_sigB.tex}
+				\end{tikzpicture}}
+			\end{figure}}
+		\vspace{-0.5cm}
+		\begin{figure}
+			\centering
+			\resizebox{2cm}{!}{
+				\begin{tikzpicture}[scale=0.5, every node/.style={scale=0.5}]
+					\input{../assets/figures/p2p}
+			\end{tikzpicture}}\\
+			\vspace{-0.1cm}
+			\textbf{Bitcoin Network}
+		\end{figure}
+		\vspace{-2.9cm}	
+	\end{minipage}%
+\begin{minipage}{0.1\linewidth}
+	\vspace{1.42cm}
+	\centering
+		\includegraphics[width=1cm]{../assets/images/agents/handing_left}
+		\\ \hspace{0.3cm}\textbf{Bob}
+		\vspace{-0.5cm}
+		\uncover<2->{
+		\begin{figure}
+		\hspace{-1.7cm}
+		\resizebox{2.5cm}{!}{
+				\begin{tikzpicture}[scale=0.6, every node/.style={scale=0.6}]
+					\input{../assets/figures/arc_transaction_sigA.tex}
+				\end{tikzpicture}}
+		\end{figure}}
 	
+\end{minipage}
+
+
+
+\end{frame}
+
 %%%
-\begin{frame}{SUPC: First Payment}
-	
+
+
+
+%%%
+\begin{frame}{The Capacity Problem with State Channels}
+
+To engage with n-1 peers, an agent needs n-1 channels:
+
+\vspace{0.3cm}
+
+\begin{figure}
+	\begin{tikzpicture} [scale=1.0, every node/.style={scale=1.0}]
+		\input{../assets/figures/sc_capacity.tex}
+	\end{tikzpicture}
+\end{figure}
+
+
+\vspace{0.5 cm}
+
+\uncover<2->{
+\textbf{$\Rightarrow$ A network with n agents needs $n(n-1)/2$ state channels.}
+}
+
+
+\end{frame}
+%%%
+
+
+
+%%%
+\begin{frame}{The Lightning Network (Simplified)}
+
+
+\begin{figure}
+\resizebox{10cm}{!}{
+	\begin{tikzpicture}%[scale=0.7, every node/.style={scale=0.7}]
+		\input{../assets/figures/ln_simplified.tex}
+	\end{tikzpicture}}
+\end{figure}
+
+\only<14->{
+\vspace{-3cm}
+\begin{itemize}
+	\item<14-> Bob indifferent, Alice – 0.1, Carl +0.1.
+	\item<15-> Alice may use secret as proof of payment.
+	\item<16-> Simplified version (revocation and consolidation).
+\end{itemize}
+\vspace{1.055cm}}
+
+
 \end{frame}
 %%%
 
 %%%
-\begin{frame}{Bib-References}
-		Read the Bitcoin Whitepaper, \cite{nakamotoBitcoin2008}.
+\begin{frame}{Implications}
+
+The Lightning Network is basically a beta test. However, we are talking about a technology in its infancy stage.\\
+\vspace{1.5 em}
+
+\uncover<2->{
+Areas in need of further research: \color{focus}\textbf{All areas!}\color{black}}\\
+\vspace{1.5 em}
+
+\uncover<3->{\textbf{Specifically:}
+\begin{itemize}
+	\item Path-finding exception handling
+	\item Social impact of confidential transactions
+	\item Channel capacity constraints
+	\item Network centralization
+\end{itemize}}
+
 \end{frame}
 %%%
 
 %%%
 \begin{frame}%[allowframebreaks]
-\frametitle{References and Recommended Reading}
+\frametitle{References}
 	\bibliographystyle{amsplain}
 	\bibliography{../assets/bib/refs}
 \end{frame}
