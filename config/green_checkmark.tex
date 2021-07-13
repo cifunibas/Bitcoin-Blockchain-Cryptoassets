@@ -1,0 +1,12 @@
+% Definition of a green checkmark symbol
+% Code based on: https://tex.stackexchange.com/questions/532033/make-a-double-blue-checkmark-symbol-with-square-contours-using-tikz
+
+% Create shape of a green checkmark
+\tikzset{pics/.cd, checkmark/.style={code={% 
+			\pgfgettransformentries{\tmpxx}{\tmp}{\tmp}{\tmp}{\tmp}{\tmp}
+			\draw[line width=\tmpxx*1pt,draw=none,fill=green!60] (0,.33) -- (.25,0) to 
+			(0.8,.6) to (.72,.68) to (.25,.18) to (0.08,.40)-- cycle;}}}
+
+\newcommand{\checkmarkgreen}{\begin{tikzpicture}[baseline={(0,0)}]
+		\path (0,0) pic[scale=1]{checkmark};
+\end{tikzpicture}}
