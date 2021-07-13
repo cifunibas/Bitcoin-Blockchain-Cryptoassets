@@ -1,12 +1,14 @@
 
-\filldraw[color = highlight!15, thick, draw=black, dashed] (0,0) rectangle ++(4,1.5);
+\filldraw[color = highlight!15, thick, draw=black, dashed] (0,0) rectangle ++(4,1.8);
 
-\draw[color=black] plot (0.3,1) node[right] {Refund Tx};
+\draw[color=black] plot (0.3,1.4) node[right] {Refund Tx};
 
-\draw[color=black] plot (0.3,0.4) node[right] {\texttt{nLockTime} $T$};
+\draw[color=black] plot (0.3,0.9) node[right] {\texttt{nLockTime} $T$};
+\draw[color=black] plot (0.3,0.4) node[right] {A: 0.5 / B: 0};
 
 \uncover<3->{
-\filldraw[color = highlight!15, thick, draw=black, dashed] (0,-1.5) rectangle ++(4,1);
+\filldraw[color = highlight!15, thick, draw=black, dashed] (0,-1.6) rectangle ++(4,1.3);
 
-\draw[color=black] plot (0.3,-1) node[right] {Commitment Tx 4};
+\draw[color=black] plot (0.3,-0.7) node[right] {Commitment Tx 4};
+\draw[color=black] plot (0.3,-1.2) node[right] {A: 0.3 / B: 0.2};
 }

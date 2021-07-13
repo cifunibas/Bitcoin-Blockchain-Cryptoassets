@@ -2,9 +2,9 @@
 %%% Multisig Credit Layer (top)
 	
 	% Left
-	\filldraw[color = highlight!25, thick, draw=highlight] (3,13) rectangle ++(4cm,2 cm);
-	\filldraw[color = highlight!25, thick, 	draw=highlight] (3,13) rectangle ++(1cm,1cm);
-	\filldraw[color = highlight!25, thick, 	draw=highlight] (4,13) rectangle ++(1cm,1cm);
+	\filldraw[color = midgray!25, thick, draw=midgray] (3,13) rectangle ++(4cm,2 cm);
+	\filldraw[color = midgray!25, thick, 	draw=midgray] (3,13) rectangle ++(1cm,1cm);
+	\filldraw[color = midgray!25, thick, 	draw=midgray] (4,13) rectangle ++(1cm,1cm);
 	\draw[color=black] plot (3.1,14.4)   node[right] {MS AB:};
 	\draw[color=black] plot (5.1,14.4)   node[right] {0.5 BTC};
 	\draw[color=black] plot (3.5,13.5)   node {\small{$Sig_A$}};
@@ -18,9 +18,9 @@
 	
 
 	% Right
-	\filldraw[color = highlight!25, thick, draw=highlight] (11,13) rectangle ++(4cm,2 cm);
-	\filldraw[color = highlight!25, thick, 	draw=highlight] (11,13) rectangle ++(1cm,1cm);
-	\filldraw[color = highlight!25, thick, 	draw=highlight] (12,13) rectangle ++(1cm,1cm);
+	\filldraw[color = midgray!25, thick, draw=midgray] (11,13) rectangle ++(4cm,2 cm);
+	\filldraw[color = midgray!25, thick, 	draw=midgray] (11,13) rectangle ++(1cm,1cm);
+	\filldraw[color = midgray!25, thick, 	draw=midgray] (12,13) rectangle ++(1cm,1cm);
 	\draw[color=black] plot (11.1,14.4)   node[right] {MS BC:};
 	\draw[color=black] plot (13.1,14.4)   node[right] {0.6 BTC};
 	\draw[color=black] plot (11.5,13.5)   node {\small{$Sig_B$}};
@@ -51,7 +51,9 @@
 	
 	\draw[line width = 3pt, color = lightred] (6.5,10.7) -- (6.5,11.5);
 	\draw[color=black] plot (7,11.1)   node {0.1};
-	\draw[color=black] plot (4.5,11.1)   node {0.4};
+	
+	\only<-13>{
+	\draw[color=black] plot (4.5,11.1)   node {0.4};}
 	
 	\only<13->{
 	\draw[color=black] plot (4,11.1)   node {0.3};
