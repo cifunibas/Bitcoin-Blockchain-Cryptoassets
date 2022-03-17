@@ -1,6 +1,6 @@
 % Choose one to switch between slides and handout
-\documentclass[]{beamer}
-%\documentclass[handout]{beamer}
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
@@ -211,7 +211,7 @@ The entire transaction data \alert{no longer} hashes to:\\
 	\uncover<3->{
 		\textbf{If $r_{new} < r_{old}$:}\\
 		\begin{itemize}
-			\item \textbf{Nodes following $S_{old}$:} consensus relevant nodes (CRNs) create new blocks where they spend the \texttt{ANYONECANSPEND} outputs themselves.
+			\item \textbf{Nodes following $S_{old}$:} consensus relevant nodes (CRNs) may create new blocks where they spend the \texttt{ANYONECANSPEND} outputs themselves.
 			\item \textbf{Nodes following $S_{new}$:} check \texttt{witness} for valid signature and reject blocks where CRNs spend SegWit transactions themselves.
 			\item Consensus conflict! Who can spend the output?
 		\end{itemize}
@@ -293,7 +293,7 @@ The entire transaction data \alert{no longer} hashes to:\\
 %		\item Encode SegWit outputs in an efficient and secure way
 %		\item Case insensitivity
 %		\item Stronger checksums: Bose-Chaudhuri-Hocquenghem SOURCE
-		\item Consist of \texttt{bc1}, version number, witness script and six-character checksum	
+		\item Consist of \texttt{bc1} prefix, version number, witness script and six-character checksum	
 	\end{itemize}
 	
 	\vspace{1.5em}
@@ -309,7 +309,7 @@ The entire transaction data \alert{no longer} hashes to:\\
 \begin{frame}{Confirmation Capacity Increase}
 	\begin{scriptsize}
 	$S_{old}$: blocks can only be 1MB large.\\
-	$\rightarrow$ moving the redeem script to the witness field reduces the size of the transaction data.\\
+	$\rightarrow$ moving the redeem script to the witness field reduces the size of the transaction data that counts towards this limitation.\\
 	\vspace{0.5em}
 	\uncover<2->{
 	$S_{new}$: blocks can only have a weight $W \leq 4$MB.\\}
