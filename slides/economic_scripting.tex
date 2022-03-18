@@ -45,95 +45,6 @@
 
 %%%
 
-\begin{frame}{Example: Conditional Purchase Agreement}
-	\begin{figure}[h]
-		\begin{minipage}{0.2\linewidth}
-			\centering
-			\includegraphics[width=1cm]{../assets/images/agents/handing_right}
-			\begin{tikzpicture}[overlay]
-				\node at (-0.05,0.18) {\includegraphics[width = 0.5cm]{../assets/images/bitcoin}};
-			\end{tikzpicture}
-		\end{minipage}%
-		\begin{minipage}{0.15\linewidth}
-			\centering
-			\vspace{-2cm}
-			\only<3>{\includegraphics[width=1cm]{../assets/images/agents/intermediary_devil}}
-		\end{minipage}%
-		\begin{minipage}{0.25\linewidth}
-			\centering
-			\includegraphics[width=1cm]{../assets/images/agents/handing_left}
-			\begin{tikzpicture}[overlay, coloredCoin/.style={circle,  very thick, minimum size=0.5mm}]
-				\node[coloredCoin, draw=orange!60, fill=orange!5] at (-1.5,0.9) {\footnotesize{$\btc$}};
-			\end{tikzpicture}
-		\end{minipage}
-	\end{figure}
-	\begin{itemize}
-		\item<1 ->Goal: Alice wants to purchase a colored coin from Bob.
-		\item<2 ->Issue: None of the two wants to transfer their asset first.
-		\item<3 ->Traditionally, centralized service would be used. But they can potentially be malicious and/or costly.
-		\item<4 ->Using an elegant transaction design, they can do the transaction on-chain and trustless.
-	\end{itemize}
-\end{frame}
-
-%%%
-
-\begin{frame}{Conditional Purchase Agreement: Transaction Details}
-	\begin{figure}
-			\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, 	draw=black, dashed] (-3,-5.9) rectangle ++(8cm,5cm);
-				
-				\draw[color=black] plot (1,-0.2) node [below]
-				{\large{{Transaction}}};
-				
-				% Inputs
-				\draw[color=black] plot (-1,-1.65) node[above] {\texttt{inputs:}};
-				
-				% top left
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(3.3cm,1.8cm);
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(0.825cm,0.7cm);
-				\draw[color=black] plot (-2.5,-2.25) node[right] {Alice:};
-				\draw[color=black] plot (-0.6,-2.21)   node[right] {3 BTC};
-				\draw[color=black] plot (-2.0875,-3.1)   node {\small{$Sig_A$}};
-			
-				\uncover<2 ->{\draw plot (-2.1,-3.1) node {\checkmarkgreen};}
-						
-				% bottom left
-				\uncover<3->{
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (-2.6,-5.6) rectangle ++(3.3cm,1.8cm);
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick,draw=highlight] (-2.6,-5.6) rectangle ++(0.825cm,0.7cm);
-				\draw[color=black] plot (-2.5,-4.45)   node[right] {Bob:};
-				\draw[color=black] plot (-1.35,-4.45)   node[right] {\small{Colored Coin}};
-				\draw[color=black] plot (-2.0875,-5.3)   node {\small{$Sig_B$}};}
-				
-				\uncover<4->{\draw plot (-2.1,-5.3) node {\checkmarkgreen};}
-				
-				% Outputs
-				\draw[color=black] plot (3,-1.65)   node[above] {\texttt{outputs:}};
-				
-				% top right
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.3,-3.4) rectangle ++(3.3cm,1.8cm);
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (1.3,-3.4) rectangle ++(0.825cm,0.7cm);
-				\draw[color=black] plot (1.4,-2.25)   node[right] {Alice:};
-				\draw[color=black] plot (2.5,-2.25)   node[right] {\small{Colored Coin}};
-				\draw[color=black] plot (1.8125,-3.1)   node {\small{$Sig_A$}};
-				
-				% bottom right
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.3,-5.6) rectangle ++(3.3cm,1.8cm);
-				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick,draw=highlight] (1.3,-5.6) rectangle ++(0.825cm,0.7cm);
-				\draw[color=black] plot (1.4,-4.45)   node[right] {Bob:};
-				\draw[color=black] plot (3.3,-4.45)   node[right] {3 BTC};
-				\draw[color=black] plot (1.8125,-5.3)   node {\small{$Sig_B$}};
-		\end{tikzpicture}
-	\end{figure}
-	\begin{itemize}
-		\item<1 ->Alice creates "wrapper" transaction and signs first input  (SIGHASH\_ALL).
-		\item<3 ->Bob signs second input (SIGHASH\_ALL).
-		\item<4 ->Atomic connection between the two assets' change of ownership. No counterparty risk.
-	\end{itemize}
-\end{frame}
-
-%%%
-
 \begin{frame}{Further Scripting Components}
 	\begin{itemize}
 		\item<1-> \textbf{Timelocks}
@@ -217,13 +128,13 @@
 	\hfill
 	\begin{minipage}{0.6\textwidth}
 		\begin{itemize}
-			\item<1-> Only one of the two options needed to spend the output.
+			\item<1-> Two options, only one needed to spend the output.
 			\item<2-> Output can only be spent once. The two options are competitive.
 			\vspace{0.25cm}
 			\item<3-> \textbf{Example:}
 			\begin{itemize}
-				\item<3-> Output can be spend by Alice and Bob as soon as the transaction is confirmed.
-				\item<4-> After a specific point in time (CLTV) Alice additionally has the option to spend the output only using her own private key.
+				\item<3-> Output can be spend by Alice and Bob (Multisig) as soon as the transaction is confirmed.
+				\item<4-> After a specific point in time (CLTV) Alice has the option to spend unilaterally.
 			\end{itemize}
 		\end{itemize}
 	\end{minipage}
@@ -233,8 +144,8 @@
 
 \begin{frame}{Hashlocks}
 	\begin{itemize}
-		\item<1-> Outputs can be (additionally) tied to the disclosure of a specific piece of data (e.g. $m$).
-		\item<2-> Hash-value $\left(h = H(m)\right)$ of the secret input is recorded in the transaction.
+		\item<1-> Outputs can be (additionally) tied to the disclosure of a specific piece of data ($m$).
+		\item<2-> Hash value $\left(h = H(m)\right)$ of the secret input is recorded in the transaction.
 	\end{itemize}
 	\uncover<3->{\begin{figure}[b]
 		\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
@@ -269,7 +180,7 @@
 		\end{tikzpicture}
 	\end{figure}}
 	\begin{itemize}
-		\item<4-> UTXO can only be spend if one can present a piece of data which results in the same hash-value (i.e. if Alice tells Bob the secret ($m$)).
+		\item<4-> UTXO can only be spend if one can present a piece of data which results in the same hash value (i.e., if Alice tells Bob the secret ($m$)).
 	\end{itemize}
 \end{frame}
 
@@ -347,7 +258,7 @@
 	\begin{itemize}
 		\item<2 -> Two Blockchains, \textit{C-Chain} and \textit{T-Chain}, with native assets \texttt{Coin} and \texttt{Token}, respectively. 
 		\item<3 -> Alice wants to swap 2 \texttt{Token} for 1 \texttt{Coin} of Bob.
-		\item<4 -> Creation of one transaction on each Blockchain, both conditioning on the same secret ($m$) to the hash lock.
+		\item<4 -> Creation of one transaction on each Blockchain, both s.t. the same secret hash lock.
 		\item<5 -> Once secret is revealed, both transactions are spendable.
 	\end{itemize}
 \end{frame}
@@ -527,8 +438,9 @@
 	\begin{itemize}
 		\item<1 -> Combination of timelocks, hashlocks and competitive outputs is very powerful.
 		\item<2 -> Hash Time Locked Contracts are the basis of so-called payment channels.
-		\item<3 -> The Bitcoin network has a scaling problem. Payment channels tackle this, by allowing transaction to be exchanged off-chain, while still benefiting from Bitcoins security and being incentive compatible.
-		\item<4 -> The next video will cover this topic in depth.
+		\item<3 -> The Bitcoin Blockchain (Layer 1) has scaling limitations. Payment channels tackle this, by allowing users to exchange transactions bilaterally, i.e. no need to add every single transaction to the Blockchain.
+		\item<4 -> These transactions still benefit from the Blockchain's security and do not require trust. 
+		\item<5 -> The next video will cover this topic in greater detail.
 	\end{itemize}
 \end{frame}
 
