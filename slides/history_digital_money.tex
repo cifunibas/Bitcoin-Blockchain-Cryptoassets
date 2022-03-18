@@ -1,6 +1,6 @@
 % Choose one to switch between slides and handout
-\documentclass[]{beamer}
-%\documentclass[handout]{beamer}
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
 
 % Video Meta Data
 \title{Bitcoin, Blockchain and Cryptoassets}
@@ -172,89 +172,6 @@
 \end{columns}
 \end{frame}
 %%%	
-
-
-%%%
-\begin{frame}{After Bitcoin: Forks and Altcoins}
-	\begin{columns}
-		\column{0.4\linewidth}
-		\begin{figure}
-			\begin{tikzpicture}[scale=1]
-				\input{../assets/figures/after_bitcoin}
-				\filldraw[draw=black, fill = focus, thick] (0, 3.5 cm) circle (2pt);
-				\filldraw[draw=black, fill = focus, thick] (0, 1.5 cm) circle (2pt);
-			\end{tikzpicture}
-		\end{figure}
-		\column{0.6\linewidth}
-			\begin{tikzpicture}
-				\node (Dogecoin) {\includegraphics[scale=0.04]{../assets/images/dogecoin}};
-				\node[right =1mm of Dogecoin] {\textbf{Dogecoin}};
-			\end{tikzpicture}
-		\begin{small}
-			\begin{itemize}
-			\item Created as a fun cryptocurrency based on the popular "doge" internet meme.
-			\item Block time of 1 min and uncapped supply.
-			\end{itemize}
-		\end{small}
-		\vspace{0.5em}
-			\begin{tikzpicture}
-				\node (Zcash) {\includegraphics[scale=0.04]{../assets/images/zcash}};
-				\node[right =1mm of Zcash] {\textbf{Zcash}};
-			\end{tikzpicture}
-		\begin{small}
-			\begin{itemize}
-				\item Focused on privacy and anonymity.
-				\item Uses zk-SNARK
-				\item Sending and receiving addresses or the amount are not revealed.
-			\end{itemize}
-		\end{small}
-	\end{columns}	
-\end{frame}
-%%%
-
-
-%%%
-\begin{frame}{After Bitcoin: Forks and Altcoins}
-	\begin{columns}
-		\column{0.4\linewidth}
-			\begin{figure}
-				\begin{tikzpicture}[scale=1]
-					\input{../assets/figures/after_bitcoin}
-					\filldraw[draw=black, fill = focus, thick] (0, 2.5 cm) circle (2pt);
-				\end{tikzpicture}
-			\end{figure}
-		\column{0.6\linewidth}
-			\begin{tikzpicture}
-				\node (Ethereum) at (1.8,2.5) {\includegraphics[scale=0.04]{../assets/images/ethereum}};
-				\node[right =1mm of Ethereum] {\textbf{Ethereum}};
-			\end{tikzpicture}
-		\vspace{0.5em}
-		\begin{small}
-			\begin{itemize}
-				\item Protocol for building decentralized applications (dApps).
-				\item Turing-complete instruction set and state variables $\rightarrow$ Smart Contracts
-				\item Account based- instead of UTXO based model.
-				\item Allows for creation of additional tokens via standardized smart contracts such as ERC-20.
-			\end{itemize}
-		\end{small}
-	\end{columns}	
-\end{frame}
-%%%
-
-\iffalse
-%%%
-\begin{frame}{Bitcoin Fork Timeline}
-	\begin{figure}[h!]
-	\center
-		\begin{tikzpicture}[scale=0.65, every node/.style={scale=0.65}]
-			\input{../assets/figures/bitcoin_fork_timeline}
-  		\end{tikzpicture}
-		%\caption{Bitcoin fork timeline.}
-		\label{fig:forkhistory}
-	\end{figure}
-\end{frame}
-%%%
-\fi
 
 %%%
 \begin{frame}%[allowframebreaks]
