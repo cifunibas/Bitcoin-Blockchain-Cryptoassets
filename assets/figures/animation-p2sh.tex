@@ -39,37 +39,37 @@
 \draw[color=black] plot (9.5,6.2)   node[minimum width=2.7cm, minimum height= 0.55cm ,fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{OP\_HASH160}};
 }
 
-\only<5>{
+\only<5|handout:0>{
 \draw[color=black] plot (6.5,6.2)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<script>}};
 }
 
-\only<6>{
+\only<6|handout:0>{
 \draw[color=black] plot (6.5,6.2)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<scriptHash>}};
 }
 
-\only<7,8,9>{
+\only<7,8,9|handout:0>{
 \draw[color=black] plot (6.5,2.1)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<scriptHash>}};
 }
 
-\only<8,9>{
+\only<8,9|handout:0>{
 \draw[color=black] plot (6.5,2.8)   node[minimum width=2.7cm, fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{<scriptHash>}};
 }
 
-\only<9,10>{
+\only<9,10|handout:0>{
 \draw[color=black] plot (9.5,6.2)   node[minimum width=2.7cm, minimum height= 0.55cm ,fill=black!15, thick,  draw=black,below, rotate = 0] {\texttt{OP\_EQUAL  }};
 }
 
-\only<10>{
+\only<10|handout:0>{
 \draw[color=black] plot (6.5,6.2)   node[minimum width=2.7cm, fill=focus!15, thick,  draw=focus,below, rotate = 0] {\texttt{<scriptHash>}};
 \draw[color=black] plot (6.5,5.5)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<scriptHash>}};
 }
 
-\only<11>{
+\only<11|handout:0>{
 \draw[color=black] plot (6.5,2.1)   node[minimum width=2.7cm, minimum height= 0.55cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{1}};
 }
 
 %Copy Stack 2
-\only<12>{
+\only<12|handout:0>{
 \draw[very thick] (0.5,0) -- (3.5,0);
 \draw[very thick] (0.5,0) -- (0.5,5.5);
 \draw[very thick] (3.5,0) -- (3.5,5.5);
@@ -96,14 +96,14 @@
 }
 
 %another Stack
-\only<13>{
+\only<13|handout:0>{
 \draw[color=black, very thick] (0.5,0) -- (3.5,0);
 \draw[color=black, very thick] (0.5,0) -- (0.5,5.5);
 \draw[color=black, very thick] (3.5,0) -- (3.5,5.5);
 \draw[color=black] (2,-0.3) node[below] {\texttt{Stack}};
 }
 
-\only<13>{
+\only<13|handout:0>{
 \draw[color=black] plot (2,0.7)   node[minimum width=2.7cm,fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig 2>}};
 
 \draw[color=black] plot (2,1.4)   node[minimum width=2.7cm, fill=highlight!15, thick,  draw=highlight,below, rotate = 0] {\texttt{<sig 3>}};
@@ -112,7 +112,7 @@
 }
 
 %% Dummy Stack
-\only<13>{
+\only<13|handout:0>{
 \draw[color=white, very thick] (5,0) -- (8,0);
 \draw[color=white, very thick] (5,0) -- (5,5.5);
 \draw[color=white, very thick] (8,0) -- (8,5.5);
@@ -120,7 +120,7 @@
 }
 
 %% Dummy OPCODE
-\only<1-3,6-8,11-13>{
+\only<1-3,6-8,11-13|handout:0>{
 \draw[color=white] plot (9.5,6.2)   node[minimum width=2.7cm, minimum height=0.55cm ,fill=white, thick,  draw=white, below, rotate = 0] {\texttt{OP\_HASH160}};
 }
 

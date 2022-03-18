@@ -1,0 +1,43 @@
+% Basic Cube
+
+	\draw[color=black, ->] (0,0) -- (6,-1);
+    \draw[color=black] plot (3.5,0.3) node[color=black,below, rotate = -9] {\scriptsize{\textbf{Representation}}};
+    
+     \draw[color=black, ->] (0,0) -- (0,5);
+     \draw[color=black] plot (0,2.5) node[color=black,above, rotate = 90, text width = 2cm, align = center] {\baselineskip = 5pt\scriptsize{\textbf{Transaction processing}} \par};
+     
+     \draw[color=black, ->] (0,0) -- (5,1.5);
+     \draw[color=black] plot (2.5,0.75) node[color=black, above, rotate = 17] {\scriptsize{\textbf{Creation}}};
+     
+     \draw[color=black, dotted] (0,5) -- (6, 4);
+     \draw[color=focus, very thick, dashed] (6,-1) -- (6, 4) node [midway, right, color=focus] {\scriptsize{CBDC}};
+     \draw[color=black, dotted] (5,1.5) -- (11, 0.5);
+     \draw[color=black, dotted] (0,5) -- (5, 6.5);
+     \draw[color=black, dotted] (5,1.5) -- (5, 6.5);
+     \draw[color=black, dotted] (5,6.5) -- (11, 5.5);
+     \draw[color=black, dotted] (11,0.5) -- (11, 5.5);
+     \draw[color=black, dotted] (6,-1) -- (11, 0.5);
+     \draw[color=black, dotted] (6,4) -- (11, 5.5);
+
+% Axis labeling
+     \draw[color=black] plot (0,0) node[left, rotate = 0] {\tiny{centralized}};
+     \draw[color=black] plot (0,5) node[left, rotate = 0] {\tiny{decentralized}};
+     
+     \draw[color=focus] plot (0.5,0.2) node[right, rotate = 90] {\tiny{monopolistic}};
+     \draw[color=black] plot (4.45,4.1) node[left, rotate = 90] {\tiny{competitive}};
+          
+     \draw[color=black] plot (0.85,-0.19) node[below, rotate = -9] {\tiny{physical}};
+     \draw[color=focus] plot (5.1,-0.9) node[below, rotate = -9] {\tiny{virtual}};
+
+% Phenotypes
+     
+	\draw [fill=white] 	(0,5) circle (0.12cm) node[right,color=black] {\scriptsize{Cash}};
+     
+    \draw [fill=white]	(5,6.5) circle (0.12cm) node[right,color=black] {\scriptsize{Commodity money}};
+     
+    \draw [fill=white]	(11,0.5) circle (0.12cm) node[right,color=black, text width = 2cm] {\baselineskip = 5pt \scriptsize{Comm. bank deposits}\par};
+     
+	\draw [fill=white]	(11,5.5) circle (0.12cm) node[right,color=black] {\scriptsize{Bitcoin}};
+
+
+     

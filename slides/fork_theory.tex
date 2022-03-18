@@ -22,43 +22,40 @@
 
 %%%
 
+
+\begin{frame}{Greatest Accumulated Difficulty}
+	There is a simple rule to identify the most recent state of the ledger:
+	\vspace{1em}
+	
+	\begin{description}
+		\item[\textbf{Intuition:}] The longest chain, i.e., the chain with the longest sequence of valid blocks is seen as the most recent version.
+		\item[\textbf{Rule:}] The chain with the \color{focus} greatest accumulated difficulty \color{black} is seen as the most recent version. 
+	\end{description}
+	
+	\vspace{1em}
+	
+	Under normal circumstance this rule leads to a clear status quo. Forks are the exception\dots
+\end{frame}
+
+
 %%%
 \begin{frame}{What is a Fork?}
 
-\color{focus} Disagreement on the current state \color{black} of the ledger that, if persisting, leads to a \color{focus} split of the network \color{black}  into two or more competing database instances.
+\color{focus} Disagreement on the current state \color{black} of the ledger that leads to two or more competing versions of the blockchain.
 
-\begin{columns}[T]
-	\begin{column}{0.45\textwidth}
-		\begin{figure}[h]
-  			\center
-  			\resizebox{0.9\textwidth}{!}{
-			\input{../assets/figures/simple-block-sequence.tex}
-			}
-		\end{figure}
-	\end{column}
-	\begin{column}{0.45\textwidth}
-		\begin{figure}[h]
-  			\center
-  			\resizebox{0.9\textwidth}{!}{
-			\input{../assets/figures/simple-fork.tex}
-			}
-		\end{figure}
-	\end{column}
-\end{columns}
+\begin{figure}[h]
+  	\center
+  	\resizebox{0.55\textwidth}{!}{
+	\input{../assets/figures/simple-fork.tex}
+	}
+\end{figure}
 
-\begin{columns}[T]
-	\begin{column}{0.45\textwidth}
-		\center		
-		\footnotesize Simple Block Sequence
-	\end{column}
-	\begin{column}{0.45\textwidth}
-		\center
- 		\footnotesize Simple Fork 
-	\end{column}
-\end{columns}
-\begin{center}
-Figure: Illustration Blockchain Fork \cite{schar2020blockchain}
-\end{center}
+\vspace{1em}
+\textbf{Forks may arise for two distinct reasons:}
+\begin{enumerate}
+	\item Same rules ($A = B$): Process-based, i.e., agents have not the same information set or choose to compete.
+	\item Different rules ($A \neq B$): Protocol-based, i.e., agents have a different understanding of consensus rules.
+\end{enumerate}
 
 \end{frame}
 %%%
@@ -91,7 +88,7 @@ Figure: Illustration Blockchain Fork \cite{schar2020blockchain}
 %%%
 \begin{frame}{Process-based Forks}
 
-\textbf{Probabilistic block race:} Unintentionally coexisting consensus versions, caused by network propagation delays. 
+\textbf{Probabilistic block race:} Block creation is probabilistic. Two or more blocks may be created at approx. the same time.
 \vspace{1.5em}	
 
 \uncover<2->{
@@ -99,12 +96,12 @@ Figure: Illustration Blockchain Fork \cite{schar2020blockchain}
 \vspace{1.5em}	
 
 
-\textbf{Block withholding:} Purposeful delay of propagation of own valid candidate block to gain head start on next block.
+\textbf{Block withholding:} Purposeful delay of propagation of own valid candidate block to gain head start on next block.\cite{eyal2014majority}
 \vspace{1.5em}	
 }
 
 \uncover<3->{
-$\Rightarrow$ All temporary and resolved through accumulated difficulty.
+$\Rightarrow$ All temporary and resolved through accumulated difficulty (longest chain rule).
 }
 	
 \end{frame}
@@ -132,7 +129,7 @@ Example: Split of Bitcoin ABC over Blocksize increase.
 }
 
 \uncover<3->{
-$\Rightarrow$ Not resolved automatically and may cause permanent splits.
+$\Rightarrow$ Not resolved automatically and may cause permanent splits. Let us denote the old rules and the new rules by $S_{old}$ and $S_{new}$ respectively and analyze various situations.
 }
 	
 \end{frame}
@@ -196,13 +193,6 @@ $\Rightarrow$ Not resolved automatically and may cause permanent splits.
 %%%
 \begin{frame}{Fork Persistency by Type and Dominance Scenario}
 
-\center \footnotesize
-$P(\,b \in S_{new} \oplus b \in S_{old})\, = \dfrac{r_{old}}{R} \left( 1-\frac{|S_{new} \cap S_{old}|}{|S_{old}|}\right) + \dfrac{r_{new}}{R} \left( 1-\frac{|S_{new} \cap S_{old}|}{|S_{new}|}\right)$ 
-\label{eq:forkprobability}
-
-\vspace{1.5em}
-
-
 	\begin{table}
 		\input{../assets/figures/fork-types.tex}
 		\caption{Persistency by fork type and scenario \cite{schar2020blockchain}}
@@ -221,22 +211,16 @@ $P(\,b \in S_{new} \oplus b \in S_{old})\, = \dfrac{r_{old}}{R} \left( 1-\frac{|
 %%%
 \begin{frame}{Why Should We Care about Forks?}
 
-\textbf{Uncertainty:} Confirmation status of transactions.
-\vspace{1.5em}
 
-\textbf{Confusion:} Which one is the "main" version.
-\vspace{1.5em}
+\begin{enumerate}
+	\item \textbf{Uncertainty:} Confirmation status of transactions.
+	\item \textbf{Confusion:} Various competing versions of the asset.
+	\item \textbf{Security Tokens:} Competing promises delivery of 1 good.
+	\item \textbf{Cost driver:} Tax / legal questions, maintaining compatibility.
+\end{enumerate}
 
-\textbf{Undermining trust:} Case of digital assets.
-\vspace{1.5em}
-
-\textbf{Security Tokens:} Multiple promises for the delivery of one good.
-\vspace{1.5em}
-
-\textbf{Cost driver:} Tax / legal questions, maintaining compatibility.
-\vspace{1.5em}
-
-\color{focus} \textbf{But:} \color{black} Pillar for political freedom and resilience against arbitrary changes.
+\vspace{1em}
+\color{focus} \textbf{But:} \color{black} Risk of fork may increase stability and strengthen status quo.
 
 	
 \end{frame}
