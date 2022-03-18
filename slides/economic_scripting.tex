@@ -251,15 +251,16 @@
 \begin{frame}{Hash Time Locked Contracts (HTLC)}
 	\textbf{Generally:}
 	\begin{itemize}
-		\item<1 -> HTLC consist of combinations of timelocks and hashlocks. They are usually used for cross chain swaps and payment channels.
+		\item<1-> HTLC consist of combinations of timelocks and hashlocks. They are usually used for cross chain swaps and payment channels.
 	\end{itemize}
 	\vspace{0.5cm}
 	\uncover<2->{\textbf{Example: Atomic Cross Chain Swaps}}
 	\begin{itemize}
-		\item<2 -> Two Blockchains, \textit{C-Chain} and \textit{T-Chain}, with native assets \texttt{Coin} and \texttt{Token}, respectively. 
-		\item<3 -> Alice wants to swap 2 \texttt{Token} for 1 \texttt{Coin} of Bob.
-		\item<4 -> Creation of one transaction on each Blockchain, both s.t. the same secret hash lock.
-		\item<5 -> Once secret is revealed, both transactions are spendable.
+		\item<2-> Two Blockchains, {A-Chain} and {B-Chain}, with native assets \texttt{A-Coin} and \texttt{B-Coin}, respectively. 
+		\item<3-> Alice wants to swap 2 \texttt{B-Coins} for one of Bob's \texttt{A-Coins}.
+		\item<4-> Counterparty risk...
+		\item<5-> Solution: Creation of one transaction on each Blockchain, both s.t. the same secret hashlock.
+		\item<6-> Once secret is revealed, both transactions are spendable.
 	\end{itemize}
 \end{frame}
 
@@ -278,9 +279,9 @@
 		\centering
 		\begin{figure}[t]
 			\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
-				\draw[color=black] plot (0,1.5) node {\large{{\textbf{C-Chain}}}};
+				\draw[color=black] plot (0,1.5) node {\large{{\textbf{A-Chain}}}};
 				\fill[highlight!40] (3,-0.4) -- (-2,-0.4) -- (-2,-.9) -- (-3,0) -- (-2,.9) -- 	(-2,0.4) -- (3, 0.4) -- (3,-0.4);
-				\draw[color=black] plot (0,0) node {\large{1 \texttt{Coin}}};
+				\draw[color=black] plot (0,0) node {\large{1 \texttt{A-Coin}}};
 			\end{tikzpicture}
 		\end{figure}%
 		\vspace{0.1cm}
@@ -288,9 +289,9 @@
 		\vspace{0.5cm}
 		\begin{figure}[t]
 			\begin{tikzpicture}[scale=0.9, every node/.style={scale=0.9}]
-				\draw[color=black] plot (0,1.5) node {\large{{\textbf{T-Chain}}}};
+				\draw[color=black] plot (0,1.5) node {\large{{\textbf{B-Chain}}}};
 				\fill[highlight!40] (-3,-0.4) -- (2,-0.4) -- (2,-.9) -- (3,0) -- (2,.9) -- 	(2,0.4) -- (-3, 0.4) -- (-3,-0.4);
-				\draw[color=black] plot (0,0) node {\large{2 \texttt{Token}}};
+				\draw[color=black] plot (0,0) node {\large{2 \texttt{B-Coin}}};
 			\end{tikzpicture}
 		\end{figure}
 	\end{minipage}%
@@ -327,7 +328,7 @@
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, 	draw=black, dashed] (-3,-5.8) rectangle ++(8cm,4.9cm);
 				
 				\draw[color=black] plot (1,-0.2) node [below]
-				{\large{{\textbf{C-Chain}}}};
+				{\large{{\textbf{A-Chain}}}};
 				
 				% Inputs
 				\draw[color=black] plot (-1,-1.65) node[above] {\texttt{inputs:}};
@@ -336,7 +337,7 @@
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(3.3cm,1.8cm);
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(0.825cm,0.7cm);
 				\draw[color=black] plot (-2.5,-2.25) node[right] {Bob:};
-				\draw[color=black] plot (-0.6,-2.21)   node[right] {1 \texttt{Coin}};
+				\draw[color=black] plot (-1,-2.21)   node[right] {1 \texttt{A-Coin}};
 				\draw[color=black] plot (-2.0875,-3.1)   node {\small{$Sig_B$}};
 				
 				\uncover<6->{\draw plot (-2.0875,-3.1) node {\checkmarkgreen};}
@@ -352,7 +353,7 @@
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (2.125,-3.4) rectangle ++(0.825cm,0.7cm);
 				
 				\draw[color=black] plot (1.4,-2.25)   node[right] {Alice:};
-				\draw[color=black] plot (3.3,-2.21)   node[right] {1 \texttt{Coin}};
+				\draw[color=black] plot (2.9,-2.21)   node[right] {1 \texttt{A-Coin}};
 				\draw[color=black] plot (1.8125,-3.1)   node {\small{$Sig_A$}};
 				\draw[color=black] plot (2.6375,-3.1)   node {\includegraphics[width=0.5cm]{../assets/images/hashlock_symbol.png}};
 				
@@ -365,7 +366,7 @@
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick,draw=highlight] (2.125,-5.4) rectangle ++(0.825cm,0.7cm);
 				
 				\draw[color=black] plot (1.4,-4.25)   node[right] {Bob:};
-				\draw[color=black] plot (3.3,-4.21)   node[right] {1 \texttt{Coin}};
+				\draw[color=black] plot (2.9,-4.21)   node[right] {1 \texttt{A-Coin}};
 				\draw[color=black] plot (1.8125,-5.1)   node {\small{$Sig_B$}};
 				\draw[color=black] plot (2.6375,-5.1)   node {\includegraphics[width=0.5cm]{../assets/images/timelock_symbol.png}};}
 			\end{tikzpicture}}
@@ -380,7 +381,7 @@
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, 	draw=black, dashed] (-3,-5.8) rectangle ++(8cm,4.9cm);
 				
 				\draw[color=black] plot (1,-0.2) node [below]
-				{\large{{\textbf{T-Chain}}}};
+				{\large{{\textbf{B-Chain}}}};
 				
 				% Inputs
 				\draw[color=black] plot (-1,-1.65) node[above] {\texttt{inputs:}};
@@ -389,7 +390,7 @@
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(3.3cm,1.8cm);
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (-2.6,-3.4) rectangle ++(0.825cm,0.7cm);
 				\draw[color=black] plot (-2.5,-2.25) node[right] {Alice:};
-				\draw[color=black] plot (-0.85,-2.21)   node[right] {2 \texttt{Token}};
+				\draw[color=black] plot (-1,-2.21)   node[right] {2 \texttt{B-Coin}};
 				\draw[color=black] plot (-2.0875,-3.1)   node {\small{$Sig_A$}};
 				
 				\uncover<5->{\draw plot (-2.0875,-3.1) node {\checkmarkgreen};}
@@ -405,7 +406,7 @@
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, 	draw=highlight] (2.125,-3.4) rectangle ++(0.825cm,0.7cm);
 				
 				\draw[color=black] plot (1.4,-2.25)   node[right] {Bob:};
-				\draw[color=black] plot (3.05,-2.21)   node[right] {2 \texttt{Token}};
+				\draw[color=black] plot (2.9,-2.21)   node[right] {2 \texttt{B-Coin}};
 				\draw[color=black] plot (1.8125,-3.1)   node {\small{$Sig_B$}};
 				\draw[color=black] plot (2.6375,-3.1)   node {\includegraphics[width=0.5cm]{../assets/images/hashlock_symbol.png}};
 						
@@ -414,7 +415,7 @@
 				\filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick,draw=highlight] (2.125,-5.4) rectangle ++(0.825cm,0.7cm);
 				
 				\draw[color=black] plot (1.4,-4.25)   node[right] {Alice:};
-				\draw[color=black] plot (3.05,-4.21)   node[right] {2 \texttt{Token}};
+				\draw[color=black] plot (2.9,-4.21)   node[right] {2 \texttt{B-Coin}};
 				\draw[color=black] plot (1.8125,-5.1)   node {\small{$Sig_A$}};
 				\draw[color=black] plot (2.6375,-5.1)   node {\includegraphics[width=0.5cm]{../assets/images/timelock_symbol_48.png}};
 		\end{tikzpicture}}
