@@ -181,6 +181,29 @@ The entire transaction data \alert{no longer} hashes to:\\
 %%%
 
 %%%
+\begin{frame}{EmptyGox}
+	\centering
+	\begin{tikzpicture}[scale = 0.8,squarednode/.style = {rectangle, draw=black!60, fill=black!5}]
+		\input{../assets/figures/malleability_attack}
+	\end{tikzpicture}
+{\scriptsize
+	\begin{itemize}
+		\item<1->[1.] Agent sends request for withdrawal.
+		\item<2->[2.] Exchange initiates $TRX_a$.
+		\item<3->[3.] User observes $TRX_a$, modifies its \texttt{scriptSig} and propagates $TRX_m$.
+		\item<4->[4.] If $TRX_m$ get included in the blockchain:
+		\begin{itemize}
+		{\scriptsize
+			\item[a.] Effective user withdrawal through $TRX_m$.
+			\item[b.] $TRX_a$ will fail but the user is still credited with funds in the exchange’s system
+		}
+		\end{itemize}
+	\end{itemize}
+}
+\end{frame}
+%%%
+
+%%%
 \begin{frame}{Segregated Witness (SegWit) Transactions}
 	\begin{figure}
 		\input{../assets/figures/transaction-structure-segwit.tex}	
