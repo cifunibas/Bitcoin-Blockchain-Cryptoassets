@@ -1,0 +1,37 @@
+ \begin{tikzpicture}[scale=0.8, every node/.style={scale=0.8}]
+    
+        \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, draw=black, dashed] (-4,-4) rectangle ++(304pt,90pt) ;
+        
+        \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (-3.6,-3.6) rectangle ++(128pt,60pt) ;
+        
+        \uncover<2->{
+        
+        \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!15, thick, draw=black, dashed] (6.7,-4) rectangle ++(100pt,90pt) ;
+
+        
+        \draw[color=black] plot (8.5,-1.55) node [above]
+    {\large{{\alert{\texttt{Witness}}}}};
+    
+         \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (7.1,-3.6) rectangle ++(78pt,60pt) ;
+         
+        \draw[color=black] plot (7.2,-2)   node[right] {\small{\textbullet{} {\alert{Redeem script}}}};
+        
+        }
+
+    \draw[->,thick] (1.15,-2.5) -- (1.685,-2.5) ;
+    
+    \draw[color=black] plot (-1.35,-1.6)   node[above] {\texttt{Input}};
+    \draw[color=black] plot (-3.5,-2)   node[right] {\small{\textbullet{} {Referenced transaction}}};
+    \draw[color=black] plot (-3.5,-2.6)   node[right] {\small{\textbullet{} Referenced output (Index)}};
+    \draw[color=black] plot (-3.5,-3.25)   node[right] {\small{\textbullet{} \alert{Empty \texttt{scriptSig}}}};
+    \draw[color=black] plot (1.55,-0.2) node [below]
+    {\large{{Transaction}}};
+    
+        \filldraw[yshift=-0.05cm, xshift=0.1cm,color = highlight!25, thick, draw=highlight] (1.75,-3.6) rectangle ++(128pt,60pt) ;
+            
+    \draw[color=black] plot (4,-1.55)   node[above] {\texttt{Output}};
+    \draw[color=black] plot (1.85,-2)   node[right] {\small{\textbullet{} Amount in satoshi}};
+    \draw[color=black] plot (1.85,-2.6)   node[right] {\small{\textbullet{} Unlocking condition}};
+    \draw[color=black] plot (2,-3.1)   node[right] {\small{ (\texttt{scriptPubKey})}};
+    
+\end{tikzpicture}
