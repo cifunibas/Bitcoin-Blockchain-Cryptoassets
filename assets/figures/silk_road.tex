@@ -1,0 +1,12 @@
+\node (AgentSeller)				{\includegraphics[scale=0.05]{../assets/images/agents/handing_right}};
+		\node (Seller)	[below= 0.05cm of AgentSeller]			{Seller};
+	
+		\node (Darknet)          [right = 2cm of AgentSeller]          {\includegraphics[scale=0.1]{../assets/images/darknet}}; 
+		\node (Silkroad)	[below= 0.05cm of Darknet]			{Silkroad};
+	
+		\node (AgentBuyer)		[right =2cm of Darknet]		{\includegraphics[scale=0.05]{../assets/images/agents/handing_money_left}};
+		\node (Buyer)	[below= 0.05cm of AgentBuyer]			{Buyer};
+	
+		\draw[->, thick] (AgentBuyer) edge [out=-230, in=50] node[midway,above] {\texttt{BTC}} (Darknet);
+		\draw[->, thick, dotted] (Darknet) edge [out=-230, in=50] node[midway,above] {\texttt{BTC}} (AgentSeller);
+		\draw[->, thick] (AgentSeller) edge [out=-45, in=-140] node[midway,below] {\texttt{Good}} (AgentBuyer);
