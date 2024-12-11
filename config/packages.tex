@@ -1,0 +1,75 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Config File used to define packages in 
+% a central spot. Any changes in this file
+% will be reflected in all lecture slides 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[ngerman]{babel} % German language settings
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath} % Most common math package
+
+\usepackage{verbatim} % A Package needed to display code
+
+\usepackage[rgb,table]{xcolor} % In order to define and use colors
+
+\usepackage{ragged2e} 
+
+\usepackage[]{epsfig}
+
+\usepackage{ulem}
+
+\usepackage{amsmath}
+
+\usepackage{tikz}
+  \usetikzlibrary{decorations.pathreplacing}
+  \usetikzlibrary{decorations.markings}
+
+\usetikzlibrary{calc,matrix}
+
+\usepackage{multirow}
+
+\usepackage[export]{adjustbox} % Package to adjust game tables, game trees in size
+
+\usepackage{hyperref}
+
+
+\usepackage{array,multirow} %Tabelle mit partiellen hlines
+\usepackage{fancybox}
+\usepackage{rotating}
+
+
+% Häkchen
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+% Subcaption und Sibfigures
+\usepackage{graphicx}
+%\graphicspath{{../assetlib/images}}
+
+\usepackage{lipsum}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definitions and Functions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Defining Bitcoin Symbol
+\def\btc{%
+  \leavevmode
+  \vtop{\offinterlineskip %\bfseries
+    \setbox0=\hbox{B}%
+    \setbox2=\hbox to\wd0{\hfil\hskip-.03em
+    \vrule height .3ex width .15ex\hskip .08em
+    \vrule height .3ex width .15ex\hfil}
+    \vbox{\copy2\box0}\box2}}
+
+%Footline
+\setbeamertemplate{footline}[text line]{%
+\parbox{\linewidth}{\vspace*{-8pt}\hspace{-2em}\hfill\insertframenumber}}
