@@ -1,0 +1,165 @@
+% Choose one to switch between slides and handout
+%\documentclass[]{beamer}
+\documentclass[handout]{beamer}
+
+% Video Meta Data
+\title{Bitcoin, Blockchain and Cryptoassets}
+\subtitle{Risks \& Illicit Activity}
+\author{Prof. Dr. Fabian Schär}
+\institute{University of Basel}
+
+% Config File
+\input{../config/config.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+
+%%%
+\begin{frame}{Quantifying Illicit Activity}
+	Illicit activities with cryptocurrencies pose a certain problem but are hard to quantify. \\
+	\vspace{1em}
+	Number of users or transactions are flawed measurables:
+		\begin{itemize}
+			\item One user $\rightarrow$ Multiple addresses
+			\item Multiple Users $\rightarrow$ One address
+			\item Transaction $\neq$ Transaction
+			\item Obfuscation transactions
+		\end{itemize}
+	\vspace{1em} 
+	Studies use different assumptions in order to carry out estimates, which can have a big influence on the results.	
+\end{frame}
+%%%	
+
+
+%%%
+\begin{frame}{Origin and Homogenity of Bitcoin Units}
+	Each output has a clearly distinguishable origin.
+	\begin{figure}
+		\resizebox{10cm}{6cm}{
+			\begin{tikzpicture}[
+     		 roundnode1/.style = {circle,  draw=highlight, fill=highlight!5},
+     		 roundnode2/.style = {circle,  draw=focus!50, fill=focus!5},
+      		squarednode/.style = {rectangle, draw=black!60, fill=black!5},
+     		 ]
+			\input{../assets/figures/output_origin}
+			\end{tikzpicture}
+		}
+	\end{figure}	
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Silk Road}
+	\begin{itemize}
+		\item First modern large-scale darknet market
+		\item Trading of illegal drugs and digital goods
+		\item Bitcoin as dominant medium of exchange
+	\end{itemize}
+	\vspace{1em}
+	\centering
+	\begin{tikzpicture}[squarednode/.style = {rectangle, draw=black!60, fill=black!5}]
+		\input{../assets/figures/silk_road}
+	\end{tikzpicture}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Mt. Gox}
+	\centering
+		\begin{itemize}
+			\item Worlds largest bitcoin exchange in 2013.
+			\item Transaction malleability as reason for stopping Bitcoin withdrawals in February 2014.
+			\item Mistake: Relied solely on the transaction hash to track and verify its account balance.
+			\item Claim that transaction malleability as the reason for the loss of around 850,000 BTC is controversial. See \cite{Decker2014}
+		\end{itemize}
+	\includegraphics[scale=0.12]{../assets/images/mt_gox}\\
+	\footnotesize{Picture source: Wikipedia}	
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Malleability Attack}
+	\centering
+	\begin{tikzpicture}[squarednode/.style = {rectangle, draw=black!60, fill=black!5}]
+		\input{../assets/figures/malleability_attack}
+	\end{tikzpicture}
+	\begin{itemize}	
+		\item<1->[1.] The user sends a request for withdrawal. The exchange initiates $TRX_a$ with $TXID_a$.
+		\item<3->[2.] The user modifies $TRX_a$'s \texttt{scriptSig} in a way that the transaction is still valid, but its ID changes to $TXID_b$. Both transactions $TRX_a$ and $TRX_b$ are valid and race for confirmation.
+		\item<4->[3.] If the modified version $TRX_b$ gets included in the blockchain:
+		\begin{itemize}
+			\item The user receives the expected BTC units through $TRX_b$.
+			\item $TRX_a$ fails and the user is still credited with funds in Mt. Gox's system.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Wannacry}
+	\centering
+		\includegraphics[scale=0.28]{../assets/images/wannacry} \\
+		\footnotesize{Picture source: OneSpan Blog}\\
+		\vspace{1em}
+		\begin{small}
+			\href{https://blockstream.info/address/13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94}{\texttt{13AM4VW2dhxYgXeQepoHkHSQuy6NgaEb94} \link} \\
+			\href{https://blockstream.info/address/12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw}{\texttt{12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw} \link} \\
+			\href{https://blockstream.info/address/115p7UMMngoj1pMvkpHijcRdfJNXj6LrLn} {\texttt{115p7UMMngoj1pMvkpHijcRdfJNXj6LrLn} \link} \\
+		\end{small}
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Other Risks \& Illicit Activities}
+	\textbf{Botnet Miner}
+		\begin{itemize}
+			\item Malware that integrates a victims computer into the "botnet".
+			\item Compromised computers can be used for mining.
+		\begin{center}
+		\includegraphics[scale=0.2]{../assets/images/microsoft_store}\\
+		\footnotesize{Picture source: Symantec}
+		\end{center}
+		\end{itemize}
+	%\vspace{1em}
+	\textbf{Bitcoin Tumbler}
+		\begin{itemize}
+			\item Used to disguise the origin of Bitcoin units and links between old and new addresses.
+			\item How: Send coins from users around, Randomize transaction amounts, Add time delays
+		\end{itemize}	
+\end{frame}
+%%%
+
+
+%%%
+\begin{frame}{Regulation}
+	Bitcoin Network because of decentralized nature hard to regulate $\rightarrow$ Focus on On- and Off-ramps\\
+	\vspace{1em}
+	Example: {\color{focus} OpenVASP } (Virtual asset service providers)
+		\begin{itemize}
+			\item Protocol facilitating compliance with global travel rule requirements for VASPs. Shared communication protocol to exchange VA transfer information.
+		\end{itemize}
+	\vspace{1em}
+	\textbf{Because of the high transparency, Bitcoin is not very suitable for usage with illegal activities.}
+\end{frame}
+%%%
+
+\begin{frame}%[allowframebreaks]
+\frametitle{References and Recommended Reading}
+	\bibliographystyle{amsplain}
+	\bibliography{../assets/bib/refs}
+\end{frame}
+
+
+\end{document}
